@@ -34,7 +34,16 @@ def log
 end
 
 def is_authorised
-  redirect_to log_in_path and return unless current_user and current_user.active 
+  
+  if !current_user
+    @error = "Incorrect e-mail/password"
+    redirect_to log_in_path
+  elsif !current_user.active
+    @error = "Account not yet active"
+    redirect_to log_in_path, :notice => "Account not activated"
+  end
+  
+  #redirect_to log_in_path and return unless current_user and current_user.active 
 end  
 
 

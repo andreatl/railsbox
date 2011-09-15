@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  require 'haddock'
+  include Haddock
+
   has_many :permissions, :as=>:parent
   has_many :folders
   has_many :folders, :through=>:permissions, :conditions=>['read_perms = ? or write_perms = ?', true, true]
@@ -69,6 +72,10 @@ class User < ActiveRecord::Base
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
+  end
+
+  def self.generate_password
+     Password.generate_fun
   end
 
 end

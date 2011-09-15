@@ -34,6 +34,10 @@ display:none;
 clear: both;
 }
 
+.error{
+color: red;
+}
+
 form .field{
 float:left;
 clear:both;

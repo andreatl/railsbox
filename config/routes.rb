@@ -14,10 +14,14 @@ Railsbox::Application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   
+  get "resetpassword" => "users#resetPassword", :as => "reset_password"
+  
   root :to => "folders#index"
   
   match "users/search", :to => "users#searchUsersResult", :via => :post, :as => "user_search"
   resources :users
+  
+  post "users/updatePassword", :as => "update_password"
   
   resources :sessions
   

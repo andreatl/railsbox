@@ -29,12 +29,13 @@
         </div> <!-- user-bar -->
       </div> <!-- top-menu -->
       <% end %>  
-        <div class="clear"><!-- --></div>       
-     <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-     <% end %>
+        <div class="clear"><!-- --></div>  	     
+        <% flash.each do |name, msg| %>
+	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	     <% end unless params[:controller] == 'sessions' %>     
     <div id="content" class="<%= yield :contentClass %>">
-      <%= yield %>
+
+      	<%= yield %>
     </div>
   </div>
   

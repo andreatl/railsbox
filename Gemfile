@@ -12,6 +12,8 @@ gem 'acts_as_tree'
 gem 'will_paginate'
 gem 'meta_where'
 gem 'meta_search'
+gem 'perch'
+
 
 group :development do
 	gem 'mongrel'	

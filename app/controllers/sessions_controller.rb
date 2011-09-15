@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   
   skip_before_filter :is_authorised, :except=>:destroy
-
+  
   def new
   end
 
@@ -14,8 +14,7 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       @log_action = "Login Invalid"
-      flash.now.alert = "Invalid email or password"
-      render "new"
+      redirect_to root_url, :notice => "Invalid email or password"
     end
   end
 
