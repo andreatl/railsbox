@@ -52,5 +52,6 @@
     %li 
       =link_to folder.breadcrumbs, folder
 .actions
-  = button_to "Delete User", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete'
+  = button_to "Delete User", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete' unless params[:action] == 'me'
+  = link_to "Change Password", user_password_path, :class => 'button edit'
 .clear

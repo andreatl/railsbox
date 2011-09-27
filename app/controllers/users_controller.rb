@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
    
   skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
-  before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword]
+  skip_after_filter :log, :only=>[:resetPassword]
+  before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :update]
   before_filter :mailer_set_url_options, :only=>[:create,:updatePassword]
   skip_after_filter :log, :only => [:searchUsersResult]
   after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :resetPassword, :updatePassword]
@@ -50,13 +51,18 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+    
     if @user.update_attributes(params[:user])
       if current_user.is_admin
         #allowed to change permissions
-        @user.is_admin = params[:user][:is_admin]
-        @user.can_hotlink = params[:user][:can_hotlink]
-        @user.active = params[:user][:active]
+        @user.is_admin = params[:user][:is_admin] if params[:user][:is_admin]
+        @user.can_hotlink = params[:user][:can_hotlink] if params[:user][:can_hotlink]
+        @user.active = params[:user][:active] if params[:user][:active]
         if @user.save!
           redirect_to @user, :notice  => "Successfully updated."
         else
@@ -88,19 +94,28 @@ class UsersController < ApplicationController
   def resetPassword
   end
   
+  def changePassword
+    @user = current_user
+  end
+  
   def updatePassword
-      @user = User.find_by_email(params[:email])
+      if params[:email]
+        @user = User.find_by_email(params[:email])
+      end
+      
       if @user
-        
+        @log_user_id = @user.id        
         newPassword = User.generate_password
-        
-        @user.update_attributes(:password => newPassword, :confirm_password => newPassword)
-        
-        UserMailer.reset_password(@user, newPassword).deliver
-        
-        redirect_to log_in_path, :notice => "New password sent"
+        @user.password = newPassword
+        @user.password_confirmation = newPassword
+        if @user.save
+          UserMailer.reset_password(@user, newPassword).deliver
+          redirect_to log_in_path, :notice => "New password sent"
+        else
+          redirect_to log_in_path, :notice => "Password reset failed"
+        end
       else
-        redirect_to reset_password_path, :notice => "User not found"
+        redirect_to log_in_path, :notice => "User not found"
       end
   end
   

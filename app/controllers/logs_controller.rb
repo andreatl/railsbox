@@ -12,7 +12,7 @@ class LogsController < ApplicationController
     
     @log_parameters = "CHANGE CHANGE CHANGE"
     
-    @logs = @search.paginate(:page => params[:page])
+    @logs = @search.order('created_at DESC').paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

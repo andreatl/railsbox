@@ -22,6 +22,10 @@ class AssetsController < ApplicationController
     @asset = Asset.find(params[:id])
     render :action => "details"  
   end
+  
+  def rename
+    @asset = Asset.find(params[:asset_id])
+  end
 
   def new
     @asset = Asset.new

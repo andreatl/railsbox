@@ -19,7 +19,7 @@ def log
   log_controller = @log_controller || self.controller_name.singularize 
 	log_action = @log_action || self.action_name
 	log_parameters = @log_parameters || ActionController::Base.helpers.sanitize(params.except(:controller,:action,:authenticity_token,:password,:utf8).to_param())
-	log_user_id = current_user.id if current_user && !@log_user_id 
+	log_user_id = @log_user_id || current_user.id if current_user 
 	log = Log.new({
   	:user_id =>  log_user_id, 
   	:controller =>  log_controller, 
@@ -36,13 +36,11 @@ end
 def is_authorised
   
   if !current_user
-    @error = "Incorrect e-mail/password"
     redirect_to log_in_path
   elsif !current_user.active
     @error = "Account not yet active"
     redirect_to log_in_path, :notice => "Account not activated"
   end
-  
   #redirect_to log_in_path and return unless current_user and current_user.active 
 end  
 

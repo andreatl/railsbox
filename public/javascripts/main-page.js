@@ -156,7 +156,9 @@ $(document).ready(function(){
 		}
 		while(x.length > 0);
 		$('#selectedFolder').html(path);
+		console.log($(element).parent().attr('id').split('_').pop());
 		$('.moveTarget','#moveForms').val($(element).parent().attr('id').split('_').pop());		//add folder id to each of the input boxes
+		console.log($('.moveTarget','#moveForms'));
 		$('li a.selected','#folderMove').removeClass('selected');
 		$(element).addClass('selected');
 		$.colorbox.resize();
@@ -389,7 +391,7 @@ $(document).ready(function(){
 					data: $('#new_hotlink').serialize(),
 					success: function(data, textStatus, jqXHR){
 						$.colorbox({
-							html: $('#content',data),
+							html: data,
 							onComplete: function(){
 								$.colorbox.resize();
 								$('#link').click(function(){

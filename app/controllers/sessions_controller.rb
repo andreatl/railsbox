@@ -9,12 +9,17 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:email], params[:password])
     @log_file_path = params[:email]
     if user
-      @log_action = "Login"
-      session[:user_id] = user.id
-      redirect_to root_url
+      if user.active
+        @log_action = "Login"
+        session[:user_id] = user.id
+        redirect_to root_url
+      else
+        @log_action = "Login(Inactive User)"
+        redirect_to log_in_path, :notice => "Account not active"
+      end
     else
       @log_action = "Login Invalid"
-      redirect_to root_url, :notice => "Invalid email or password"
+      redirect_to log_in_path, :notice => "Invalid email or password"
     end
   end
 
@@ -25,5 +30,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => "Logged out!"
   end
-
 end
