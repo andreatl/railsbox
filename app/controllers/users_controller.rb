@@ -112,7 +112,7 @@ class UsersController < ApplicationController
           UserMailer.reset_password(@user, newPassword).deliver
           redirect_to log_in_path, :notice => "New password sent"
         else
-          redirect_to log_in_path, :notice => "Password reset failed"
+          redirect_to root_path, :notice => "Password reset failed"
         end
       else
         redirect_to log_in_path, :notice => "User not found"
