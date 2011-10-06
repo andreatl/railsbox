@@ -13,7 +13,11 @@ class User < ActiveRecord::Base
   
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :company, :company_contact
   
-  scope :inactive, lambda { where('active = false').order("name") }
+  scope :active, lambda {|active|
+    if active != 'all'
+     where('active = ' + active).order("name")
+    end 
+  }
   
   scope :named, lambda {|name| 
       escaped_query = "%" + name.gsub('%', '\%').gsub('_', '\_') + "%"

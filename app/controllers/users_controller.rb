@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   skip_after_filter :log, :only=>[:resetPassword]
   before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :update]
   before_filter :mailer_set_url_options, :only=>[:create,:updatePassword]
+  before_filter :get_max_users, :only => [:searchUsersResult]
   skip_after_filter :log, :only => [:searchUsersResult]
   after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :resetPassword, :updatePassword]
   
@@ -85,10 +86,10 @@ class UsersController < ApplicationController
   
   def searchUsersResult
     @users= User.named(params[:query])
-    if params[:inactive]
-      @users = @users.inactive
+    if params[:active] != "all"
+      @users = @users.active(params[:active])
     end
-      @users = @users.limit(5)
+      @users = @users.limit(@max_users)
   end
   
   def resetPassword

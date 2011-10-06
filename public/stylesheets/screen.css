@@ -591,6 +591,24 @@ background-color:#ccc;
   #bottom-bar .icon-link.exit{
 	background-image: url('/images/icons/exit.png');
   }
+  #loader{
+    background: transparent url('/images/loading.gif') no-repeat top center;
+    height:20px;
+  }
+  
+  #newAsset #loader{
+    display:none;
+    width: 100%;
+    margin: 25px 0;
+  }
+  
+  #newAsset.loading form{
+    display:none;
+  }
+  
+  #newAsset.loading #loader{
+    display: block;
+  }
   
 /****** END MAIN PAGES ********/
 ul#permissions{
@@ -765,6 +783,10 @@ margin-top:3px;
 margin-right:10px;
 }
 
+#userGroupSearch input#query{
+  width:300px;
+}
+
 #userGroupSearch .search{
 float:right;
 }
@@ -784,6 +806,11 @@ list-style:none;
 background: transparent url('/images/bullet_green.png') no-repeat left center;
 padding-left:20px;
 }
+#userGroupSearch #searchResult ul li a#moreUsers{
+background: none;
+}
+
+
 #userGroupSearch #searchResult ul li.inactive a{
 background: transparent url('/images/bullet_red.png') no-repeat left center;
 }

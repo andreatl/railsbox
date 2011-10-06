@@ -1,11 +1,29 @@
-function getResults(form, successFunction){
+var maxUsers;
+var defaultMaxUsers;
+
+function getResults(form, successFunction, users){
+  var data;
+  if (users){
+    data = $(form).serialize() + "&" + users; 
+  }else{
+    data = $(form).serialize();
+  }
+  
 	$('#searchResult').addClass('loading');	
 	$.ajax({
 		type: 'POST',
 		url: $(form).attr('action'),
-		data: $(form).serialize(),
+		data: data,
 		success: function(data){
 			$('#searchResult').html(data).removeClass('loading');
+			
+			
+      $('#moreUsers').click(function(e){
+        e.preventDefault();
+        maxUsers += defaultMaxUsers;
+        console.log(maxUsers);
+        getResults(form, successFunction,$.param([{name:"max_users",value:maxUsers}]));
+      });
 			
 			//If success function is defined 
 			if (typeof successFunction == 'function'){
@@ -16,6 +34,13 @@ function getResults(form, successFunction){
 }
 
 function makeSearchForms(form, successFunction){
+  try{
+    defaultMaxUsers = parseInt($('#max_users').val());
+  }catch(err){
+    defaultMaxUsers = 5;
+  }
+  maxUsers = defaultMaxUsers;
+  
 	$(form).submit(function(){
 		getResults(form, successFunction);
 		return false;
@@ -25,9 +50,10 @@ function makeSearchForms(form, successFunction){
 		getResults(form, successFunction);
 	});
 	
-	$('#inactive').change(function(){
+	$('input[name=active]',form).change(function(){
 		getResults(form, successFunction);
-	});
+	});	
+	
 	getResults(form, successFunction);
 	$('#searchButton').hide();
 }

@@ -3,11 +3,14 @@
     - for user in @users
       %li{:class => ("inactive" unless user.active?) }
         = link_to user.name, user
-    - if @users.count > 5
-      %li
-        + 
-        = @users.count - 5 
-        more users
-    
+    - if @users.count > @max_users
+      - if params[:controller] == "users"
+        %li
+          = link_to "+#{@users.count - @max_users} more users", "#", :id=>"moreUsers"
+      - else
+        %li
+          +
+          = @users.count - @max_users
+          more users
 - else
   %p No Users Found

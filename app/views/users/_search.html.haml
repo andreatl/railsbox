@@ -5,8 +5,14 @@
     = label_tag "query", "Filter: "
     = text_field_tag "query", nil, :autocomplete => "off"
     
-    = label_tag "inactive", "Inactive Users Only: "
-    = check_box_tag "inactive"
+    = hidden_field_tag "max_users", "10"
+    
+    = label_tag "active_all", "All users: "
+    = radio_button_tag "active", "all", :id=>"all"
+    = label_tag "active_true", "Active users: "
+    = radio_button_tag "active", "true", :id=>"active"
+    = label_tag "active_false", "Inactive users: "
+    = radio_button_tag "active", "false", :id=>"inactive"
     
     = submit_tag 'Search', :id=> 'searchButton', :class => 'button search'
   

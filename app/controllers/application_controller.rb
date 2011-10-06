@@ -67,5 +67,12 @@ def build_date_from_params
 end
 
 
+def get_max_users
+  if params[:max_users] && !params[:max_users].blank? 
+    @max_users = Integer(params[:max_users])
+  else
+    @max_users = 5
+  end    
+end
 
 end
