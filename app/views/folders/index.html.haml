@@ -1,0 +1,122 @@
+- content_for :page_specific_head do
+  = javascript_include_tag 'jquery-1.6.1.min', 'jquery.colorbox-min', 'jquery.form', 'search', 'main-page' 
+- content_for :contentClass do
+  = 'fileBrowser'
+#topBar
+  #innerTopBar
+    = form_tag '/search' do 
+      = label :search, :query, 'Search:' 
+      = text_field :search, :query, :value => @search_query 
+      = label :search, :notes, 'Search in notes?: ' 
+      = check_box :search, :notes, :checked => @searchNotes 
+      = submit_tag 'Search', :class => 'button search' 
+    .breadcrumbs
+      - if @escaped_query 
+        %p.searchResult
+          Search for:
+          = h @escaped_query
+          - if @searchNotes 
+            , include notes
+      - else
+        = render :partial => "breadcrumbs"
+  #headers
+    .mark-it
+      = check_box :mark, :it
+    .name
+      Name
+    .ext
+      Ext
+    .size
+      Size
+    .description
+      Description
+    .date
+      Date
+%ul#file-container
+  - if @current_folder or @search_query 
+    %li.row-container.upFolder
+      .mark-it
+        != "&nbsp;"
+      .name
+        - if @search_query or @current_folder.parent_id.nil? 
+          = link_to '[..]', root_path 
+        - else 
+          = link_to '[..]', browse_path(@current_folder.parent)
+      .ext
+        != "&nbsp;"
+      .size
+        != "&lt;DIR&gt;"
+      .clear
+  - @folders.each do |folder| 
+    %li.row-container.folder
+      .mark-it
+        = check_box :directory, folder.id, :class=>'folderTick tick' 
+        - if @canHome || (@current_folder && @current_folder.candelete?(@current_user)) 
+          = form_for folder, :html => { :method => 'delete' } do end
+      .name
+        = link_to 'Details', folder_details_path(folder), :class=>"details" 
+        - if @search_query 
+          = link_to h(folder.breadcrumbs), browse_path(folder) 
+        - else 
+          = link_to h(folder.name), browse_path(folder)
+      .ext
+        != "&nbsp;"
+      .size
+        != "&lt;DIR&gt;"
+      .description
+        = h folder.description
+        != "&nbsp;"
+      .date
+        = h folder.created_at.strftime("%d/%m/%Y %H:%M:%S")
+      .clear
+  - unless @assets.nil? 
+    - for asset in @assets 
+      %li.row-container
+        .mark-it
+          = check_box :file, asset.id, :class=>'fileTick tick'
+          - if @canHome || (@current_folder && @current_folder.candelete?(@current_user))
+            = form_for asset, :html => { :method => 'delete' } do end
+        .name
+          = link_to 'Details', asset_details_path(asset), :class => "details "+ asset.file_extension[1..-1]+"FileType"
+          - if @search_query 
+            - if asset.folder 
+              = link_to h(asset.folder.breadcrumbs+"/"+asset.uploaded_file_file_name), download_asset_path(asset) 
+            - else 
+              = link_to h(asset.uploaded_file_file_name), download_asset_path(asset) 
+          - else 
+            = link_to h(asset.uploaded_file_file_name), download_asset_path(asset) 
+        .ext
+          = h asset.file_extension
+        .size
+          = number_to_human_size(asset.uploaded_file_file_size, :precision => 3)
+        .description
+          = h asset.description
+          != "&nbsp;"
+        .date
+          = h asset.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        .clear
+#bottom-bar
+  #bottom-bar-padder
+    - if @current_folder.nil? || @current_folder.canread?(current_user) 
+      = link_to content_tag(:span, 'Download', :class=>'icon-link download'), '#', :id=>'download-link' 
+      = form_tag({:controller=>"folders", :action=>"download"}, {:id=>"download_form", :class=>'hidden'}) do
+        = hidden_field_tag 'folders', nil, :id=>"download_folders"
+        = hidden_field_tag 'assets', nil, :id=>"download_assets"
+        = hidden_field_tag 'name', @current_folder.nil? ? "Downloaded Files" : @current_folder.name
+    - if @current_folder && @current_folder.canwrite?(current_user) 
+      = link_to content_tag(:span, 'Upload', :class=>'icon-link upload'), new_sub_file_path(@current_folder), :id=>'upload-link' 
+      - if @current_folder.canread?(current_user)
+        = link_to content_tag(:span, 'New folder', :class=>'icon-link newFolder'), new_sub_folder_path(@current_folder), :id=>'new-folder-link'  
+    - elsif @current_folder.nil? && @canHome 
+      = link_to content_tag(:span, 'Upload', :class=>'icon-link upload'), new_asset_path, :id=>'upload-link' 
+      = link_to content_tag(:span, 'New folder', :class=>'icon-link newFolder'), new_folder_path, :id=>'new-folder-link'
+    - if (@current_folder && @current_folder.canread?(current_user) && @current_folder.canwrite?(current_user)) || (@current_folder.nil? && @canHome) 
+      = link_to content_tag(:span, 'Move', :class=>'icon-link move'), '#', :id=>'move-link' 
+    - if current_user.can_hotlink 
+      = link_to content_tag(:span, 'Hotlink', :class=>'icon-link hotlink'), '#', :id=>'hotlink-link'
+    - if @current_folder.nil? || @current_folder.canread?(current_user) 
+      = link_to content_tag(:span, 'Details', :class=>'icon-link details'), '#', :id=>'details-link'
+    - if (@canHome && @current_folder.nil?) || (@current_folder && @current_folder.candelete?(@current_user)) 
+      = link_to content_tag(:span, 'Delete', :class=>'icon-link delete'), @asset, :confirm => 'Are you sure?', :method => :delete, :id=>'delete-link'
+    = link_to content_tag(:span, 'Exit', :class=>'icon-link exit'), log_out_path 
+#overlay

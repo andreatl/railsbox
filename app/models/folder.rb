@@ -1,6 +1,6 @@
 class Folder < ActiveRecord::Base
   acts_as_tree :order=>'name'  
-  attr_accessible :name, :parent_id, :notes, :description
+  attr_accessible :name, :parent_id, :notes, :description, :inherit_permissions
   belongs_to :user  
   
   has_many :permissions, :dependent => :destroy
@@ -13,7 +13,7 @@ class Folder < ActiveRecord::Base
     
   def breadcrumbs(stop = "")
     path = ''
-    ancestors.each do |folder| 
+    ancestors.each do |folder|
       path =  folder.name + '/' + path
       if folder.id == stop
         break
@@ -26,10 +26,41 @@ class Folder < ActiveRecord::Base
     Folder.where(:parent_id=>id)
   end
   
+  def folder_children_inheriting_permissions
+    p = folderChildren.where(:inherit_permissions=>true)
+    if p.count > 0
+      p << p.map{|a| a.folder_children_inheriting_permissions}
+    end
+    p.flatten
+  end
+  
   def hasPermissions
     
   end
   
+  def all_permissions
+    p = Permission.where(:folder_id=>id)
+    if (!parent.nil?) && inherit_permissions
+      p << parent.all_permissions 
+    end
+    p.flatten
+  end
+   
+  def can(option, user)
+    if user.is_admin?
+      true
+    else
+      all_permissions.map{|x| 
+        x if (x.parent_type=="User" && x.parent_id==user.id && x.send("#{option}_perms")) || (x.parent_type=="Group" && user.groups.map{|g|g.id}.include?(x.parent_id) && x.send("#{option}_perms"))
+      }.compact.count > 0
+    end
+  end
+  
+  
+  def method_missing(m, *args, &block)
+    m.to_s.include?("can") ? can(m.to_s.downcase.gsub('?','').gsub('_','')[3..-1],args[0]) : super
+  end
+
 
   def descendants
      descendant_folders_include_self - self
@@ -38,5 +69,9 @@ class Folder < ActiveRecord::Base
   #returns all descendants that are under this folder including current folder
   def descendant_folders_include_self
     (folderChildren ? folderChildren.map{|a| a.descendant_folders_include_self} << self : self).flatten
+  end
+  
+  def descendant_folders_include_self_can_read(user)
+    descendant_folders_include_self.map{|f| f if f.canread(user)}.compact
   end
 end

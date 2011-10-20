@@ -47,14 +47,13 @@ Railsbox::Application.routes.draw do
   resources :groups do
     resources :userGroup
   end
-
+  
+  match "assets/get/:id" => "assets#get", :as => "download_asset" 
+  match "download" => "folders#download", :as => "download", :via => :post
   match "folders/move/:ids" => "folders#move", :as => "move"
   match "folders/details/:id" => "folders#details", :as => "folder_details"
-  match "folders/download/:name/:id" => "folders#download", :as => "download"
-  match "folders/download/:name/:id/:assets" => "folders#download", :as => "download"
   match "assets/details/:id" => "assets#details", :as => "asset_details"
   match "my_details" => "users#me", :as=>"my_details"
-  match "assets/get/:id" => "assets#get", :as => "download" 
   match "assets/move/:ids" => "assets#move", :as => "move"
   match "assets/zip/:name/:ids" => "assets#zip", :as => "zip"
   match "search" => "folders#search", :as=> "search"

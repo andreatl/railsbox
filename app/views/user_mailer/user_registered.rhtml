@@ -1,7 +1,11 @@
 <p>User: <%= mail_to @user.email, @user.name %></p>
 
-<p>Company: <%= @user.company %></p>
+<% unless @user.company.nil? %>
+  <p>Company: <%= @user.company %></p>
+<% end %>
 
-<p>Referrer: <%= @user.referrer %></p>
+<% unless @user.referrer.nil? %>
+  <p>Referrer: <%= @user.referrer %></p>
+<% end %>
 
 Has registered for dropbox and is awaiting activation. <%= link_to "Activate User", user_url(@user) %>

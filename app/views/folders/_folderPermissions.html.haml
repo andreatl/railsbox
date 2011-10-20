@@ -1,17 +1,27 @@
+- if folderPermissions.class.to_s == "Folder"
+  - permissions = folderPermissions.all_permissions
+- else
+  - permissions = folderPermissions.folder.all_permissions  #asset
 .field
   %strong
     Permissions:
 %ul#permissions
-  - folderPermissions.permissions.where('read_perms = ? OR write_perms = ?', true, true).order('parent_type').each do |permission|
+  - permissions.each do |permission|
     %li
-      %span.permName
-        - if permission.parent_type == "Group"
-          = link_to "Group: " + permission.parent.name, edit_permission_path(permission)
-        - else
-          = link_to permission.parent.name, edit_permission_path(permission)
+      %span.permName{:class => ("inherited" if permission.folder_id != folderPermissions.id)}
+        - if folderPermissions.class.to_s == "Folder"
+          - if permission.parent_type == "Group"
+            = link_to "Group: " + permission.parent.name, edit_permission_path(permission)
+          - else
+            = link_to permission.parent.name, edit_permission_path(permission)
+        - else #if asset
+          = permission.parent.name
       %span.permission{:class => ("delete" unless !permission.delete_perms?), :title => "Can Delete"}
         Delete
       %span.permission{:class => ("write" unless !permission.write_perms?), :title => "Can Write"}
         write
       %span.permission{:class => ("read" unless !permission.read_perms?), :title => "Can Read"}
         read
+      - if (permission.folder_id != folderPermissions.id) && folderPermissions.class.to_s == "Folder"
+        %span.permission.inherited{:title => "Inherited from parent folder"}
+          Inherited

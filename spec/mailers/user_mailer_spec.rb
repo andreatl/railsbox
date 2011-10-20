@@ -22,5 +22,4 @@ describe UserMailer do
     mail.to.should == [user.email]
   end
 
-
 end

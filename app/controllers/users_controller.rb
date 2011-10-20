@@ -63,6 +63,7 @@ class UsersController < ApplicationController
         #allowed to change permissions
         @user.is_admin = params[:user][:is_admin] if params[:user][:is_admin]
         @user.can_hotlink = params[:user][:can_hotlink] if params[:user][:can_hotlink]
+        @user.can_home = params[:user][:can_home] if params[:user][:can_home]
         @user.active = params[:user][:active] if params[:user][:active]
         if @user.save!
           redirect_to @user, :notice  => "Successfully updated."

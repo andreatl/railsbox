@@ -611,6 +611,12 @@ background-color:#ccc;
   }
   
 /****** END MAIN PAGES ********/
+
+#cboxLoadedContent #folder_inherit_permissions{
+  float: none;
+  clear: none;
+  margin-left: 10px;
+}
 ul#permissions{
 clear:left;
 margin-left:5px;
@@ -641,6 +647,9 @@ height:16px;
 text-indent:-9999px;
 float:right;
 margin: 0 2px;
+}
+ul#permissions li span.permission.inherited{
+background: transparent url('/images/inherited.png') no-repeat top left;
 }
 ul#permissions li span.permission.read, p#permissions .read_perms label{
 background-image: url('/images/eye.png');

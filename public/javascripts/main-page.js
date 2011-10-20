@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  
   function getSelected(single, type) {
     if(type === undefined) {
       var value = $('#file-container > .row-container > .mark-it > .tick:checked');
@@ -26,7 +27,7 @@ $(document).ready(function() {
       //Get Folders
       if(type === undefined || type == "folder") {
         var folders = [];
-        value.filter("[id^='folder_']").each(function(index, element) {
+        value.filter("[id^='directory_']").each(function(index, element) {
           folders.push(element.id.split('_').pop());
         });
         result.folders = folders;
@@ -114,14 +115,19 @@ $(document).ready(function() {
           $('#moveDialogLoading').hide();
         });
       }
-      moveFolderSelect(this);
+      if (!($(this).parent().attr('id') == "allFolders_" && canHome == false)){
+        moveFolderSelect(this);
+      }
+      
       $(this).addClass('opened');
       return false;
     },
     //Hide
     function() {
       $(this).removeClass('opened').parent().find('ul:first').hide();
-      moveFolderSelect(this);
+      if (!($(this).parent().attr('id') == "allFolders_" && canHome == false)){
+        moveFolderSelect(this);
+      }
       return false;
     });
   }
@@ -150,19 +156,24 @@ $(document).ready(function() {
   function moveItems() {
     var forms = $('form', '#moveForms');
     var completed = 0;
-    $(forms).each(function(index, element) {
-      $.ajax({
-        type : 'POST',
-        url : $(element).attr('action'),
-        data : $(element).serialize(),
-        complete : function() {
+    
+    if (canHome == false && $('.moveTarget:first', '#moveForms').val() == ""){
+      alert('Insufficient Permissions');
+    }else{
+      $(forms).each(function(index, element) {
+        $(element).ajaxSubmit({success: function(responseText, statusText){
           completed++;
-          if(forms.length == completed) {
+          var x = $('#errorExplanation li',responseText);
+          if (x.count>0){
+            alert(x.html());
+          }
+          else if (forms.length == completed){
             window.location.reload();
           }
-        }
+          
+        }});
       });
-    });
+    }
   }
 
   /**************END OF MOVE*****************/
@@ -270,10 +281,10 @@ $(document).ready(function() {
   /**************End of Details*****************/
 
   $('#new-folder-link').colorbox();
-  
+
   $('#upload-link').colorbox({
-    onComplete : function(){
-      $('form:first','#cboxLoadedContent').submit(function(){
+    onComplete : function() {
+      $('form:first', '#cboxLoadedContent').submit(function() {
         $(this).parent().addClass('loading');
       });
     }
@@ -283,21 +294,14 @@ $(document).ready(function() {
   $('#download-link').click(function(e) {
     e.preventDefault();
     var selected = getSelected(false);
-    if(selected.folders.length == 0) {
-      //Get only assets
-      if(selected.files.length == 1) {
-        document.location = '/assets/get/' + selected.files[0];
-      } else if(selected.files.length > 1) {
-        var name = prompt("Selected files will be downloaded as a zip file\nWhat would you like to call this file?", "Downloaded Files");
-        if(name) {
-          document.location = '/assets/zip/' + name + '/' + selected.files.toString();
-        }
-      }
-    } else {
-      var name = prompt("Selected files will be downloaded as a zip file\nWhat would you like to call this file?", "Downloaded Files");
-      if(name) {
-        document.location = '/folders/download/' + name + '/' + selected.folders.toString() + '/' + selected.files.toString();
-      }
+    
+    if(selected.folders.length == 0 && selected.files.length == 1){
+      document.location = '/assets/get/' + selected.files[0];
+    }
+    else if(selected.folders.length > 0 || selected.files.length > 1){
+      $('#download_folders').val(selected.folders.toString());
+      $('#download_assets').val(selected.files.toString());
+      $('#download_form').submit();
     }
   });
   //rename
@@ -331,7 +335,7 @@ $(document).ready(function() {
     $('#new_hotlink').submit(function(e) {
       e.preventDefault();
       var valid = true;
-      if(!/^\d{0,}$/.match($('#hotlink_days').val().trim())) {
+      if("!/^\d{0,}$/".match($('#hotlink_days').val().trim())) {
         valid = false;
         $('#hotlink_days').addClass('error');
       } else {
@@ -350,13 +354,9 @@ $(document).ready(function() {
         $('#hotlink_password').removeClass('error');
       }
       if(valid == true) {
-        $.ajax({
-          type : 'POST',
-          url : $('#new_hotlink').attr('action'),
-          data : $('#new_hotlink').serialize(),
-          success : function(data, textStatus, jqXHR) {
-            $.colorbox({
-              html : data,
+        $('#new_hotlink').ajaxSubmit({success: function(responseText){
+          $.colorbox({
+              html : $('#content',responseText).html(),
               onComplete : function() {
                 $.colorbox.resize();
                 $('#link').click(function() {
@@ -364,8 +364,7 @@ $(document).ready(function() {
                 });
               }
             });
-          }//End success function
-        });
+        }});
       } else {
         $('#hotlinkError').show();
         $.colorbox.resize();
@@ -377,10 +376,10 @@ $(document).ready(function() {
   $('#delete-link').click(function(e) {
     e.preventDefault();
     var toDelete = $('#file-container > .row-container > .mark-it > .tick:checked');
-    if(confirm('Are you sure you want to delete ' + toDelete.length + ' items?')) { 
+    if(confirm('Are you sure you want to delete ' + toDelete.length + ' items?')) {
       $(toDelete).next('form').each(function(index, element) {
         $(element).ajaxSubmit({
-          success: function(){
+          success : function() {
             $(element).prev('input:checkbox').attr('checked', false);
             $(element).closest('.row-container').slideUp();
           }
@@ -388,4 +387,10 @@ $(document).ready(function() {
       });
     }
   });
+  
+  var notices = $('#flash_error');
+  if (notices.length > 0){
+    notices.hide();
+    alert(notices.html());
+  }
 });

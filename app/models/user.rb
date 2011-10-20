@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :groups, :through=>:user_groups 
   has_many :logs
   
-  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :company, :company_contact
+  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :company, :company_contact, :can_home, :is_admin, :can_hotlink, :active
   
   scope :active, lambda {|active|
     if active != 'all'
@@ -40,19 +40,27 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
   
-  def accessible_folders
+  def accessible_folders_exc_groups
     if is_admin
       return Folder.scoped.order('parent_id nulls first, name')
     else
-      #this needs to be improved...
-      g_folders = folders
-      groups.scoped.each{|g|
-        g_folders += g.folders
-      }
-      ids = g_folders.inject([]){|a,b| a+=[b.id]}
-      Folder.where('id in (?)', ids).order('parent_id nulls first, name')
+      #does not include folders from groups
+      folders = []
+      permissions.where('read_perms = ? OR write_perms = ?', true, true).each do |permission|
+        folders << permission.folder
+        #Get all folders that have inherited permissions from this folder
+        permission.folder.folder_children_inheriting_permissions.each do |folderInherited|
+          folders << folderInherited
+        end
+      end
+      folders
     end
   end  
+  
+  def accessible_folders
+    ids = (groups.map{|x| x.folders} + accessible_folders_exc_groups).flatten.map{|a| a.id}.join(',')
+    Folder.where("id in (#{ids})") unless ids.blank?
+  end
   
   def owned_folders
     if is_admin
@@ -80,6 +88,10 @@ class User < ActiveRecord::Base
 
   def self.generate_password
      Password.generate_fun
+  end
+  
+  def can_home?
+    can_home || is_admin
   end
 
 end

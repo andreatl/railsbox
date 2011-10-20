@@ -23,6 +23,9 @@
       &nbsp;
       = f.label :can_hotlink
       = f.check_box :can_hotlink
+      &nbsp;
+      = f.label :can_home, 'Can change home'
+      = f.check_box :can_home
     .actions
       = f.submit 'Save changes', :class => 'button save'
 - else
@@ -40,17 +43,29 @@
 - if @user.groups.empty?
   %p
     %em User belongs to no groups
-    -else
+-else
   %ul
     - for group in @user.groups 
       %li
         = link_to group.name, group
       
-%h2 Folders      
-%ul
-  - for folder in @user.accessible_folders
-    %li 
-      =link_to folder.breadcrumbs, folder
+%h2 Folders
+- unless @user.accessible_folders_exc_groups.empty?
+  %h3 Assigned to user
+  %ul
+    - for folder in @user.accessible_folders_exc_groups
+      %li 
+        =link_to folder.breadcrumbs, folder
+- unless @user.groups.empty?
+  %h3 Assigned from groups
+  %ul
+    - @user.groups.each do |group|
+      %li
+        = group.name
+        %ul
+          - group.folders.each do |folder|
+            %li
+              = link_to folder.breadcrumbs, folder
 .actions
   = button_to "Delete User", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete' unless params[:action] == 'me'
   = link_to "Change Password", user_password_path, :class => 'button edit'
