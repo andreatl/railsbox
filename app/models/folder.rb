@@ -9,7 +9,7 @@ class Folder < ActiveRecord::Base
   
   validates_presence_of :name
   
-  validates_uniqueness_of :name, :scope => :parent_id
+  validates_uniqueness_of :name, :scope => [:parent_id, :user_id]
     
   def breadcrumbs(stop = "")
     path = ''
@@ -34,16 +34,19 @@ class Folder < ActiveRecord::Base
     p.flatten
   end
   
-  def hasPermissions
-    
-  end
-  
   def all_permissions
     p = Permission.where(:folder_id=>id)
     if (!parent.nil?) && inherit_permissions
       p << parent.all_permissions 
     end
-    p.flatten
+    ids = p.flatten.map{|x| x.id}.join(',')
+    ids.blank? ? [] : Permission.where("id in (#{ids})")
+  end
+  
+  def is_shared?
+    #More than 1 user has permission
+    p = all_permissions
+    p.count > 0 && (p.count > 1 || p.first.parent_type == "Group")
   end
    
   def can(option, user)

@@ -1,0 +1,7 @@
+%h2.newFolder.icon 
+  New Folder
+- unless @folder.nil?
+  = render 'form'
+- else
+  %p
+    You do not have permissions to create a folder here

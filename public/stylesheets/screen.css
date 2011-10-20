@@ -70,6 +70,10 @@ ul{
 margin-left:25px;
 }
 
+#content-holder{
+  min-width: 970px;
+}
+
 #content{
 margin:0px 15px 15px 15px;
 padding:15px;
@@ -337,7 +341,7 @@ float:left;
     padding: 5px 10px;
   }
   
-  #top-menu ul#actions-menu li a:hover{
+  #top-menu a:hover{
 	text-decoration:underline;
   }
 
@@ -455,7 +459,7 @@ background-color:#ccc;
 	}
 	#file-container .name, #headers .name{
 	float: left;
-	width: 30%;
+	width: 37%;
 	}
 	#file-container .ext, #headers .ext{
 	float: left;
@@ -499,6 +503,9 @@ background-color:#ccc;
 	#file-container .row-container.folder .name a.details{
 		background-image: url('/images/folder.png');
 	}
+  #file-container .row-container.folder .name a.details.shared{
+  background-image: url('/images/folderShared.png');
+  }
 	#file-container .row-container .name a.details.txtFileType{
 		background-image: url('/images/page_white_text.png');
 	}
