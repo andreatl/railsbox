@@ -1,879 +1,1058 @@
-/*
-
-	Icons from http://www.famfamfam.com/lab/icons/silk/
-
-*/
-
-
-* { padding: 0; margin: 0; }
-
-html{
-overflow-y: scroll;
-font-family: Verdana,Arial;
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+ *  Icons from http://www.famfamfam.com/lab/icons/silk/ */
+/* line 17, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-body{
-background: url('/images/bg.png');
-font-size: 13px;
+/* line 20, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
 }
 
-h1,h2,h3,h4,p{
-margin-bottom:6px;
+/* line 22, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
 }
 
-a{
-text-decoration: none;
-color: #333333;
+/* line 24, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.hidden{
-display:none;
+/* line 26, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
 }
 
-.clear{
-clear: both;
+/* line 28, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
 }
 
-.error{
-color: red;
+/* line 30, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
 }
 
-form .field{
-float:left;
-clear:both;
-margin-bottom:6px;
+/* line 114, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
 }
 
-form .field label,form .field input,form .field textarea,form .field select{
-float:left;
-clear:left;
+/* line 1, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent {
+  margin: 0;
 }
 
-form input.error{
-background-color:#FF6A54;
+/* line 5, ../../app/stylesheets/colorbox_custom.sass */
+#cboxClose {
+  top: 0;
 }
 
-form .actions{
-clear:both;
+/* line 11, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent #content {
+  margin: 0;
+  padding: 0;
+}
+/* line 17, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent h2 {
+  margin-right: 30px;
+  padding: 0 0 10px 0;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+/* line 35, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent h2.icon {
+  padding: 15px 0 15px 55px;
+  background-repeat: no-repeat;
+  background-position: left middle;
+}
+/* line 43, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent #singleMessage {
+  margin: 5px 40px 5px 10px;
+  display: block;
+}
+/* line 49, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent .actions {
+  clear: both;
+  display: block;
+}
+/* line 55, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent .actions .button {
+  float: left;
 }
 
-.border{
-padding: 7px;
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
--khtml-border-radius: 4px;
-border-radius: 4px;
-border:1px solid silver;
+/* line 12, ../../app/stylesheets/screen.sass */
+html {
+  overflow-y: scroll;
+  font-family: Verdana, Arial;
+  height: 100%;
 }
 
-ul{
-margin-left:25px;
+/* line 17, ../../app/stylesheets/screen.sass */
+body {
+  background: url("/images/bg.png");
+  font-size: 13px;
+  height: 100%;
 }
 
-#content-holder{
+/* line 22, ../../app/stylesheets/screen.sass */
+h1, h2, h3, h4, p {
+  margin-bottom: 6px;
+}
+
+/* line 24, ../../app/stylesheets/screen.sass */
+h1, h2, h3, h4 {
+  font-weight: bold;
+}
+
+/* line 26, ../../app/stylesheets/screen.sass */
+h1 {
+  font-size: 2em;
+}
+
+/* line 28, ../../app/stylesheets/screen.sass */
+h2 {
+  font-size: 1.8em;
+}
+
+/* line 30, ../../app/stylesheets/screen.sass */
+h3 {
+  font-size: 1.6em;
+}
+
+/* line 32, ../../app/stylesheets/screen.sass */
+h4 {
+  font-size: 1.2em;
+}
+
+/* line 34, ../../app/stylesheets/screen.sass */
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+/* line 37, ../../app/stylesheets/screen.sass */
+strong {
+  font-weight: bold;
+}
+
+/* line 39, ../../app/stylesheets/screen.sass */
+.hidden {
+  display: none;
+}
+
+/* line 42, ../../app/stylesheets/screen.sass */
+.clear {
+  clear: both;
+}
+
+/* line 45, ../../app/stylesheets/screen.sass */
+.error {
+  color: red;
+}
+
+/* line 49, ../../app/stylesheets/screen.sass */
+form .field {
+  float: left;
+  clear: both;
+  margin-bottom: 6px;
+}
+/* line 53, ../../app/stylesheets/screen.sass */
+form .field label, form .field input, form .field textarea, form .field select {
+  float: left;
+  clear: left;
+}
+/* line 56, ../../app/stylesheets/screen.sass */
+form input.error {
+  background-color: #ff6a54;
+}
+/* line 58, ../../app/stylesheets/screen.sass */
+form .actions {
+  clear: both;
+}
+
+/* line 61, ../../app/stylesheets/screen.sass */
+.border {
+  padding: 7px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid silver;
+}
+
+/* line 69, ../../app/stylesheets/screen.sass */
+ul {
+  margin-left: 25px;
+}
+
+/* line 72, ../../app/stylesheets/screen.sass */
+#wrapper {
   min-width: 970px;
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -91px;
+}
+/* line 77, ../../app/stylesheets/screen.sass */
+#wrapper #content {
+  clear: both;
+  margin: 0px 15px 15px 15px;
+  padding: 15px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: white;
+}
+/* line 83, ../../app/stylesheets/screen.sass */
+#wrapper #content ul {
+  list-style: disc;
+}
+/* line 85, ../../app/stylesheets/screen.sass */
+#wrapper #content.fileBrowser {
+  margin: 0px;
+  padding: 0 0 91px 0;
+  border-radius: 0px;
+  background-color: transparent;
+  /*Groups */
+}
+/* line 91, ../../app/stylesheets/screen.sass */
+#wrapper #content.fileBrowser ul.listWithDelete {
+  margin: 0;
+}
+/* line 93, ../../app/stylesheets/screen.sass */
+#wrapper #content.fileBrowser ul.listWithDelete li {
+  margin: 3px 0;
+  float: left;
+  clear: left;
+  list-style: none;
+  min-width: 400px;
+  padding: 5px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid silver;
+}
+/* line 105, ../../app/stylesheets/screen.sass */
+#wrapper #content.fileBrowser ul.listWithDelete li a {
+  float: left;
+  margin: 6px;
+}
+/* line 108, ../../app/stylesheets/screen.sass */
+#wrapper #content.fileBrowser ul.listWithDelete li form {
+  float: right;
 }
 
-#content{
-margin:0px 15px 15px 15px;
-padding:15px;
-border-radius: 10px 10px 10px 10px;
-background-color:white;
+/**** Buttons *** */
+/* line 111, ../../app/stylesheets/screen.sass */
+.button {
+  border: 1px solid silver;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  padding: 3px 6px 3px 27px;
+  margin: 3px;
+  display: block;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: 6px 3px;
+  background-color: white;
+  text-align: left;
+  float: left;
+  cursor: pointer;
+  width: auto;
+}
+/* line 133, ../../app/stylesheets/screen.sass */
+.button:hover {
+  border-width: 2px;
+  margin: 2px;
+}
+/* line 136, ../../app/stylesheets/screen.sass */
+.button.large {
+  padding: 10px 15px;
+  font-size: 1.2em;
+}
+/* line 139, ../../app/stylesheets/screen.sass */
+.button.save {
+  background-image: url("/images/save.png");
+}
+/* line 141, ../../app/stylesheets/screen.sass */
+.button.edit {
+  background-image: url("/images/page_white_edit.png");
+}
+/* line 143, ../../app/stylesheets/screen.sass */
+.button.delete {
+  background-image: url("/images/delete.png");
+}
+/* line 145, ../../app/stylesheets/screen.sass */
+.button.login {
+  background-image: url("/images/user_go.png");
+}
+/* line 147, ../../app/stylesheets/screen.sass */
+.button.search {
+  background-image: url("/images/search.png");
+}
+/* line 149, ../../app/stylesheets/screen.sass */
+.button.upload {
+  background-image: url("/images/upload.png");
+}
+/* line 151, ../../app/stylesheets/screen.sass */
+.button.newFolder {
+  background-image: url("/images/newFolder.png");
+}
+/* line 153, ../../app/stylesheets/screen.sass */
+.button.createLink {
+  background-image: url("/images/createLink.png");
+}
+/* line 155, ../../app/stylesheets/screen.sass */
+.button.move {
+  background-image: url("/images/move.png");
+}
+/* line 157, ../../app/stylesheets/screen.sass */
+.button.addPermission {
+  background-image: url("/images/key_add.png");
+}
+/* line 159, ../../app/stylesheets/screen.sass */
+.button.download {
+  background-image: url("/images/download.png");
+}
+/* line 161, ../../app/stylesheets/screen.sass */
+.button.edit {
+  background-image: url("/images/pencil.png");
+}
+/* line 163, ../../app/stylesheets/screen.sass */
+.button.new {
+  background-image: url("/images/add.png");
+}
+/* line 165, ../../app/stylesheets/screen.sass */
+.button.back {
+  background-image: url("/images/arrow_left.png");
 }
 
-#content.fileBrowser{
-margin:0px;
-padding:0px;
-border-radius: 0px;
-background-color:transparent;
-}
-
-.listWithDelete{
-margin:0;
-}
-.listWithDelete li{
-margin: 3px 0;
-float:left;
-clear:left;
-list-style:none;
-min-width:400px;
-padding:5px;
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
--khtml-border-radius: 4px;
-border-radius: 4px;
-border:1px solid silver;
-}
-
-.listWithDelete li a{
-float:left;
-margin:6px;
-}
-
-.listWithDelete li form{
-float:right;
-}
-
-/***** Buttons *****/
-
-.button{
-	border: 1px solid silver;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	border-radius: 4px;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-	padding:3px 6px 3px 27px;
-	margin:3px;
-	display:block;
-	text-decoration:none;
-	background-repeat: no-repeat;
-	background-position:6px 3px;
-	background-color:white;
-	text-align:left;
-	float:left;
-	cursor:pointer;
-	width:auto;
-}
-.button:hover{
-	border-width: 2px;
-	margin:2px;
-}
-
-.button.large{
-padding:10px 15px;
-font-size:1.2em;
-}
-
-input.button{
+/* line 167, ../../app/stylesheets/screen.sass */
+input.button {
   padding: 2px 6px 2px 27px;
 }
-.button.save{
-background-image: url('/images/save.png');
-}
-.button.edit{
-background-image: url('/images/page_white_edit.png');
-}
-.button.delete{
-background-image: url('/images/delete.png');
-}
-.button.login{
-background-image: url('/images/user_go.png');
-}
-.button.search{
-background-image: url('/images/search.png');
-}
-.button.upload{
-background-image: url('/images/upload.png');
-}
-.button.newFolder{
-background-image: url('/images/newFolder.png');
-}
-.button.createLink{
-background-image: url('/images/createLink.png');
-}
-.button.move{
-background-image: url('/images/move.png');
-}
-.button.addPermission{
-background-image: url('/images/key_add.png');
-}
-.button.download{
-background-image: url('/images/download.png');
-}
-.button.edit{
-background-image: url('/images/pencil.png');
-}
-.button.new{
-background-image: url('/images/add.png');
-}
-.button.back{
-background-image: url('/images/arrow_left.png');
-}
 
-/****  Colorbox *********/
-
-#cboxLoadedContent{
-  margin:0;
-}
-
-#cboxClose{
-top:0;
-}
-
-#cboxLoadedContent #content{
-margin:0;
-padding:0;
-}
-
-#cboxLoadedContent h2{
-margin-right:30px;
-padding: 0 0 10px 0;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--o-user-select: none;
-user-select: none;
-cursor:default;
-}
-
-#cboxLoadedContent h2.icon{
-padding: 15px 0 15px 55px;
-background-repeat:no-repeat;
-background-position: left middle;
-}
-
-#cboxLoadedContent #singleMessage{
-margin:5px 40px 5px 10px;
-display:block;
-}
-
-#cboxLoadedContent .actions{
-clear:both;
-display:block;
-}
-
-#cboxLoadedContent .actions .button{
-float:left;
-}
-
-/****  End Colorbox *********/
-
-
-/****  LOGON PAGE *********/
-#logon-box{
+/***  LOGON PAGE ******* */
+/* line 174, ../../app/stylesheets/screen.sass */
+#logon-box {
   width: 600px;
   margin: 0px auto;
   margin-top: 100px;
 }
-
-.logon-box-padder{ 
+/* line 178, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder {
   padding: 10px;
 }
-
-#logon-tabs ul{
+/* line 180, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder #logon-tabs ul {
   float: right;
   list-style: none;
   margin: 0 50px;
 }
-
-#logon-tabs ul li{
-  margin-left:10px;
-  float:left;
+/* line 184, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder #logon-tabs ul li {
+  margin-left: 10px;
+  float: left;
 }
-
-#logon-tabs ul li a{
+/* line 187, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder #logon-tabs ul li a {
   text-decoration: none;
   color: #333333;
   padding: 10px 20px;
-  display:block;
+  display: block;
   background-color: #eeeeee;
   border: 1px solid #cccccc;
   border-bottom: none;
-  border-top-right-radius: .5em;
-  -moz-border-radius-topRight: .5em;
-  -webkit-border-radius-topRight: .5em;
-  border-top-left-radius: .5em;
-  -moz-border-radius-topLeft: .5em;
-  -webkit-border-radius-topleft: .5em;
+  border-top-right-radius: 0.5em;
+  -moz-border-radius-topRight: 0.5em;
+  -webkit-border-radius-topRight: 0.5em;
+  border-top-left-radius: 0.5em;
+  -moz-border-radius-topLeft: 0.5em;
+  -webkit-border-radius-topleft: 0.5em;
 }
-
-#logon-tabs ul li a:hover{
-	background-color: #AAAAAA;
+/* line 201, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder #logon-tabs ul li a:hover {
+  background-color: #aaaaaa;
 }
-
-#logon-main{
-  background-color: #ffffff;
+/* line 203, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder #logon-main {
+  background-color: white;
   padding: 40px 0;
   border: 1px solid #cccccc;
-  border-radius: .5em;
-  -moz-border-radius: .5em;
-  -webkit-border-radius: .5em;
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
 }
-
-#logon-main #logo_holder{
-
+/* line 210, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder #logon-main #logo_holder {
   float: left;
 }
-
-#logon-main #form-holder{
+/* line 212, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder #logon-main #form-holder {
   font-size: 8pt;
   float: right;
   margin-right: 30px;
   padding-left: 30px;
-  border-left: 1px dotted #333;
+  border-left: 1px dotted #333333;
 }
-
-
-#logon-main #form-holder label, .submit-spacer{
+/* line 218, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder #logon-main #form-holder label {
   float: left;
   width: 100px;
 }
-
-
-
-#logon-main #actions-holder{
-  background: url('/images/logonStrip.png') -10px 0px repeat-x;
+/* line 221, ../../app/stylesheets/screen.sass */
+#logon-box .logon-box-padder #actions-holder {
+  background: url("/images/logonStrip.png") -10px 0px repeat-x;
   padding: 30px 30px;
 }
 
-
-/***** END LOGON PAGE *********/
-
-/****** MAIN PAGES ************/
-  
-  #top-menu{
-    font-weight:bold;
-    width: 100%;
-	font-size:11px;
-  }
-  #top-menu ul#actions-menu{
-    margin: 0;
-    padding: 0;
-  } 
-  #top-menu ul#actions-menu li{
-    float: left;
-    list-style: none;
-    padding: 5px 10px;
-  }
-  
-  #top-menu a:hover{
-	text-decoration:underline;
-  }
-
-  #top-menu #user-bar{
-    float: right;
-    padding: 5px 10px;
-  }
-  
-  #top-menu #user-bar #user-bar-padder{
-    float: left;
-  }
-
-  #top-menu #user-bar #user-quota-bar{
-    float: left;
-    background-color: #ffffff;
-    border: 1px solid #eeeeee;
-    width: 250px;
-    height: 15px;
-    margin: 2px 10px;
-  }
-  
-  #top-menu #user-bar #user-quota-bar{
-    float: left;
-  } 
-
-  #top-spacer{
-    height: 80px;
-  }
-
-  #topBar{
-    background: url('/images/topbar.png')  repeat-x;
-	float:left;
-	width:100%;
-  }
-  
-  #innerTopBar{
-    margin: 5px 4px 2px 4px;
-  }
-  
-  #topBar .breadcrumbs{
-	margin: 12px 0 8px 4px;
-	clear:left;
-	float:left;
-  }
-
-  #topBar  .breadcrumbs a,#topBar .breadcrumbs p{
-	float:left;
-	padding: 2px 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -khtml-border-radius: 4px;
-	border-radius: 4px;
-}  
-#topBar .breadcrumbs p{
-margin:0;
+/**** END LOGON PAGE ******* */
+/***** MAIN PAGES ********** */
+/* line 229, ../../app/stylesheets/screen.sass */
+#top-menu {
+  font-weight: bold;
+  width: 100%;
+  font-size: 11px;
 }
-#topBar  .breadcrumbs a{
-background-color:#A3A3A3;
+/* line 233, ../../app/stylesheets/screen.sass */
+#top-menu ul#actions-menu {
+  margin: 0;
+  padding: 0;
 }
-#topBar  .breadcrumbs a:hover{
-background-color:#ccc;
+/* line 236, ../../app/stylesheets/screen.sass */
+#top-menu ul#actions-menu li {
+  float: left;
+  list-style: none;
+  padding: 5px 10px;
 }
-  
-#topBar  .breadcrumbs .breadcrumbsNext {
-    width: 16px;
-    height: 16px;
-	padding: 2px 0;
-	background: transparent url('/images/breadcrumbsNext.png') no-repeat center;
-	text-indent: -9999px;
-	display:block;
-	float:left;
-	margin:0 2px;
+/* line 240, ../../app/stylesheets/screen.sass */
+#top-menu ul#actions-menu li a:hover {
+  text-decoration: underline;
 }
-  
-  
-  #topBar  form  label{
-	float:left;
-	margin: 4px 5px 0 4px;
-  }
-  #topBar  form input{
-	float:left;
-	margin: 4px 10px 4px 0;
-  }
-  #topBar  form input.search{
-	margin:1px;
-  }
-  #topBar  form input.search:hover{
-	margin:0;
-  }
-  
+/* line 242, ../../app/stylesheets/screen.sass */
+#top-menu #user-bar {
+  float: right;
+  padding: 5px 10px;
+}
+/* line 245, ../../app/stylesheets/screen.sass */
+#top-menu #user-bar #user-bar-padder {
+  float: left;
+}
+/* line 247, ../../app/stylesheets/screen.sass */
+#top-menu #user-bar #user-quota-bar {
+  float: left;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  width: 250px;
+  height: 15px;
+  margin: 2px 10px;
+  float: left;
+}
 
-  #headers{
-    float: left;
-    width: 100%;
-    background: url('/images/filterBar.png');
-    font-weight: bold;
-	margin-bottom:1px;
-  }
-  
-  #file-container{
-	clear:both;
-	margin:0;
-  }  
-	#file-container .row-container{
-		padding: 3px 0;
-		list-style: none;
-	}
-	#file-container .row-container:hover{
-		background: transparent url('/images/highlight.png') repeat-x top left;
-	}
-	#file-container .mark-it, #headers .mark-it{
-	float: left;
-	width:2%;
-	margin-left:5px;
-	}
-	#file-container .name, #headers .name{
-	float: left;
-	width: 37%;
-	}
-	#file-container .ext, #headers .ext{
-	float: left;
-	width: 5%;
-	}
-	#file-container .size, #headers .size{
-	float: left;
-	width: 10%;
-	}
-	#file-container .description, #headers .description{
-	float: left;
-	width: 30%;
-	}
-	#file-container .date, #headers .date{
-	float: left;
-	width: 15%;
-	}
-	#file-container .attr, #headers .attr{
-	float: left;
-	width: 5%;
-	}
-	#file-container .row-container .name a.details{
-		background: transparent url('/images/file.png') no-repeat left bottom;
-		text-indent: -9999px;
-		width:17px;
-		height:17px;
-		margin-right:5px;
-		float:left;
-	}
-	#file-container .row-container .name a.details:hover{
-	background-position: -1px 0;
-	}
-	
-	#file-container .row-container .name a:hover{
-		text-decoration:underline;
-	}
-	#file-container .row-container.upFolder .name a{
-		background: transparent url('/images/up.png') no-repeat left top;
-		padding-left:20px;
-	}
-	#file-container .row-container.folder .name a.details{
-		background-image: url('/images/folder.png');
-	}
-  #file-container .row-container.folder .name a.details.shared{
-  background-image: url('/images/folderShared.png');
-  }
-	#file-container .row-container .name a.details.txtFileType{
-		background-image: url('/images/page_white_text.png');
-	}
-	#file-container .row-container .name a.details.pdfFileType{
-		background-image: url('/images/page_white_acrobat.png');
-	}
-	#file-container .row-container .name a.details.zipFileType{
-		background-image: url('/images/page_white_compressed.png');
-	}
-	#file-container .row-container .name a.details.jpgFileType,#file-container .row-container .name a.details.jpegFileType, #file-container .row-container .name a.details.pngFileType, #file-container .row-container .name a.details.gifFileType{
-		background-image: url('/images/page_white_picture.png');
-	}
-	#file-container .row-container .name a.details.docFileType, #file-container .row-container .name a.details.docxFileType{
-		background-image: url('/images/page_white_word.png');
-	}
-	#file-container .row-container .name a.details.pptFileType, #file-container .row-container .name a.details.pptxFileType{
-		background-image: url('/images/page_white_powerpoint.png');
-	}
-	#file-container .row-container .name a.details.xlsFileType, #file-container .row-container .name a.details.xlsxFileType{
-		background-image: url('/images/page_white_excel.png');
-	}
+/* line 256, ../../app/stylesheets/screen.sass */
+#topBar {
+  background: url("/images/topbar.png") repeat-x top left silver;
+  float: left;
+  width: 100%;
+  margin-bottom: 3px;
+}
+/* line 261, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar {
+  margin: 5px 4px 2px 4px;
+}
+/* line 263, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar .breadcrumbs {
+  margin: 12px 0 8px 4px;
+  clear: left;
+  float: left;
+}
+/* line 267, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar .breadcrumbs a {
+  float: left;
+  padding: 2px 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #a3a3a3;
+}
+/* line 275, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar .breadcrumbs a:hover {
+  background-color: #cccccc;
+}
+/* line 277, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar .breadcrumbs p {
+  float: left;
+  padding: 2px 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0;
+}
+/* line 285, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar .breadcrumbs .breadcrumbsNext {
+  width: 16px;
+  height: 16px;
+  padding: 2px 0;
+  background: transparent url("/images/breadcrumbsNext.png") no-repeat center;
+  text-indent: -9999px;
+  display: block;
+  float: left;
+  margin: 0 2px;
+}
+/* line 295, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar form label {
+  float: left;
+  margin: 4px 5px 0 4px;
+}
+/* line 298, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar form input {
+  float: left;
+  margin: 4px 10px 4px 0;
+}
+/* line 301, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar form input.search {
+  margin: 1px;
+}
+/* line 303, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar form input.search:hover {
+  margin: 0;
+}
+/* line 305, ../../app/stylesheets/screen.sass */
+#topBar #headers {
+  float: left;
+  width: 100%;
+  background: url("/images/filterBar.png");
+  font-weight: bold;
+  margin-bottom: 1px;
+}
 
+/* line 312, ../../app/stylesheets/screen.sass */
+#file-container {
+  clear: both;
+  margin: 0;
+}
+/* line 315, ../../app/stylesheets/screen.sass */
+#file-container .row-container {
+  padding: 3px 0;
+  list-style: none;
+}
+/* line 318, ../../app/stylesheets/screen.sass */
+#file-container .row-container:hover {
+  background: transparent url("/images/highlight.png") repeat-x top left;
+}
+/* line 320, ../../app/stylesheets/screen.sass */
+#file-container .row-container.folder .name a.details {
+  background-image: url("/images/folder.png");
+}
+/* line 322, ../../app/stylesheets/screen.sass */
+#file-container .row-container.folder .name a.details.shared {
+  background-image: url("/images/folderShared.png");
+}
+/* line 324, ../../app/stylesheets/screen.sass */
+#file-container .row-container.upFolder .name a {
+  background: transparent url("/images/up.png") no-repeat left top;
+  padding-left: 20px;
+}
+/* line 328, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a:hover {
+  text-decoration: underline;
+}
+/* line 330, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a.details {
+  background: transparent url("/images/file.png") no-repeat left bottom;
+  text-indent: -9999px;
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
+  float: left;
+}
+/* line 337, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a.details:hover {
+  background-position: -1px 0;
+}
+/* line 339, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a.details.txtFileType {
+  background-image: url("/images/page_white_text.png");
+}
+/* line 341, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a.details.pdfFileType {
+  background-image: url("/images/page_white_acrobat.png");
+}
+/* line 343, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a.details.zipFileType {
+  background-image: url("/images/page_white_compressed.png");
+}
+/* line 345, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a.details.jpgFileType, #file-container .row-container .name a.details.jpegFileType, #file-container .row-container .name a.details.pngFileType, #file-container .row-container .name a.details.gifFileType {
+  background-image: url("/images/page_white_picture.png");
+}
+/* line 347, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a.details.docFileType, #file-container .row-container .name a.details.docxFileType {
+  background-image: url("/images/page_white_word.png");
+}
+/* line 349, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a.details.pptFileType, #file-container .row-container .name a.details.pptxFileType {
+  background-image: url("/images/page_white_powerpoint.png");
+}
+/* line 351, ../../app/stylesheets/screen.sass */
+#file-container .row-container .name a.details.xlsFileType, #file-container .row-container .name a.details.xlsxFileType {
+  background-image: url("/images/page_white_excel.png");
+}
 
-  #bottom-bar{
-    background: url('/images/taskbar.png')  repeat-x;
-    width: 100%;
-    position: absolute;
-	padding: 10px 0;
-    bottom: 0;
-    left: 0;
-  }
+/* line 355, ../../app/stylesheets/screen.sass */
+#file-container .mark-it, #file-container .name, #file-container .ext, #file-container .size, #file-container .description, #file-container .date, #file-container .attr, #headers .mark-it, #headers .name, #headers .ext, #headers .size, #headers .description, #headers .date, #headers .attr {
+  float: left;
+  overflow: hidden;
+  height: 17px;
+}
+/* line 359, ../../app/stylesheets/screen.sass */
+#file-container .mark-it, #headers .mark-it {
+  width: 2%;
+  margin-left: 5px;
+}
+/* line 362, ../../app/stylesheets/screen.sass */
+#file-container .name, #headers .name {
+  width: 37%;
+}
+/* line 364, ../../app/stylesheets/screen.sass */
+#file-container .ext, #headers .ext {
+  width: 5%;
+}
+/* line 366, ../../app/stylesheets/screen.sass */
+#file-container .size, #headers .size {
+  width: 10%;
+}
+/* line 368, ../../app/stylesheets/screen.sass */
+#file-container .description, #headers .description {
+  width: 30%;
+}
+/* line 370, ../../app/stylesheets/screen.sass */
+#file-container .date, #headers .date {
+  width: 15%;
+}
+/* line 372, ../../app/stylesheets/screen.sass */
+#file-container .attr, #headers .attr {
+  width: 5%;
+}
 
-  #bottom-bar-padder{
-    margin: 0 auto;
-    width: 640px;  
-  }
-  
+/* line 375, ../../app/stylesheets/screen.sass */
+#push, #bottom-bar {
+  height: 91px;
+}
 
-  #bottom-bar .icon-link{
-    width: 80px;
-    float: left;
-    color: #333333;
-    font-weight: bold;
-    font-size: 8pt;
-    text-align: center;
-    padding-top: 60px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-	border-radius: 10px;
-	background-repeat:no-repeat;
-	background-position: center top;
-	background-color:transparent;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-  }
-  
-  #bottom-bar .icon-link:hover{
-    background-color:#5E5E5E;
-    color:silver;
-  }
-  
-  #bottom-bar .icon-link.download, #cboxLoadedContent h2.download{
-	background-image: url('/images/icons/download.png');
-  }
-  #bottom-bar .icon-link.upload, #cboxLoadedContent h2.upload{
-	background-image: url('/images/icons/upload.png');
-  }
-  #bottom-bar .icon-link.newFolder, #cboxLoadedContent h2.newFolder{
-	background-image: url('/images/icons/newFolder.png');
-  }
-  #bottom-bar .icon-link.hotlink, #cboxLoadedContent h2.hotlink, #hotlinkAccess h2.hotlink{
-	background-image: url('/images/icons/hotlink.png');
-  }
-  #bottom-bar .icon-link.move, #cboxLoadedContent h2.move{
-	background-image: url('/images/icons/move.png');
-  }
-  #bottom-bar .icon-link.rename, #cboxLoadedContent h2.rename{
-	background-image: url('/images/icons/rename.png');
-  }
-  #bottom-bar .icon-link.details, #cboxLoadedContent h2.details{
-	background-image: url('/images/icons/rename.png');
-  }
-  #bottom-bar .icon-link.delete, #cboxLoadedContent h2.delete{
-	background-image: url('/images/icons/delete.png');
-  }
-  #bottom-bar .icon-link.exit{
-	background-image: url('/images/icons/exit.png');
-  }
-  #loader{
-    background: transparent url('/images/loading.gif') no-repeat top center;
-    height:20px;
-  }
-  
-  #newAsset #loader{
-    display:none;
-    width: 100%;
-    margin: 25px 0;
-  }
-  
-  #newAsset.loading form{
-    display:none;
-  }
-  
-  #newAsset.loading #loader{
-    display: block;
-  }
-  
-/****** END MAIN PAGES ********/
+/* line 378, ../../app/stylesheets/screen.sass */
+#bottom-bar {
+  background: url("/images/taskbar.png") repeat-x silver;
+}
+/* line 380, ../../app/stylesheets/screen.sass */
+#bottom-bar #bottom-bar-padder {
+  margin: 0 auto;
+  padding: 6px 0;
+  width: 640px;
+}
+/* line 384, ../../app/stylesheets/screen.sass */
+#bottom-bar #bottom-bar-padder .icon-link {
+  width: 80px;
+  float: left;
+  color: #333333;
+  font-weight: bold;
+  font-size: 8pt;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 7px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+/* line 405, ../../app/stylesheets/screen.sass */
+#bottom-bar #bottom-bar-padder .icon-link:hover {
+  background-color: #5e5e5e;
+  color: silver;
+}
+/* line 408, ../../app/stylesheets/screen.sass */
+#bottom-bar #bottom-bar-padder .icon-link.download {
+  background-image: url("/images/icons/download.png");
+}
 
-#cboxLoadedContent #folder_inherit_permissions{
+/* line 412, ../../app/stylesheets/screen.sass */
+#bottom-bar .icon-link.download, #cboxLoadedContent h2.download {
+  background-image: url("/images/icons/download.png");
+}
+/* line 414, ../../app/stylesheets/screen.sass */
+#bottom-bar .icon-link.upload, #cboxLoadedContent h2.upload {
+  background-image: url("/images/icons/upload.png");
+}
+/* line 416, ../../app/stylesheets/screen.sass */
+#bottom-bar .icon-link.newFolder, #cboxLoadedContent h2.newFolder {
+  background-image: url("/images/icons/newFolder.png");
+}
+/* line 418, ../../app/stylesheets/screen.sass */
+#bottom-bar .icon-link.hotlink, #cboxLoadedContent h2.hotlink {
+  background-image: url("/images/icons/hotlink.png");
+}
+/* line 420, ../../app/stylesheets/screen.sass */
+#bottom-bar .icon-link.move, #cboxLoadedContent h2.move {
+  background-image: url("/images/icons/move.png");
+}
+/* line 422, ../../app/stylesheets/screen.sass */
+#bottom-bar .icon-link.rename, #bottom-bar .icon-link.details, #cboxLoadedContent h2.rename, #cboxLoadedContent h2.details {
+  background-image: url("/images/icons/rename.png");
+}
+/* line 424, ../../app/stylesheets/screen.sass */
+#bottom-bar .icon-link.delete, #cboxLoadedContent h2.delete {
+  background-image: url("/images/icons/delete.png");
+}
+/* line 426, ../../app/stylesheets/screen.sass */
+#bottom-bar .icon-link.exit, #cboxLoadedContent h2.exit {
+  background-image: url("/images/icons/exit.png");
+}
+
+/* line 429, ../../app/stylesheets/screen.sass */
+#loader {
+  background: transparent url("/images/loading.gif") no-repeat top center;
+  height: 20px;
+}
+
+/* line 434, ../../app/stylesheets/screen.sass */
+#newAsset #loader {
+  display: none;
+  width: 100%;
+  margin: 25px 0;
+}
+/* line 439, ../../app/stylesheets/screen.sass */
+#newAsset.loading form {
+  display: none;
+}
+/* line 441, ../../app/stylesheets/screen.sass */
+#newAsset.loading #loader {
+  display: block;
+}
+
+/***** END MAIN PAGES ****** */
+/* line 447, ../../app/stylesheets/screen.sass */
+#cboxLoadedContent #folder_inherit_permissions {
   float: none;
   clear: none;
   margin-left: 10px;
 }
-ul#permissions{
-clear:left;
-margin-left:5px;
+
+/* line 452, ../../app/stylesheets/screen.sass */
+ul#permissions {
+  clear: left;
+  margin-left: 5px;
+}
+/* line 455, ../../app/stylesheets/screen.sass */
+ul#permissions li {
+  float: left;
+  clear: left;
+  display: block;
+  background: transparent url("/images/bullet_black.png") no-repeat top left;
+  list-style: none;
+  padding-left: 20px;
+}
+/* line 463, ../../app/stylesheets/screen.sass */
+ul#permissions li span.permName {
+  float: left;
+  margin-right: 5px;
+}
+/* line 466, ../../app/stylesheets/screen.sass */
+ul#permissions li span.permName a:hover {
+  text-decoration: underline;
+}
+/* line 468, ../../app/stylesheets/screen.sass */
+ul#permissions li span.permission {
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  text-indent: -9999px;
+  float: right;
+  margin: 0 2px;
+}
+/* line 475, ../../app/stylesheets/screen.sass */
+ul#permissions li span.permission.inherited {
+  background: transparent url("/images/inherited.png") no-repeat top left;
+}
+/* line 477, ../../app/stylesheets/screen.sass */
+ul#permissions li span.permission.read {
+  background-image: url("/images/eye.png");
+}
+/* line 479, ../../app/stylesheets/screen.sass */
+ul#permissions li span.permission.delete {
+  background-image: url("/images/cross.png");
 }
 
-ul#permissions li{
-float:left;
-clear:left;
-display:block;
-background: transparent url('/images/bullet_black.png') no-repeat top left;
-list-style:none;
-padding-left:20px;
+/* line 484, ../../app/stylesheets/screen.sass */
+ul#permissions li span.permission.write, p#permissions .write_perms label {
+  background-image: url("/images/pencil.png");
 }
 
-ul#permissions li span.permName{
-float:left;
-margin-right:5px;
+/* line 488, ../../app/stylesheets/screen.sass */
+p#permissions .delete_perms label {
+  background-image: url("/images/cross.png");
+}
+/* line 490, ../../app/stylesheets/screen.sass */
+p#permissions .read_perms label {
+  background-image: url("/images/eye.png");
+}
+/* line 492, ../../app/stylesheets/screen.sass */
+p#permissions span.permission {
+  margin-right: 10px;
+}
+/* line 494, ../../app/stylesheets/screen.sass */
+p#permissions span.permission label {
+  background-repeat: no-repeat;
+  padding-left: 20px;
 }
 
-ul#permissions li span.permName a:hover{
-text-decoration:underline;
+/************** Move Folder *************** */
+/* line 501, ../../app/stylesheets/screen.sass */
+#moveDialogLoading {
+  float: right;
+  height: 32px;
+  width: 32px;
+  display: block;
+  background: transparent url("/images/colorbox/loading.gif") no-repeat top left;
+  display: none;
 }
 
-ul#permissions li span.permission{
-background-repeat:no-repeat;
-width:16px;
-height:16px;
-text-indent:-9999px;
-float:right;
-margin: 0 2px;
+/* line 509, ../../app/stylesheets/screen.sass */
+#folderMove {
+  width: 400px;
+  height: 350px;
+  overflow: auto;
+  padding: 5px 5px 5px 0;
+  border: 1px solid silver;
 }
-ul#permissions li span.permission.inherited{
-background: transparent url('/images/inherited.png') no-repeat top left;
+/* line 515, ../../app/stylesheets/screen.sass */
+#folderMove ul {
+  margin-left: 20px;
+  list-style: none;
 }
-ul#permissions li span.permission.read, p#permissions .read_perms label{
-background-image: url('/images/eye.png');
+/* line 518, ../../app/stylesheets/screen.sass */
+#folderMove #folderRoot {
+  margin-left: 5px;
 }
-ul#permissions li span.permission.write, p#permissions .write_perms label{
-background-image: url('/images/pencil.png');
+/* line 520, ../../app/stylesheets/screen.sass */
+#folderMove li {
+  margin: 1px 0;
 }
-ul#permissions li span.permission.delete, p#permissions .delete_perms label{
-background-image: url('/images/cross.png');
+/* line 522, ../../app/stylesheets/screen.sass */
+#folderMove li a {
+  background: transparent url("/images/folderOpen.png") no-repeat center left;
+  padding: 2px 5px 2px 16px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
-
-p#permissions span.permission label{
-background-repeat:no-repeat;
-padding-left:20px;
+/* line 530, ../../app/stylesheets/screen.sass */
+#folderMove li a.opened {
+  background-image: url("/images/folderClose.png");
 }
-p#permissions span.permission{
-margin-right:10px;
+/* line 532, ../../app/stylesheets/screen.sass */
+#folderMove li a.selected {
+  background-color: #b2b2b2;
 }
-/*************** Move Folder *****************/
-#folderMove{
-width:400px;
-height:350px;
-overflow:auto;
-padding:5px 5px 5px 0;
-border:1px solid silver;
-}
-
-#moveDialogLoading{
-float:right;
-height:32px;
-width:32px;
-display:block;
-background: transparent url('/images/colorbox/loading.gif') no-repeat top left;
-display:none;
-}
-
-#folderMove ul{
-margin-left: 20px;
-list-style:none;
+/* line 534, ../../app/stylesheets/screen.sass */
+#folderMove li.disabled a {
+  color: gray;
+  background-image: url("/images/folderUnavailable.png");
 }
 
-#folderMove #folderRoot{
-margin-left:5px;
+/*************End of Move Folder ************ */
+/***** HOTLINK ******** */
+/* line 542, ../../app/stylesheets/screen.sass */
+#hotlinkResult {
+  margin: 0 5px 5px 5px;
+}
+/* line 544, ../../app/stylesheets/screen.sass */
+#hotlinkResult #link {
+  padding: 5px;
+  border: 1px solid gray;
+  background-color: #d6d6d6;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  text-align: center;
+  width: 300px;
+  margin-bottom: 5px;
 }
 
-#folderMove li{
-margin:1px 0;
+/* line 556, ../../app/stylesheets/screen.sass */
+#hotlinkError {
+  color: red;
+  display: none;
 }
 
-#folderMove li a{
-background: transparent url('/images/folderOpen.png') no-repeat center left;
-padding:2px 5px 2px 16px;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--o-user-select: none;
-user-select: none;
-}
-
-#folderMove li a.opened{
-background-image:url('/images/folderClose.png');
-}
-#folderMove li a.selected{
-background-color:#B2B2B2;
-}
-
-#folderMove li.disabled a{
-color:gray;
-background-image:url('/images/folderUnavailable.png');
-}
-
-/**************End of Move Folder **************/
-
-/****** HOTLINK **********/
-
-#hotlinkResult{
-	margin: 0 5px 5px 5px;
-}
-
-#hotlinkResult #link{
-	padding:5px;
-	border:1px solid gray;
-	background-color:#D6D6D6;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -khtml-border-radius: 4px;
-	border-radius: 4px;
-	text-align:center;
-	width:300px;
-	margin-bottom:5px;
-}
-
-#hotlinkError{
-color:red;
-display:none;
-}
-
-/****** End of Hotlink **********/
-
-
-/****** OVERLAY **********/
+/***** End of Hotlink ******** */
+/***** OVERLAY ******** */
+/* line 564, ../../app/stylesheets/screen.sass */
 #overlay {
-	
-	/* must be initially hidden */
-	display:none;
-	
-	/* place overlay on top of other elements */
-	z-index:10000;
-	
-	/* styling */
-	background-color:#dddddd;
-	
-	width:675px;	
-	min-height:500px;
-	border:1px solid #666;
-	
-	/* CSS3 styling for latest browsers */
-	-moz-box-shadow:0 0 90px 5px #000;
-	-webkit-box-shadow: 0 0 90px #000;	
-}
-/****** End of OVERLAY **********/
-
-
-/****** User Search **********/
-#userGroupSearch{
-float:left;
-min-width:455px;
-margin-bottom:10px;
+  /* must be initially hidden */
+  display: none;
+  /* place overlay on top of other elements */
+  z-index: 10000;
+  /* styling */
+  background-color: #dddddd;
+  width: 675px;
+  min-height: 500px;
+  border: 1px solid #666666;
+  /* CSS3 styling for latest browsers */
+  -moz-box-shadow: 0 0 90px 5px black;
+  -webkit-box-shadow: 0 0 90px black;
 }
 
-#searchResult.loading{
-background: white url('/images/colorbox/loading.gif') no-repeat top center;
+/***** End of OVERLAY ********* */
+/***** User Search ********* */
+/* line 582, ../../app/stylesheets/screen.sass */
+#userGroupSearch {
+  float: left;
+  min-width: 455px;
+  margin-bottom: 10px;
 }
 
-#userGroupSearch #query, #userGroupSearch  #inactive, #userGroupSearch label{
-margin-top:3px;
+/* line 587, ../../app/stylesheets/screen.sass */
+#searchResult.loading {
+  background: white url("/images/colorbox/loading.gif") no-repeat top center;
 }
 
-#userGroupSearch input{
-margin-right:10px;
+/* line 591, ../../app/stylesheets/screen.sass */
+#userGroupSearch #query, #userGroupSearch#inactive, #userGroupSearch label {
+  margin-top: 3px;
+}
+/* line 593, ../../app/stylesheets/screen.sass */
+#userGroupSearch input {
+  margin-right: 10px;
+}
+/* line 595, ../../app/stylesheets/screen.sass */
+#userGroupSearch input#query {
+  width: 300px;
+}
+/* line 597, ../../app/stylesheets/screen.sass */
+#userGroupSearch .search {
+  float: right;
+}
+/* line 599, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult {
+  clear: left;
+  float: left;
+  width: 100%;
+  min-height: 30px;
+}
+/* line 604, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult ul {
+  margin: 0;
+  list-style: none;
+}
+/* line 608, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult ul li a {
+  background: transparent url("/images/bullet_green.png") no-repeat left center;
+  padding-left: 20px;
+}
+/* line 611, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult ul li a#moreUsers {
+  background: none;
+}
+/* line 613, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult ul li a:hover {
+  text-decoration: underline;
+}
+/* line 615, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult ul li.inactive a {
+  background: transparent url("/images/bullet_red.png") no-repeat left center;
+}
+/* line 617, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult .selectable ul li a {
+  background-image: none;
+  background-color: #dddddd;
+  padding: 3px 5px;
+  margin: 2px 0;
+  display: block;
+}
+/* line 623, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult .selectable ul li a:hover {
+  background-color: #cccccc;
+  text-decoration: none;
+}
+/* line 626, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult .selectable ul li a.selected {
+  background-color: #aaaaaa;
 }
 
-#userGroupSearch input#query{
-  width:300px;
+/***** End of User Search ****** */
+/**************** Page Numbers ************** */
+/* line 634, ../../app/stylesheets/screen.sass */
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+/* line 637, ../../app/stylesheets/screen.sass */
+.pagination a, .pagination em.current, .pagination .disabled {
+  padding: 7px;
+  border: 1px solid silver;
+  margin: 2px;
+}
+/* line 641, ../../app/stylesheets/screen.sass */
+.pagination a:hover, .pagination em.current {
+  text-decoration: none;
+  background-color: #dcdcdc;
+}
+/* line 644, ../../app/stylesheets/screen.sass */
+.pagination .disabled {
+  color: gray;
 }
 
-#userGroupSearch .search{
-float:right;
-}
-
-#userGroupSearch #searchResult{
-clear:left;
-float:left;
-width:100%;
-min-height:30px;
-}
-
-#userGroupSearch #searchResult ul{
-margin:0;
-list-style:none;
-}
-#userGroupSearch #searchResult ul li a{
-background: transparent url('/images/bullet_green.png') no-repeat left center;
-padding-left:20px;
-}
-#userGroupSearch #searchResult ul li a#moreUsers{
-background: none;
-}
-
-
-#userGroupSearch #searchResult ul li.inactive a{
-background: transparent url('/images/bullet_red.png') no-repeat left center;
-}
-
-#searchResult ul li a:hover{
-text-decoration:underline;
-}
-
-#userGroupSearch #searchResult.selectable ul li a{
-	background-image:none;
-	background-color: #ddd;
-	padding:3px 5px;
-	margin:2px 0;
-}
-
-#userGroupSearch #searchResult.selectable ul li a:hover{
-	background-color: #ccc;
-	text-decoration:none;
-}
-
-#userGroupSearch #searchResult.selectable ul li a.selected{
-	background-color:#aaa;
-}
-
-#userGroupSearch #searchResult.selectable ul li a{
-display:block;
-}
-
-/****** End of User Search ********/
-
-/***************** Page Numbers ****************/
-.pagination{
-text-align:center;
-margin-top:20px;
-}
-
-.pagination a, .pagination em.current, .pagination .disabled{
-	padding: 7px;
-	border: 1px solid silver;
-	margin: 2px;
-}
-.pagination a:hover, .pagination em.current{
-	text-decoration: none;
-	background-color:#dcdcdc;
-}
-
-.pagination .disabled{
-	color: gray;
-}
-/****************** End of Page Numbers ******************/
+/***************** End of Page Numbers **************** */

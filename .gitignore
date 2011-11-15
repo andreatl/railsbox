@@ -6,3 +6,4 @@ assets/
 .redcar
 config.txt
 *.tmp
+config/config.yml

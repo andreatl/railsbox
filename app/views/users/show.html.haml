@@ -69,4 +69,9 @@
 .actions
   = button_to "Delete User", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete' unless params[:action] == 'me'
   = link_to "Change Password", user_password_path, :class => 'button edit'
+  - if current_user.is_admin
+    = form_tag update_password_path do
+      = hidden_field_tag 'email', @user.email
+      = submit_tag 'Reset Password', :class => 'button login'
+      .clear
 .clear

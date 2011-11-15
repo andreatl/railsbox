@@ -23,7 +23,7 @@
       %strong
         = f.label :description
       = f.text_area :description, :rows => 4
-    - if current_user.is_admin
+    - if current_user.is_admin && !@current_folder.parent_id.nil?
       .field
         %strong
           = f.label :inherit_permissions, "Inherit permissions from parent folder?"

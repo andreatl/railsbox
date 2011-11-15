@@ -3,12 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe FoldersController do
   
   before :each do
-   #@current_user = mock_model(User, :id => 1, :to_i=> 1, :email=>'text@test.com', :is_admin=>true, :active=>true, :accessible_folders=>Folder.scoped, :can_hotlink=>true, :can_home=>true)
-   @current_user = mock_model(User, :id => 1, :is_admin=>true, :active=>true, :email=>'wwah@hoss.com', :can_hotlink=>true, :can_home=>true)
-    @current_user.stub!(:is_admin?).and_return(:true)
-    @current_user.stub!(:can_home?).and_return(:false)
-    controller.stub!(:canread).and_return(:true)
-    controller.stub!(:canwrite).and_return(:true)
+   @current_user = mock_model(User, :id => 1, :to_i=> 1, :email=>'text@test.com', :is_admin=>false, :active=>true, :accessible_folders=>Folder.scoped, :can_hotlink=>true, :can_home=>true)
    controller.stub!(:current_user).and_return(@current_user)
    controller.stub!(:login_required).and_return(:true)
   end
@@ -18,6 +13,8 @@ describe FoldersController do
 
 
   it "browse action should render show template" do
+    puts Folder.first
+    @current_user.stub!(:is_admin?).and_return(true)
     get :browse, :folder_id => Folder.first
     response.should render_template(:index)
   end
@@ -30,8 +27,8 @@ describe FoldersController do
 
   it "create action should render new template when model is invalid" do
     folder = Folder.new
-	Folder.stub(:new).and_return(folder)
-	folder.stub(:valid?).and_return(false)
+  	Folder.stub(:new).and_return(folder)
+  	folder.stub(:valid?).and_return(false)
 	
     post :create
     response.should render_template(:new)

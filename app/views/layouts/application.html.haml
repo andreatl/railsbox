@@ -6,7 +6,7 @@
     = yield :page_specific_head
     = csrf_meta_tag
   %body
-    #content-holder
+    #wrapper
       - if current_user
         #top-menu
           %ul#actions-menu
@@ -14,17 +14,38 @@
             - if current_user.is_admin
               %li= link_to 'Admin', admin_panel_url
             %li= link_to 'My details', my_details_url
+            - flash.each do |name, msg|
+              = content_tag :li, msg, :id => "flash_#{name}"
           #user-bar
             #user-bar-padder
               Logged in as #{current_user.email}
               |
               \#{link_to 'Logout', log_out_url}
-          / user-bar
-        / top-menu
-      .clear
-        / 
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
       - end unless params[:controller] == 'sessions'
       #content{:class => "#{yield :contentClass}"}
         = yield
+  - if yield(:contentClass).to_s.include?('fileBrowser')
+    #bottom-bar
+      #bottom-bar-padder
+        - if @current_folder.nil? || @current_folder.canread?(current_user) 
+          = link_to content_tag(:span, 'Download', :class=>'icon-link download'), '#', :id=>'download-link' 
+          = form_tag({:controller=>"folders", :action=>"download"}, {:id=>"download_form", :class=>'hidden'}) do
+            = hidden_field_tag 'folders', nil, :id=>"download_folders"
+            = hidden_field_tag 'assets', nil, :id=>"download_assets"
+            = hidden_field_tag 'name', @current_folder.nil? ? "Downloaded Files" : @current_folder.name
+        - if @current_folder && @current_folder.canwrite?(current_user) 
+          = link_to content_tag(:span, 'Upload', :class=>'icon-link upload'), new_sub_file_path(@current_folder), :id=>'upload-link' 
+          - if @current_folder.canread?(current_user)
+            = link_to content_tag(:span, 'New folder', :class=>'icon-link newFolder'), new_sub_folder_path(@current_folder), :id=>'new-folder-link'  
+        - elsif @current_folder.nil? && @canHome 
+          = link_to content_tag(:span, 'Upload', :class=>'icon-link upload'), new_asset_path, :id=>'upload-link' 
+          = link_to content_tag(:span, 'New folder', :class=>'icon-link newFolder'), new_folder_path, :id=>'new-folder-link'
+        - if (@current_folder && @current_folder.canread?(current_user) && @current_folder.canwrite?(current_user)) || (@current_folder.nil? && @canHome) 
+          = link_to content_tag(:span, 'Move', :class=>'icon-link move'), '#', :id=>'move-link' 
+        - if current_user.can_hotlink 
+          = link_to content_tag(:span, 'Hotlink', :class=>'icon-link hotlink'), '#', :id=>'hotlink-link'
+        - if @current_folder.nil? || @current_folder.canread?(current_user) 
+          = link_to content_tag(:span, 'Details', :class=>'icon-link details'), '#', :id=>'details-link'
+        - if (@canHome && @current_folder.nil?) || (@current_folder && @current_folder.candelete?(@current_user)) 
+          = link_to content_tag(:span, 'Delete', :class=>'icon-link delete'), @asset, :confirm => 'Are you sure?', :method => :delete, :id=>'delete-link'
+        = link_to content_tag(:span, 'Exit', :class=>'icon-link exit'), log_out_path 

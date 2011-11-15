@@ -1,0 +1,647 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+ *  Icons from http://www.famfamfam.com/lab/icons/silk/ */
+
+@import "compass/reset"
+@import "colorbox_custom"
+
+$toolbarBg: silver
+
+html
+  overflow-y: scroll
+  font-family: Verdana,Arial
+  height: 100%
+
+body
+  background: url('/images/bg.png')
+  font-size: 13px
+  height: 100%
+
+h1, h2, h3, h4, p
+  margin-bottom: 6px
+h1, h2, h3, h4
+  font-weight: bold
+h1
+  font-size: 2em
+h2
+  font-size: 1.8em
+h3
+  font-size: 1.6em
+h4
+  font-size: 1.2em
+a
+  text-decoration: none
+  color: #333333
+strong
+  font-weight: bold
+.hidden
+  display: none
+
+.clear
+  clear: both
+
+.error
+  color: red
+
+form
+  .field
+    float: left
+    clear: both
+    margin-bottom: 6px
+    label, input, textarea, select
+      float: left
+      clear: left
+  input.error
+    background-color: #FF6A54
+  .actions
+    clear: both
+
+.border
+  padding: 7px
+  -moz-border-radius: 4px
+  -webkit-border-radius: 4px
+  -khtml-border-radius: 4px
+  border-radius: 4px
+  border: 1px solid silver
+
+ul
+  margin-left: 25px
+
+#wrapper
+  min-width: 970px
+  min-height: 100%
+  height: auto !important
+  margin: 0 auto -91px 
+  #content
+    clear: both
+    margin: 0px 15px 15px 15px
+    padding: 15px
+    border-radius: 10px 10px 10px 10px
+    background-color: white
+    ul
+      list-style: disc
+    &.fileBrowser
+      margin: 0px
+      padding: 0 0 91px 0 
+      border-radius: 0px
+      background-color: transparent
+      /*Groups */
+      ul.listWithDelete
+        margin: 0
+        li
+          margin: 3px 0
+          float: left
+          clear: left
+          list-style: none
+          min-width: 400px
+          padding: 5px
+          -moz-border-radius: 4px
+          -webkit-border-radius: 4px
+          -khtml-border-radius: 4px
+          border-radius: 4px
+          border: 1px solid silver
+          a
+            float: left
+            margin: 6px
+          form
+            float: right
+/***** Buttons ****/
+.button
+  border: 1px solid silver
+  -moz-border-radius: 4px
+  -webkit-border-radius: 4px
+  -khtml-border-radius: 4px
+  border-radius: 4px
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -o-user-select: none
+  user-select: none
+  padding: 3px 6px 3px 27px
+  margin: 3px
+  display: block
+  text-decoration: none
+  background-repeat: no-repeat
+  background-position: 6px 3px
+  background-color: white
+  text-align: left
+  float: left
+  cursor: pointer
+  width: auto
+  &:hover
+    border-width: 2px
+    margin: 2px
+  &.large
+    padding: 10px 15px
+    font-size: 1.2em
+  &.save
+    background-image: url('/images/save.png')
+  &.edit
+    background-image: url('/images/page_white_edit.png')
+  &.delete
+    background-image: url('/images/delete.png')
+  &.login
+    background-image: url('/images/user_go.png')
+  &.search
+    background-image: url('/images/search.png')
+  &.upload
+    background-image: url('/images/upload.png')
+  &.newFolder
+    background-image: url('/images/newFolder.png')
+  &.createLink
+    background-image: url('/images/createLink.png')
+  &.move
+    background-image: url('/images/move.png')
+  &.addPermission
+    background-image: url('/images/key_add.png')
+  &.download
+    background-image: url('/images/download.png')
+  &.edit
+    background-image: url('/images/pencil.png')
+  &.new
+    background-image: url('/images/add.png')
+  &.back
+    background-image: url('/images/arrow_left.png')
+input.button
+  padding: 2px 6px 2px 27px
+
+
+
+/****  LOGON PAGE ********/
+
+#logon-box
+  width: 600px
+  margin: 0px auto
+  margin-top: 100px
+  .logon-box-padder
+    padding: 10px
+    #logon-tabs ul
+      float: right
+      list-style: none
+      margin: 0 50px
+      li
+        margin-left: 10px
+        float: left
+        a
+          text-decoration: none
+          color: #333333
+          padding: 10px 20px
+          display: block
+          background-color: #eeeeee
+          border: 1px solid #cccccc
+          border-bottom: none
+          border-top-right-radius: .5em
+          -moz-border-radius-topRight: .5em
+          -webkit-border-radius-topRight: .5em
+          border-top-left-radius: .5em
+          -moz-border-radius-topLeft: .5em
+          -webkit-border-radius-topleft: .5em
+          &:hover
+            background-color: #AAAAAA
+    #logon-main
+      background-color: #ffffff
+      padding: 40px 0
+      border: 1px solid #cccccc
+      border-radius: .5em
+      -moz-border-radius: .5em
+      -webkit-border-radius: .5em
+      #logo_holder
+        float: left
+      #form-holder
+        font-size: 8pt
+        float: right
+        margin-right: 30px
+        padding-left: 30px
+        border-left: 1px dotted #333
+        label
+          float: left
+          width: 100px
+    #actions-holder
+      background: url('/images/logonStrip.png') -10px 0px repeat-x
+      padding: 30px 30px
+
+/***** END LOGON PAGE ********/
+
+/****** MAIN PAGES ***********/
+
+#top-menu
+  font-weight: bold
+  width: 100%
+  font-size: 11px
+  ul#actions-menu
+    margin: 0
+    padding: 0
+    li
+      float: left
+      list-style: none
+      padding: 5px 10px
+      a:hover
+        text-decoration: underline
+  #user-bar
+    float: right
+    padding: 5px 10px
+    #user-bar-padder
+      float: left
+    #user-quota-bar
+      float: left
+      background-color: #ffffff
+      border: 1px solid #eeeeee
+      width: 250px
+      height: 15px
+      margin: 2px 10px
+      float: left
+
+#topBar
+  background: url('/images/topbar.png') repeat-x top left $toolbarBg
+  float: left
+  width: 100%
+  margin-bottom: 3px
+  #innerTopBar
+    margin: 5px 4px 2px 4px
+    .breadcrumbs
+      margin: 12px 0 8px 4px
+      clear: left
+      float: left
+      a
+        float: left
+        padding: 2px 4px
+        -moz-border-radius: 4px
+        -webkit-border-radius: 4px
+        -khtml-border-radius: 4px
+        border-radius: 4px
+        background-color: #A3A3A3
+        &:hover
+          background-color: #ccc
+      p
+        float: left
+        padding: 2px 4px
+        -moz-border-radius: 4px
+        -webkit-border-radius: 4px
+        -khtml-border-radius: 4px
+        border-radius: 4px
+        margin: 0
+      .breadcrumbsNext
+        width: 16px
+        height: 16px
+        padding: 2px 0
+        background: transparent url('/images/breadcrumbsNext.png') no-repeat center
+        text-indent: -9999px
+        display: block
+        float: left
+        margin: 0 2px
+    form
+      label
+        float: left
+        margin: 4px 5px 0 4px
+      input
+        float: left
+        margin: 4px 10px 4px 0
+        &.search
+          margin: 1px
+          &:hover
+            margin: 0
+  #headers
+    float: left
+    width: 100%
+    background: url('/images/filterBar.png')
+    font-weight: bold
+    margin-bottom: 1px
+
+#file-container
+  clear: both
+  margin: 0
+  .row-container
+    padding: 3px 0
+    list-style: none
+    &:hover
+      background: transparent url('/images/highlight.png') repeat-x top left
+    &.folder .name a.details
+      background-image: url('/images/folder.png')
+      &.shared
+        background-image: url('/images/folderShared.png')
+    &.upFolder .name a
+      background: transparent url('/images/up.png') no-repeat left top
+      padding-left: 20px
+    .name a
+      &:hover
+        text-decoration: underline
+      &.details
+        background: transparent url('/images/file.png') no-repeat left bottom
+        text-indent: -9999px
+        width: 17px
+        height: 17px
+        margin-right: 5px
+        float: left
+        &:hover
+          background-position: -1px 0
+        &.txtFileType
+          background-image: url('/images/page_white_text.png')
+        &.pdfFileType
+          background-image: url('/images/page_white_acrobat.png')
+        &.zipFileType
+          background-image: url('/images/page_white_compressed.png')
+        &.jpgFileType, &.jpegFileType, &.pngFileType, &.gifFileType
+          background-image: url('/images/page_white_picture.png')
+        &.docFileType, &.docxFileType
+          background-image: url('/images/page_white_word.png')
+        &.pptFileType, &.pptxFileType
+          background-image: url('/images/page_white_powerpoint.png')
+        &.xlsFileType, &.xlsxFileType
+          background-image: url('/images/page_white_excel.png')
+
+#file-container, #headers
+  .mark-it, .name, .ext, .size, .description, .date, .attr
+    float: left
+    overflow: hidden
+    height: 17px
+  .mark-it
+    width: 2%
+    margin-left: 5px
+  .name
+    width: 37%
+  .ext
+    width: 5%
+  .size
+    width: 10%
+  .description
+    width: 30%
+  .date
+    width: 15%
+  .attr
+    width: 5%
+
+#push, #bottom-bar
+  height: 91px
+
+#bottom-bar
+  background: url('/images/taskbar.png') repeat-x $toolbarBg
+  #bottom-bar-padder
+    margin: 0 auto
+    padding: 6px 0
+    width: 640px
+    .icon-link
+      width: 80px
+      float: left
+      color: #333333
+      font-weight: bold
+      font-size: 8pt
+      text-align: center
+      padding-top: 60px
+      padding-bottom: 7px
+      -moz-border-radius: 10px
+      -webkit-border-radius: 10px
+      -khtml-border-radius: 10px
+      border-radius: 10px
+      background-repeat: no-repeat
+      background-position: center top
+      background-color: transparent
+      -webkit-user-select: none
+      -khtml-user-select: none
+      -moz-user-select: none
+      -o-user-select: none
+      user-select: none
+      &:hover
+        background-color: #5E5E5E
+        color: silver
+      &.download
+        background-image: url('/images/icons/download.png')
+
+#bottom-bar .icon-link, #cboxLoadedContent h2
+  &.download
+    background-image: url('/images/icons/download.png')
+  &.upload
+    background-image: url('/images/icons/upload.png')
+  &.newFolder
+    background-image: url('/images/icons/newFolder.png')
+  &.hotlink
+    background-image: url('/images/icons/hotlink.png')
+  &.move
+    background-image: url('/images/icons/move.png')
+  &.rename, &.details
+    background-image: url('/images/icons/rename.png')
+  &.delete
+    background-image: url('/images/icons/delete.png')
+  &.exit
+    background-image: url('/images/icons/exit.png')
+
+#loader
+  background: transparent url('/images/loading.gif') no-repeat top center
+  height: 20px
+
+#newAsset
+  #loader
+    display: none
+    width: 100%
+    margin: 25px 0
+  &.loading
+    form
+      display: none
+    #loader
+      display: block
+
+/****** END MAIN PAGES *******/
+
+#cboxLoadedContent 
+  #folder_inherit_permissions
+    float: none
+    clear: none
+    margin-left: 10px
+
+ul#permissions
+  clear: left
+  margin-left: 5px
+  li
+    float: left
+    clear: left
+    display: block
+    background: transparent url('/images/bullet_black.png') no-repeat top left
+    list-style: none
+    padding-left: 20px
+    span
+      &.permName
+        float: left
+        margin-right: 5px
+        a:hover
+          text-decoration: underline
+      &.permission
+        background-repeat: no-repeat
+        width: 16px
+        height: 16px
+        text-indent: -9999px
+        float: right
+        margin: 0 2px
+        &.inherited
+          background: transparent url('/images/inherited.png') no-repeat top left
+        &.read
+          background-image: url('/images/eye.png')
+        &.delete
+          background-image: url('/images/cross.png')
+
+
+
+ul#permissions li span.permission.write, p#permissions .write_perms label
+  background-image: url('/images/pencil.png')
+
+p#permissions
+  .delete_perms label
+    background-image: url('/images/cross.png')
+  .read_perms label
+    background-image: url('/images/eye.png')
+  span.permission
+    margin-right: 10px
+    label
+      background-repeat: no-repeat
+      padding-left: 20px
+    
+
+/*************** Move Folder ****************/
+
+#moveDialogLoading
+  float: right
+  height: 32px
+  width: 32px
+  display: block
+  background: transparent url('/images/colorbox/loading.gif') no-repeat top left
+  display: none
+
+#folderMove
+  width: 400px
+  height: 350px
+  overflow: auto
+  padding: 5px 5px 5px 0
+  border: 1px solid silver
+  ul
+    margin-left: 20px
+    list-style: none
+  #folderRoot
+    margin-left: 5px
+  li
+    margin: 1px 0
+    a
+      background: transparent url('/images/folderOpen.png') no-repeat center left
+      padding: 2px 5px 2px 16px
+      -webkit-user-select: none
+      -khtml-user-select: none
+      -moz-user-select: none
+      -o-user-select: none
+      user-select: none
+      &.opened
+        background-image: url('/images/folderClose.png')
+      &.selected
+        background-color: #B2B2B2
+    &.disabled a
+      color: gray
+      background-image: url('/images/folderUnavailable.png')
+
+/**************End of Move Folder *************/
+
+/****** HOTLINK *********/
+
+#hotlinkResult
+  margin: 0 5px 5px 5px
+  #link
+    padding: 5px
+    border: 1px solid gray
+    background-color: #D6D6D6
+    -moz-border-radius: 4px
+    -webkit-border-radius: 4px
+    -khtml-border-radius: 4px
+    border-radius: 4px
+    text-align: center
+    width: 300px
+    margin-bottom: 5px
+
+#hotlinkError
+  color: red
+  display: none
+
+/****** End of Hotlink *********/
+
+/****** OVERLAY *********/
+
+#overlay
+  /* must be initially hidden*/
+  display: none
+  /* place overlay on top of other elements*/
+  z-index: 10000
+  /* styling*/
+  background-color: #dddddd
+  width: 675px
+  min-height: 500px
+  border: 1px solid #666
+  /* CSS3 styling for latest browsers*/
+  -moz-box-shadow: 0 0 90px 5px #000
+  -webkit-box-shadow: 0 0 90px #000
+
+/****** End of OVERLAY **********/
+
+/****** User Search **********/
+
+#userGroupSearch
+  float: left
+  min-width: 455px
+  margin-bottom: 10px
+
+#searchResult.loading
+  background: white url('/images/colorbox/loading.gif') no-repeat top center
+
+#userGroupSearch
+  #query, &#inactive, label
+    margin-top: 3px
+  input
+    margin-right: 10px
+    &#query
+      width: 300px
+  .search
+    float: right
+  #searchResult
+    clear: left
+    float: left
+    width: 100%
+    min-height: 30px
+    ul
+      margin: 0
+      list-style: none
+      li
+        a
+          background: transparent url('/images/bullet_green.png') no-repeat left center
+          padding-left: 20px
+          &#moreUsers
+            background: none
+          &:hover
+            text-decoration: underline
+        &.inactive a
+          background: transparent url('/images/bullet_red.png') no-repeat left center  
+    .selectable ul li a
+      background-image: none
+      background-color: #ddd
+      padding: 3px 5px
+      margin: 2px 0
+      display: block
+      &:hover
+        background-color: #ccc
+        text-decoration: none
+      &.selected
+        background-color: #aaa
+  
+
+/****** End of User Search *******/
+
+/***************** Page Numbers ***************/
+
+.pagination
+  text-align: center
+  margin-top: 20px
+  a, em.current, .disabled
+    padding: 7px
+    border: 1px solid silver
+    margin: 2px
+  a:hover, em.current
+    text-decoration: none
+    background-color: #dcdcdc
+  .disabled
+    color: gray
+
+/****************** End of Page Numbers *****************/

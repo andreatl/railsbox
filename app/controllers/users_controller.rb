@@ -25,9 +25,7 @@ class UsersController < ApplicationController
       
       #send email to admin
       begin
-        config = File.open('config.txt', 'r')
-        to = config.readlines[0].chomp
-        config.close
+        to = APP_CONFIG['admin_email_address']
         UserMailer.user_registered(@user, to).deliver
       rescue
       end

@@ -14,7 +14,6 @@ gem 'meta_where'
 gem 'meta_search'
 gem 'perch'
 
-
 group :development do
 	gem 'mongrel'	
 	gem 'ruby-debug'

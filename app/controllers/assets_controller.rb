@@ -66,6 +66,12 @@ class AssetsController < ApplicationController
   def create
     @asset = Asset.new(params[:asset])
     @asset.user_id = @current_user.id
+    
+    
+    puts "----------------------------------size"
+    puts @asset.uploaded_file_file_size
+    
+    
     if @asset.save
       if @asset.folder_id
         flash[:error] = "File Uploaded"

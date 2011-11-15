@@ -1,0 +1,46 @@
+/* line 1, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent {
+  margin: 0;
+}
+
+/* line 5, ../../app/stylesheets/colorbox_custom.sass */
+#cboxClose {
+  top: 0;
+}
+
+/* line 11, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent #content {
+  margin: 0;
+  padding: 0;
+}
+/* line 17, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent h2 {
+  margin-right: 30px;
+  padding: 0 0 10px 0;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+/* line 35, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent h2.icon {
+  padding: 15px 0 15px 55px;
+  background-repeat: no-repeat;
+  background-position: left middle;
+}
+/* line 43, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent #singleMessage {
+  margin: 5px 40px 5px 10px;
+  display: block;
+}
+/* line 49, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent .actions {
+  clear: both;
+  display: block;
+}
+/* line 55, ../../app/stylesheets/colorbox_custom.sass */
+#cboxLoadedContent .actions .button {
+  float: left;
+}

@@ -356,7 +356,7 @@ $(document).ready(function() {
       if(valid == true) {
         $('#new_hotlink').ajaxSubmit({success: function(responseText){
           $.colorbox({
-              html : $('#content',responseText).html(),
+              html : responseText,
               onComplete : function() {
                 $.colorbox.resize();
                 $('#link').click(function() {

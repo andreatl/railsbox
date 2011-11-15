@@ -93,6 +93,14 @@ class User < ActiveRecord::Base
   def can_home?
     can_home || is_admin
   end
+  
+  def space_used
+    assets.inject(:+)
+  end
+  
+  def space_remaining
+    config.user_space
+  end
 
 end
 
