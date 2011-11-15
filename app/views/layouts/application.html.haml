@@ -18,9 +18,17 @@
               = content_tag :li, msg, :id => "flash_#{name}"
           #user-bar
             #user-bar-padder
-              Logged in as #{current_user.email}
-              |
-              \#{link_to 'Logout', log_out_url}
+              %span
+                Logged in as #{current_user.email}
+                |
+                Space: 
+                = number_to_human_size(current_user.space_used, :precision => 3)
+              #disk-space
+                %a#used-space{:style => "width: #{current_user.space_percentage}%", :title => "#{number_to_human_size(current_user.space_remaining, :precision => 3)} remaining"}
+              %span
+                = number_to_human_size(APP_CONFIG['user_disk_space'].to_i, :precision => 3) 
+                |
+                \#{link_to 'Logout', log_out_url}
       - end unless params[:controller] == 'sessions'
       #content{:class => "#{yield :contentClass}"}
         = yield

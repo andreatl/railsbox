@@ -7,3 +7,5 @@ assets/
 config.txt
 *.tmp
 config/config.yml
+*.scssc
+*.sassc

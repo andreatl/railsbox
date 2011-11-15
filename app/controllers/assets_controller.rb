@@ -67,21 +67,16 @@ class AssetsController < ApplicationController
     @asset = Asset.new(params[:asset])
     @asset.user_id = @current_user.id
     
-    
-    puts "----------------------------------size"
-    puts @asset.uploaded_file_file_size
-    
-    
-    if @asset.save
-      if @asset.folder_id
-        flash[:error] = "File Uploaded"
-        redirect_to @asset.folder
-      else
-        flash[:error] = "File Uploaded"  
-        redirect_to root_path
-      end  
+    if @asset.uploaded_file_file_size > @current_user.space_remaining
+      flash[:error] = "You do not have enough free space"
+      redirect_to (@asset.folder_id ? @asset.folder : root_path) 
     else
-      render :action => 'new'
+      if @asset.save
+        flash[:error] = "File Uploaded"
+        redirect_to (@asset.folder_id ? @asset.folder : root_path)
+      else
+        render :action => 'new'
+      end  
     end
   end
 

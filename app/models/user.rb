@@ -95,11 +95,15 @@ class User < ActiveRecord::Base
   end
   
   def space_used
-    assets.inject(:+)
+    assets.map{|x| x.uploaded_file_file_size}.inject(:+)
   end
   
   def space_remaining
-    config.user_space
+    APP_CONFIG['user_disk_space'].to_i - space_used
+  end
+  
+  def space_percentage
+    ((space_used.to_f/APP_CONFIG['user_disk_space'].to_f)* 100).to_i
   end
 
 end
