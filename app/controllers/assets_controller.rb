@@ -127,6 +127,7 @@ class AssetsController < ApplicationController
         @log_file_path = "/" + @asset.folder.breadcrumbs
       end
       @log_file_path = @log_file_path + "/" + @asset.uploaded_file_file_name
+      @log_parameters = "id=#{@asset.id}&name=#{@asset.uploaded_file_file_name}"
     elsif @assets
       @log_target_id = @assets.collect{|a| a.id}.join(', ')
       if @assets.count > 1
