@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
    
   skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
-  skip_after_filter :log, :only=>[:resetPassword]
+  skip_after_filter :log, :only=>[:resetPassword, :disk_space, :searchUsersResult]
   before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :update]
   before_filter :mailer_set_url_options, :only=>[:create,:updatePassword]
   before_filter :get_max_users, :only => [:searchUsersResult]
-  skip_after_filter :log, :only => [:searchUsersResult]
-  after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :resetPassword, :updatePassword]
+  after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :resetPassword, :updatePassword, :disk_space]
   
   
   def index
@@ -92,6 +91,9 @@ class UsersController < ApplicationController
   end
   
   def resetPassword
+  end
+  
+  def disk_space
   end
   
   def changePassword

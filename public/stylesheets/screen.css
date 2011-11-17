@@ -151,38 +151,38 @@ h2 {
 
 /* line 30, ../../app/stylesheets/screen.sass */
 h3 {
-  font-size: 1.6em;
+  font-size: 1.4em;
 }
 
 /* line 32, ../../app/stylesheets/screen.sass */
-h4 {
-  font-size: 1.2em;
-}
-
-/* line 34, ../../app/stylesheets/screen.sass */
 a {
   text-decoration: none;
   color: #333333;
 }
 
-/* line 37, ../../app/stylesheets/screen.sass */
+/* line 35, ../../app/stylesheets/screen.sass */
 strong {
   font-weight: bold;
 }
 
-/* line 39, ../../app/stylesheets/screen.sass */
+/* line 37, ../../app/stylesheets/screen.sass */
 .hidden {
   display: none;
 }
 
-/* line 42, ../../app/stylesheets/screen.sass */
+/* line 40, ../../app/stylesheets/screen.sass */
 .clear {
   clear: both;
 }
 
-/* line 45, ../../app/stylesheets/screen.sass */
+/* line 43, ../../app/stylesheets/screen.sass */
 .error {
   color: red;
+}
+
+/* line 46, ../../app/stylesheets/screen.sass */
+.left {
+  float: left;
 }
 
 /* line 49, ../../app/stylesheets/screen.sass */
@@ -223,36 +223,33 @@ ul {
 /* line 72, ../../app/stylesheets/screen.sass */
 #wrapper {
   min-width: 970px;
-  min-height: 100%;
-  height: auto !important;
-  margin: 0 auto -91px;
 }
-/* line 77, ../../app/stylesheets/screen.sass */
+/* line 74, ../../app/stylesheets/screen.sass */
 #wrapper #content {
   clear: both;
-  margin: 0px 15px 15px 15px;
+  margin: 30px 15px 15px 15px;
   padding: 15px;
   border-radius: 10px 10px 10px 10px;
   background-color: white;
+  /*Groups */
 }
-/* line 83, ../../app/stylesheets/screen.sass */
+/* line 80, ../../app/stylesheets/screen.sass */
 #wrapper #content ul {
   list-style: disc;
 }
-/* line 85, ../../app/stylesheets/screen.sass */
+/* line 82, ../../app/stylesheets/screen.sass */
 #wrapper #content.fileBrowser {
   margin: 0px;
   padding: 0 0 91px 0;
   border-radius: 0px;
   background-color: transparent;
-  /*Groups */
 }
-/* line 91, ../../app/stylesheets/screen.sass */
-#wrapper #content.fileBrowser ul.listWithDelete {
+/* line 88, ../../app/stylesheets/screen.sass */
+#wrapper #content ul.listWithDelete {
   margin: 0;
 }
-/* line 93, ../../app/stylesheets/screen.sass */
-#wrapper #content.fileBrowser ul.listWithDelete li {
+/* line 90, ../../app/stylesheets/screen.sass */
+#wrapper #content ul.listWithDelete li {
   margin: 3px 0;
   float: left;
   clear: left;
@@ -265,18 +262,18 @@ ul {
   border-radius: 4px;
   border: 1px solid silver;
 }
-/* line 105, ../../app/stylesheets/screen.sass */
-#wrapper #content.fileBrowser ul.listWithDelete li a {
+/* line 102, ../../app/stylesheets/screen.sass */
+#wrapper #content ul.listWithDelete li a {
   float: left;
   margin: 6px;
 }
-/* line 108, ../../app/stylesheets/screen.sass */
-#wrapper #content.fileBrowser ul.listWithDelete li form {
+/* line 105, ../../app/stylesheets/screen.sass */
+#wrapper #content ul.listWithDelete li form {
   float: right;
 }
 
 /**** Buttons *** */
-/* line 111, ../../app/stylesheets/screen.sass */
+/* line 108, ../../app/stylesheets/screen.sass */
 .button {
   border: 1px solid silver;
   -moz-border-radius: 4px;
@@ -300,101 +297,114 @@ ul {
   cursor: pointer;
   width: auto;
 }
-/* line 133, ../../app/stylesheets/screen.sass */
+/* line 130, ../../app/stylesheets/screen.sass */
 .button:hover {
   border-width: 2px;
   margin: 2px;
 }
-/* line 136, ../../app/stylesheets/screen.sass */
+/* line 133, ../../app/stylesheets/screen.sass */
 .button.large {
   padding: 10px 15px;
   font-size: 1.2em;
 }
-/* line 139, ../../app/stylesheets/screen.sass */
-.button.save {
-  background-image: url("/images/save.png");
-}
-/* line 141, ../../app/stylesheets/screen.sass */
-.button.edit {
-  background-image: url("/images/page_white_edit.png");
-}
-/* line 143, ../../app/stylesheets/screen.sass */
-.button.delete {
-  background-image: url("/images/delete.png");
-}
-/* line 145, ../../app/stylesheets/screen.sass */
-.button.login {
-  background-image: url("/images/user_go.png");
-}
-/* line 147, ../../app/stylesheets/screen.sass */
-.button.search {
-  background-image: url("/images/search.png");
-}
-/* line 149, ../../app/stylesheets/screen.sass */
-.button.upload {
-  background-image: url("/images/upload.png");
-}
-/* line 151, ../../app/stylesheets/screen.sass */
-.button.newFolder {
-  background-image: url("/images/newFolder.png");
-}
-/* line 153, ../../app/stylesheets/screen.sass */
-.button.createLink {
-  background-image: url("/images/createLink.png");
-}
-/* line 155, ../../app/stylesheets/screen.sass */
-.button.move {
-  background-image: url("/images/move.png");
-}
-/* line 157, ../../app/stylesheets/screen.sass */
-.button.addPermission {
-  background-image: url("/images/key_add.png");
-}
-/* line 159, ../../app/stylesheets/screen.sass */
-.button.download {
-  background-image: url("/images/download.png");
-}
-/* line 161, ../../app/stylesheets/screen.sass */
-.button.edit {
-  background-image: url("/images/pencil.png");
-}
-/* line 163, ../../app/stylesheets/screen.sass */
-.button.new {
-  background-image: url("/images/add.png");
-}
-/* line 165, ../../app/stylesheets/screen.sass */
-.button.back {
-  background-image: url("/images/arrow_left.png");
-}
 
-/* line 167, ../../app/stylesheets/screen.sass */
+/* line 136, ../../app/stylesheets/screen.sass */
 input.button {
   padding: 2px 6px 2px 27px;
 }
 
+/* line 138, ../../app/stylesheets/screen.sass */
+.icon-only {
+  height: 16px;
+  width: 16px;
+  margin: 0 5px;
+  float: left;
+}
+
+/* line 144, ../../app/stylesheets/screen.sass */
+.icon-only.save, .button.save {
+  background-image: url("/images/save.png");
+}
+/* line 146, ../../app/stylesheets/screen.sass */
+.icon-only.delete, .button.delete {
+  background-image: url("/images/delete.png");
+}
+/* line 148, ../../app/stylesheets/screen.sass */
+.icon-only.login, .button.login {
+  background-image: url("/images/user_go.png");
+}
+/* line 150, ../../app/stylesheets/screen.sass */
+.icon-only.search, .button.search {
+  background-image: url("/images/search.png");
+}
+/* line 152, ../../app/stylesheets/screen.sass */
+.icon-only.upload, .button.upload {
+  background-image: url("/images/upload.png");
+}
+/* line 154, ../../app/stylesheets/screen.sass */
+.icon-only.newFolder, .button.newFolder {
+  background-image: url("/images/newFolder.png");
+}
+/* line 156, ../../app/stylesheets/screen.sass */
+.icon-only.createLink, .button.createLink {
+  background-image: url("/images/createLink.png");
+}
+/* line 158, ../../app/stylesheets/screen.sass */
+.icon-only.move, .button.move {
+  background-image: url("/images/move.png");
+}
+/* line 160, ../../app/stylesheets/screen.sass */
+.icon-only.addPermission, .button.addPermission {
+  background-image: url("/images/key_add.png");
+}
+/* line 162, ../../app/stylesheets/screen.sass */
+.icon-only.download, .button.download {
+  background-image: url("/images/download.png");
+}
+/* line 164, ../../app/stylesheets/screen.sass */
+.icon-only.edit, .button.edit {
+  background-image: url("/images/pencil.png");
+}
+/* line 166, ../../app/stylesheets/screen.sass */
+.icon-only.new, .button.new {
+  background-image: url("/images/add.png");
+}
+/* line 168, ../../app/stylesheets/screen.sass */
+.icon-only.back, .button.back {
+  background-image: url("/images/arrow_left.png");
+}
+/* line 170, ../../app/stylesheets/screen.sass */
+.icon-only.cross, .button.cross {
+  background-image: url("/images/cross.png");
+}
+/* line 172, ../../app/stylesheets/screen.sass */
+.icon-only.tick, .button.tick {
+  background-image: url("/images/tick.png");
+}
+
 /***  LOGON PAGE ******* */
-/* line 174, ../../app/stylesheets/screen.sass */
+/* line 179, ../../app/stylesheets/screen.sass */
 #logon-box {
   width: 600px;
   margin: 0px auto;
   margin-top: 100px;
 }
-/* line 178, ../../app/stylesheets/screen.sass */
+/* line 183, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder {
   padding: 10px;
 }
-/* line 180, ../../app/stylesheets/screen.sass */
+/* line 185, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul {
   float: right;
   list-style: none;
   margin: 0 50px;
 }
-/* line 184, ../../app/stylesheets/screen.sass */
+/* line 189, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul li {
   margin-left: 10px;
   float: left;
 }
-/* line 187, ../../app/stylesheets/screen.sass */
+/* line 192, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul li a {
   text-decoration: none;
   color: #333333;
@@ -410,11 +420,11 @@ input.button {
   -moz-border-radius-topLeft: 0.5em;
   -webkit-border-radius-topleft: 0.5em;
 }
-/* line 201, ../../app/stylesheets/screen.sass */
+/* line 206, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul li a:hover {
   background-color: #aaaaaa;
 }
-/* line 203, ../../app/stylesheets/screen.sass */
+/* line 208, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main {
   background-color: white;
   padding: 40px 0;
@@ -423,11 +433,11 @@ input.button {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
 }
-/* line 210, ../../app/stylesheets/screen.sass */
+/* line 215, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #logo_holder {
   float: left;
 }
-/* line 212, ../../app/stylesheets/screen.sass */
+/* line 217, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #form-holder {
   font-size: 8pt;
   float: right;
@@ -435,12 +445,12 @@ input.button {
   padding-left: 30px;
   border-left: 1px dotted #333333;
 }
-/* line 218, ../../app/stylesheets/screen.sass */
+/* line 223, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #form-holder label {
   float: left;
   width: 100px;
 }
-/* line 221, ../../app/stylesheets/screen.sass */
+/* line 226, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #actions-holder {
   background: url("/images/logonStrip.png") -10px 0px repeat-x;
   padding: 30px 30px;
@@ -448,84 +458,89 @@ input.button {
 
 /**** END LOGON PAGE ******* */
 /***** MAIN PAGES ********** */
-/* line 229, ../../app/stylesheets/screen.sass */
+/* line 234, ../../app/stylesheets/screen.sass */
 #top-menu {
   font-weight: bold;
   width: 100%;
   font-size: 11px;
+  position: fixed;
+  top: 0;
+  background: url("/images/taskbar.png") repeat scroll 0 0 white;
 }
-/* line 233, ../../app/stylesheets/screen.sass */
+/* line 241, ../../app/stylesheets/screen.sass */
+#top-menu .menu-item {
+  display: block;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+/* line 246, ../../app/stylesheets/screen.sass */
+#top-menu a.menu-item {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 250, ../../app/stylesheets/screen.sass */
+#top-menu a.menu-item:hover {
+  background-color: #a7a7a7;
+}
+/* line 252, ../../app/stylesheets/screen.sass */
+#top-menu #logout {
+  float: right;
+}
+/* line 254, ../../app/stylesheets/screen.sass */
 #top-menu ul#actions-menu {
   margin: 0;
   padding: 0;
 }
-/* line 236, ../../app/stylesheets/screen.sass */
+/* line 257, ../../app/stylesheets/screen.sass */
 #top-menu ul#actions-menu li {
   float: left;
   list-style: none;
-  padding: 5px 10px;
 }
-/* line 240, ../../app/stylesheets/screen.sass */
-#top-menu ul#actions-menu li a:hover {
-  text-decoration: underline;
-}
-/* line 242, ../../app/stylesheets/screen.sass */
+/* line 260, ../../app/stylesheets/screen.sass */
 #top-menu #user-bar {
   float: right;
-  padding: 5px 10px;
+  margin: 7px 5px;
 }
-/* line 245, ../../app/stylesheets/screen.sass */
-#top-menu #user-bar #user-bar-padder {
+/* line 263, ../../app/stylesheets/screen.sass */
+#top-menu #user-bar #user_disk_space {
   float: left;
+  margin: 0 10px;
 }
-/* line 247, ../../app/stylesheets/screen.sass */
-#top-menu #user-bar #user-bar-padder span {
-  float: left;
-}
-/* line 249, ../../app/stylesheets/screen.sass */
-#top-menu #user-bar #user-bar-padder #disk-space {
+/* line 266, ../../app/stylesheets/screen.sass */
+#top-menu #user-bar #user_disk_space #disk-space {
   float: left;
   width: 200px;
   border: 1px solid black;
-  margin: 2px 5px;
   background: #dbdbdb;
   overflow: hidden;
+  margin: 1px 5px;
 }
-/* line 256, ../../app/stylesheets/screen.sass */
-#top-menu #user-bar #user-bar-padder #disk-space #used-space {
+/* line 273, ../../app/stylesheets/screen.sass */
+#top-menu #user-bar #user_disk_space #disk-space #used-space {
   float: left;
   height: 7px;
-  background: #7a7a7a;
-}
-/* line 260, ../../app/stylesheets/screen.sass */
-#top-menu #user-bar #user-quota-bar {
-  float: left;
-  background-color: white;
-  border: 1px solid #eeeeee;
-  width: 250px;
-  height: 15px;
-  margin: 2px 10px;
-  float: left;
+  background: #5b5b5b;
 }
 
-/* line 269, ../../app/stylesheets/screen.sass */
+/* line 278, ../../app/stylesheets/screen.sass */
 #topBar {
   background: url("/images/topbar.png") repeat-x top left silver;
-  float: left;
   width: 100%;
-  margin-bottom: 3px;
+  height: 86px;
+  position: fixed;
+  top: 22px;
 }
-/* line 274, ../../app/stylesheets/screen.sass */
+/* line 284, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar {
   margin: 5px 4px 2px 4px;
 }
-/* line 276, ../../app/stylesheets/screen.sass */
+/* line 286, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs {
   margin: 12px 0 8px 4px;
   clear: left;
   float: left;
 }
-/* line 280, ../../app/stylesheets/screen.sass */
+/* line 290, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs a {
   float: left;
   padding: 2px 4px;
@@ -535,11 +550,11 @@ input.button {
   border-radius: 4px;
   background-color: #a3a3a3;
 }
-/* line 288, ../../app/stylesheets/screen.sass */
+/* line 298, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs a:hover {
   background-color: #cccccc;
 }
-/* line 290, ../../app/stylesheets/screen.sass */
+/* line 300, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs p {
   float: left;
   padding: 2px 4px;
@@ -549,7 +564,7 @@ input.button {
   border-radius: 4px;
   margin: 0;
 }
-/* line 298, ../../app/stylesheets/screen.sass */
+/* line 308, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs .breadcrumbsNext {
   width: 16px;
   height: 16px;
@@ -560,25 +575,29 @@ input.button {
   float: left;
   margin: 0 2px;
 }
-/* line 308, ../../app/stylesheets/screen.sass */
+/* line 318, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar form label {
   float: left;
-  margin: 4px 5px 0 4px;
+  margin: 6px 5px 0 4px;
 }
-/* line 311, ../../app/stylesheets/screen.sass */
+/* line 321, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar form input {
   float: left;
-  margin: 4px 10px 4px 0;
+  margin: 4px 5px 0 0;
 }
-/* line 314, ../../app/stylesheets/screen.sass */
-#topBar #innerTopBar form input.search {
+/* line 324, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar form input#search_query {
+  padding: 0;
+}
+/* line 326, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar form input.search.button {
   margin: 1px;
 }
-/* line 316, ../../app/stylesheets/screen.sass */
-#topBar #innerTopBar form input.search:hover {
+/* line 328, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar form input.search.button:hover {
   margin: 0;
 }
-/* line 318, ../../app/stylesheets/screen.sass */
+/* line 330, ../../app/stylesheets/screen.sass */
 #topBar #headers {
   float: left;
   width: 100%;
@@ -587,38 +606,39 @@ input.button {
   margin-bottom: 1px;
 }
 
-/* line 325, ../../app/stylesheets/screen.sass */
+/* line 337, ../../app/stylesheets/screen.sass */
 #file-container {
   clear: both;
+  padding: 109px 0 0 0;
   margin: 0;
 }
-/* line 328, ../../app/stylesheets/screen.sass */
+/* line 341, ../../app/stylesheets/screen.sass */
 #file-container .row-container {
   padding: 3px 0;
   list-style: none;
 }
-/* line 331, ../../app/stylesheets/screen.sass */
+/* line 344, ../../app/stylesheets/screen.sass */
 #file-container .row-container:hover {
   background: transparent url("/images/highlight.png") repeat-x top left;
 }
-/* line 333, ../../app/stylesheets/screen.sass */
+/* line 346, ../../app/stylesheets/screen.sass */
 #file-container .row-container.folder .name a.details {
   background-image: url("/images/folder.png");
 }
-/* line 335, ../../app/stylesheets/screen.sass */
+/* line 348, ../../app/stylesheets/screen.sass */
 #file-container .row-container.folder .name a.details.shared {
   background-image: url("/images/folderShared.png");
 }
-/* line 337, ../../app/stylesheets/screen.sass */
+/* line 350, ../../app/stylesheets/screen.sass */
 #file-container .row-container.upFolder .name a {
   background: transparent url("/images/up.png") no-repeat left top;
   padding-left: 20px;
 }
-/* line 341, ../../app/stylesheets/screen.sass */
+/* line 354, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a:hover {
   text-decoration: underline;
 }
-/* line 343, ../../app/stylesheets/screen.sass */
+/* line 356, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details {
   background: transparent url("/images/file.png") no-repeat left bottom;
   text-indent: -9999px;
@@ -627,91 +647,89 @@ input.button {
   margin-right: 5px;
   float: left;
 }
-/* line 350, ../../app/stylesheets/screen.sass */
+/* line 363, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details:hover {
   background-position: -1px 0;
 }
-/* line 352, ../../app/stylesheets/screen.sass */
+/* line 365, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.txtFileType {
   background-image: url("/images/page_white_text.png");
 }
-/* line 354, ../../app/stylesheets/screen.sass */
+/* line 367, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.pdfFileType {
   background-image: url("/images/page_white_acrobat.png");
 }
-/* line 356, ../../app/stylesheets/screen.sass */
+/* line 369, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.zipFileType {
   background-image: url("/images/page_white_compressed.png");
 }
-/* line 358, ../../app/stylesheets/screen.sass */
+/* line 371, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.jpgFileType, #file-container .row-container .name a.details.jpegFileType, #file-container .row-container .name a.details.pngFileType, #file-container .row-container .name a.details.gifFileType {
   background-image: url("/images/page_white_picture.png");
 }
-/* line 360, ../../app/stylesheets/screen.sass */
+/* line 373, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.docFileType, #file-container .row-container .name a.details.docxFileType {
   background-image: url("/images/page_white_word.png");
 }
-/* line 362, ../../app/stylesheets/screen.sass */
+/* line 375, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.pptFileType, #file-container .row-container .name a.details.pptxFileType {
   background-image: url("/images/page_white_powerpoint.png");
 }
-/* line 364, ../../app/stylesheets/screen.sass */
+/* line 377, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.xlsFileType, #file-container .row-container .name a.details.xlsxFileType {
   background-image: url("/images/page_white_excel.png");
 }
 
-/* line 368, ../../app/stylesheets/screen.sass */
+/* line 381, ../../app/stylesheets/screen.sass */
 #file-container .mark-it, #file-container .name, #file-container .ext, #file-container .size, #file-container .description, #file-container .date, #file-container .attr, #headers .mark-it, #headers .name, #headers .ext, #headers .size, #headers .description, #headers .date, #headers .attr {
   float: left;
   overflow: hidden;
   height: 17px;
 }
-/* line 372, ../../app/stylesheets/screen.sass */
+/* line 385, ../../app/stylesheets/screen.sass */
 #file-container .mark-it, #headers .mark-it {
   width: 2%;
-  margin-left: 5px;
 }
-/* line 375, ../../app/stylesheets/screen.sass */
+/* line 387, ../../app/stylesheets/screen.sass */
 #file-container .name, #headers .name {
   width: 37%;
 }
-/* line 377, ../../app/stylesheets/screen.sass */
+/* line 389, ../../app/stylesheets/screen.sass */
 #file-container .ext, #headers .ext {
   width: 5%;
 }
-/* line 379, ../../app/stylesheets/screen.sass */
+/* line 391, ../../app/stylesheets/screen.sass */
 #file-container .size, #headers .size {
-  width: 10%;
+  width: 8%;
 }
-/* line 381, ../../app/stylesheets/screen.sass */
+/* line 393, ../../app/stylesheets/screen.sass */
 #file-container .description, #headers .description {
   width: 30%;
 }
-/* line 383, ../../app/stylesheets/screen.sass */
+/* line 395, ../../app/stylesheets/screen.sass */
 #file-container .date, #headers .date {
   width: 15%;
 }
-/* line 385, ../../app/stylesheets/screen.sass */
+/* line 397, ../../app/stylesheets/screen.sass */
 #file-container .attr, #headers .attr {
   width: 5%;
 }
 
-/* line 388, ../../app/stylesheets/screen.sass */
-#push, #bottom-bar {
-  height: 91px;
-}
-
-/* line 391, ../../app/stylesheets/screen.sass */
+/* line 400, ../../app/stylesheets/screen.sass */
 #bottom-bar {
   background: url("/images/taskbar.png") repeat-x silver;
+  height: 91px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
-/* line 393, ../../app/stylesheets/screen.sass */
+/* line 406, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder {
   margin: 0 auto;
   padding: 6px 0;
   width: 640px;
 }
-/* line 397, ../../app/stylesheets/screen.sass */
+/* line 410, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder .icon-link {
   width: 80px;
   float: left;
@@ -734,84 +752,84 @@ input.button {
   -o-user-select: none;
   user-select: none;
 }
-/* line 418, ../../app/stylesheets/screen.sass */
+/* line 431, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder .icon-link:hover {
   background-color: #5e5e5e;
   color: silver;
 }
-/* line 421, ../../app/stylesheets/screen.sass */
+/* line 434, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder .icon-link.download {
   background-image: url("/images/icons/download.png");
 }
 
-/* line 425, ../../app/stylesheets/screen.sass */
+/* line 438, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.download, #cboxLoadedContent h2.download {
   background-image: url("/images/icons/download.png");
 }
-/* line 427, ../../app/stylesheets/screen.sass */
+/* line 440, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.upload, #cboxLoadedContent h2.upload {
   background-image: url("/images/icons/upload.png");
 }
-/* line 429, ../../app/stylesheets/screen.sass */
+/* line 442, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.newFolder, #cboxLoadedContent h2.newFolder {
   background-image: url("/images/icons/newFolder.png");
 }
-/* line 431, ../../app/stylesheets/screen.sass */
+/* line 444, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.hotlink, #cboxLoadedContent h2.hotlink {
   background-image: url("/images/icons/hotlink.png");
 }
-/* line 433, ../../app/stylesheets/screen.sass */
+/* line 446, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.move, #cboxLoadedContent h2.move {
   background-image: url("/images/icons/move.png");
 }
-/* line 435, ../../app/stylesheets/screen.sass */
+/* line 448, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.rename, #bottom-bar .icon-link.details, #cboxLoadedContent h2.rename, #cboxLoadedContent h2.details {
   background-image: url("/images/icons/rename.png");
 }
-/* line 437, ../../app/stylesheets/screen.sass */
+/* line 450, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.delete, #cboxLoadedContent h2.delete {
   background-image: url("/images/icons/delete.png");
 }
-/* line 439, ../../app/stylesheets/screen.sass */
+/* line 452, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.exit, #cboxLoadedContent h2.exit {
   background-image: url("/images/icons/exit.png");
 }
 
-/* line 442, ../../app/stylesheets/screen.sass */
+/* line 455, ../../app/stylesheets/screen.sass */
 #loader {
   background: transparent url("/images/loading.gif") no-repeat top center;
   height: 20px;
 }
 
-/* line 447, ../../app/stylesheets/screen.sass */
+/* line 460, ../../app/stylesheets/screen.sass */
 #newAsset #loader {
   display: none;
   width: 100%;
   margin: 25px 0;
 }
-/* line 452, ../../app/stylesheets/screen.sass */
+/* line 465, ../../app/stylesheets/screen.sass */
 #newAsset.loading form {
   display: none;
 }
-/* line 454, ../../app/stylesheets/screen.sass */
+/* line 467, ../../app/stylesheets/screen.sass */
 #newAsset.loading #loader {
   display: block;
 }
 
 /***** END MAIN PAGES ****** */
-/* line 460, ../../app/stylesheets/screen.sass */
+/* line 473, ../../app/stylesheets/screen.sass */
 #cboxLoadedContent #folder_inherit_permissions {
   float: none;
   clear: none;
   margin-left: 10px;
 }
 
-/* line 465, ../../app/stylesheets/screen.sass */
+/* line 478, ../../app/stylesheets/screen.sass */
 ul#permissions {
   clear: left;
   margin-left: 5px;
 }
-/* line 468, ../../app/stylesheets/screen.sass */
+/* line 481, ../../app/stylesheets/screen.sass */
 ul#permissions li {
   float: left;
   clear: left;
@@ -820,16 +838,16 @@ ul#permissions li {
   list-style: none;
   padding-left: 20px;
 }
-/* line 476, ../../app/stylesheets/screen.sass */
+/* line 489, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permName {
   float: left;
   margin-right: 5px;
 }
-/* line 479, ../../app/stylesheets/screen.sass */
+/* line 492, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permName a:hover {
   text-decoration: underline;
 }
-/* line 481, ../../app/stylesheets/screen.sass */
+/* line 494, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission {
   background-repeat: no-repeat;
   width: 16px;
@@ -838,44 +856,44 @@ ul#permissions li span.permission {
   float: right;
   margin: 0 2px;
 }
-/* line 488, ../../app/stylesheets/screen.sass */
+/* line 501, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.inherited {
   background: transparent url("/images/inherited.png") no-repeat top left;
 }
-/* line 490, ../../app/stylesheets/screen.sass */
+/* line 503, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.read {
   background-image: url("/images/eye.png");
 }
-/* line 492, ../../app/stylesheets/screen.sass */
+/* line 505, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.delete {
   background-image: url("/images/cross.png");
 }
 
-/* line 497, ../../app/stylesheets/screen.sass */
+/* line 510, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.write, p#permissions .write_perms label {
   background-image: url("/images/pencil.png");
 }
 
-/* line 501, ../../app/stylesheets/screen.sass */
+/* line 514, ../../app/stylesheets/screen.sass */
 p#permissions .delete_perms label {
   background-image: url("/images/cross.png");
 }
-/* line 503, ../../app/stylesheets/screen.sass */
+/* line 516, ../../app/stylesheets/screen.sass */
 p#permissions .read_perms label {
   background-image: url("/images/eye.png");
 }
-/* line 505, ../../app/stylesheets/screen.sass */
+/* line 518, ../../app/stylesheets/screen.sass */
 p#permissions span.permission {
   margin-right: 10px;
 }
-/* line 507, ../../app/stylesheets/screen.sass */
+/* line 520, ../../app/stylesheets/screen.sass */
 p#permissions span.permission label {
   background-repeat: no-repeat;
   padding-left: 20px;
 }
 
 /************** Move Folder *************** */
-/* line 514, ../../app/stylesheets/screen.sass */
+/* line 527, ../../app/stylesheets/screen.sass */
 #moveDialogLoading {
   float: right;
   height: 32px;
@@ -885,7 +903,7 @@ p#permissions span.permission label {
   display: none;
 }
 
-/* line 522, ../../app/stylesheets/screen.sass */
+/* line 535, ../../app/stylesheets/screen.sass */
 #folderMove {
   width: 400px;
   height: 350px;
@@ -893,20 +911,20 @@ p#permissions span.permission label {
   padding: 5px 5px 5px 0;
   border: 1px solid silver;
 }
-/* line 528, ../../app/stylesheets/screen.sass */
+/* line 541, ../../app/stylesheets/screen.sass */
 #folderMove ul {
   margin-left: 20px;
   list-style: none;
 }
-/* line 531, ../../app/stylesheets/screen.sass */
+/* line 544, ../../app/stylesheets/screen.sass */
 #folderMove #folderRoot {
   margin-left: 5px;
 }
-/* line 533, ../../app/stylesheets/screen.sass */
+/* line 546, ../../app/stylesheets/screen.sass */
 #folderMove li {
   margin: 1px 0;
 }
-/* line 535, ../../app/stylesheets/screen.sass */
+/* line 548, ../../app/stylesheets/screen.sass */
 #folderMove li a {
   background: transparent url("/images/folderOpen.png") no-repeat center left;
   padding: 2px 5px 2px 16px;
@@ -916,15 +934,15 @@ p#permissions span.permission label {
   -o-user-select: none;
   user-select: none;
 }
-/* line 543, ../../app/stylesheets/screen.sass */
+/* line 556, ../../app/stylesheets/screen.sass */
 #folderMove li a.opened {
   background-image: url("/images/folderClose.png");
 }
-/* line 545, ../../app/stylesheets/screen.sass */
+/* line 558, ../../app/stylesheets/screen.sass */
 #folderMove li a.selected {
   background-color: #b2b2b2;
 }
-/* line 547, ../../app/stylesheets/screen.sass */
+/* line 560, ../../app/stylesheets/screen.sass */
 #folderMove li.disabled a {
   color: gray;
   background-image: url("/images/folderUnavailable.png");
@@ -932,11 +950,11 @@ p#permissions span.permission label {
 
 /*************End of Move Folder ************ */
 /***** HOTLINK ******** */
-/* line 555, ../../app/stylesheets/screen.sass */
+/* line 568, ../../app/stylesheets/screen.sass */
 #hotlinkResult {
   margin: 0 5px 5px 5px;
 }
-/* line 557, ../../app/stylesheets/screen.sass */
+/* line 570, ../../app/stylesheets/screen.sass */
 #hotlinkResult #link {
   padding: 5px;
   border: 1px solid gray;
@@ -950,7 +968,7 @@ p#permissions span.permission label {
   margin-bottom: 5px;
 }
 
-/* line 569, ../../app/stylesheets/screen.sass */
+/* line 582, ../../app/stylesheets/screen.sass */
 #hotlinkError {
   color: red;
   display: none;
@@ -958,7 +976,7 @@ p#permissions span.permission label {
 
 /***** End of Hotlink ******** */
 /***** OVERLAY ******** */
-/* line 577, ../../app/stylesheets/screen.sass */
+/* line 590, ../../app/stylesheets/screen.sass */
 #overlay {
   /* must be initially hidden */
   display: none;
@@ -976,100 +994,100 @@ p#permissions span.permission label {
 
 /***** End of OVERLAY ********* */
 /***** User Search ********* */
-/* line 595, ../../app/stylesheets/screen.sass */
+/* line 608, ../../app/stylesheets/screen.sass */
 #userGroupSearch {
   float: left;
   min-width: 455px;
   margin-bottom: 10px;
 }
 
-/* line 600, ../../app/stylesheets/screen.sass */
+/* line 613, ../../app/stylesheets/screen.sass */
 #searchResult.loading {
   background: white url("/images/colorbox/loading.gif") no-repeat top center;
 }
 
-/* line 604, ../../app/stylesheets/screen.sass */
+/* line 617, ../../app/stylesheets/screen.sass */
 #userGroupSearch #query, #userGroupSearch#inactive, #userGroupSearch label {
   margin-top: 3px;
 }
-/* line 606, ../../app/stylesheets/screen.sass */
+/* line 619, ../../app/stylesheets/screen.sass */
 #userGroupSearch input {
   margin-right: 10px;
 }
-/* line 608, ../../app/stylesheets/screen.sass */
+/* line 621, ../../app/stylesheets/screen.sass */
 #userGroupSearch input#query {
   width: 300px;
 }
-/* line 610, ../../app/stylesheets/screen.sass */
+/* line 623, ../../app/stylesheets/screen.sass */
 #userGroupSearch .search {
   float: right;
 }
-/* line 612, ../../app/stylesheets/screen.sass */
+/* line 625, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult {
   clear: left;
   float: left;
   width: 100%;
   min-height: 30px;
 }
-/* line 617, ../../app/stylesheets/screen.sass */
+/* line 630, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul {
   margin: 0;
   list-style: none;
 }
-/* line 621, ../../app/stylesheets/screen.sass */
+/* line 634, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li a {
   background: transparent url("/images/bullet_green.png") no-repeat left center;
   padding-left: 20px;
 }
-/* line 624, ../../app/stylesheets/screen.sass */
+/* line 637, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li a#moreUsers {
   background: none;
 }
-/* line 626, ../../app/stylesheets/screen.sass */
+/* line 639, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li a:hover {
   text-decoration: underline;
 }
-/* line 628, ../../app/stylesheets/screen.sass */
+/* line 641, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li.inactive a {
   background: transparent url("/images/bullet_red.png") no-repeat left center;
 }
-/* line 630, ../../app/stylesheets/screen.sass */
-#userGroupSearch #searchResult .selectable ul li a {
+/* line 643, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult.selectable ul li a {
   background-image: none;
   background-color: #dddddd;
   padding: 3px 5px;
   margin: 2px 0;
   display: block;
 }
-/* line 636, ../../app/stylesheets/screen.sass */
-#userGroupSearch #searchResult .selectable ul li a:hover {
+/* line 649, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult.selectable ul li a:hover {
   background-color: #cccccc;
   text-decoration: none;
 }
-/* line 639, ../../app/stylesheets/screen.sass */
-#userGroupSearch #searchResult .selectable ul li a.selected {
+/* line 652, ../../app/stylesheets/screen.sass */
+#userGroupSearch #searchResult.selectable ul li a.selected {
   background-color: #aaaaaa;
 }
 
 /***** End of User Search ****** */
 /**************** Page Numbers ************** */
-/* line 647, ../../app/stylesheets/screen.sass */
+/* line 660, ../../app/stylesheets/screen.sass */
 .pagination {
   text-align: center;
   margin-top: 20px;
 }
-/* line 650, ../../app/stylesheets/screen.sass */
+/* line 663, ../../app/stylesheets/screen.sass */
 .pagination a, .pagination em.current, .pagination .disabled {
   padding: 7px;
   border: 1px solid silver;
   margin: 2px;
 }
-/* line 654, ../../app/stylesheets/screen.sass */
+/* line 667, ../../app/stylesheets/screen.sass */
 .pagination a:hover, .pagination em.current {
   text-decoration: none;
   background-color: #dcdcdc;
 }
-/* line 657, ../../app/stylesheets/screen.sass */
+/* line 670, ../../app/stylesheets/screen.sass */
 .pagination .disabled {
   color: gray;
 }

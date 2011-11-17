@@ -1,18 +1,23 @@
-%h1 
-  = @user.name  
-%h2 Details
-%p 
-  Company:
+%h2 User Details
+%p
+  %strong
+    Name:
+  = @user.name
+%p
+  %strong
+    Company:
   = @user.company
 %p
-  Email:
+  %strong
+    Email:
   = mail_to @user.email
 %p
-  Contact in Company:
+  %strong
+    Contact in Company:
   = @user.referrer
-
-%h2 Permissions
-- if current_user.is_admin  
+.clear
+- if current_user.is_admin
+  %h2 Rights  
   = form_for @user do |f|
     %p
       = f.label :active
@@ -29,20 +34,37 @@
     .actions
       = f.submit 'Save changes', :class => 'button save'
 - else
-  %ul
+  %p
+    %strong.left
+      User is active: 
     - if @user.active
-      %li
-        Active User
+      %span.tick.icon-only
+    - else
+      %span.cross.icon-only
+  .clear
+  %p
+    %strong.left
+      User can hotlink: 
     - if @user.can_hotlink
-      %li
-        Can Hotlink:
-      
+      %span.tick.icon-only
+    - else
+      %span.cross.icon-only
+  .clear
+  %p
+    %strong.left
+      User can change home: 
+    - if @user.can_home
+      %span.tick.icon-only
+    - else
+      %span.cross.icon-only
+.clear
+= link_to "Change Password", user_password_path, :class => 'button edit' if params[:action] == 'me'
 .clear
   
 %h2 Groups
 - if @user.groups.empty?
   %p
-    %em User belongs to no groups
+    %em User doesn't belong to any groups
 -else
   %ul
     - for group in @user.groups 
@@ -68,7 +90,6 @@
               = link_to folder.breadcrumbs, folder
 .actions
   = button_to "Delete User", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete' unless params[:action] == 'me'
-  = link_to "Change Password", user_password_path, :class => 'button edit'
   - if current_user.is_admin
     = form_tag update_password_path do
       = hidden_field_tag 'email', @user.email

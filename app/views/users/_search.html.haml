@@ -7,11 +7,11 @@
     
     = hidden_field_tag "max_users", "10"
     
-    = label_tag "active_all", "All users: "
+    = label_tag "all", "All users: "
     = radio_button_tag "active", "all",true, :id=>"all"
-    = label_tag "active_true", "Active users: "
+    = label_tag "active", "Active users: "
     = radio_button_tag "active", "true",false, :id=>"active"
-    = label_tag "active_false", "Inactive users: "
+    = label_tag "inactive", "Inactive users: "
     = radio_button_tag "active", "false",false, :id=>"inactive"
     
     = submit_tag 'Search', :id=> 'searchButton', :class => 'button search'

@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 def log
   log_controller = @log_controller || self.controller_name.singularize 
 	log_action = @log_action || self.action_name
-	log_parameters = @log_parameters || ActionController::Base.helpers.sanitize(params.except(:controller,:action,:authenticity_token,:password,:utf8).to_param())
+	log_parameters = @log_parameters || ActionController::Base.helpers.sanitize(params.except(:controller,:action,:authenticity_token,:password,:utf8, :description, :notes).to_param())
 	log_user_id = @log_user_id || current_user.id if current_user 
 	log = Log.new({
   	:user_id =>  log_user_id, 

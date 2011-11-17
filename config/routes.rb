@@ -20,6 +20,7 @@ Railsbox::Application.routes.draw do
   
   match "users/search", :to => "users#searchUsersResult", :via => :post, :as => "user_search"
   match "users/changepassword", :to => "users#changePassword", :as => "user_password"
+  match "disk_space", :to => "users#disk_space"
   resources :users
   
   get "resetpassword" => "users#resetPassword", :as => "reset_password"

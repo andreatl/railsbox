@@ -28,9 +28,7 @@ h1
 h2
   font-size: 1.8em
 h3
-  font-size: 1.6em
-h4
-  font-size: 1.2em
+  font-size: 1.4em
 a
   text-decoration: none
   color: #333333
@@ -45,6 +43,8 @@ strong
 .error
   color: red
 
+.left
+  float: left
 form
   .field
     float: left
@@ -71,12 +71,9 @@ ul
 
 #wrapper
   min-width: 970px
-  min-height: 100%
-  height: auto !important
-  margin: 0 auto -91px 
   #content
     clear: both
-    margin: 0px 15px 15px 15px
+    margin: 30px 15px 15px 15px
     padding: 15px
     border-radius: 10px 10px 10px 10px
     background-color: white
@@ -87,26 +84,26 @@ ul
       padding: 0 0 91px 0 
       border-radius: 0px
       background-color: transparent
-      /*Groups */
-      ul.listWithDelete
-        margin: 0
-        li
-          margin: 3px 0
+    /*Groups */
+    ul.listWithDelete
+      margin: 0
+      li
+        margin: 3px 0
+        float: left
+        clear: left
+        list-style: none
+        min-width: 400px
+        padding: 5px
+        -moz-border-radius: 4px
+        -webkit-border-radius: 4px
+        -khtml-border-radius: 4px
+        border-radius: 4px
+        border: 1px solid silver
+        a
           float: left
-          clear: left
-          list-style: none
-          min-width: 400px
-          padding: 5px
-          -moz-border-radius: 4px
-          -webkit-border-radius: 4px
-          -khtml-border-radius: 4px
-          border-radius: 4px
-          border: 1px solid silver
-          a
-            float: left
-            margin: 6px
-          form
-            float: right
+          margin: 6px
+        form
+          float: right
 /***** Buttons ****/
 .button
   border: 1px solid silver
@@ -136,10 +133,16 @@ ul
   &.large
     padding: 10px 15px
     font-size: 1.2em
+input.button
+  padding: 2px 6px 2px 27px
+.icon-only
+  height: 16px
+  width: 16px
+  margin: 0 5px
+  float: left
+.icon-only,.button
   &.save
     background-image: url('/images/save.png')
-  &.edit
-    background-image: url('/images/page_white_edit.png')
   &.delete
     background-image: url('/images/delete.png')
   &.login
@@ -164,8 +167,10 @@ ul
     background-image: url('/images/add.png')
   &.back
     background-image: url('/images/arrow_left.png')
-input.button
-  padding: 2px 6px 2px 27px
+  &.cross
+    background-image: url('/images/cross.png')
+  &.tick
+    background-image: url('/images/tick.png')
 
 
 
@@ -230,47 +235,52 @@ input.button
   font-weight: bold
   width: 100%
   font-size: 11px
+  position: fixed
+  top: 0
+  background: url("/images/taskbar.png") repeat scroll 0 0 white
+  .menu-item
+    display: block
+    padding:
+      top: 6px
+      bottom: 6px
+  a.menu-item
+    padding:
+      left: 10px
+      right: 10px
+    &:hover
+      background-color: #A7A7A7
+  #logout
+    float: right
   ul#actions-menu
     margin: 0
     padding: 0
     li
       float: left
       list-style: none
-      padding: 5px 10px
-      a:hover
-        text-decoration: underline
   #user-bar
     float: right
-    padding: 5px 10px
-    #user-bar-padder
+    margin: 7px 5px
+    #user_disk_space
       float: left
-      span
-        float: left
+      margin: 0 10px
       #disk-space
         float: left
         width: 200px
         border: 1px solid black
-        margin: 2px 5px
         background: #DBDBDB
         overflow: hidden
+        margin: 1px 5px
         #used-space
           float: left
           height: 7px
-          background: #7A7A7A
-    #user-quota-bar
-      float: left
-      background-color: #ffffff
-      border: 1px solid #eeeeee
-      width: 250px
-      height: 15px
-      margin: 2px 10px
-      float: left
+          background: #5B5B5B
 
 #topBar
   background: url('/images/topbar.png') repeat-x top left $toolbarBg
-  float: left
   width: 100%
-  margin-bottom: 3px
+  height: 86px
+  position: fixed
+  top: 22px
   #innerTopBar
     margin: 5px 4px 2px 4px
     .breadcrumbs
@@ -307,11 +317,13 @@ input.button
     form
       label
         float: left
-        margin: 4px 5px 0 4px
+        margin: 6px 5px 0 4px
       input
         float: left
-        margin: 4px 10px 4px 0
-        &.search
+        margin: 4px 5px 0 0
+        &#search_query
+          padding: 0
+        &.search.button
           margin: 1px
           &:hover
             margin: 0
@@ -324,6 +336,7 @@ input.button
 
 #file-container
   clear: both
+  padding: 109px 0 0 0
   margin: 0
   .row-container
     padding: 3px 0
@@ -371,13 +384,12 @@ input.button
     height: 17px
   .mark-it
     width: 2%
-    margin-left: 5px
   .name
     width: 37%
   .ext
     width: 5%
   .size
-    width: 10%
+    width: 8%
   .description
     width: 30%
   .date
@@ -385,11 +397,12 @@ input.button
   .attr
     width: 5%
 
-#push, #bottom-bar
-  height: 91px
-
 #bottom-bar
   background: url('/images/taskbar.png') repeat-x $toolbarBg
+  height: 91px
+  position: fixed
+  bottom: 0
+  width: 100%
   #bottom-bar-padder
     margin: 0 auto
     padding: 6px 0
@@ -627,7 +640,7 @@ p#permissions
             text-decoration: underline
         &.inactive a
           background: transparent url('/images/bullet_red.png') no-repeat left center  
-    .selectable ul li a
+    &.selectable ul li a
       background-image: none
       background-color: #ddd
       padding: 3px 5px

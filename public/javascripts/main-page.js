@@ -385,6 +385,12 @@ $(document).ready(function() {
           }
         });
       });
+      
+      $.get('/disk_space #content', function(data){
+        var x = data.split(',');
+        $('#used-space').animate({width: parseInt(x[0])+"%"});
+        $('#remaining').html(x[1]);
+      });      
     }
   });
   
