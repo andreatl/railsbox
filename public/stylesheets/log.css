@@ -1,0 +1,75 @@
+/* line 5, ../../app/stylesheets/log.sass */
+#log #search {
+  margin: 10px 0;
+}
+/* line 9, ../../app/stylesheets/log.sass */
+#log #headers {
+  background: transparent url("/images/filterbar.png") repeat-x top left;
+  font-weight: bold;
+}
+/* line 15, ../../app/stylesheets/log.sass */
+#log #result, #log #headers {
+  width: 100%;
+  clear: both;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/log.sass */
+#log #result.loading, #log #headers.loading {
+  background: white url("/images/colorbox/loading.gif") no-repeat center center;
+  height: 32px;
+}
+/* line 29, ../../app/stylesheets/log.sass */
+#log #result p, #log #headers p {
+  margin: 1px 0;
+}
+/* line 33, ../../app/stylesheets/log.sass */
+#log #result a:hover, #log #headers a:hover {
+  text-decoration: underline;
+}
+/* line 37, ../../app/stylesheets/log.sass */
+#log #result .row, #log #headers .row {
+  clear: both;
+  padding: 2px 0;
+  float: left;
+  width: 100%;
+}
+/* line 47, ../../app/stylesheets/log.sass */
+#log #result .row:hover, #log #headers .row:hover {
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+  padding: 1px 0;
+  font-weight: bold;
+}
+/* line 57, ../../app/stylesheets/log.sass */
+#log #result .file_path, #log #result .action, #log #result .controller, #log #result .user, #log #result .date, #log #result .more_info, #log #headers .file_path, #log #headers .action, #log #headers .controller, #log #headers .user, #log #headers .date, #log #headers .more_info {
+  float: left;
+}
+/* line 61, ../../app/stylesheets/log.sass */
+#log #result .date, #log #headers .date {
+  width: 15%;
+}
+/* line 65, ../../app/stylesheets/log.sass */
+#log #result .user, #log #headers .user {
+  width: 15%;
+}
+/* line 69, ../../app/stylesheets/log.sass */
+#log #result .controller, #log #headers .controller {
+  width: 10%;
+}
+/* line 73, ../../app/stylesheets/log.sass */
+#log #result .action, #log #headers .action {
+  width: 10%;
+}
+/* line 77, ../../app/stylesheets/log.sass */
+#log #result .file_path, #log #headers .file_path {
+  width: 40%;
+}
+/* line 81, ../../app/stylesheets/log.sass */
+#log #result .more_info, #log #headers .more_info {
+  width: 10%;
+}
+/* line 87, ../../app/stylesheets/log.sass */
+#log form .field label, #log form .field input, #log form .field textarea, #log form .field select {
+  float: none;
+  clear: none;
+}
