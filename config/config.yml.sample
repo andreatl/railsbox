@@ -2,3 +2,7 @@ development:
   admin_email_address: admin@emailaddress.com
   smtp_address: smtp.emailserver.com
   user_disk_space: 7340032  #Disk space available to each user (700mb)
+test:
+  admin_email_address: admin@emailaddress.com
+  smtp_address: smtp.emailserver.com
+  user_disk_space: 7340032
