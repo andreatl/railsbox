@@ -47,8 +47,7 @@ class FoldersController < ApplicationController
       if @folder.parent_id?
         redirect_to browse_path(@folder.parent)  
       else  
-        p = Permission.new(:assigned_by=>current_user.id, :read_perms=>true, :write_perms=>true, :delete_perms=>true, :folder_id=>@folder.id, :parent_type=>"User",:parent_id=>current_user.id) unless current_user.is_admin?
-        p.save
+        Permission.new(:assigned_by=>current_user.id, :read_perms=>true, :write_perms=>true, :delete_perms=>true, :folder_id=>@folder.id, :parent_type=>"User",:parent_id=>current_user.id).save unless current_user.is_admin?
         redirect_to root_url
       end 
     else
@@ -245,6 +244,7 @@ class FoldersController < ApplicationController
   def log_folder
     @log_file_path = "/" + @folder.breadcrumbs
     @log_target_id = @folder.id.to_s
+    @log_parameters = "name=#{@folder.name}&parent_id=#{@folder.parent_id}"
   end
   
 end
