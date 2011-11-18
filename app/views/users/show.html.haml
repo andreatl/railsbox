@@ -17,7 +17,7 @@
   = @user.referrer
 .clear
 - if current_user.is_admin
-  %h2 Rights  
+  %h3 Rights  
   = form_for @user do |f|
     %p
       = f.label :active
@@ -36,7 +36,7 @@
 - else
   %p
     %strong.left
-      User is active: 
+      Active: 
     - if @user.active
       %span.tick.icon-only
     - else
@@ -44,7 +44,7 @@
   .clear
   %p
     %strong.left
-      User can hotlink: 
+      Can hotlink: 
     - if @user.can_hotlink
       %span.tick.icon-only
     - else
@@ -52,16 +52,23 @@
   .clear
   %p
     %strong.left
-      User can change home: 
+      Can change home: 
     - if @user.can_home
       %span.tick.icon-only
     - else
       %span.cross.icon-only
 .clear
-= link_to "Change Password", user_password_path, :class => 'button edit' if params[:action] == 'me'
+.actions
+  = link_to "Change Password", user_password_path, :class => 'button edit' if params[:action] == 'me'
+  - if current_user.is_admin
+    = button_to "Delete User", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete' unless params[:action] == 'me'
+    = form_tag update_password_path do
+      = hidden_field_tag 'email', @user.email
+      = submit_tag 'Reset Password', :class => 'button login'
+      .clear
 .clear
   
-%h2 Groups
+%h3 Groups
 - if @user.groups.empty?
   %p
     %em User doesn't belong to any groups
@@ -71,15 +78,15 @@
       %li
         = link_to group.name, group
       
-%h2 Folders
+%h3 Folders
 - unless @user.accessible_folders_exc_groups.empty?
-  %h3 Assigned to user
+  %h4 Assigned to user
   %ul
     - for folder in @user.accessible_folders_exc_groups
       %li 
         =link_to folder.breadcrumbs, folder
 - unless @user.groups.empty?
-  %h3 Assigned from groups
+  %h4 Assigned from groups
   %ul
     - @user.groups.each do |group|
       %li
@@ -88,11 +95,4 @@
           - group.folders.each do |folder|
             %li
               = link_to folder.breadcrumbs, folder
-.actions
-  = button_to "Delete User", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete' unless params[:action] == 'me'
-  - if current_user.is_admin
-    = form_tag update_password_path do
-      = hidden_field_tag 'email', @user.email
-      = submit_tag 'Reset Password', :class => 'button login'
-      .clear
 .clear

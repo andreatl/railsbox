@@ -2,7 +2,7 @@
 %html
   %head
     %title Railsbox
-    = stylesheet_link_tag 'colorbox', 'screen'
+    = stylesheet_link_tag 'colorbox', 'screen', 'uploadify'
     = yield :page_specific_head
     = csrf_meta_tag
   %body
@@ -22,14 +22,14 @@
               .left
                 Space: 
                 %span#remaining
-                  = number_to_human_size(@current_user.space_used, :precision => 3)
+                  = number_to_human_size(current_user.space_used, :precision => 3)
               #disk-space
-                %a#used-space{:style => "width: #{@current_user.space_percentage}%", :title => "#{number_to_human_size(@current_user.space_remaining, :precision => 3)} remaining"}
+                %a#used-space{:style => "width: #{current_user.space_percentage}%", :title => "#{number_to_human_size(current_user.space_remaining, :precision => 3)} remaining"}
               .left
                 = number_to_human_size(APP_CONFIG['user_disk_space'].to_i, :precision => 3)
             .left
               Logged in as 
-              =@current_user.email
+              =current_user.email
       - end unless params[:controller] == 'sessions'
       #content{:class => "#{yield :contentClass}"}
         = yield
