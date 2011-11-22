@@ -14,7 +14,7 @@ describe FoldersController do
 
   it "browse action should render show template" do
     puts Folder.first
-    @current_user.stub!(:is_admin?).and_return(true)
+    controller.stub!(:current_user).and_return(@current_user)
     get :browse, :folder_id => Folder.first
     response.should render_template(:index)
   end

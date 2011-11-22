@@ -73,13 +73,13 @@ class FoldersController < ApplicationController
   end
 
   def browse
-    @canHome = @current_user.can_home?
+    @canHome = current_user.can_home?
     if @current_folder
       #folders
       @folders = current_user.accessible_folders.where(:parent => @current_folder).order("name")
       
       #assets
-      if @current_folder.canRead?(@current_user)
+      if @current_folder.canRead?(current_user)
         @assets = @current_folder.assets.order("uploaded_file_file_name")  
       else
         #users can see own files
@@ -90,21 +90,6 @@ class FoldersController < ApplicationController
       flash[:error] = "Folder not found"  
       redirect_to root_url  
     end
-    
-    #Use find_by_id instead of find as find_by_id returns nil, rather than throwing exception
-    #if @current_folder  
-    #  @folders = current_user.accessible_folders.where('folders.parent_id=?',@current_folder)
-    #  if current_user.is_admin or @current_folder.canRead?(@current_user)
-    #    @assets = @current_folder.assets.order("uploaded_file_file_name desc")  
-      #else
-        #read only can still see own files.
-        #@assets = @current_user.assets.order("uploaded_file_file_name desc").find_all_by_folder_id(@current_folder)
-   #   end
-   #   render :action => "index"  
-   # else
-   #   flash[:error] = "Folder not found"  
-   #   redirect_to root_url  
-   # end  
   end  
   
   def folderChildren
@@ -167,14 +152,6 @@ class FoldersController < ApplicationController
       @log_file_path = "/" + @current_folder.breadcrumbs
       @log_target_id = @current_folder.id.to_s
     end
-    
-    #if params[:folder_id]
-    #  @current_folder =  current_user.accessible_folders.find_by_id(params[:folder_id])
-    #elsif params[:id]
-    #  @current_folder = current_user.accessible_folders.find_by_id(params[:id])
-    #else
-      #none to be found
-    #end
   end
   
   def move
