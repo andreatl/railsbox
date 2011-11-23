@@ -2,7 +2,7 @@ class UsersController < ApplicationController
    
   skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
   skip_after_filter :log, :only=>[:resetPassword, :disk_space, :searchUsersResult]
-  before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :update]
+  before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :update, :edit]
   before_filter :mailer_set_url_options, :only=>[:create,:updatePassword]
   before_filter :get_max_users, :only => [:searchUsersResult]
   after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :resetPassword, :updatePassword, :disk_space]
@@ -112,12 +112,12 @@ class UsersController < ApplicationController
         @user.password_confirmation = newPassword
         if @user.save
           UserMailer.reset_password(@user, newPassword).deliver
-          redirect_to log_in_path, :notice => "New password sent"
+          redirect_to root_path, :notice => "New password sent"
         else
           redirect_to root_path, :notice => "Password reset failed"
         end
       else
-        redirect_to log_in_path, :notice => "User not found"
+        redirect_to root_path, :notice => "User not found"
       end
   end
   

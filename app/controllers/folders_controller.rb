@@ -32,7 +32,7 @@ class FoldersController < ApplicationController
   end
 
   def new
-    if (params[:folder_id] && @current_folder.canwrite?(current_user)) || (params[:folder_id].nil? && @current_user.can_home?)
+    if (params[:folder_id] && @current_folder.canwrite?(current_user)) || (params[:folder_id].nil? && current_user.can_home)
       @folder = Folder.new
       @folder.parent_id = @current_folder.id if params[:folder_id]
     end
@@ -47,7 +47,7 @@ class FoldersController < ApplicationController
       if @folder.parent_id?
         redirect_to browse_path(@folder.parent)  
       else  
-        Permission.new(:assigned_by=>current_user.id, :read_perms=>true, :write_perms=>true, :delete_perms=>true, :folder_id=>@folder.id, :parent_type=>"User",:parent_id=>current_user.id).save unless current_user.is_admin?
+        Permission.new(:assigned_by=>current_user.id, :read_perms=>true, :write_perms=>true, :delete_perms=>true, :folder_id=>@folder.id, :parent_type=>"User",:parent_id=>current_user.id).save unless current_user.is_admin
         redirect_to root_url
       end 
     else
@@ -73,7 +73,7 @@ class FoldersController < ApplicationController
   end
 
   def browse
-    @canHome = current_user.can_home?
+    @canHome = current_user.can_home
     if @current_folder
       #folders
       @folders = current_user.accessible_folders.where(:parent => @current_folder).order("name")
@@ -147,7 +147,7 @@ class FoldersController < ApplicationController
       #none to be found
     end
     
-    if folder && (folder.can("read",@current_user) || folder.can("write",@current_user))
+    if folder && (folder.can("read",current_user) || folder.can("write",current_user))
       @current_folder = folder
       @log_file_path = "/" + @current_folder.breadcrumbs
       @log_target_id = @current_folder.id.to_s

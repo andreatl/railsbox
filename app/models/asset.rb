@@ -10,7 +10,7 @@ class Asset < ActiveRecord::Base
   validates_attachment_presence :uploaded_file  
   
   validates_presence_of :user_id
-  
+    
   validates_uniqueness_of :uploaded_file_file_name, :scope => [:folder_id, :user_id]
 
   def is_authorised?(userFind)

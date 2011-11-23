@@ -27,7 +27,7 @@ describe Asset do
 end
 
 def valid_asset
-	Asset.new(:id => 1, :uploaded_file_file_name=>'qwerty.txt', :uploaded_file_content_type=>'text/plain', :user=>valid_user, :folder_id=>Folder.first.id)
+	Asset.new(:id => 1, :uploaded_file_file_name=>'qwerty.txt', :uploaded_file_content_type=>'text/plain', :user=>valid_user)
 end
 
 def valid_user

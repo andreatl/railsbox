@@ -50,7 +50,7 @@ class Folder < ActiveRecord::Base
   end
    
   def can(option, user)
-    if user.is_admin?
+    if user.is_admin
       true
     else
       all_permissions.map{|x| 

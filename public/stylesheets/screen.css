@@ -380,30 +380,34 @@ input.button {
 .icon-only.tick, .button.tick {
   background-image: url("/images/tick.png");
 }
+/* line 173, ../../app/stylesheets/screen.sass */
+.icon-only.edituser, .button.edituser {
+  background-image: url("/images/user_edit.png");
+}
 
 /***  LOGON PAGE ******* */
-/* line 178, ../../app/stylesheets/screen.sass */
+/* line 179, ../../app/stylesheets/screen.sass */
 #logon-box {
   width: 600px;
   margin: 0px auto;
   margin-top: 100px;
 }
-/* line 182, ../../app/stylesheets/screen.sass */
+/* line 183, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder {
   padding: 10px;
 }
-/* line 184, ../../app/stylesheets/screen.sass */
+/* line 185, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul {
   float: right;
   list-style: none;
   margin: 0 50px;
 }
-/* line 188, ../../app/stylesheets/screen.sass */
+/* line 189, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul li {
   margin-left: 10px;
   float: left;
 }
-/* line 191, ../../app/stylesheets/screen.sass */
+/* line 192, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul li a {
   text-decoration: none;
   color: #333333;
@@ -419,11 +423,11 @@ input.button {
   -moz-border-radius-topLeft: 0.5em;
   -webkit-border-radius-topleft: 0.5em;
 }
-/* line 205, ../../app/stylesheets/screen.sass */
+/* line 206, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul li a:hover {
   background-color: #aaaaaa;
 }
-/* line 207, ../../app/stylesheets/screen.sass */
+/* line 208, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main {
   background-color: white;
   padding: 40px 0;
@@ -432,11 +436,11 @@ input.button {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
 }
-/* line 214, ../../app/stylesheets/screen.sass */
+/* line 215, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #logo_holder {
   float: left;
 }
-/* line 216, ../../app/stylesheets/screen.sass */
+/* line 217, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #form-holder {
   font-size: 8pt;
   float: right;
@@ -444,12 +448,12 @@ input.button {
   padding-left: 30px;
   border-left: 1px dotted #333333;
 }
-/* line 222, ../../app/stylesheets/screen.sass */
+/* line 223, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #form-holder label {
   float: left;
   width: 100px;
 }
-/* line 225, ../../app/stylesheets/screen.sass */
+/* line 226, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #actions-holder {
   background: url("/images/logonStrip.png") -10px 0px repeat-x;
   padding: 30px 30px;
@@ -457,7 +461,7 @@ input.button {
 
 /**** END LOGON PAGE ******* */
 /***** MAIN PAGES ********** */
-/* line 233, ../../app/stylesheets/screen.sass */
+/* line 234, ../../app/stylesheets/screen.sass */
 #top-menu {
   font-weight: bold;
   width: 100%;
@@ -466,46 +470,46 @@ input.button {
   top: 0;
   background: url("/images/taskbar.png") repeat scroll 0 0 white;
 }
-/* line 240, ../../app/stylesheets/screen.sass */
+/* line 241, ../../app/stylesheets/screen.sass */
 #top-menu .menu-item {
   display: block;
   padding-top: 6px;
   padding-bottom: 6px;
 }
-/* line 245, ../../app/stylesheets/screen.sass */
+/* line 246, ../../app/stylesheets/screen.sass */
 #top-menu a.menu-item {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 249, ../../app/stylesheets/screen.sass */
+/* line 250, ../../app/stylesheets/screen.sass */
 #top-menu a.menu-item:hover {
   background-color: #a7a7a7;
 }
-/* line 251, ../../app/stylesheets/screen.sass */
+/* line 252, ../../app/stylesheets/screen.sass */
 #top-menu #logout {
   float: right;
 }
-/* line 253, ../../app/stylesheets/screen.sass */
+/* line 254, ../../app/stylesheets/screen.sass */
 #top-menu ul#actions-menu {
   margin: 0;
   padding: 0;
 }
-/* line 256, ../../app/stylesheets/screen.sass */
+/* line 257, ../../app/stylesheets/screen.sass */
 #top-menu ul#actions-menu li {
   float: left;
   list-style: none;
 }
-/* line 259, ../../app/stylesheets/screen.sass */
+/* line 260, ../../app/stylesheets/screen.sass */
 #top-menu #user-bar {
   float: right;
   margin: 7px 5px;
 }
-/* line 262, ../../app/stylesheets/screen.sass */
+/* line 263, ../../app/stylesheets/screen.sass */
 #top-menu #user-bar #user_disk_space {
   float: left;
   margin: 0 10px;
 }
-/* line 265, ../../app/stylesheets/screen.sass */
+/* line 266, ../../app/stylesheets/screen.sass */
 #top-menu #user-bar #user_disk_space #disk-space {
   float: left;
   width: 200px;
@@ -514,14 +518,14 @@ input.button {
   overflow: hidden;
   margin: 1px 5px;
 }
-/* line 272, ../../app/stylesheets/screen.sass */
+/* line 273, ../../app/stylesheets/screen.sass */
 #top-menu #user-bar #user_disk_space #disk-space #used-space {
   float: left;
   height: 7px;
   background: #5b5b5b;
 }
 
-/* line 277, ../../app/stylesheets/screen.sass */
+/* line 278, ../../app/stylesheets/screen.sass */
 #topBar {
   background: url("/images/topbar.png") repeat-x top left silver;
   width: 100%;
@@ -529,17 +533,17 @@ input.button {
   position: fixed;
   top: 22px;
 }
-/* line 283, ../../app/stylesheets/screen.sass */
+/* line 284, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar {
   margin: 5px 4px 2px 4px;
 }
-/* line 285, ../../app/stylesheets/screen.sass */
+/* line 286, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs {
   margin: 12px 0 8px 4px;
   clear: left;
   float: left;
 }
-/* line 289, ../../app/stylesheets/screen.sass */
+/* line 290, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs a {
   float: left;
   padding: 2px 4px;
@@ -549,11 +553,11 @@ input.button {
   border-radius: 4px;
   background-color: #a3a3a3;
 }
-/* line 297, ../../app/stylesheets/screen.sass */
+/* line 298, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs a:hover {
   background-color: #cccccc;
 }
-/* line 299, ../../app/stylesheets/screen.sass */
+/* line 300, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs p {
   float: left;
   padding: 2px 4px;
@@ -563,7 +567,7 @@ input.button {
   border-radius: 4px;
   margin: 0;
 }
-/* line 307, ../../app/stylesheets/screen.sass */
+/* line 308, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs .breadcrumbsNext {
   width: 16px;
   height: 16px;
@@ -574,29 +578,29 @@ input.button {
   float: left;
   margin: 0 2px;
 }
-/* line 317, ../../app/stylesheets/screen.sass */
+/* line 318, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar form label {
   float: left;
   margin: 6px 5px 0 4px;
 }
-/* line 320, ../../app/stylesheets/screen.sass */
+/* line 321, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar form input {
   float: left;
   margin: 4px 5px 0 0;
 }
-/* line 323, ../../app/stylesheets/screen.sass */
+/* line 324, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar form input#search_query {
   padding: 0;
 }
-/* line 325, ../../app/stylesheets/screen.sass */
+/* line 326, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar form input.search.button {
   margin: 1px;
 }
-/* line 327, ../../app/stylesheets/screen.sass */
+/* line 328, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar form input.search.button:hover {
   margin: 0;
 }
-/* line 329, ../../app/stylesheets/screen.sass */
+/* line 330, ../../app/stylesheets/screen.sass */
 #topBar #headers {
   float: left;
   width: 100%;
@@ -605,45 +609,45 @@ input.button {
   margin-bottom: 1px;
 }
 
-/* line 336, ../../app/stylesheets/screen.sass */
+/* line 337, ../../app/stylesheets/screen.sass */
 #file-container {
   clear: both;
   padding: 109px 0 0 0;
   margin: 0;
 }
-/* line 340, ../../app/stylesheets/screen.sass */
+/* line 341, ../../app/stylesheets/screen.sass */
 #file-container .row-container {
   padding: 3px 0;
   list-style: none;
 }
-/* line 343, ../../app/stylesheets/screen.sass */
+/* line 344, ../../app/stylesheets/screen.sass */
 #file-container .row-container:hover {
   background: transparent url("/images/highlight.png") repeat-x top left;
 }
-/* line 345, ../../app/stylesheets/screen.sass */
+/* line 346, ../../app/stylesheets/screen.sass */
 #file-container .row-container a {
   display: block;
   overflow: hidden;
   height: 100%;
 }
-/* line 349, ../../app/stylesheets/screen.sass */
+/* line 350, ../../app/stylesheets/screen.sass */
 #file-container .row-container.folder .name a.details {
   background-image: url("/images/folder.png");
 }
-/* line 351, ../../app/stylesheets/screen.sass */
+/* line 352, ../../app/stylesheets/screen.sass */
 #file-container .row-container.folder .name a.details.shared {
   background-image: url("/images/folderShared.png");
 }
-/* line 353, ../../app/stylesheets/screen.sass */
+/* line 354, ../../app/stylesheets/screen.sass */
 #file-container .row-container.upFolder .name a {
   background: transparent url("/images/up.png") no-repeat left top;
   padding-left: 20px;
 }
-/* line 357, ../../app/stylesheets/screen.sass */
+/* line 358, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a:hover {
   text-decoration: underline;
 }
-/* line 359, ../../app/stylesheets/screen.sass */
+/* line 360, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details {
   background: transparent url("/images/file.png") no-repeat left bottom;
   text-indent: -9999px;
@@ -652,75 +656,75 @@ input.button {
   margin-right: 5px;
   float: left;
 }
-/* line 366, ../../app/stylesheets/screen.sass */
+/* line 367, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details:hover {
   background-position: -1px 0;
 }
-/* line 368, ../../app/stylesheets/screen.sass */
+/* line 369, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.txtFileType {
   background-image: url("/images/page_white_text.png");
 }
-/* line 370, ../../app/stylesheets/screen.sass */
+/* line 371, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.pdfFileType {
   background-image: url("/images/page_white_acrobat.png");
 }
-/* line 372, ../../app/stylesheets/screen.sass */
+/* line 373, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.zipFileType {
   background-image: url("/images/page_white_compressed.png");
 }
-/* line 374, ../../app/stylesheets/screen.sass */
+/* line 375, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.jpgFileType, #file-container .row-container .name a.details.jpegFileType, #file-container .row-container .name a.details.pngFileType, #file-container .row-container .name a.details.gifFileType {
   background-image: url("/images/page_white_picture.png");
 }
-/* line 376, ../../app/stylesheets/screen.sass */
+/* line 377, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.docFileType, #file-container .row-container .name a.details.docxFileType {
   background-image: url("/images/page_white_word.png");
 }
-/* line 378, ../../app/stylesheets/screen.sass */
+/* line 379, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.pptFileType, #file-container .row-container .name a.details.pptxFileType {
   background-image: url("/images/page_white_powerpoint.png");
 }
-/* line 380, ../../app/stylesheets/screen.sass */
+/* line 381, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.xlsFileType, #file-container .row-container .name a.details.xlsxFileType {
   background-image: url("/images/page_white_excel.png");
 }
 
-/* line 384, ../../app/stylesheets/screen.sass */
+/* line 385, ../../app/stylesheets/screen.sass */
 #file-container .mark-it, #file-container .name, #file-container .ext, #file-container .size, #file-container .description, #file-container .date, #file-container .attr, #headers .mark-it, #headers .name, #headers .ext, #headers .size, #headers .description, #headers .date, #headers .attr {
   float: left;
   overflow: hidden;
   height: 17px;
 }
-/* line 388, ../../app/stylesheets/screen.sass */
+/* line 389, ../../app/stylesheets/screen.sass */
 #file-container .mark-it, #headers .mark-it {
   width: 2%;
 }
-/* line 390, ../../app/stylesheets/screen.sass */
+/* line 391, ../../app/stylesheets/screen.sass */
 #file-container .name, #headers .name {
   width: 37%;
 }
-/* line 392, ../../app/stylesheets/screen.sass */
+/* line 393, ../../app/stylesheets/screen.sass */
 #file-container .ext, #headers .ext {
   width: 5%;
 }
-/* line 394, ../../app/stylesheets/screen.sass */
+/* line 395, ../../app/stylesheets/screen.sass */
 #file-container .size, #headers .size {
   width: 8%;
 }
-/* line 396, ../../app/stylesheets/screen.sass */
+/* line 397, ../../app/stylesheets/screen.sass */
 #file-container .description, #headers .description {
   width: 30%;
 }
-/* line 398, ../../app/stylesheets/screen.sass */
+/* line 399, ../../app/stylesheets/screen.sass */
 #file-container .date, #headers .date {
   width: 15%;
 }
-/* line 400, ../../app/stylesheets/screen.sass */
+/* line 401, ../../app/stylesheets/screen.sass */
 #file-container .attr, #headers .attr {
   width: 5%;
 }
 
-/* line 403, ../../app/stylesheets/screen.sass */
+/* line 404, ../../app/stylesheets/screen.sass */
 #bottom-bar {
   background: url("/images/taskbar.png") repeat-x silver;
   height: 91px;
@@ -728,13 +732,13 @@ input.button {
   bottom: 0;
   width: 100%;
 }
-/* line 409, ../../app/stylesheets/screen.sass */
+/* line 410, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder {
   margin: 0 auto;
   padding: 6px 0;
   width: 640px;
 }
-/* line 413, ../../app/stylesheets/screen.sass */
+/* line 414, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder .icon-link {
   width: 80px;
   float: left;
@@ -757,84 +761,84 @@ input.button {
   -o-user-select: none;
   user-select: none;
 }
-/* line 434, ../../app/stylesheets/screen.sass */
+/* line 435, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder .icon-link:hover {
   background-color: #5e5e5e;
   color: silver;
 }
-/* line 437, ../../app/stylesheets/screen.sass */
+/* line 438, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder .icon-link.download {
   background-image: url("/images/icons/download.png");
 }
 
-/* line 441, ../../app/stylesheets/screen.sass */
+/* line 442, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.download, #cboxLoadedContent h2.download {
   background-image: url("/images/icons/download.png");
 }
-/* line 443, ../../app/stylesheets/screen.sass */
+/* line 444, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.upload, #cboxLoadedContent h2.upload {
   background-image: url("/images/icons/upload.png");
 }
-/* line 445, ../../app/stylesheets/screen.sass */
+/* line 446, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.newFolder, #cboxLoadedContent h2.newFolder {
   background-image: url("/images/icons/newFolder.png");
 }
-/* line 447, ../../app/stylesheets/screen.sass */
+/* line 448, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.hotlink, #cboxLoadedContent h2.hotlink {
   background-image: url("/images/icons/hotlink.png");
 }
-/* line 449, ../../app/stylesheets/screen.sass */
+/* line 450, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.move, #cboxLoadedContent h2.move {
   background-image: url("/images/icons/move.png");
 }
-/* line 451, ../../app/stylesheets/screen.sass */
+/* line 452, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.rename, #bottom-bar .icon-link.details, #cboxLoadedContent h2.rename, #cboxLoadedContent h2.details {
   background-image: url("/images/icons/rename.png");
 }
-/* line 453, ../../app/stylesheets/screen.sass */
+/* line 454, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.delete, #cboxLoadedContent h2.delete {
   background-image: url("/images/icons/delete.png");
 }
-/* line 455, ../../app/stylesheets/screen.sass */
+/* line 456, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.exit, #cboxLoadedContent h2.exit {
   background-image: url("/images/icons/exit.png");
 }
 
-/* line 458, ../../app/stylesheets/screen.sass */
+/* line 459, ../../app/stylesheets/screen.sass */
 #loader {
   background: transparent url("/images/loading.gif") no-repeat top center;
   height: 20px;
 }
 
-/* line 463, ../../app/stylesheets/screen.sass */
+/* line 464, ../../app/stylesheets/screen.sass */
 #newAsset #loader {
   display: none;
   width: 100%;
   margin: 25px 0;
 }
-/* line 468, ../../app/stylesheets/screen.sass */
+/* line 469, ../../app/stylesheets/screen.sass */
 #newAsset.loading form {
   display: none;
 }
-/* line 470, ../../app/stylesheets/screen.sass */
+/* line 471, ../../app/stylesheets/screen.sass */
 #newAsset.loading #loader {
   display: block;
 }
 
 /***** END MAIN PAGES ****** */
-/* line 476, ../../app/stylesheets/screen.sass */
+/* line 477, ../../app/stylesheets/screen.sass */
 #cboxLoadedContent #folder_inherit_permissions {
   float: none;
   clear: none;
   margin-left: 10px;
 }
 
-/* line 481, ../../app/stylesheets/screen.sass */
+/* line 482, ../../app/stylesheets/screen.sass */
 ul#permissions {
   clear: left;
   margin-left: 5px;
 }
-/* line 484, ../../app/stylesheets/screen.sass */
+/* line 485, ../../app/stylesheets/screen.sass */
 ul#permissions li {
   float: left;
   clear: left;
@@ -843,16 +847,16 @@ ul#permissions li {
   list-style: none;
   padding-left: 20px;
 }
-/* line 492, ../../app/stylesheets/screen.sass */
+/* line 493, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permName {
   float: left;
   margin-right: 5px;
 }
-/* line 495, ../../app/stylesheets/screen.sass */
+/* line 496, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permName a:hover {
   text-decoration: underline;
 }
-/* line 497, ../../app/stylesheets/screen.sass */
+/* line 498, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission {
   background-repeat: no-repeat;
   width: 16px;
@@ -861,44 +865,44 @@ ul#permissions li span.permission {
   float: right;
   margin: 0 2px;
 }
-/* line 504, ../../app/stylesheets/screen.sass */
+/* line 505, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.inherited {
   background: transparent url("/images/inherited.png") no-repeat top left;
 }
-/* line 506, ../../app/stylesheets/screen.sass */
+/* line 507, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.read {
   background-image: url("/images/eye.png");
 }
-/* line 508, ../../app/stylesheets/screen.sass */
+/* line 509, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.delete {
   background-image: url("/images/cross.png");
 }
 
-/* line 513, ../../app/stylesheets/screen.sass */
+/* line 514, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.write, p#permissions .write_perms label {
   background-image: url("/images/pencil.png");
 }
 
-/* line 517, ../../app/stylesheets/screen.sass */
+/* line 518, ../../app/stylesheets/screen.sass */
 p#permissions .delete_perms label {
   background-image: url("/images/cross.png");
 }
-/* line 519, ../../app/stylesheets/screen.sass */
+/* line 520, ../../app/stylesheets/screen.sass */
 p#permissions .read_perms label {
   background-image: url("/images/eye.png");
 }
-/* line 521, ../../app/stylesheets/screen.sass */
+/* line 522, ../../app/stylesheets/screen.sass */
 p#permissions span.permission {
   margin-right: 10px;
 }
-/* line 523, ../../app/stylesheets/screen.sass */
+/* line 524, ../../app/stylesheets/screen.sass */
 p#permissions span.permission label {
   background-repeat: no-repeat;
   padding-left: 20px;
 }
 
 /************** Move Folder *************** */
-/* line 530, ../../app/stylesheets/screen.sass */
+/* line 531, ../../app/stylesheets/screen.sass */
 #moveDialogLoading {
   float: right;
   height: 32px;
@@ -908,7 +912,7 @@ p#permissions span.permission label {
   display: none;
 }
 
-/* line 538, ../../app/stylesheets/screen.sass */
+/* line 539, ../../app/stylesheets/screen.sass */
 #folderMove {
   width: 400px;
   height: 350px;
@@ -916,20 +920,20 @@ p#permissions span.permission label {
   padding: 5px 5px 5px 0;
   border: 1px solid silver;
 }
-/* line 544, ../../app/stylesheets/screen.sass */
+/* line 545, ../../app/stylesheets/screen.sass */
 #folderMove ul {
   margin-left: 20px;
   list-style: none;
 }
-/* line 547, ../../app/stylesheets/screen.sass */
+/* line 548, ../../app/stylesheets/screen.sass */
 #folderMove #folderRoot {
   margin-left: 5px;
 }
-/* line 549, ../../app/stylesheets/screen.sass */
+/* line 550, ../../app/stylesheets/screen.sass */
 #folderMove li {
   margin: 1px 0;
 }
-/* line 551, ../../app/stylesheets/screen.sass */
+/* line 552, ../../app/stylesheets/screen.sass */
 #folderMove li a {
   background: transparent url("/images/folderOpen.png") no-repeat center left;
   padding: 2px 5px 2px 16px;
@@ -939,15 +943,15 @@ p#permissions span.permission label {
   -o-user-select: none;
   user-select: none;
 }
-/* line 559, ../../app/stylesheets/screen.sass */
+/* line 560, ../../app/stylesheets/screen.sass */
 #folderMove li a.opened {
   background-image: url("/images/folderClose.png");
 }
-/* line 561, ../../app/stylesheets/screen.sass */
+/* line 562, ../../app/stylesheets/screen.sass */
 #folderMove li a.selected {
   background-color: #b2b2b2;
 }
-/* line 563, ../../app/stylesheets/screen.sass */
+/* line 564, ../../app/stylesheets/screen.sass */
 #folderMove li.disabled a {
   color: gray;
   background-image: url("/images/folderUnavailable.png");
@@ -955,11 +959,11 @@ p#permissions span.permission label {
 
 /*************End of Move Folder ************ */
 /***** HOTLINK ******** */
-/* line 571, ../../app/stylesheets/screen.sass */
+/* line 572, ../../app/stylesheets/screen.sass */
 #hotlinkResult {
   margin: 0 5px 5px 5px;
 }
-/* line 573, ../../app/stylesheets/screen.sass */
+/* line 574, ../../app/stylesheets/screen.sass */
 #hotlinkResult #link {
   padding: 5px;
   border: 1px solid gray;
@@ -973,7 +977,7 @@ p#permissions span.permission label {
   margin-bottom: 5px;
 }
 
-/* line 585, ../../app/stylesheets/screen.sass */
+/* line 586, ../../app/stylesheets/screen.sass */
 #hotlinkError {
   color: red;
   display: none;
@@ -981,7 +985,7 @@ p#permissions span.permission label {
 
 /***** End of Hotlink ******** */
 /***** OVERLAY ******** */
-/* line 593, ../../app/stylesheets/screen.sass */
+/* line 594, ../../app/stylesheets/screen.sass */
 #overlay {
   /* must be initially hidden */
   display: none;
@@ -999,64 +1003,64 @@ p#permissions span.permission label {
 
 /***** End of OVERLAY ********* */
 /***** User Search ********* */
-/* line 611, ../../app/stylesheets/screen.sass */
+/* line 612, ../../app/stylesheets/screen.sass */
 #userGroupSearch {
   float: left;
   min-width: 455px;
   margin-bottom: 10px;
 }
 
-/* line 616, ../../app/stylesheets/screen.sass */
+/* line 617, ../../app/stylesheets/screen.sass */
 #searchResult.loading {
   background: white url("/images/colorbox/loading.gif") no-repeat top center;
 }
 
-/* line 620, ../../app/stylesheets/screen.sass */
+/* line 621, ../../app/stylesheets/screen.sass */
 #userGroupSearch #query, #userGroupSearch#inactive, #userGroupSearch label {
   margin-top: 3px;
 }
-/* line 622, ../../app/stylesheets/screen.sass */
+/* line 623, ../../app/stylesheets/screen.sass */
 #userGroupSearch input {
   margin-right: 10px;
 }
-/* line 624, ../../app/stylesheets/screen.sass */
+/* line 625, ../../app/stylesheets/screen.sass */
 #userGroupSearch input#query {
   width: 300px;
 }
-/* line 626, ../../app/stylesheets/screen.sass */
+/* line 627, ../../app/stylesheets/screen.sass */
 #userGroupSearch .search {
   float: right;
 }
-/* line 628, ../../app/stylesheets/screen.sass */
+/* line 629, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult {
   clear: left;
   float: left;
   width: 100%;
   min-height: 30px;
 }
-/* line 633, ../../app/stylesheets/screen.sass */
+/* line 634, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul {
   margin: 0;
   list-style: none;
 }
-/* line 637, ../../app/stylesheets/screen.sass */
+/* line 638, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li a {
   background: transparent url("/images/bullet_green.png") no-repeat left center;
   padding-left: 20px;
 }
-/* line 640, ../../app/stylesheets/screen.sass */
+/* line 641, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li a#moreUsers {
   background: none;
 }
-/* line 642, ../../app/stylesheets/screen.sass */
+/* line 643, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li a:hover {
   text-decoration: underline;
 }
-/* line 644, ../../app/stylesheets/screen.sass */
+/* line 645, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li.inactive a {
   background: transparent url("/images/bullet_red.png") no-repeat left center;
 }
-/* line 646, ../../app/stylesheets/screen.sass */
+/* line 647, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult.selectable ul li a {
   background-image: none;
   background-color: #dddddd;
@@ -1064,35 +1068,35 @@ p#permissions span.permission label {
   margin: 2px 0;
   display: block;
 }
-/* line 652, ../../app/stylesheets/screen.sass */
+/* line 653, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult.selectable ul li a:hover {
   background-color: #cccccc;
   text-decoration: none;
 }
-/* line 655, ../../app/stylesheets/screen.sass */
+/* line 656, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult.selectable ul li a.selected {
   background-color: #aaaaaa;
 }
 
 /***** End of User Search ****** */
 /**************** Page Numbers ************** */
-/* line 663, ../../app/stylesheets/screen.sass */
+/* line 664, ../../app/stylesheets/screen.sass */
 .pagination {
   text-align: center;
   margin-top: 20px;
 }
-/* line 666, ../../app/stylesheets/screen.sass */
+/* line 667, ../../app/stylesheets/screen.sass */
 .pagination a, .pagination em.current, .pagination .disabled {
   padding: 7px;
   border: 1px solid silver;
   margin: 2px;
 }
-/* line 670, ../../app/stylesheets/screen.sass */
+/* line 671, ../../app/stylesheets/screen.sass */
 .pagination a:hover, .pagination em.current {
   text-decoration: none;
   background-color: #dcdcdc;
 }
-/* line 673, ../../app/stylesheets/screen.sass */
+/* line 674, ../../app/stylesheets/screen.sass */
 .pagination .disabled {
   color: gray;
 }

@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe FoldersController do
   
   before :each do
-   @current_user = mock_model(User, :id => 1, :to_i=> 1, :email=>'text@test.com', :is_admin=>false, :active=>true, :accessible_folders=>Folder.scoped, :can_hotlink=>true, :can_home=>true)
+   @current_user = mock_model(User, :id => 1, :to_i=> 1, :email=>'text@test.com', :is_admin=>true, :active=>true, :accessible_folders=>Folder.scoped, :can_hotlink=>true, :can_home=>true, :space_used=>0)
    controller.stub!(:current_user).and_return(@current_user)
    controller.stub!(:login_required).and_return(:true)
   end
@@ -13,8 +13,6 @@ describe FoldersController do
 
 
   it "browse action should render show template" do
-    puts Folder.first
-    controller.stub!(:current_user).and_return(@current_user)
     get :browse, :folder_id => Folder.first
     response.should render_template(:index)
   end
