@@ -19,7 +19,10 @@ Railsbox::Application.routes.draw do
   root :to => "folders#index"
   
   match "users/search", :to => "users#searchUsersResult", :via => :post, :as => "user_search"
-  match "users/changepassword", :to => "users#changePassword", :as => "user_password"
+  match "changepassword", :to => "users#changePassword", :as => "user_password"
+  post "users/changePasswordUpdate", :as=>"change_password_update"
+  
+  
   match "disk_space", :to => "users#disk_space"
   resources :users
   

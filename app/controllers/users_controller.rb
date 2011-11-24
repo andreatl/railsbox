@@ -2,10 +2,10 @@ class UsersController < ApplicationController
    
   skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
   skip_after_filter :log, :only=>[:resetPassword, :disk_space, :searchUsersResult]
-  before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :update, :edit]
+  before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :update, :edit, :changePasswordUpdate]
   before_filter :mailer_set_url_options, :only=>[:create,:updatePassword]
   before_filter :get_max_users, :only => [:searchUsersResult]
-  after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :resetPassword, :updatePassword, :disk_space]
+  after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :changePassword, :resetPassword, :updatePassword, :disk_space]
   
   
   def index
@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
            
     if @user.save
-      
       #send email to admin
       begin
         to = APP_CONFIG['admin_email_address']
@@ -75,7 +74,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def destroy
     @user = User.find(params[:id])
     @user.destroy
@@ -90,14 +88,32 @@ class UsersController < ApplicationController
       @users = @users.limit(@max_users)
   end
   
-  def resetPassword
-  end
-  
   def disk_space
   end
   
   def changePassword
+  end
+  
+  def changePasswordUpdate
     @user = current_user
+    if !@user.authenticate(params[:current_password])
+      flash[:error] = "Current password incorrect"
+      redirect_to user_password_path and return
+    end
+    
+    @user.password = params[:new_password]
+    @user.password_confirmation = params[:new_password_confirmation]
+    
+    if @user.save
+      flash[:notice] = "Password changed"
+      redirect_to my_details_path
+    else
+      flash[:error] = @user.errors
+      render "changePassword"
+    end
+  end
+  
+  def resetPassword
   end
   
   def updatePassword
