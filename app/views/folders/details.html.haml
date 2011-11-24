@@ -23,11 +23,12 @@
       %strong
         = f.label :description
       = f.text_area :description, :rows => 4
-    - if current_user.is_admin && !@current_folder.parent_id.nil?
-      .field
-        %strong
-          = f.label :inherit_permissions, "Inherit permissions from parent folder?"
-        = f.check_box :inherit_permissions
+    - if current_user.is_admin
+      - unless @current_folder.parent_id.nil?
+        .field
+          %strong
+            = f.label :inherit_permissions, "Inherit permissions from parent folder?"
+          = f.check_box :inherit_permissions
       = render(:partial => "folderPermissions", :object => @current_folder)
       = link_to 'Add Permission', new_folder_permission_path(@current_folder), :class => 'button addPermission clear'
     .actions

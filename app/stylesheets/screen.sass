@@ -251,12 +251,19 @@ input.button
       background-color: #A7A7A7
   #logout
     float: right
-  ul#actions-menu
+  ul#actions-menu, ul#flash
     margin: 0
     padding: 0
     li
       float: left
       list-style: none
+  ul#flash
+    float: left
+    li
+      margin-left: 5px
+      padding-left: 5px
+      border-left: 1px solid silver
+      font-weight: normal
   #user-bar
     float: right
     margin: 7px 5px
@@ -358,7 +365,11 @@ input.button
       &:hover
         text-decoration: underline
       &.details
-        background: transparent url('/images/file.png') no-repeat left bottom
+        background: 
+          color: transparent
+          repeat: no-repeat 
+          position: left bottom
+          image: url('/images/file.png')
         text-indent: -9999px
         width: 17px
         height: 17px

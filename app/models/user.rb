@@ -3,11 +3,11 @@ class User < ActiveRecord::Base
   require 'haddock'
   include Haddock
 
-  has_many :permissions, :as=>:parent
+  has_many :permissions, :as=>:parent, :dependent => :destroy
   has_many :folders
   has_many :folders, :through=>:permissions, :conditions=>['read_perms = ? or write_perms = ?', true, true]
   has_many :assets
-  has_many :user_groups
+  has_many :user_groups, :dependent => :destroy
   has_many :groups, :through=>:user_groups 
   has_many :logs
   
