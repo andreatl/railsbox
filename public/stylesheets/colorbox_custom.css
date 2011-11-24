@@ -1,19 +1,26 @@
 /* line 1, ../../app/stylesheets/colorbox_custom.sass */
+#cboxOverlay {
+  background-color: gray;
+  background-image: none;
+  opacity: 0.7 !important;
+}
+
+/* line 11, ../../app/stylesheets/colorbox_custom.sass */
 #cboxLoadedContent {
   margin: 0;
 }
 
-/* line 5, ../../app/stylesheets/colorbox_custom.sass */
+/* line 15, ../../app/stylesheets/colorbox_custom.sass */
 #cboxClose {
   top: 0;
 }
 
-/* line 11, ../../app/stylesheets/colorbox_custom.sass */
+/* line 21, ../../app/stylesheets/colorbox_custom.sass */
 #cboxLoadedContent #content {
   margin: 0;
   padding: 0;
 }
-/* line 17, ../../app/stylesheets/colorbox_custom.sass */
+/* line 27, ../../app/stylesheets/colorbox_custom.sass */
 #cboxLoadedContent h2 {
   margin-right: 30px;
   padding: 0 0 10px 0;
@@ -24,23 +31,23 @@
   user-select: none;
   cursor: default;
 }
-/* line 35, ../../app/stylesheets/colorbox_custom.sass */
+/* line 45, ../../app/stylesheets/colorbox_custom.sass */
 #cboxLoadedContent h2.icon {
   padding: 15px 0 15px 55px;
   background-repeat: no-repeat;
   background-position: left middle;
 }
-/* line 43, ../../app/stylesheets/colorbox_custom.sass */
+/* line 53, ../../app/stylesheets/colorbox_custom.sass */
 #cboxLoadedContent #singleMessage {
   margin: 5px 40px 5px 10px;
   display: block;
 }
-/* line 49, ../../app/stylesheets/colorbox_custom.sass */
+/* line 59, ../../app/stylesheets/colorbox_custom.sass */
 #cboxLoadedContent .actions {
   clear: both;
   display: block;
 }
-/* line 55, ../../app/stylesheets/colorbox_custom.sass */
+/* line 65, ../../app/stylesheets/colorbox_custom.sass */
 #cboxLoadedContent .actions .button {
   float: left;
 }
