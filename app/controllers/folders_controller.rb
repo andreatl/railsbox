@@ -7,8 +7,19 @@ class FoldersController < ApplicationController
   skip_after_filter :log, :only => :folderChildren
   
   def index
-    @folders = current_user.accessible_folders.where('folders.parent_id is null or folders.parent_id = 0').order(:name)
-    @assets  = Asset.where(:folder_id=>nil, :user_id=>current_user).order(:uploaded_file_file_name)
+    @canHome = current_user.can_home?
+    @folders = []
+    Folder.where('folders.parent_id is null or folders.parent_id = 0').order(:name).each do |folder|
+      if folder.canread(current_user) || folder.canWrite(current_user)
+        @folders << folder
+      end
+    end
+    if current_user.is_admin?
+      @assets  = Asset.where(:folder_id=>nil).order(:uploaded_file_file_name)
+    else
+      @assets  = Asset.where(:folder_id=>nil, :user_id=>current_user).order(:uploaded_file_file_name)  
+    end
+    
     @log_action = "browse"
     @log_file_path = "/"
   end
@@ -21,19 +32,22 @@ class FoldersController < ApplicationController
   end
 
   def new
-    @folder = Folder.new
-    @folder.parent_id = @current_folder.id if params[:folder_id]
+    if (params[:folder_id] && @current_folder.canwrite?(current_user)) || (params[:folder_id].nil? && current_user.can_home)
+      @folder = Folder.new
+      @folder.parent_id = @current_folder.id if params[:folder_id]
+    end
   end
 
   def create
     @folder = Folder.new(params[:folder])
     @folder.user_id = current_user.id
+    @folder.inherit_permissions = true unless current_user.is_admin
+    @folder.inherit_permissions = false unless @folder.parent_id?
     if @folder.save
-      p = Permission.new(:folder_id=>@folder.id, :parent=>current_user, :assigned_by=>current_user, :read_perms=>true, :write_perms=>true, :delete_perms=>true)
-      p.save
       if @folder.parent_id?
         redirect_to browse_path(@folder.parent)  
       else  
+        Permission.new(:assigned_by=>current_user.id, :read_perms=>true, :write_perms=>true, :delete_perms=>true, :folder_id=>@folder.id, :parent_type=>"User",:parent_id=>current_user.id).save unless current_user.is_admin
         redirect_to root_url
       end 
     else
@@ -58,21 +72,24 @@ class FoldersController < ApplicationController
     end
   end
 
-  def browse  
-    #Use find_by_id instead of find as find_by_id returns nil, rather than throwing exception
-    if @current_folder  
-      @folders = current_user.accessible_folders.where('folders.parent_id=?',@current_folder)
-      if current_user.is_admin or !current_user.permissions.where('read_perms = ? and folder_id = ?', true, @current_folder).empty?
-        @assets = @current_folder.assets.order("uploaded_file_file_name desc")  
+  def browse
+    @canHome = current_user.can_home
+    if @current_folder
+      #folders
+      @folders = current_user.accessible_folders.where(:parent => @current_folder).order("name")
+      
+      #assets
+      if @current_folder.canRead?(current_user)
+        @assets = @current_folder.assets.order("uploaded_file_file_name")  
       else
-        #read only can still see own files.
-        @assets = @current_user.assets.order("uploaded_file_file_name desc").find_all_by_folder_id(@current_folder)
+        #users can see own files
+        @assets = @current_folder.assets.where('user_id = ?',current_user.id).order("uploaded_file_file_name")
       end
       render :action => "index"  
     else
       flash[:error] = "Folder not found"  
       redirect_to root_url  
-    end  
+    end
   end  
   
   def folderChildren
@@ -123,20 +140,25 @@ class FoldersController < ApplicationController
   
   def find_folder
     if params[:folder_id]
-      @current_folder =  current_user.accessible_folders.find_by_id(params[:folder_id])
+      folder =  Folder.find(params[:folder_id])
     elsif params[:id]
-      @current_folder = current_user.accessible_folders.find_by_id(params[:id])
+      folder = Folder.find(params[:id])
     else
       #none to be found
     end
-    if !@current_folder.nil?
+    
+    if folder && (folder.can("read",current_user) || folder.can("write",current_user))
+      @current_folder = folder
       @log_file_path = "/" + @current_folder.breadcrumbs
       @log_target_id = @current_folder.id.to_s
-    end    
+    end
   end
   
   def move
-    @folders = Folder.find(params[:ids].split(','))
+    @folders = []
+    Folder.find(params[:ids].split(',')).each do |folder|
+      (folder.canread?(@current_user) && folder.canwrite?(@current_user)) ? @folders << folder : flash[:error] = "Unauthorised" and redirect_to root_path and return
+    end
     @log_file_path = ""
     if @folders.first.parent.nil?
       @log_file_path = "/"
@@ -152,39 +174,43 @@ class FoldersController < ApplicationController
   end 
   
   def download
-    @downloadFolders = Folder.find(params[:id].split(','))
-    
     require 'zip/zip'
     require 'zip/zipfilesystem'
-    
+    @log_file_path = ""
     t = Tempfile.new("downloadZip#{request.remote_ip}")
     Zip::ZipOutputStream.open(t.path) do |zos|
+      unless params[:folders].blank?
+        @downloadFolders = Folder.find(params[:folders].split(','))
+        #Download each folder
+        if @downloadFolders.first.parent_id.nil?
+          @log_file_path << "/"
+        else
+          @log_file_path << @downloadFolders.first.parent.name
+        end
+        @log_file_path << ": "
+        @downloadFolders.each do |parentFolder|
+          @folders = parentFolder.descendant_folders_include_self_can_read(current_user)
+          @folders.each do |folder|
+            Asset.where(:folder_id => folder.id).each do |asset|
+              zos.put_next_entry(asset.folder.breadcrumbs(parentFolder.id)+"/"+asset.uploaded_file_file_name)
+              zos.print IO.read(asset.uploaded_file.path)
+            end
+          end
+        end
+        @log_file_path += @downloadFolders.collect{|f| f.name+"/"}.join(', ')
+      end
       
-      #Download each folder
-      @log_file_path = @downloadFolders.first.parent ? @downloadFolders.first.parent.name : "/"
-      @log_file_path += ": "
-      @downloadFolders.each do |parentFolder|
-        @folders = parentFolder.descendant_folders_include_self
-        @folders.each do |folder|
-          Asset.where(:folder_id => folder.id).each do |asset|
-            zos.put_next_entry(asset.folder.breadcrumbs(parentFolder.id)+"/"+asset.uploaded_file_file_name)
+      #If assets are selected
+      unless params[:assets].blank?
+        @log_file_path << ", "
+        @assets = Asset.find(params[:assets].split(','))
+        @assets.each do |asset|
+          if asset.is_authorised?(current_user)
+            zos.put_next_entry(asset.uploaded_file_file_name)
             zos.print IO.read(asset.uploaded_file.path)
           end
         end
-      end
-      
-      @log_file_path += @downloadFolders.collect{|f| f.name+"/"}.join(', ')
-      
-      
-      #If assets are selected aswell
-      if params.has_key?(:assets)
-        @log_file_path += ", "
-        @assets = Asset.find(params[:assets].split(','))
-        @assets.each do |asset|
-          zos.put_next_entry(asset.uploaded_file_file_name)
-          zos.print IO.read(asset.uploaded_file.path)
-        end
-        @log_file_path += @assets.collect{|a| a.uploaded_file_file_name}.join(', ')
+        @log_file_path << @assets.collect{|a| a.uploaded_file_file_name}.join(', ')
       end
     end
     send_file t.path, :type => "application/zip", :disposition => "attachment", :filename => params[:name] + ".zip"
@@ -192,10 +218,10 @@ class FoldersController < ApplicationController
   
   
   private
-  
   def log_folder
     @log_file_path = "/" + @folder.breadcrumbs
     @log_target_id = @folder.id.to_s
+    @log_parameters = "name=#{@folder.name}&parent_id=#{@folder.parent_id}"
   end
   
 end

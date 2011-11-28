@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
 def log
   log_controller = @log_controller || self.controller_name.singularize 
 	log_action = @log_action || self.action_name
-	log_parameters = @log_parameters || ActionController::Base.helpers.sanitize(params.except(:controller,:action,:authenticity_token,:password,:utf8).to_param())
-	log_user_id = current_user.id if current_user && !@log_user_id 
+	log_parameters = @log_parameters || ActionController::Base.helpers.sanitize(params.except(:controller,:action,:authenticity_token,:password,:utf8, :description, :notes).to_param())
+	log_user_id = @log_user_id || current_user.id if current_user 
 	log = Log.new({
   	:user_id =>  log_user_id, 
   	:controller =>  log_controller, 
@@ -34,7 +34,14 @@ def log
 end
 
 def is_authorised
-  redirect_to log_in_path and return unless current_user and current_user.active 
+  
+  if !current_user
+    redirect_to log_in_path
+  elsif !current_user.active
+    @error = "Account not yet active"
+    redirect_to log_in_path, :notice => "Account not activated"
+  end
+  #redirect_to log_in_path and return unless current_user and current_user.active 
 end  
 
 
@@ -60,5 +67,12 @@ def build_date_from_params
 end
 
 
+def get_max_users
+  if params[:max_users] && !params[:max_users].blank? 
+    @max_users = Integer(params[:max_users])
+  else
+    @max_users = 5
+  end    
+end
 
 end

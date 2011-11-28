@@ -6,30 +6,54 @@ class AssetsController < ApplicationController
   
   def isAuthorised
     if params[:id]
-      redirect_to root_path and return unless Asset.find(params[:id]).is_authorised?(current_user)
+      unless Asset.find(params[:id]).is_authorised?(@current_user)
+        flash[:error] = "Unauthorised"
+        redirect_to root_path
+        return
+      end 
     elsif params[:ids]
       params[:ids].split(',').each do |asset|
-        redirect_to root_path and return unless Asset.find(asset).is_authorised?(current_user)
+        unless Asset.find(asset).is_authorised?(@current_user)
+          flash[:error] = "Unauthorised"
+          redirect_to root_path 
+          return
+        end 
       end
     end
   end
   
   def details
     @asset = Asset.find(params[:id])
+    if @asset.folder.nil?
+      @canWrite = current_user.can_home?
+    else
+      @canWrite = (@asset.folder && Folder.find(@asset.folder_id).canwrite(@current_user))
+    end
   end
   
   def show
     @asset = Asset.find(params[:id])
+    if @asset.folder.nil?
+      @canWrite = @current_user.can_home
+    else
+      @canWrite = (@asset.folder && Folder.find(@asset.folder_id).canwrite(@current_user))
+    end
     render :action => "details"  
+  end
+  
+  def rename
+    @asset = Asset.find(params[:asset_id])
   end
 
   def new
-    @asset = Asset.new
-    @asset.user_id = @current_user
-    if params[:folder_id] #if we want to upload a file inside another folder  
-      @current_folder = Folder.find(params[:folder_id])  
-      @asset.folder_id = @current_folder.id
-    end 
+    if (params[:folder_id] && Folder.find(params[:folder_id]).canwrite?(@current_user)) || (params[:folder_id].nil? && @current_user.can_home?)
+      @asset = Asset.new
+      @asset.user_id = @current_user
+      if params[:folder_id]
+        @current_folder = Folder.find(params[:folder_id])  
+        @asset.folder_id = @current_folder.id
+      end
+    end
   end
   
   def get  
@@ -38,34 +62,21 @@ class AssetsController < ApplicationController
         send_file @asset.uploaded_file.path, :type => @asset.uploaded_file_content_type
     end  
   end
-  
-  def zip  
-    @assets = Asset.find(params[:ids].split(','))
-    if @assets
-      require 'zip/zip'
-      require 'zip/zipfilesystem'
-      t = Tempfile.new("downloadZip#{request.remote_ip}")
-      Zip::ZipOutputStream.open(t.path) do |zos|
-        @assets.each do |file|
-          zos.put_next_entry(file.uploaded_file_file_name)
-          zos.print IO.read(file.uploaded_file.path)
-        end
-      end
-      send_file t.path, :type => "application/zip", :disposition => "attachment", :filename => params[:name] + ".zip"
-    end
-  end
 
   def create
     @asset = Asset.new(params[:asset])
     @asset.user_id = @current_user.id
-    if @asset.save
-      if @asset.folder_id
-        redirect_to @asset.folder
+    
+    if (@asset.uploaded_file_file_size < @current_user.space_remaining) || @current_user.is_admin?
+      if @asset.save
+        flash[:error] = "File Uploaded"
+        redirect_to (@asset.folder_id ? @asset.folder : root_path)
       else
-        redirect_to root_path
+        render :action => 'new'
       end  
     else
-      render :action => 'new'
+      flash[:error] = "You do not have enough free space"
+      redirect_to (@asset.folder_id ? @asset.folder : root_path) 
     end
   end
 
@@ -99,7 +110,12 @@ class AssetsController < ApplicationController
   end
   
   def move
-    @assets = Asset.find(params[:ids].split(','))
+    @assets = []
+    Asset.find(params[:ids].split(',')).each do |asset|
+      if (asset.folder_id.nil? && current_user.can_home?) ||  (asset.folder.can("read",@current_user) && asset.folder.can("write",@current_user))
+       @assets << asset
+      end
+    end
   end
   
   private  
@@ -111,6 +127,7 @@ class AssetsController < ApplicationController
         @log_file_path = "/" + @asset.folder.breadcrumbs
       end
       @log_file_path = @log_file_path + "/" + @asset.uploaded_file_file_name
+      @log_parameters = "id=#{@asset.id}&name=#{@asset.uploaded_file_file_name}"
     elsif @assets
       @log_target_id = @assets.collect{|a| a.id}.join(', ')
       if @assets.count > 1

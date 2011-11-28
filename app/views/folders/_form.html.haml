@@ -1,0 +1,22 @@
+= form_for @folder do |f| 
+  = f.error_messages
+  .field
+    %strong
+      = f.label :name
+    = f.text_field :name
+  .field
+    %strong
+      = f.label :description
+    = f.text_area :description, :rows => 3
+  .field
+    %strong
+      = f.label :notes
+    = f.text_area :notes, :rows => 3
+  - if current_user.is_admin && !@folder.parent_id.nil?
+    .field
+      %strong
+        = f.label :inherit_permissions, "Inherit permissions from parent folder?"
+      = f.check_box :inherit_permissions
+  = f.hidden_field :parent_id
+  .actions
+    = f.submit :class => 'button newFolder'

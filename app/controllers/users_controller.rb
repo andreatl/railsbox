@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
    
-  skip_before_filter :is_authorised, :only=>[:new, :create]
-  before_filter :check_admin, :except =>[:new, :create, :me]
-  before_filter :mailer_set_url_options, :only=>[:create]
-  skip_after_filter :log, :only => [:searchUsersResult]
-  after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult]
+  skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
+  skip_after_filter :log, :only=>[:resetPassword, :disk_space, :searchUsersResult]
+  before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :update, :edit, :changePasswordUpdate]
+  before_filter :mailer_set_url_options, :only=>[:create,:updatePassword]
+  before_filter :get_max_users, :only => [:searchUsersResult]
+  after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :changePassword, :resetPassword, :updatePassword, :disk_space]
+  
   
   def index
     @users = User.where(:active=>true)
@@ -19,10 +21,13 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
            
     if @user.save
-      config = File.open('config.txt', 'r')
-      to = config.readlines[0].chomp
-      config.close
-      UserMailer.user_registered(@user, to).deliver
+      #send email to admin
+      begin
+        to = APP_CONFIG['admin_email_address']
+        UserMailer.user_registered(@user, to).deliver
+      rescue
+      end
+      
       redirect_to users_url, :notice => "Signed up!"
     else
       render "new"
@@ -43,13 +48,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+    
     if @user.update_attributes(params[:user])
       if current_user.is_admin
         #allowed to change permissions
-        @user.is_admin = params[:user][:is_admin]
-        @user.can_hotlink = params[:user][:can_hotlink]
-        @user.active = params[:user][:active]
+        @user.is_admin = params[:user][:is_admin] if params[:user][:is_admin]
+        @user.can_hotlink = params[:user][:can_hotlink] if params[:user][:can_hotlink]
+        @user.can_home = params[:user][:can_home] if params[:user][:can_home]
+        @user.active = params[:user][:active] if params[:user][:active]
         if @user.save!
           redirect_to @user, :notice  => "Successfully updated."
         else
@@ -63,7 +74,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def destroy
     @user = User.find(params[:id])
     @user.destroy
@@ -72,10 +82,59 @@ class UsersController < ApplicationController
   
   def searchUsersResult
     @users= User.named(params[:query])
-    if params[:inactive]
-      @users = @users.inactive
+    if params[:active] != "all"
+      @users = @users.active(params[:active])
     end
-      @users = @users.limit(5)
+      @users = @users.limit(@max_users)
+  end
+  
+  def disk_space
+  end
+  
+  def changePassword
+  end
+  
+  def changePasswordUpdate
+    @user = current_user
+    if !@user.authenticate(params[:current_password])
+      flash[:error] = "Current password incorrect"
+      redirect_to user_password_path and return
+    end
+    
+    @user.password = params[:new_password]
+    @user.password_confirmation = params[:new_password_confirmation]
+    
+    if @user.save
+      flash[:notice] = "Password changed"
+      redirect_to my_details_path
+    else
+      flash[:error] = @user.errors
+      render "changePassword"
+    end
+  end
+  
+  def resetPassword
+  end
+  
+  def updatePassword
+      if params[:email]
+        @user = User.find_by_email(params[:email])
+      end
+      
+      if @user
+        @log_user_id = @user.id        
+        newPassword = User.generate_password
+        @user.password = newPassword
+        @user.password_confirmation = newPassword
+        if @user.save
+          UserMailer.reset_password(@user, newPassword).deliver
+          redirect_to root_path, :notice => "New password sent"
+        else
+          redirect_to root_path, :notice => "Password reset failed"
+        end
+      else
+        redirect_to root_path, :notice => "User not found"
+      end
   end
   
   private

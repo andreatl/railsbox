@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe UserMailer do
 
-  user = User.new(:name=>'foobar', :email=>'test@testemail.com',:password=>'test1', :password_confirmation=>'test1')
+  user = User.new(:name=>'foobar', :email=>'test@testemail.com',:password=>'test1', :password_confirmation=>'test1', :referrer => 'stickyHamster')
   admin = 'test@railsbox.com'
 
   ActionMailer::Base.default_url_options[:host] = 'localhost:3000'
@@ -17,5 +17,9 @@ describe UserMailer do
     mail.to.should == [admin]
   end
 
+  it 'should send reset password email' do
+    mail = UserMailer.reset_password(user,'newPassword')
+    mail.to.should == [user.email]
+  end
 
 end

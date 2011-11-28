@@ -1,0 +1,56 @@
+%h2.newFolder.icon
+  Folder Details
+-if @current_folder.canwrite(current_user)
+  = form_for @current_folder do |f|
+    .field
+      %strong
+        = f.label :name
+      = f.text_field :name
+    - if @current_folder.parent
+      %p.field
+        %strong 
+          Parent Folder:
+        = link_to @current_folder.parent.name, folder_details_path(@current_folder.parent)
+    - if @current_folder.user
+      %p.field
+        %strong Created By:
+        = @current_folder.user.name
+    .field
+      %strong
+        = f.label :notes
+      = f.text_area :notes, :rows => 4
+    .field
+      %strong
+        = f.label :description
+      = f.text_area :description, :rows => 4
+    - if current_user.is_admin
+      - unless @current_folder.parent_id.nil?
+        .field
+          %strong
+            = f.label :inherit_permissions, "Inherit permissions from parent folder?"
+          = f.check_box :inherit_permissions
+      = render(:partial => "folderPermissions", :object => @current_folder)
+      = link_to 'Add Permission', new_folder_permission_path(@current_folder), :class => 'button addPermission clear'
+    .actions
+      = f.submit 'Save', :class => 'button save'
+-else
+  %p
+    %strong
+      Name
+    = @current_folder.name
+  - if !@current_folder.description.blank?     
+    %p
+      %strong
+        Description
+    %p
+      = @current_folder.description
+  - if !@current_folder.notes.blank?     
+    %p
+      %strong
+        Notes
+    %p
+      = @current_folder.notes
+-if @current_folder.candelete(current_user)
+  = button_to "Delete", folder_path(@asset), :confirm => 'Are you sure?', :method => :delete, :class => 'button delete'
+.clear
+  

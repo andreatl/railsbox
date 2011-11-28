@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110913101810) do
+ActiveRecord::Schema.define(:version => 20111010141359) do
 
   create_table "assets", :force => true do |t|
     t.datetime "created_at"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20110913101810) do
     t.text     "description"
     t.text     "notes"
     t.integer  "user_id"
+    t.boolean  "inherit_permissions", :default => true
   end
 
   add_index "folders", ["parent_id"], :name => "index_folders_on_parent_id"
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20110913101810) do
     t.string   "last_name"
     t.string   "company"
     t.string   "referrer"
+    t.boolean  "can_home"
   end
 
 end

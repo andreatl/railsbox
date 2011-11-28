@@ -5,7 +5,7 @@
   -if @log.user
     %p
       = link_to @log.user.name, @log.user
-    %p
+      |
       = mail_to @log.user.email
   -else
     %p
@@ -35,9 +35,10 @@
   %p
     = link_to @log.target_id, {:controller => @log.controller.pluralize, :action => "show", :id => @log.target_id}
 
-%h3 Parameters:
-%p
-  = @log.parameters
+- unless @log.parameters.blank?
+  %h3 Parameters:
+  %p
+    = @log.parameters
   
 %h3 IP Address:
 %p

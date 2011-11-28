@@ -9,4 +9,10 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:from => "admin@railsbox.com", :to => @user.email, :subject => "Railsbox Account Activated")
   end
+  
+  def reset_password(user,newPassword)
+    @newPassword = newPassword
+    @user = user
+    mail(:from => "admin@railsbox.com", :to => @user.email, :subject => "Railsbox Password Reset")
+  end
 end

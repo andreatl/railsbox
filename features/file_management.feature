@@ -39,14 +39,6 @@ Feature: Main functionality
     | 6          | true       | true        | 1           |
     When I visit folders
     
-    Scenario: Viewing own created folder
-      When I follow "New Folder"
-      And I enter "folder7" in "folder_name"
-      And I enter "foobar rules" in "folder_description"
-      And I press "Create Folder"
-      And I should see "folder1"
-      Then I should see "folder7"
-    
         
   Scenario: Download a file
       When I follow "test2.txt"    

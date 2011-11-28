@@ -4,6 +4,8 @@ class GroupsController < ApplicationController
   
   before_filter :searchGroupsResult, :only=>[:userGroupSearchResult]
   
+  before_filter :get_max_users, :only => [:searchGroupsResult,:userGroupSearchResult]
+  
   skip_after_filter :log, :only=>[:searchGroupsResult,:userGroupSearchResult]
   
   after_filter :logfilepath, :only=>[:show, :update, :create]

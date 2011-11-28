@@ -7,6 +7,10 @@ class HotlinksController < ApplicationController
 
   def show
     @hotlink = Hotlink.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js { render :layout => false }
+    end
   end
 
   def new
@@ -18,7 +22,10 @@ class HotlinksController < ApplicationController
   def create
     @hotlink = Hotlink.new(params[:hotlink])
     if @hotlink.save
-      redirect_to hotlink_link_path(@hotlink)
+      respond_to do |format|
+        format.html {render :action => 'link' }
+        format.js { render :action => 'link', :layout => false }
+      end
     else
       render :action => 'new'
     end
@@ -33,7 +40,7 @@ class HotlinksController < ApplicationController
     @hotlink = Hotlink.authenticate(params[:id], params[:hotlink][:password])
     @log_action = "Access"
     if @hotlink
-      send_file @hotlink.asset.uploaded_file.path, :type => @hotlink.asset.uploaded_file_content_type  
+      send_file @hotlink.asset.uploaded_file.path, :type => @hotlink.asset.uploaded_file_content_type
     else
       @hotlink = Hotlink.find(params[:id])
       @log_action += " - Invalid Password"

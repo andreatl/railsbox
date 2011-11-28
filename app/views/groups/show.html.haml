@@ -16,11 +16,10 @@
 .clear
 
 %h2 Folders
-%ul.listWithDelete
-  - for permission in @group.permissions
+%ul
+  - for folder in @group.folders
     %li 
-      =link_to permission.folder.name, permission.folder
-      =button_to 'Remove', permission_path(permission), :confirm => 'Are you sure?', :method => :delete, :class => 'button delete'
+      =link_to folder.breadcrumbs, folder
 
 .clear
 	

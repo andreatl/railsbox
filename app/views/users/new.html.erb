@@ -2,6 +2,7 @@
    <%= render :partial=>'/shared/logo' %>
   </div>
   <h2>New User</h2>
+  
   <div id="register-form-holder">
    <%= form_for @user do |f| %>
         <% if @user.errors.any? %>
@@ -31,8 +32,8 @@
           <%= f.text_field :company %>
         </div>
         <div class="field">
-          <%= f.label :company_contact, "Referrer" %>
-          <%= f.text_field :company_contact %>
+          <%= f.label :referrer, "Referrer" %>
+          <%= f.text_field :referrer %>
         </div>
         <div class="field">
           <%= f.label :password %>

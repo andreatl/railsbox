@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   
   skip_before_filter :is_authorised, :except=>:destroy
-
+  
   def new
   end
 
@@ -9,13 +9,17 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:email], params[:password])
     @log_file_path = params[:email]
     if user
-      @log_action = "Login"
-      session[:user_id] = user.id
-      redirect_to root_url
+      if user.active
+        @log_action = "Login"
+        session[:user_id] = user.id
+        redirect_to root_url
+      else
+        @log_action = "Login(Inactive User)"
+        redirect_to log_in_path, :notice => "Account not active"
+      end
     else
       @log_action = "Login Invalid"
-      flash.now.alert = "Invalid email or password"
-      render "new"
+      redirect_to log_in_path, :notice => "Invalid email or password"
     end
   end
 
@@ -26,5 +30,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => "Logged out!"
   end
-
 end

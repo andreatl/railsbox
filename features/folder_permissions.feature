@@ -92,7 +92,6 @@ Feature: read permissions functionality
     Then I should see "folder1"
     And I should see "folder2"
     And I should see "test2.txt"
-    And I should not see "test1.txt"
     
   Scenario: Admin Has read/write access to submit folders
     Given I am an admin user

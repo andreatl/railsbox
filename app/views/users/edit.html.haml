@@ -1,0 +1,69 @@
+%h2 Edit User
+= form_for @user do |f|
+  .field
+    =f.label :first_name
+    =f.text_field :first_name
+  .field
+    =f.label :last_name
+    =f.text_field :last_name
+  .field
+    =f.label :company
+    =f.text_field :company
+  .field
+    =f.label :email
+    =f.text_field :email
+  .field
+    =f.label :referrer
+    =f.text_field :referrer
+  .clear
+  %p
+    = f.label :active
+    = f.check_box :active
+    &nbsp; 
+    = f.label :is_admin
+    = f.check_box :is_admin
+    &nbsp;
+    = f.label :can_hotlink
+    = f.check_box :can_hotlink
+    &nbsp;
+    = f.label :can_home, 'Can change home'
+    = f.check_box :can_home
+  = f.submit :class=> 'button save'
+.actions
+  = link_to "Change Password", user_password_path, :class => 'button edit' if params[:action] == 'me'
+  = button_to "Delete User", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete' unless params[:action] == 'me'
+  
+  = form_tag update_password_path do
+    = hidden_field_tag 'email', @user.email
+    = submit_tag 'Reset Password', :class => 'button login'
+    .clear
+.clear
+  
+%h3 Groups
+- if @user.groups.empty?
+  %p
+    %em User doesn't belong to any groups
+-else
+  %ul
+    - for group in @user.groups 
+      %li
+        = link_to group.name, group
+      
+%h3 Folders
+- unless @user.accessible_folders_exc_groups.empty?
+  %h4 Assigned to user
+  %ul
+    - for folder in @user.accessible_folders_exc_groups
+      %li 
+        =link_to folder.breadcrumbs, folder
+- unless @user.groups.empty?
+  %h4 Assigned from groups
+  %ul
+    - @user.groups.each do |group|
+      %li
+        = group.name
+        %ul
+          - group.folders.each do |folder|
+            %li
+              = link_to folder.breadcrumbs, folder
+.clear

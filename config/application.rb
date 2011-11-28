@@ -35,6 +35,7 @@ module Railsbox
 
     # Configure the default encoding used in templates for Ruby 1.9.
     ActionMailer::Base.smtp_settings[:enable_starttls_auto] = false
+    ActionMailer::Base.smtp_settings[:address] = "mrpostman2.ahc.uk.com"
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.

@@ -1,6 +1,9 @@
 <%= render :partial=>'/shared/logo' %>
 <div id="cboxLoadedContent">
   <h2 class="hotlink icon">Access Hotlink</h2>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :li, msg, :id => "flash_#{name}", :class=> 'menu-item' %>
+  <% end %>
   <%= form_for @hotlink do |f| %>
     <p>
       <%= f.label :password %><br />
