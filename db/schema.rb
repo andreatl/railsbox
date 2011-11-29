@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20111010141359) do
     t.integer  "user_id"
     t.string   "controller"
     t.string   "action"
-    t.string   "parameters"
+    t.text     "parameters"
     t.string   "ip_address"
     t.string   "user_agent"
     t.datetime "created_at"
