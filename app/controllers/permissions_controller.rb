@@ -10,7 +10,6 @@ class PermissionsController < ApplicationController
   end
 
   def create
-    puts "-------------------------------------------------------------------------------------------------------------------CREATING"
     @permission = Permission.new()
     parent = params[:permission][:parent]
     @permission.parent_id = parent.split('/')[2]

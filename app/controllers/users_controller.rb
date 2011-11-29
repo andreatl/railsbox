@@ -133,7 +133,7 @@ class UsersController < ApplicationController
           redirect_to root_path, :notice => "Password reset failed"
         end
       else
-        redirect_to root_path, :notice => "User not found"
+        redirect_to reset_password_path, :notice => "E-Mail address not found"
       end
   end
   

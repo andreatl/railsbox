@@ -1,0 +1,27 @@
+#logon-box
+  .logon-box-padder
+    #logon-tabs
+      %ul
+        %li
+          = link_to "Sign up", sign_up_path
+        %li
+          = link_to "Reset Password", reset_password_path
+        %li
+          = link_to 'Help', '/documents/help.pdf'
+    .clear
+    #logon-main
+      #logo_holder
+        = render :partial=> '/shared/logo'
+      #form-holder
+        = form_tag sessions_path do
+          %p.error
+            - flash.each do |name, msg|
+              = msg
+          %p
+            = label_tag :email, 'E-Mail Address:'
+            = text_field_tag :email, params[:email], :size => 30
+          %p
+            = label_tag :password, 'Client password:'
+            = password_field_tag :password, '', :size => 30
+          = submit_tag "Log in", :class => 'button login'
+      .clear
