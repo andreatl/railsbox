@@ -1,4 +1,4 @@
-# Railsbox
+= Railsbox
 
 A drop-type file management system.
 
@@ -12,27 +12,19 @@ Basics of system from http://www.prowl.in/sharebox.html
 Developed in rails 3, using existing gems.
 Users require manual approval before continuing. (probably be config option in future)
 
-## Getting started
+== Getting started
 
 Setup app:
-
-`bundle install`
-
-`rake db:setup`
-
-`rails s`
-
+  bundle install
+  rake db:setup
+  rails s
   
 Admin user added by running:
-
-`rake db:seed`
-
+  rake db:seed
   
 Admin user details: 
-
-Username - admin@admin.com
-
-Password - admin
+  Username - admin@admin.com
+  Password - admin
 
 
 CAVEAT: Some of the functionality is done due to current user expectations - even though its dirty.
