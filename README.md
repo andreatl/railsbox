@@ -15,12 +15,17 @@ Users require manual approval before continuing. (probably be config option in f
 ## Getting started
 
 Setup app:
+
 `bundle install`
+
 `rake db:setup`
+
 `rails s`
   
 Admin user added by running:
+
 `rake db:seed`
+
   
 Admin user details: 
 Username - admin@admin.com
