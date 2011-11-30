@@ -7,6 +7,7 @@ describe HotlinksController do
    @current_user = mock_model(User, :id => 1, :is_admin=>true, :active=>true, :email=>'wwah@hoss.com', :can_hotlink=>true)
    controller.stub!(:current_user).and_return(@current_user)
    controller.stub!(:login_required).and_return(:true)
+   @current_user.stub!("is_admin?").and_return(:true)
   end
 
 
@@ -38,7 +39,7 @@ describe HotlinksController do
 	  Hotlink.stub(:new).and_return(hotlink)
 	  hotlink.stub(:valid?).and_return(true)
     post :create
-    response.should redirect_to("#{root_url}hotlinks/#{hotlink.id}/link")
+    response.should render_template (:link)
   end
 
 
