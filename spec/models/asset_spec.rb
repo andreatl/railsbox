@@ -13,7 +13,7 @@ describe Asset do
   
   it "should not allow 2 files with the same name in the same folder" do
     asset1 = valid_asset
-    asset1.should_not be_valid
+    asset1.should be_valid
   	asset2 = valid_asset
   	asset2.should_not be_valid
   end
@@ -27,9 +27,11 @@ describe Asset do
 end
 
 def valid_asset
-	Asset.new(:id => 1, :uploaded_file_file_name=>'qwerty.txt', :uploaded_file_content_type=>'text/plain', :user=>valid_user)
+  user = valid_user
+  user.save
+	Asset.new(:id => 1, :uploaded_file_file_name=>'qwerty.txt', :uploaded_file_content_type=>'text/plain', :user_id=>user.id)
 end
 
 def valid_user
-  User.new(:id => 1, :email => "admin@test.com", :password => "123", :password_confirmation => "123", :name => "Admin Administrator", :active => true, :can_hotlink => true, :is_admin => true, :can_home => true)
+  User.new(:name=>'foobar', :email=>'test@testemail.com',:password=>'test1', :password_confirmation=>'test1')
 end

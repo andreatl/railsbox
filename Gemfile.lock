@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.5.0)
     abstract (1.0.0)
     actionmailer (3.0.11)
       actionpack (= 3.0.11)
@@ -197,6 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ZenTest
   acts_as_tree
   bcrypt-ruby
   capybara

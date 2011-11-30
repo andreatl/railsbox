@@ -29,9 +29,9 @@ describe User do
   it "folders should be maniupulatable" do
     user = valid_user
     user.stub!(:accessible_folders).and_return(Folder.all)
-    user.accessible_folders.class.should == ActiveRecord::Relation
+    user.accessible_folders.class.should == Array
     user.is_admin = true
-    user.accessible_folders.class.should == ActiveRecord::Relation
+    user.accessible_folders.class.should == Array
   end
 
   it "should fail confirmation password" do
