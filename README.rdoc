@@ -13,9 +13,9 @@ Developed in rails 3, using existing gems.
 Users require manual approval before continuing. (probably be config option in future)
 
 == Getting started
-bundle install
-rake db:setup
-rails s
+  bundle install
+  rake db:setup
+  rails s
   
 Admin user added by running:
   rake db:seed
