@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       rescue
       end
       
-      redirect_to users_url, :notice => "Signed up!"
+      redirect_to log_in_path, :notice => "Signed up!"
     else
       render "new"
     end
