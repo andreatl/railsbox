@@ -1,0 +1,33 @@
+# Railsbox
+
+A drop-type file management system.
+
+Many folders, which can be accessed by users and/or groups.
+
+Admin interface for back-end
+
+Authenticatin based on Ryan Bates Screencast http://railscasts.com/episodes/250-authentication-from-scratch
+Basics of system from http://www.prowl.in/sharebox.html
+
+Developed in rails 3, using existing gems.
+Users require manual approval before continuing. (probably be config option in future)
+
+## Getting started
+
+Setup app:
+    bundle install
+    rake db:setup
+    rails s
+  
+Admin user added by running:
+    rake db:seed
+  
+Admin user details: 
+Username - admin@admin.com
+Password - admin
+
+
+CAVEAT: Some of the functionality is done due to current user expectations - even though its dirty.
+
+You will need to add your administrator's email address in config/config.yml.sample and rename this to config.yml to receive emails about users being registered
+
