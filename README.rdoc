@@ -1,5 +1,3 @@
-== Railsbox
-
 A drop-type file management system.
 
 Many folders, which can be accessed by users and/or groups.
@@ -14,7 +12,7 @@ Basics of system from http://www.prowl.in/sharebox.html
 Developed in rails 3, using existing gems.
 Users require manual approval before continuing. (probably be config option in future)
 
-= Getting started
+Getting started:
 	bundle install
 	rake db:setup
 	rails s
