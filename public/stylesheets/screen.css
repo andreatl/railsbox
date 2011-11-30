@@ -481,6 +481,10 @@ input.button {
   padding: 30px 30px;
 }
 
+#register-form-holder {
+  margin-left: 20px;
+}
+
 /**** END LOGON PAGE ******* */
 /***** MAIN PAGES ********** */
 /* line 241, ../../app/stylesheets/screen.sass */

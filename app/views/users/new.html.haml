@@ -1,38 +1,50 @@
-#logo-holder
-  = render :partial=>'/shared/logo'
-%h2 New User
-#register-form-holder
-  = form_for @user do |f|
-    - if @user.errors.any?
-      .error_messages
-        %h2 Form is invalid
-        %ul
-          - for message in @user.errors.full_messages
-            %li= message
-    .field
-      = f.label :email
-      = f.text_field :email
-    .field
-      = f.label :first_name
-      = f.text_field :first_name
-    .field
-      = f.label :last_name
-      = f.text_field :last_name
-    .field
-      = f.label :company
-      = f.text_field :company
-    .field
-      = f.label :referrer, "Referrer"
-      = f.text_field :referrer
-    .field
-      = f.label :password
-      = f.password_field :password, :autocomplete=>'off'
-    .field
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation
-    .actions
-      = f.submit :class => 'button save'
-.clear
-  / 
-.clear
-  /
+#logon-box
+  .logon-box-padder
+    #logon-tabs
+      %ul
+        %li
+          = link_to "Log In", log_in_path
+        %li
+          = link_to "Reset Password", reset_password_path
+        %li
+          = link_to 'Help', '/documents/help.pdf'
+    .clear
+    #logon-main
+      #register-form-holder
+        #logo-holder
+          = render :partial=>'/shared/logo'
+        %h2 New User
+        = form_for @user do |f|
+          - if @user.errors.any?
+            .error_messages
+              %h2 Form is invalid
+              %ul
+                - for message in @user.errors.full_messages
+                  %li= message
+          .field
+            = f.label :email
+            = f.text_field :email
+          .field
+            = f.label :first_name
+            = f.text_field :first_name
+          .field
+            = f.label :last_name
+            = f.text_field :last_name
+          .field
+            = f.label :company
+            = f.text_field :company
+          .field
+            = f.label :referrer, "Referrer"
+            = f.text_field :referrer
+          .field
+            = f.label :password
+            = f.password_field :password, :autocomplete=>'off'
+          .field
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation
+          .actions
+            = f.submit :class => 'button save'
+      .clear
+        / 
+      .clear
+        /
