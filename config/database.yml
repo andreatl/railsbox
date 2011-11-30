@@ -37,10 +37,10 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: railsbox
+  database: railsbox_test
   username: railsbox
   password: railsbox
-  host: pgsqlhost-2
+  host: localhost
 
 staging:
   adapter: postgresql

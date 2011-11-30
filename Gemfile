@@ -34,6 +34,7 @@ group :development, :test do
 	gem 'jasmine'
 	gem 'database_cleaner'
 	gem 'nifty-generators'
+	gem 'ZenTest'
 end
 
 group :staging do
