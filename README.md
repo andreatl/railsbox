@@ -21,6 +21,7 @@ Setup app:
 `rake db:setup`
 
 `rails s`
+
   
 Admin user added by running:
 
@@ -28,7 +29,9 @@ Admin user added by running:
 
   
 Admin user details: 
+
 Username - admin@admin.com
+
 Password - admin
 
 
