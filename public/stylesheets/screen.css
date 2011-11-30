@@ -468,6 +468,12 @@ input.button {
 #logon-box .logon-box-padder #logon-main #form-holder label {
   float: left;
   width: 100px;
+  margin-top: 6px;
+}
+
+#logon-box .logon-box-padder #logon-main #form-holder .error {
+  float: right;
+  margin-top: 6px;
 }
 /* line 233, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #actions-holder {
