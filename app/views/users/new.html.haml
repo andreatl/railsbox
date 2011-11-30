@@ -13,7 +13,7 @@
       #register-form-holder
         #logo-holder
           = render :partial=>'/shared/logo'
-        %h2 New User
+        %h2 Sign up
         = form_for @user do |f|
           - if @user.errors.any?
             .error_messages
@@ -45,6 +45,4 @@
           .actions
             = f.submit :class => 'button save'
       .clear
-        / 
-      .clear
-        /
+    .clear
