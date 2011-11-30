@@ -13,6 +13,8 @@ Developed in rails 3, using existing gems.
 Users require manual approval before continuing. (probably be config option in future)
 
 == Getting started
+
+Setup app:
   bundle install
   rake db:setup
   rails s
@@ -23,6 +25,7 @@ Admin user added by running:
 Admin user details: 
   Username - admin@admin.com
   Password - admin
+
 
 CAVEAT: Some of the functionality is done due to current user expectations - even though its dirty.
 
