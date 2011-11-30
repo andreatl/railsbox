@@ -37,10 +37,8 @@ Feature: have admin back end
     And I follow "Users"
     And I press "Search"
     And I follow "Jim Wilson"
+    And I follow "Edit User"
     And I check "user_can_hotlink"
-    And I press "Save changes"
+    And I press "Update User"
     And "user_can_hotlink" should be checked
     And "user_is_admin" should not be checked
-     
-    
-	

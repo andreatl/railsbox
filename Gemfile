@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.11'
 gem 'pg', '0.10.1'
 gem 'haml', '>=3.0'
 #gem 'capistrano'
@@ -13,6 +13,8 @@ gem 'will_paginate'
 gem 'meta_where'
 gem 'meta_search'
 gem 'perch'
+
+gem 'sqlite3-ruby'
 
 group :development do
 	gem 'mongrel'	
@@ -32,6 +34,7 @@ group :development, :test do
 	gem 'jasmine'
 	gem 'database_cleaner'
 	gem 'nifty-generators'
+	gem 'ZenTest'
 end
 
 group :staging do

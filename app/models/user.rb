@@ -37,8 +37,11 @@ class User < ActiveRecord::Base
   
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  validates_presence_of :email
-  validates_uniqueness_of :email
+  
+  validates :email, :presence => true,
+                    :length => {:minimum => 3, :maximum => 254},
+                    :uniqueness => true,
+                    :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
   
   def accessible_folders_exc_groups
     if is_admin
@@ -72,7 +75,7 @@ class User < ActiveRecord::Base
   
   def self.authenticate(email, password)
     user = find_by_email(email)
-    if user.authenticate(password)
+    if user && user.authenticate(password)
       user
     else
       nil

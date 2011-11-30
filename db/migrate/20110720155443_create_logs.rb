@@ -4,7 +4,7 @@ class CreateLogs < ActiveRecord::Migration
       t.integer :user_id
       t.string :controller
       t.string :action
-      t.string :parameters
+      t.text :parameters
       t.string :ip_address
       t.string :user_agent
 

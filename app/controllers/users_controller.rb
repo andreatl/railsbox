@@ -128,12 +128,12 @@ class UsersController < ApplicationController
         @user.password_confirmation = newPassword
         if @user.save
           UserMailer.reset_password(@user, newPassword).deliver
-          redirect_to root_path, :notice => "New password sent"
+          redirect_to log_in_path, :notice => "New password sent"
         else
-          redirect_to root_path, :notice => "Password reset failed"
+          redirect_to reset_password_path, :notice => "Password reset failed"
         end
       else
-        redirect_to root_path, :notice => "User not found"
+        redirect_to reset_password_path, :notice => "E-Mail address not found"
       end
   end
   
