@@ -656,6 +656,7 @@ input.button {
   background: url("/images/filterBar.png");
   font-weight: bold;
   margin-bottom: 1px;
+  margin-top: 4px;
 }
 
 /* line 351, ../../app/stylesheets/screen.sass */

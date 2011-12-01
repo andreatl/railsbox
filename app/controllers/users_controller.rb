@@ -19,7 +19,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-           
+    @user.is_admin = false
+    @user.active = false
+
     if @user.save
       #send email to admin
       begin
@@ -35,11 +37,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    if current_user.is_admin
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
+    @user = User.find(params[:id])
   end
   
   def me
