@@ -2,7 +2,7 @@ class UsersController < ApplicationController
    
   skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
   skip_after_filter :log, :only=>[:resetPassword, :disk_space, :searchUsersResult]
-  before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :update, :edit, :changePasswordUpdate]
+  before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :changePassword, :changePasswordUpdate]
   before_filter :mailer_set_url_options, :only=>[:create,:updatePassword]
   before_filter :get_max_users, :only => [:searchUsersResult]
   after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :changePassword, :resetPassword, :updatePassword, :disk_space]
@@ -35,7 +35,11 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
+    if current_user.is_admin
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
   
   def me
@@ -44,12 +48,20 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    if current_user.is_admin
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
 
   def update
     if params[:id]
-      @user = User.find(params[:id])
+      if current_user.is_admin
+        @user = User.find(params[:id])
+      else
+        @user = current_user
+      end
     else
       @user = current_user
     end
