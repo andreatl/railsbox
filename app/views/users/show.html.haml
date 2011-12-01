@@ -47,6 +47,8 @@
     %span.cross.icon-only
       false
 .clear
+%p
+  &nbsp;
 .actions
   = link_to "Change Password", user_password_path, :class => 'button edit' if params[:action] == 'me'
   - if current_user.is_admin

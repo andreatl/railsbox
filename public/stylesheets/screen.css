@@ -158,6 +158,7 @@ h2 {
 
 /* line 30, ../../app/stylesheets/screen.sass */
 h3 {
+  margin-top: 20px;
   font-size: 1.4em;
 }
 
