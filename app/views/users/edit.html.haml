@@ -30,9 +30,8 @@
     = f.check_box :can_home
   = f.submit :class=> 'button save'
 .actions
-  = link_to "Change Password", user_password_path, :class => 'button edit' if params[:action] == 'me'
   = button_to "Delete User", @user, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete' unless params[:action] == 'me'
-  
+  = link_to "Change Password", user_change_password_path(@user), :class => 'button edit'
   = form_tag update_password_path do
     = hidden_field_tag 'email', @user.email
     = submit_tag 'Reset Password', :class => 'button login'

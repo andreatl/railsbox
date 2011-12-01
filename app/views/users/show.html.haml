@@ -48,7 +48,7 @@
       false
 .clear
 .actions
-  = link_to "Change Password", user_password_path, :class => 'button edit' if params[:action] == 'me'
+  = link_to "Change Password", change_password_path, :class => 'button edit' if @user == current_user
   - if current_user.is_admin
     = link_to "Edit User", edit_user_path(@user), :class=> 'button edituser'
 .clear
