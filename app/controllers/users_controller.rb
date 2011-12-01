@@ -91,7 +91,10 @@ class UsersController < ApplicationController
   end
   
   def change_password_update
-    if !@user.authenticate(params[:current_password])
+    puts "-----------------------------------------------------------------------"
+    puts @user.name
+    puts "-----------------------------------------------------------------------"
+    unless @user.authenticate(params[:current_password])
       flash[:error] = "Current password incorrect"
       redirect_to user_change_password_path and return
     end
@@ -101,14 +104,14 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:notice] = "Password changed"
-      if @user == current_user 
+      if @user == current_user
         redirect_to @user
       else
         redirect_to my_details_path
       end
     else
       flash[:error] = @user.errors
-      render "changePassword"
+      render "change_password"
     end
   end
   
