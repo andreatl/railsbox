@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       rescue
       end
       
-      redirect_to log_in_path, :notice => "Signed up!"
+      redirect_to log_in_path, :notice => "Signed up, awaiting admin activation"
     else
       render "new"
     end

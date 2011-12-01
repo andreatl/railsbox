@@ -29,16 +29,6 @@
 .clear
 %p
   %strong.left
-    Administrator: 
-  - if @user.is_admin?
-    %span.tick.icon-only
-      true
-  - else
-    %span.cross.icon-only
-      false
-.clear
-%p
-  %strong.left
     Can hotlink: 
   - if @user.can_hotlink
     %span.tick.icon-only
@@ -58,8 +48,9 @@
       false
 .clear
 .actions
-  = link_to "Edit User", edit_user_path(@user), :class=> 'button edituser' if current_user.is_admin
-  = link_to "Change Password", user_change_password_path(@user), :class => 'button edit' if params[:action] == 'me' || current_user.is_admin
+  = link_to "Change Password", user_password_path, :class => 'button edit' if params[:action] == 'me'
+  - if current_user.is_admin
+    = link_to "Edit User", edit_user_path(@user), :class=> 'button edituser'
 .clear
   
 %h3 Groups
