@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :groups, :through=>:user_groups 
   has_many :logs
   
-  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :company, :referrer, :can_home, :is_admin, :can_hotlink, :active
+  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :company, :referrer
   
   scope :active, lambda {|active|
     if active != 'all'

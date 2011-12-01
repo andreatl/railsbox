@@ -29,6 +29,7 @@ Feature: have admin back end
     Then I should see "Jim Wilson"
     And I follow "Jim Wilson"
     And I should see "bank"
+    And I follow "Edit User"
     And "user_can_hotlink" should not be checked
     And "user_is_admin" should not be checked
   
@@ -40,5 +41,6 @@ Feature: have admin back end
     And I follow "Edit User"
     And I check "user_can_hotlink"
     And I press "Update User"
+    And I follow "Edit User"
     And "user_can_hotlink" should be checked
     And "user_is_admin" should not be checked
