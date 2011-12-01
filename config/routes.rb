@@ -19,12 +19,16 @@ Railsbox::Application.routes.draw do
   root :to => "folders#index"
   
   match "users/search", :to => "users#searchUsersResult", :via => :post, :as => "user_search"
-  match "changepassword", :to => "users#changePassword", :as => "user_password"
-  post "users/changePasswordUpdate", :as=>"change_password_update"
   
   
   match "disk_space", :to => "users#disk_space"
-  resources :users
+  
+  resources :users do
+    get :change_password
+    put :change_password_update
+  end
+  
+  get "change_password" => "users#change_password", :as => "change_password"
   
   get "resetpassword" => "users#resetPassword", :as => "reset_password"
   post "users/updatePassword", :as => "update_password"
