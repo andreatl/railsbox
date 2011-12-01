@@ -16,37 +16,38 @@
     Contact in Company:
   = @user.referrer
 .clear
-%h3 Rights  
-%p
-  %strong.left
-    Active: 
-  - if @user.active
-    %span.tick.icon-only
-      true
-  - else
-    %span.cross.icon-only
-      false
-.clear
-%p
-  %strong.left
-    Can hotlink: 
-  - if @user.can_hotlink
-    %span.tick.icon-only
-      true
-  - else
-    %span.cross.icon-only
-      false
-.clear
-%p
-  %strong.left
-    Can change home: 
-  - if @user.can_home
-    %span.tick.icon-only
-      true
-  - else
-    %span.cross.icon-only
-      false
-.clear
+- if current_user.is_admin
+  %h3 Rights  
+  %p
+    %strong.left
+      Active: 
+    - if @user.active
+      %span.tick.icon-only
+        true
+    - else
+      %span.cross.icon-only
+        false
+  .clear
+  %p
+    %strong.left
+      Can hotlink: 
+    - if @user.can_hotlink
+      %span.tick.icon-only
+        true
+    - else
+      %span.cross.icon-only
+        false
+  .clear
+  %p
+    %strong.left
+      Can change home: 
+    - if @user.can_home
+      %span.tick.icon-only
+        true
+    - else
+      %span.cross.icon-only
+        false
+  .clear
 %p
   &nbsp;
 .actions
