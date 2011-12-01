@@ -581,7 +581,7 @@ input.button {
 #topBar {
   background: url("/images/topbar.png") repeat-x top left silver;
   width: 100%;
-  height: 86px;
+  height: 95spx;
   position: fixed;
   top: 22px;
 }
@@ -659,47 +659,49 @@ input.button {
   background: url("/images/filterBar.png");
   font-weight: bold;
   margin-bottom: 1px;
+  margin-top: 4px;
+  padding: 5px 0 2px 0;
 }
 
-/* line 367, ../../app/stylesheets/screen.sass */
+/* line 369, ../../app/stylesheets/screen.sass */
 #file-container {
   clear: both;
   padding: 109px 0 0 0;
   margin: 0;
 }
-/* line 371, ../../app/stylesheets/screen.sass */
+/* line 373, ../../app/stylesheets/screen.sass */
 #file-container .row-container {
   padding: 3px 0;
   list-style: none;
 }
-/* line 374, ../../app/stylesheets/screen.sass */
+/* line 376, ../../app/stylesheets/screen.sass */
 #file-container .row-container:hover {
   background: transparent url("/images/highlight.png") repeat-x top left;
 }
-/* line 376, ../../app/stylesheets/screen.sass */
+/* line 378, ../../app/stylesheets/screen.sass */
 #file-container .row-container a {
   display: block;
   overflow: hidden;
   height: 100%;
 }
-/* line 380, ../../app/stylesheets/screen.sass */
+/* line 382, ../../app/stylesheets/screen.sass */
 #file-container .row-container.folder .name a.details {
   background-image: url("/images/folder.png");
 }
-/* line 382, ../../app/stylesheets/screen.sass */
+/* line 384, ../../app/stylesheets/screen.sass */
 #file-container .row-container.folder .name a.details.shared {
   background-image: url("/images/folderShared.png");
 }
-/* line 384, ../../app/stylesheets/screen.sass */
+/* line 386, ../../app/stylesheets/screen.sass */
 #file-container .row-container.upFolder .name a {
   background: transparent url("/images/up.png") no-repeat left top;
   padding-left: 20px;
 }
-/* line 388, ../../app/stylesheets/screen.sass */
+/* line 390, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a:hover {
   text-decoration: underline;
 }
-/* line 390, ../../app/stylesheets/screen.sass */
+/* line 392, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details {
   background-color: transparent;
   background-repeat: no-repeat;
@@ -711,75 +713,75 @@ input.button {
   margin-right: 5px;
   float: left;
 }
-/* line 401, ../../app/stylesheets/screen.sass */
+/* line 403, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details:hover {
   background-position: -1px 0;
 }
-/* line 403, ../../app/stylesheets/screen.sass */
+/* line 405, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.txtFileType {
   background-image: url("/images/page_white_text.png");
 }
-/* line 405, ../../app/stylesheets/screen.sass */
+/* line 407, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.pdfFileType {
   background-image: url("/images/page_white_acrobat.png");
 }
-/* line 407, ../../app/stylesheets/screen.sass */
+/* line 409, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.zipFileType {
   background-image: url("/images/page_white_compressed.png");
 }
-/* line 409, ../../app/stylesheets/screen.sass */
+/* line 411, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.jpgFileType, #file-container .row-container .name a.details.jpegFileType, #file-container .row-container .name a.details.pngFileType, #file-container .row-container .name a.details.gifFileType {
   background-image: url("/images/page_white_picture.png");
 }
-/* line 411, ../../app/stylesheets/screen.sass */
+/* line 413, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.docFileType, #file-container .row-container .name a.details.docxFileType {
   background-image: url("/images/page_white_word.png");
 }
-/* line 413, ../../app/stylesheets/screen.sass */
+/* line 415, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.pptFileType, #file-container .row-container .name a.details.pptxFileType {
   background-image: url("/images/page_white_powerpoint.png");
 }
-/* line 415, ../../app/stylesheets/screen.sass */
+/* line 417, ../../app/stylesheets/screen.sass */
 #file-container .row-container .name a.details.xlsFileType, #file-container .row-container .name a.details.xlsxFileType {
   background-image: url("/images/page_white_excel.png");
 }
 
-/* line 419, ../../app/stylesheets/screen.sass */
+/* line 421, ../../app/stylesheets/screen.sass */
 #file-container .mark-it, #file-container .name, #file-container .ext, #file-container .size, #file-container .description, #file-container .date, #file-container .attr, #headers .mark-it, #headers .name, #headers .ext, #headers .size, #headers .description, #headers .date, #headers .attr {
   float: left;
   overflow: hidden;
   height: 17px;
 }
-/* line 423, ../../app/stylesheets/screen.sass */
+/* line 425, ../../app/stylesheets/screen.sass */
 #file-container .mark-it, #headers .mark-it {
   width: 2%;
 }
-/* line 425, ../../app/stylesheets/screen.sass */
+/* line 427, ../../app/stylesheets/screen.sass */
 #file-container .name, #headers .name {
   width: 37%;
 }
-/* line 427, ../../app/stylesheets/screen.sass */
+/* line 429, ../../app/stylesheets/screen.sass */
 #file-container .ext, #headers .ext {
   width: 5%;
 }
-/* line 429, ../../app/stylesheets/screen.sass */
+/* line 431, ../../app/stylesheets/screen.sass */
 #file-container .size, #headers .size {
   width: 8%;
 }
-/* line 431, ../../app/stylesheets/screen.sass */
+/* line 433, ../../app/stylesheets/screen.sass */
 #file-container .description, #headers .description {
   width: 30%;
 }
-/* line 433, ../../app/stylesheets/screen.sass */
+/* line 435, ../../app/stylesheets/screen.sass */
 #file-container .date, #headers .date {
   width: 15%;
 }
-/* line 435, ../../app/stylesheets/screen.sass */
+/* line 437, ../../app/stylesheets/screen.sass */
 #file-container .attr, #headers .attr {
   width: 5%;
 }
 
-/* line 438, ../../app/stylesheets/screen.sass */
+/* line 440, ../../app/stylesheets/screen.sass */
 #bottom-bar {
   background: url("/images/taskbar.png") repeat-x silver;
   height: 91px;
@@ -787,13 +789,13 @@ input.button {
   bottom: 0;
   width: 100%;
 }
-/* line 444, ../../app/stylesheets/screen.sass */
+/* line 446, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder {
   margin: 0 auto;
   padding: 6px 0;
   width: 640px;
 }
-/* line 448, ../../app/stylesheets/screen.sass */
+/* line 450, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder .icon-link {
   width: 80px;
   float: left;
@@ -816,84 +818,84 @@ input.button {
   -o-user-select: none;
   user-select: none;
 }
-/* line 469, ../../app/stylesheets/screen.sass */
+/* line 471, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder .icon-link:hover {
   background-color: #5e5e5e;
   color: silver;
 }
-/* line 472, ../../app/stylesheets/screen.sass */
+/* line 474, ../../app/stylesheets/screen.sass */
 #bottom-bar #bottom-bar-padder .icon-link.download {
   background-image: url("/images/icons/download.png");
 }
 
-/* line 476, ../../app/stylesheets/screen.sass */
+/* line 478, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.download, #cboxLoadedContent h2.download {
   background-image: url("/images/icons/download.png");
 }
-/* line 478, ../../app/stylesheets/screen.sass */
+/* line 480, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.upload, #cboxLoadedContent h2.upload {
   background-image: url("/images/icons/upload.png");
 }
-/* line 480, ../../app/stylesheets/screen.sass */
+/* line 482, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.newFolder, #cboxLoadedContent h2.newFolder {
   background-image: url("/images/icons/newFolder.png");
 }
-/* line 482, ../../app/stylesheets/screen.sass */
+/* line 484, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.hotlink, #cboxLoadedContent h2.hotlink {
   background-image: url("/images/icons/hotlink.png");
 }
-/* line 484, ../../app/stylesheets/screen.sass */
+/* line 486, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.move, #cboxLoadedContent h2.move {
   background-image: url("/images/icons/move.png");
 }
-/* line 486, ../../app/stylesheets/screen.sass */
+/* line 488, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.rename, #bottom-bar .icon-link.details, #cboxLoadedContent h2.rename, #cboxLoadedContent h2.details {
   background-image: url("/images/icons/rename.png");
 }
-/* line 488, ../../app/stylesheets/screen.sass */
+/* line 490, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.delete, #cboxLoadedContent h2.delete {
   background-image: url("/images/icons/delete.png");
 }
-/* line 490, ../../app/stylesheets/screen.sass */
+/* line 492, ../../app/stylesheets/screen.sass */
 #bottom-bar .icon-link.exit, #cboxLoadedContent h2.exit {
   background-image: url("/images/icons/exit.png");
 }
 
-/* line 493, ../../app/stylesheets/screen.sass */
+/* line 495, ../../app/stylesheets/screen.sass */
 #loader {
   background: transparent url("/images/loading.gif") no-repeat top center;
   height: 20px;
 }
 
-/* line 498, ../../app/stylesheets/screen.sass */
+/* line 500, ../../app/stylesheets/screen.sass */
 #newAsset #loader {
   display: none;
   width: 100%;
   margin: 25px 0;
 }
-/* line 503, ../../app/stylesheets/screen.sass */
+/* line 505, ../../app/stylesheets/screen.sass */
 #newAsset.loading form {
   display: none;
 }
-/* line 505, ../../app/stylesheets/screen.sass */
+/* line 507, ../../app/stylesheets/screen.sass */
 #newAsset.loading #loader {
   display: block;
 }
 
 /***** END MAIN PAGES ****** */
-/* line 511, ../../app/stylesheets/screen.sass */
+/* line 513, ../../app/stylesheets/screen.sass */
 #cboxLoadedContent #folder_inherit_permissions {
   float: none;
   clear: none;
   margin-left: 10px;
 }
 
-/* line 516, ../../app/stylesheets/screen.sass */
+/* line 518, ../../app/stylesheets/screen.sass */
 ul#permissions {
   clear: left;
   margin-left: 5px;
 }
-/* line 519, ../../app/stylesheets/screen.sass */
+/* line 521, ../../app/stylesheets/screen.sass */
 ul#permissions li {
   float: left;
   clear: left;
@@ -902,16 +904,16 @@ ul#permissions li {
   list-style: none;
   padding-left: 20px;
 }
-/* line 527, ../../app/stylesheets/screen.sass */
+/* line 529, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permName {
   float: left;
   margin-right: 5px;
 }
-/* line 530, ../../app/stylesheets/screen.sass */
+/* line 532, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permName a:hover {
   text-decoration: underline;
 }
-/* line 532, ../../app/stylesheets/screen.sass */
+/* line 534, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission {
   background-repeat: no-repeat;
   width: 16px;
@@ -920,44 +922,44 @@ ul#permissions li span.permission {
   float: right;
   margin: 0 2px;
 }
-/* line 539, ../../app/stylesheets/screen.sass */
+/* line 541, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.inherited {
   background: transparent url("/images/inherited.png") no-repeat top left;
 }
-/* line 541, ../../app/stylesheets/screen.sass */
+/* line 543, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.read {
   background-image: url("/images/eye.png");
 }
-/* line 543, ../../app/stylesheets/screen.sass */
+/* line 545, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.delete {
   background-image: url("/images/cross.png");
 }
 
-/* line 548, ../../app/stylesheets/screen.sass */
+/* line 550, ../../app/stylesheets/screen.sass */
 ul#permissions li span.permission.write, p#permissions .write_perms label {
   background-image: url("/images/pencil.png");
 }
 
-/* line 552, ../../app/stylesheets/screen.sass */
+/* line 554, ../../app/stylesheets/screen.sass */
 p#permissions .delete_perms label {
   background-image: url("/images/cross.png");
 }
-/* line 554, ../../app/stylesheets/screen.sass */
+/* line 556, ../../app/stylesheets/screen.sass */
 p#permissions .read_perms label {
   background-image: url("/images/eye.png");
 }
-/* line 556, ../../app/stylesheets/screen.sass */
+/* line 558, ../../app/stylesheets/screen.sass */
 p#permissions span.permission {
   margin-right: 10px;
 }
-/* line 558, ../../app/stylesheets/screen.sass */
+/* line 560, ../../app/stylesheets/screen.sass */
 p#permissions span.permission label {
   background-repeat: no-repeat;
   padding-left: 20px;
 }
 
 /************** Move Folder *************** */
-/* line 565, ../../app/stylesheets/screen.sass */
+/* line 567, ../../app/stylesheets/screen.sass */
 #moveDialogLoading {
   float: right;
   height: 32px;
@@ -967,7 +969,7 @@ p#permissions span.permission label {
   display: none;
 }
 
-/* line 573, ../../app/stylesheets/screen.sass */
+/* line 575, ../../app/stylesheets/screen.sass */
 #folderMove {
   width: 400px;
   height: 350px;
@@ -975,20 +977,20 @@ p#permissions span.permission label {
   padding: 5px 5px 5px 0;
   border: 1px solid silver;
 }
-/* line 579, ../../app/stylesheets/screen.sass */
+/* line 581, ../../app/stylesheets/screen.sass */
 #folderMove ul {
   margin-left: 20px;
   list-style: none;
 }
-/* line 582, ../../app/stylesheets/screen.sass */
+/* line 584, ../../app/stylesheets/screen.sass */
 #folderMove #folderRoot {
   margin-left: 5px;
 }
-/* line 584, ../../app/stylesheets/screen.sass */
+/* line 586, ../../app/stylesheets/screen.sass */
 #folderMove li {
   margin: 1px 0;
 }
-/* line 586, ../../app/stylesheets/screen.sass */
+/* line 588, ../../app/stylesheets/screen.sass */
 #folderMove li a {
   background: transparent url("/images/folderOpen.png") no-repeat center left;
   padding: 2px 5px 2px 16px;
@@ -998,15 +1000,15 @@ p#permissions span.permission label {
   -o-user-select: none;
   user-select: none;
 }
-/* line 594, ../../app/stylesheets/screen.sass */
+/* line 596, ../../app/stylesheets/screen.sass */
 #folderMove li a.opened {
   background-image: url("/images/folderClose.png");
 }
-/* line 596, ../../app/stylesheets/screen.sass */
+/* line 598, ../../app/stylesheets/screen.sass */
 #folderMove li a.selected {
   background-color: #b2b2b2;
 }
-/* line 598, ../../app/stylesheets/screen.sass */
+/* line 600, ../../app/stylesheets/screen.sass */
 #folderMove li.disabled a {
   color: gray;
   background-image: url("/images/folderUnavailable.png");
@@ -1014,11 +1016,11 @@ p#permissions span.permission label {
 
 /*************End of Move Folder ************ */
 /***** HOTLINK ******** */
-/* line 606, ../../app/stylesheets/screen.sass */
+/* line 608, ../../app/stylesheets/screen.sass */
 #hotlinkResult {
   margin: 0 5px 5px 5px;
 }
-/* line 608, ../../app/stylesheets/screen.sass */
+/* line 610, ../../app/stylesheets/screen.sass */
 #hotlinkResult #link {
   padding: 5px;
   border: 1px solid gray;
@@ -1032,7 +1034,7 @@ p#permissions span.permission label {
   margin-bottom: 5px;
 }
 
-/* line 620, ../../app/stylesheets/screen.sass */
+/* line 622, ../../app/stylesheets/screen.sass */
 #hotlinkError {
   color: red;
   display: none;
@@ -1040,7 +1042,7 @@ p#permissions span.permission label {
 
 /***** End of Hotlink ******** */
 /***** OVERLAY ******** */
-/* line 628, ../../app/stylesheets/screen.sass */
+/* line 630, ../../app/stylesheets/screen.sass */
 #overlay {
   /* must be initially hidden */
   display: none;
@@ -1058,64 +1060,64 @@ p#permissions span.permission label {
 
 /***** End of OVERLAY ********* */
 /***** User Search ********* */
-/* line 646, ../../app/stylesheets/screen.sass */
+/* line 648, ../../app/stylesheets/screen.sass */
 #userGroupSearch {
   float: left;
   min-width: 455px;
   margin-bottom: 10px;
 }
 
-/* line 651, ../../app/stylesheets/screen.sass */
+/* line 653, ../../app/stylesheets/screen.sass */
 #searchResult.loading {
   background: white url("/images/colorbox/loading.gif") no-repeat top center;
 }
 
-/* line 655, ../../app/stylesheets/screen.sass */
+/* line 657, ../../app/stylesheets/screen.sass */
 #userGroupSearch #query, #userGroupSearch#inactive, #userGroupSearch label {
   margin-top: 3px;
 }
-/* line 657, ../../app/stylesheets/screen.sass */
+/* line 659, ../../app/stylesheets/screen.sass */
 #userGroupSearch input {
   margin-right: 10px;
 }
-/* line 659, ../../app/stylesheets/screen.sass */
+/* line 661, ../../app/stylesheets/screen.sass */
 #userGroupSearch input#query {
   width: 300px;
 }
-/* line 661, ../../app/stylesheets/screen.sass */
+/* line 663, ../../app/stylesheets/screen.sass */
 #userGroupSearch .search {
   float: right;
 }
-/* line 663, ../../app/stylesheets/screen.sass */
+/* line 665, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult {
   clear: left;
   float: left;
   width: 100%;
   min-height: 30px;
 }
-/* line 668, ../../app/stylesheets/screen.sass */
+/* line 670, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul {
   margin: 0;
   list-style: none;
 }
-/* line 672, ../../app/stylesheets/screen.sass */
+/* line 674, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li a {
   background: transparent url("/images/bullet_green.png") no-repeat left center;
   padding-left: 20px;
 }
-/* line 675, ../../app/stylesheets/screen.sass */
+/* line 677, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li a#moreUsers {
   background: none;
 }
-/* line 677, ../../app/stylesheets/screen.sass */
+/* line 679, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li a:hover {
   text-decoration: underline;
 }
-/* line 679, ../../app/stylesheets/screen.sass */
+/* line 681, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult ul li.inactive a {
   background: transparent url("/images/bullet_red.png") no-repeat left center;
 }
-/* line 681, ../../app/stylesheets/screen.sass */
+/* line 683, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult.selectable ul li a {
   background-image: none;
   background-color: #dddddd;
@@ -1123,35 +1125,35 @@ p#permissions span.permission label {
   margin: 2px 0;
   display: block;
 }
-/* line 687, ../../app/stylesheets/screen.sass */
+/* line 689, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult.selectable ul li a:hover {
   background-color: #cccccc;
   text-decoration: none;
 }
-/* line 690, ../../app/stylesheets/screen.sass */
+/* line 692, ../../app/stylesheets/screen.sass */
 #userGroupSearch #searchResult.selectable ul li a.selected {
   background-color: #aaaaaa;
 }
 
 /***** End of User Search ****** */
 /**************** Page Numbers ************** */
-/* line 698, ../../app/stylesheets/screen.sass */
+/* line 700, ../../app/stylesheets/screen.sass */
 .pagination {
   text-align: center;
   margin-top: 20px;
 }
-/* line 701, ../../app/stylesheets/screen.sass */
+/* line 703, ../../app/stylesheets/screen.sass */
 .pagination a, .pagination em.current, .pagination .disabled {
   padding: 7px;
   border: 1px solid silver;
   margin: 2px;
 }
-/* line 705, ../../app/stylesheets/screen.sass */
+/* line 707, ../../app/stylesheets/screen.sass */
 .pagination a:hover, .pagination em.current {
   text-decoration: none;
   background-color: #dcdcdc;
 }
-/* line 708, ../../app/stylesheets/screen.sass */
+/* line 710, ../../app/stylesheets/screen.sass */
 .pagination .disabled {
   color: gray;
 }
