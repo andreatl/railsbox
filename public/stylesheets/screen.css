@@ -401,6 +401,14 @@ input.button {
   background-image: url("/images/user_edit.png");
 }
 
+#logo {
+  margin: 0px 0px 20px 0px;
+}
+
+#logo_holder {
+  margin: 0px 0px 20px 15px;
+}
+
 /***  LOGON PAGE ******* */
 /* line 186, ../../app/stylesheets/screen.sass */
 #logon-box {
@@ -483,6 +491,10 @@ input.button {
 
 #register-form-holder {
   margin-left: 20px;
+}
+
+#register-form-holder h2 {
+  margin-bottom: 20px;
 }
 
 /**** END LOGON PAGE ******* */
