@@ -91,17 +91,20 @@ class UsersController < ApplicationController
   end
   
   def change_password_update
-    puts "-----------------------------------------------------------------------"
-    puts @user.name
-    puts "-----------------------------------------------------------------------"
-    unless @user.authenticate(params[:current_password])
+    #If non admin user is trying to change another user's password
+    if @user != current_user && !current_user.is_admin
+      redirect_to root_path and return
+    end 
+    
+    #check if password matches current password if user is changing their own password
+    if @user == current_user && !@user.authenticate(params[:current_password])
       flash[:error] = "Current password incorrect"
       redirect_to user_change_password_path and return
     end
-    
-    @user.password = params[:password]
-    @user.password_confirmation = params[:password_confirmation]
-    
+        
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
+        
     if @user.save
       flash[:notice] = "Password changed"
       if @user == current_user

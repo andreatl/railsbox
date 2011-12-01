@@ -25,7 +25,7 @@ Railsbox::Application.routes.draw do
   
   resources :users do
     get :change_password
-    post :change_password_update
+    put :change_password_update
   end
   
   get "change_password" => "users#change_password", :as => "change_password"
