@@ -133,86 +133,85 @@ html {
 body {
   background: url("/images/bg.png");
   font-size: 13px;
-  height: 100%;
 }
 
-/* line 22, ../../app/stylesheets/screen.sass */
+/* line 21, ../../app/stylesheets/screen.sass */
 h1, h2, h3, h4, p {
   margin-bottom: 6px;
 }
 
-/* line 24, ../../app/stylesheets/screen.sass */
+/* line 23, ../../app/stylesheets/screen.sass */
 h1, h2, h3, h4 {
   font-weight: bold;
 }
 
-/* line 26, ../../app/stylesheets/screen.sass */
+/* line 25, ../../app/stylesheets/screen.sass */
 h1 {
   font-size: 2em;
 }
 
-/* line 28, ../../app/stylesheets/screen.sass */
+/* line 27, ../../app/stylesheets/screen.sass */
 h2 {
   font-size: 1.8em;
 }
 
-/* line 30, ../../app/stylesheets/screen.sass */
+/* line 29, ../../app/stylesheets/screen.sass */
 h3 {
   font-size: 1.4em;
 }
 
-/* line 32, ../../app/stylesheets/screen.sass */
+/* line 31, ../../app/stylesheets/screen.sass */
 a {
   text-decoration: none;
   color: #333333;
 }
 
-/* line 35, ../../app/stylesheets/screen.sass */
+/* line 34, ../../app/stylesheets/screen.sass */
 strong {
   font-weight: bold;
 }
 
-/* line 37, ../../app/stylesheets/screen.sass */
+/* line 36, ../../app/stylesheets/screen.sass */
 .hidden {
   display: none;
 }
 
-/* line 40, ../../app/stylesheets/screen.sass */
+/* line 39, ../../app/stylesheets/screen.sass */
 .clear {
   clear: both;
 }
 
-/* line 43, ../../app/stylesheets/screen.sass */
+/* line 42, ../../app/stylesheets/screen.sass */
 .error {
   color: red;
 }
 
-/* line 46, ../../app/stylesheets/screen.sass */
+/* line 45, ../../app/stylesheets/screen.sass */
 .left {
   float: left;
 }
 
-/* line 49, ../../app/stylesheets/screen.sass */
+/* line 48, ../../app/stylesheets/screen.sass */
 form .field {
   float: left;
   clear: both;
   margin-bottom: 6px;
 }
-/* line 53, ../../app/stylesheets/screen.sass */
+/* line 52, ../../app/stylesheets/screen.sass */
 form .field label, form .field input, form .field textarea, form .field select {
   float: left;
   clear: left;
 }
-/* line 56, ../../app/stylesheets/screen.sass */
+/* line 55, ../../app/stylesheets/screen.sass */
 form input.error {
   background-color: #ff6a54;
 }
-/* line 58, ../../app/stylesheets/screen.sass */
+/* line 57, ../../app/stylesheets/screen.sass */
 form .actions {
   clear: both;
 }
 
-/* line 61, ../../app/stylesheets/screen.sass */
+/* line 60, ../../app/stylesheets/screen.sass */
 .border {
   padding: 7px;
   -moz-border-radius: 4px;
@@ -222,16 +221,16 @@ form .actions {
   border: 1px solid silver;
 }
 
-/* line 69, ../../app/stylesheets/screen.sass */
+/* line 68, ../../app/stylesheets/screen.sass */
 ul {
   margin-left: 25px;
 }
 
-/* line 72, ../../app/stylesheets/screen.sass */
+/* line 71, ../../app/stylesheets/screen.sass */
 #wrapper {
   min-width: 970px;
 }
-/* line 74, ../../app/stylesheets/screen.sass */
+/* line 73, ../../app/stylesheets/screen.sass */
 #wrapper #content {
   clear: both;
   margin: 25px 15px 15px 15px;
@@ -239,29 +238,29 @@ ul {
   background-color: white;
   /*Groups */
 }
-/* line 79, ../../app/stylesheets/screen.sass */
+/* line 78, ../../app/stylesheets/screen.sass */
 #wrapper #content #error_message {
   padding: 5px 10px;
   background-color: #b81900;
   border-radius: 5px;
   color: white;
 }
-/* line 84, ../../app/stylesheets/screen.sass */
+/* line 83, ../../app/stylesheets/screen.sass */
 #wrapper #content ul {
   list-style: disc;
 }
-/* line 86, ../../app/stylesheets/screen.sass */
+/* line 85, ../../app/stylesheets/screen.sass */
 #wrapper #content.fileBrowser {
   margin: 0px;
   padding: 0 0 91px 0;
   border-radius: 0px;
   background-color: transparent;
 }
-/* line 92, ../../app/stylesheets/screen.sass */
+/* line 91, ../../app/stylesheets/screen.sass */
 #wrapper #content ul.listWithDelete {
   margin: 0;
 }
-/* line 94, ../../app/stylesheets/screen.sass */
+/* line 93, ../../app/stylesheets/screen.sass */
 #wrapper #content ul.listWithDelete li {
   margin: 3px 0;
   float: left;
@@ -275,18 +274,18 @@ ul {
   border-radius: 4px;
   border: 1px solid silver;
 }
-/* line 106, ../../app/stylesheets/screen.sass */
+/* line 105, ../../app/stylesheets/screen.sass */
 #wrapper #content ul.listWithDelete li a {
   float: left;
   margin: 6px;
 }
-/* line 109, ../../app/stylesheets/screen.sass */
+/* line 108, ../../app/stylesheets/screen.sass */
 #wrapper #content ul.listWithDelete li form {
   float: right;
 }
 
 /**** Buttons *** */
-/* line 112, ../../app/stylesheets/screen.sass */
+/* line 111, ../../app/stylesheets/screen.sass */
 .button {
   border: 1px solid silver;
   -moz-border-radius: 4px;
@@ -310,23 +309,23 @@ ul {
   cursor: pointer;
   width: auto;
 }
-/* line 134, ../../app/stylesheets/screen.sass */
+/* line 133, ../../app/stylesheets/screen.sass */
 .button:hover {
   border-width: 2px;
   margin: 2px;
 }
-/* line 137, ../../app/stylesheets/screen.sass */
+/* line 136, ../../app/stylesheets/screen.sass */
 .button.large {
   padding: 10px 15px;
   font-size: 1.2em;
 }
 
-/* line 140, ../../app/stylesheets/screen.sass */
+/* line 139, ../../app/stylesheets/screen.sass */
 input.button {
   padding: 2px 6px 2px 27px;
 }
 
-/* line 142, ../../app/stylesheets/screen.sass */
+/* line 141, ../../app/stylesheets/screen.sass */
 .icon-only {
   height: 16px;
   width: 16px;
@@ -336,103 +335,103 @@ input.button {
   display: block;
 }
 
-/* line 150, ../../app/stylesheets/screen.sass */
+/* line 149, ../../app/stylesheets/screen.sass */
 .icon-only.save, .button.save {
   background-image: url("/images/save.png");
 }
-/* line 152, ../../app/stylesheets/screen.sass */
+/* line 151, ../../app/stylesheets/screen.sass */
 .icon-only.delete, .button.delete {
   background-image: url("/images/delete.png");
 }
-/* line 154, ../../app/stylesheets/screen.sass */
+/* line 153, ../../app/stylesheets/screen.sass */
 .icon-only.login, .button.login {
   background-image: url("/images/user_go.png");
 }
-/* line 156, ../../app/stylesheets/screen.sass */
+/* line 155, ../../app/stylesheets/screen.sass */
 .icon-only.search, .button.search {
   background-image: url("/images/search.png");
 }
-/* line 158, ../../app/stylesheets/screen.sass */
+/* line 157, ../../app/stylesheets/screen.sass */
 .icon-only.upload, .button.upload {
   background-image: url("/images/upload.png");
 }
-/* line 160, ../../app/stylesheets/screen.sass */
+/* line 159, ../../app/stylesheets/screen.sass */
 .icon-only.newFolder, .button.newFolder {
   background-image: url("/images/newFolder.png");
 }
-/* line 162, ../../app/stylesheets/screen.sass */
+/* line 161, ../../app/stylesheets/screen.sass */
 .icon-only.createLink, .button.createLink {
   background-image: url("/images/createLink.png");
 }
-/* line 164, ../../app/stylesheets/screen.sass */
+/* line 163, ../../app/stylesheets/screen.sass */
 .icon-only.move, .button.move {
   background-image: url("/images/move.png");
 }
-/* line 166, ../../app/stylesheets/screen.sass */
+/* line 165, ../../app/stylesheets/screen.sass */
 .icon-only.addPermission, .button.addPermission {
   background-image: url("/images/key_add.png");
 }
-/* line 168, ../../app/stylesheets/screen.sass */
+/* line 167, ../../app/stylesheets/screen.sass */
 .icon-only.download, .button.download {
   background-image: url("/images/download.png");
 }
-/* line 170, ../../app/stylesheets/screen.sass */
+/* line 169, ../../app/stylesheets/screen.sass */
 .icon-only.edit, .button.edit {
   background-image: url("/images/pencil.png");
 }
-/* line 172, ../../app/stylesheets/screen.sass */
+/* line 171, ../../app/stylesheets/screen.sass */
 .icon-only.new, .button.new {
   background-image: url("/images/add.png");
 }
-/* line 174, ../../app/stylesheets/screen.sass */
+/* line 173, ../../app/stylesheets/screen.sass */
 .icon-only.back, .button.back {
   background-image: url("/images/arrow_left.png");
 }
-/* line 176, ../../app/stylesheets/screen.sass */
+/* line 175, ../../app/stylesheets/screen.sass */
 .icon-only.cross, .button.cross {
   background-image: url("/images/cross.png");
 }
-/* line 178, ../../app/stylesheets/screen.sass */
+/* line 177, ../../app/stylesheets/screen.sass */
 .icon-only.tick, .button.tick {
   background-image: url("/images/tick.png");
 }
-/* line 180, ../../app/stylesheets/screen.sass */
+/* line 179, ../../app/stylesheets/screen.sass */
 .icon-only.edituser, .button.edituser {
   background-image: url("/images/user_edit.png");
 }
 
-/* line 184, ../../app/stylesheets/screen.sass */
+/* line 183, ../../app/stylesheets/screen.sass */
 #logo {
-  margin: 0px 0px 20px 0px;
+  margin: 0px 20px 20px 0px;
 }
 
-/* line 187, ../../app/stylesheets/screen.sass */
+/* line 186, ../../app/stylesheets/screen.sass */
 #logo_holder {
   margin: 0px 0px 20px 20px;
 }
 
 /***  LOGON PAGE ******* */
-/* line 192, ../../app/stylesheets/screen.sass */
+/* line 191, ../../app/stylesheets/screen.sass */
 #logon-box {
   width: 600px;
   margin: 100px auto;
 }
-/* line 195, ../../app/stylesheets/screen.sass */
+/* line 194, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder {
   padding: 10px;
 }
-/* line 197, ../../app/stylesheets/screen.sass */
+/* line 196, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul {
   float: right;
   list-style: none;
   margin: 0 50px;
 }
-/* line 201, ../../app/stylesheets/screen.sass */
+/* line 200, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul li {
   margin-left: 10px;
   float: left;
 }
-/* line 204, ../../app/stylesheets/screen.sass */
+/* line 203, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul li a {
   text-decoration: none;
   color: #333333;
@@ -448,11 +447,11 @@ input.button {
   -moz-border-radius-topLeft: 0.5em;
   -webkit-border-radius-topleft: 0.5em;
 }
-/* line 218, ../../app/stylesheets/screen.sass */
+/* line 217, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-tabs ul li a:hover {
   background-color: #aaaaaa;
 }
-/* line 220, ../../app/stylesheets/screen.sass */
+/* line 219, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main {
   background-color: white;
   padding: 40px 0;
@@ -461,27 +460,28 @@ input.button {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
 }
-/* line 227, ../../app/stylesheets/screen.sass */
+/* line 226, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #logo_holder {
   float: left;
 }
-/* line 229, ../../app/stylesheets/screen.sass */
+/* line 228, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #form-holder {
   font-size: 8pt;
-  float: right;
+  float: left;
   margin-right: 30px;
   padding-left: 30px;
   border-left: 1px dotted #333333;
 }
-/* line 235, ../../app/stylesheets/screen.sass */
+/* line 234, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #form-holder .error {
   float: right;
   margin-top: 6px;
 }
-/* line 238, ../../app/stylesheets/screen.sass */
+/* line 237, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #logon-main #form-holder label {
   float: left;
   width: 100px;
+  margin-top: 7px;
 }
 /* line 241, ../../app/stylesheets/screen.sass */
 #logon-box .logon-box-padder #actions-holder {
