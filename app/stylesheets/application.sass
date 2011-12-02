@@ -1,0 +1,129 @@
+@import "compass/reset"
+@import "colorbox_custom"
+
+html
+  overflow-y: scroll
+  font-family: Verdana,Arial
+  height: 100%
+body
+  background: url('/images/bg.png')
+  font-size: 13px
+  h1, h2, h3, h4, p
+    margin-bottom: 6px
+  h1, h2, h3, h4
+    font-weight: bold
+  h1
+    font-size: 2em
+  h2
+    font-size: 1.8em
+  h3
+    font-size: 1.4em
+  a
+    text-decoration: none
+    color: #333333
+  strong
+    font-weight: bold
+  .hidden
+    display: none
+  .clear
+    clear: both
+  .error
+    color: red
+  .left
+    float: left
+  form
+    .field
+      float: left
+      clear: both
+      margin-bottom: 6px
+      label, input, textarea, select
+        float: left
+        clear: left
+    input.error
+      background-color: #FF6A54
+    .actions
+      clear: both
+  .border
+    padding: 7px
+    -moz-border-radius: 4px
+    -webkit-border-radius: 4px
+    -khtml-border-radius: 4px
+    border-radius: 4px
+    border: 1px solid silver
+  ul
+    margin-left: 25px
+  #logo
+    margin: 0px 20px 20px 0px
+  #logo_holder
+    margin: 0px 0px 20px 20px
+  /***** Buttons ****/
+  .button
+    border: 1px solid silver
+    -moz-border-radius: 4px
+    -webkit-border-radius: 4px
+    -khtml-border-radius: 4px
+    border-radius: 4px
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -o-user-select: none
+    user-select: none
+    padding: 3px 6px 3px 27px
+    margin: 3px
+    display: block
+    text-decoration: none
+    background-repeat: no-repeat
+    background-position: 6px 3px
+    background-color: white
+    text-align: left
+    float: left
+    cursor: pointer
+    width: auto
+    &:hover
+      border-width: 2px
+      margin: 2px
+    &.large
+      padding: 10px 15px
+      font-size: 1.2em
+  input.button
+    padding: 2px 6px 2px 27px
+  .icon-only
+    height: 16px
+    width: 16px
+    margin: 0 5px
+    float: left
+    text-indent: -9999px
+    display: block
+  .icon-only, .button
+    &.save
+      background-image: url('/images/save.png')
+    &.delete
+      background-image: url('/images/delete.png')
+    &.login
+      background-image: url('/images/user_go.png')
+    &.search
+      background-image: url('/images/search.png')
+    &.upload
+      background-image: url('/images/upload.png')
+    &.newFolder
+      background-image: url('/images/newFolder.png')
+    &.createLink
+      background-image: url('/images/createLink.png')
+    &.move
+      background-image: url('/images/move.png')
+    &.addPermission
+      background-image: url('/images/key_add.png')
+    &.download
+      background-image: url('/images/download.png')
+    &.edit
+      background-image: url('/images/pencil.png')
+    &.new
+      background-image: url('/images/add.png')
+    &.back
+      background-image: url('/images/arrow_left.png')
+    &.cross
+      background-image: url('/images/cross.png')
+    &.tick
+      background-image: url('/images/tick.png')
+    &.edituser
+      background-image: url('/images/user_edit.png')
