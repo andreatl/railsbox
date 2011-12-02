@@ -48,6 +48,7 @@ class FoldersController < ApplicationController
         redirect_to browse_path(@folder.parent)  
       else  
         Permission.new(:assigned_by=>current_user.id, :read_perms=>true, :write_perms=>true, :delete_perms=>true, :folder_id=>@folder.id, :parent_type=>"User",:parent_id=>current_user.id).save unless current_user.is_admin
+        flash[:notice] = "Folder successfully created"
         redirect_to root_url
       end 
     else

@@ -394,9 +394,4 @@ $(document).ready(function() {
     }
   });
   
-  var notices = $('#flash_error');
-  if (notices.length > 0){
-    notices.hide();
-    alert(notices.html());
-  }
 });

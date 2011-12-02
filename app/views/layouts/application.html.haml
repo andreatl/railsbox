@@ -16,9 +16,6 @@
               %li= link_to 'Admin', admin_panel_url, :class=>'menu-item'
             %li= link_to 'My details', my_details_url, :class=>'menu-item'
             %li= link_to 'Logout', log_out_url, :id=>"logout", :class=>'menu-item'
-          %ul#flash
-            - flash.each do |name, msg|
-              = content_tag :li, msg, :id => "flash_#{name}", :class=> 'menu-item' unless name == "error"
           #user-bar
             .left
               Logged in as 
@@ -35,7 +32,4 @@
                   = number_to_human_size(APP_CONFIG['user_disk_space'].to_i, :precision => 3)
       - end unless params[:controller] == 'sessions'
       #content{:class => "#{yield :contentClass}"}
-        - if flash[:error]
-          %p#error_message
-            =flash[:error]
         = yield

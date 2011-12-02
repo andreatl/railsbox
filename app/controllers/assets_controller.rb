@@ -69,7 +69,7 @@ class AssetsController < ApplicationController
     
     if (@asset.uploaded_file_file_size < @current_user.space_remaining) || @current_user.is_admin?
       if @asset.save
-        flash[:error] = "File Uploaded"
+        flash[:notice] = "File successfully uploaded"
         redirect_to (@asset.folder_id ? @asset.folder : root_path)
       else
         render :action => 'new'
