@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :changePassword, :resetPassword, :updatePassword, :disk_space]
   before_filter :get_user, :only => [:change_password, :update, :change_password_update]
   
+  layout "login", :only=> [:new, :resetPassword]
   
   def index
     @users = User.where(:active=>true)

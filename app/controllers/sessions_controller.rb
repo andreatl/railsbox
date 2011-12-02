@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
   
   skip_before_filter :is_authorised, :except=>:destroy
   
+  layout "login"
+  
   def new
   end
 
