@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       
       redirect_to log_in_path, :notice => "Signed up, awaiting admin activation"
     else
-      render "new"
+      render "new", :layout => 'login'
     end
   end
   
@@ -136,10 +136,10 @@ class UsersController < ApplicationController
           UserMailer.reset_password(@user, newPassword).deliver
           redirect_to log_in_path, :notice => "New password sent"
         else
-          redirect_to reset_password_path, :notice => "Password reset failed"
+          redirect_to reset_password_path, :error => "Password reset failed"
         end
       else
-        redirect_to reset_password_path, :notice => "E-Mail address not found"
+        redirect_to reset_password_path, :error => "Email address not found"
       end
   end
   

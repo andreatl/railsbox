@@ -8,5 +8,6 @@
   %p
     = submit_tag "Log in", :class => 'button login'
   %p.error
-    - flash.each do |name, msg|
-      = msg
+    = flash[:error]
+  %p.notice
+    = flash[:notice]
