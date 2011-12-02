@@ -342,7 +342,6 @@ $(document).ready(function() {
         $('#hotlink_days').removeClass('error');
       }
       if($('#hotlink_link').val().trim() == "") {
-        valid = false;
         $('#hotlink_link').addClass('error');
       } else {
         $('#hotlink_link').removeClass('error');
@@ -375,8 +374,8 @@ $(document).ready(function() {
 
   $('#delete-link').click(function(e) {
     e.preventDefault();
-    var toDelete = $('#file-container > .row-container > .mark-it > .tick:checked');
     
+    var toDelete = $('#file-container > .row-container > .mark-it > .tick:checked');
     var toDeleteLength = toDelete.length
     
     if (toDeleteLength < 1){

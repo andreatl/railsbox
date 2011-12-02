@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
       end
     else
       @log_action = "Login Invalid"
-      redirect_to log_in_path, :notice => "Invalid email or password"
+      flash[:error] = "Invalid email or password"
+      redirect_to log_in_path
     end
   end
 
@@ -30,6 +31,8 @@ class SessionsController < ApplicationController
     @log_user_id = session[:user_id]
     @log_file_path = User.find(session[:user_id]).email
     session[:user_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    
+    flash[:notice] = "Logged out!"
+    redirect_to log_in_path
   end
 end

@@ -136,10 +136,10 @@ class UsersController < ApplicationController
           UserMailer.reset_password(@user, newPassword).deliver
           redirect_to log_in_path, :notice => "New password sent"
         else
-          redirect_to reset_password_path, :notice => "Password reset failed"
+          redirect_to reset_password_path, :error => "Password reset failed"
         end
       else
-        redirect_to reset_password_path, :notice => "E-Mail address not found"
+        redirect_to reset_password_path, :error => "Email address not found"
       end
   end
   
@@ -161,7 +161,7 @@ class UsersController < ApplicationController
   def choose_layout
     if self.request.xhr?
       return false
-    elsif action_name == 'new' || action_name == 'resetPassword'
+    elsif action_name == 'new' || action_name == 'resetPassword' || action_name == 'create'
       return 'login'
     else
       return 'application'

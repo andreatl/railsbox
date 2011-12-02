@@ -66,25 +66,36 @@
 #logon-box .logon-box-padder #logon-main #form-holder .error {
   float: right;
   margin-top: 6px;
+  color: red;
 }
-/* line 97, ../../app/stylesheets/login.sass */
+/* line 99, ../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-main #form-holder .notice {
+  float: right;
+  margin-top: 6px;
+  color: green;
+}
+/* line 107, ../../app/stylesheets/login.sass */
 #logon-box .logon-box-padder #logon-main #form-holder label {
   float: left;
   width: 100px;
   margin-top: 7px;
 }
-/* line 105, ../../app/stylesheets/login.sass */
+/* line 117, ../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-main #form-holder #new_user label {
+  width: 200px;
+}
+/* line 121, ../../app/stylesheets/login.sass */
 #logon-box .logon-box-padder #actions-holder {
   background: url("/images/logonStrip.png") -10px 0px repeat-x;
   padding: 30px 30px;
 }
 
-/* line 113, ../../app/stylesheets/login.sass */
+/* line 129, ../../app/stylesheets/login.sass */
 #register-form-holder {
   margin-left: 20px;
 }
 
-/* line 119, ../../app/stylesheets/login.sass */
+/* line 135, ../../app/stylesheets/login.sass */
 #register-form-holder h2 {
   margin-bottom: 15px;
 }

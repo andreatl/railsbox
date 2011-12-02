@@ -151,7 +151,7 @@
 }
 /* line 113, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar .breadcrumbs {
-  margin: 12px 0 8px 4px;
+  margin: 12px 0 1px 4px;
   clear: left;
   float: left;
 }
@@ -221,14 +221,15 @@
 #topBar #innerTopBar #flashMessage #error p, #topBar #innerTopBar #flashMessage #notice p {
   text-align: left;
   padding: 5px 8px 5px 27px;
+  border-radius: 6px;
 }
-/* line 165, ../../app/stylesheets/screen.sass */
+/* line 166, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar #flashMessage #error p {
   background: url("/images/error.png") no-repeat 4px center;
   background-color: #ffcccc;
   border: solid 1px #cc6666;
 }
-/* line 169, ../../app/stylesheets/screen.sass */
+/* line 170, ../../app/stylesheets/screen.sass */
 #topBar #innerTopBar #flashMessage #notice p {
   background: url("/images/notice.png") no-repeat 4px center;
   background-color: #ccffcc;
@@ -248,7 +249,7 @@
 /* line 183, ../../app/stylesheets/screen.sass */
 #file-container {
   clear: both;
-  padding: 125px 0 0 0;
+  padding: 115px 0 0 0;
   margin: 0;
 }
 /* line 187, ../../app/stylesheets/screen.sass */
