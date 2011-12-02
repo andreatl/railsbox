@@ -1,3 +1,10 @@
 <h2 class="upload icon">Upload File</h2>
-
-<%= render 'form' %>
+<% if @asset %>
+  <div id="newAsset">
+    <%= render 'form' %>
+    <div id="loader"><!-- --></div>
+  </div>
+<% else %>
+  <p>You do not have permissions to upload to this folder</p>  
+<% end %>
+<div class="clear"><!-- --> </div>

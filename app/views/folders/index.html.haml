@@ -14,12 +14,10 @@
     #flashMessage
       #notice
         - if flash[:notice]
-          %p
-            = flash[:notice]
+          %p= flash[:notice]
       #error
         - if flash[:error]
-          %p
-            = flash[:error]
+          %p= flash[:error]
     .breadcrumbs
       - if @escaped_query 
         %p.searchResult
@@ -87,7 +85,7 @@
           - if @canHome || (@current_folder && @current_folder.candelete?(@current_user))
             = form_for asset, :html => { :method => 'delete' } do end
         .name
-          = link_to 'Details', asset_details_path(asset), :class => "details #{asset.file_extension[1..-1]}FileType"
+          = link_to 'Details', asset, :class => "details #{asset.file_extension[1..-1]}FileType"
           - if @search_query 
             - if asset.folder 
               = link_to h(asset.folder.breadcrumbs+"/"+asset.uploaded_file_file_name), download_asset_path(asset) 
