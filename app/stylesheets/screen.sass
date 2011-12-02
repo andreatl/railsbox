@@ -155,21 +155,21 @@ $toolbarBg: silver
           &:hover
             margin: 0
     
-    #error, #notice
-      text-align: left
-      padding: 5px 8px 5px 27px
-      float: right
-      margin: 1px 1px 0 0
-    
-    #error
-      background: url('/images/error.png') no-repeat 4px center
-      background-color: #FCC
-      border: solid 1px #C66
-    
-    #notice
-      background: url('/images/notice.png') no-repeat 4px center
-      background-color: #CFC
-      border: solid 1px #6C6
+    #flashMessage
+      #error, #notice
+        float: right
+        margin: 1px 1px 0 0
+        p
+          text-align: left
+          padding: 5px 8px 5px 27px
+      #error p
+        background: url('/images/error.png') no-repeat 4px center
+        background-color: #FCC
+        border: solid 1px #C66
+      #notice p
+        background: url('/images/notice.png') no-repeat 4px center
+        background-color: #CFC
+        border: solid 1px #6C6
 
   #headers
     float: left

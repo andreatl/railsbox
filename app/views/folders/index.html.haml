@@ -9,13 +9,16 @@
       = text_field :search, :query, :value => @search_query 
       = label :search, :notes, 'Search in notes?: ' 
       = check_box :search, :notes, :checked => @searchNotes 
-      = submit_tag 'Search', :class => 'button search' 
-      #flashMessage
+      = submit_tag 'Search', :class => 'button search'
+      
+    #flashMessage
+      #notice
         - if flash[:notice]
-          #notice
+          %p
             = flash[:notice]
+      #error
         - if flash[:error]
-          #error
+          %p
             = flash[:error]
     .breadcrumbs
       - if @escaped_query 

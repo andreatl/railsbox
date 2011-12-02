@@ -212,21 +212,24 @@
 #topBar #innerTopBar form input.search.button:hover {
   margin: 0;
 }
-/* line 158, ../../app/stylesheets/screen.sass */
-#topBar #innerTopBar #error, #topBar #innerTopBar #notice {
-  text-align: left;
-  padding: 5px 8px 5px 27px;
+/* line 159, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar #flashMessage #error, #topBar #innerTopBar #flashMessage #notice {
   float: right;
   margin: 1px 1px 0 0;
 }
-/* line 164, ../../app/stylesheets/screen.sass */
-#topBar #innerTopBar #error {
+/* line 162, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar #flashMessage #error p, #topBar #innerTopBar #flashMessage #notice p {
+  text-align: left;
+  padding: 5px 8px 5px 27px;
+}
+/* line 165, ../../app/stylesheets/screen.sass */
+#topBar #innerTopBar #flashMessage #error p {
   background: url("/images/error.png") no-repeat 4px center;
   background-color: #ffcccc;
   border: solid 1px #cc6666;
 }
 /* line 169, ../../app/stylesheets/screen.sass */
-#topBar #innerTopBar #notice {
+#topBar #innerTopBar #flashMessage #notice p {
   background: url("/images/notice.png") no-repeat 4px center;
   background-color: #ccffcc;
   border: solid 1px #66cc66;

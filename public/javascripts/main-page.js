@@ -376,25 +376,34 @@ $(document).ready(function() {
   $('#delete-link').click(function(e) {
     e.preventDefault();
     var toDelete = $('#file-container > .row-container > .mark-it > .tick:checked');
-    if (toDelete.length < 1){
+    
+    var toDeleteLength = toDelete.length
+    
+    if (toDeleteLength < 1){
     	alert('Please select an item');
     	return false;
     }
-    if(confirm('Are you sure you want to delete ' + toDelete.length + ' items?')) {
+    if(confirm('Are you sure you want to delete ' + toDeleteLength + ' items?')) {
+      var count = 0;
       $(toDelete).next('form').each(function(index, element) {
         $(element).ajaxSubmit({
           success : function() {
             $(element).prev('input:checkbox').attr('checked', false);
             $(element).closest('.row-container').slideUp();
+            count++;
+            
+            /*all items deleted*/
+            if (count == toDeleteLength){
+	        	$('#notice').hide().html('<p>'+count+' items successfully deleted</p>').fadeIn();
+	            $.get('/disk_space #content', function(data){
+	              var x = data.split(',');
+	              $('#used-space').animate({width: parseInt(x[0])+"%"});
+	              $('#remaining').html(x[1]);
+	            });
+            }
           }
         });
       });
-      
-      $.get('/disk_space #content', function(data){
-        var x = data.split(',');
-        $('#used-space').animate({width: parseInt(x[0])+"%"});
-        $('#remaining').html(x[1]);
-      });      
     }
   });
   
