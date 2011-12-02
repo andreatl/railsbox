@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       
       redirect_to log_in_path, :notice => "Signed up, awaiting admin activation"
     else
-      render "new", :layout => 'login'
+      render "new"
     end
   end
   
@@ -161,7 +161,7 @@ class UsersController < ApplicationController
   def choose_layout
     if self.request.xhr?
       return false
-    elsif action_name == 'new' || action_name == 'resetPassword'
+    elsif action_name == 'new' || action_name == 'resetPassword' || action_name == 'create'
       return 'login'
     else
       return 'application'
