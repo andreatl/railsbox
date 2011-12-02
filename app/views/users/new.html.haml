@@ -12,9 +12,9 @@
           = link_to 'Help', '/documents/help.pdf'
     .clear
     #logon-main
-      #register-form-holder
-        #logo-holder
-          = render :partial=>'/shared/logo'
+      #logo_holder
+        = render :partial=>'/shared/logo'
+      #form-holder
         %h2 Sign up
         = form_for @user do |f|
           - if @user.errors.any?
