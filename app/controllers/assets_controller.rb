@@ -64,18 +64,23 @@ class AssetsController < ApplicationController
   end
 
   def create
-    @asset = Asset.new(params[:asset])
-    @asset.user_id = @current_user.id
-    
-    if (@asset.uploaded_file_file_size < @current_user.space_remaining) || @current_user.is_admin?
-      if @asset.save
-        flash[:notice] = "File successfully uploaded"
-        redirect_to (@asset.folder_id ? @asset.folder : root_path)
+      @asset = Asset.new(params[:asset]) 
+    unless @asset.uploaded_file_file_size.blank?
+      @asset.user_id = @current_user.id
+      
+      if (@asset.uploaded_file_file_size < @current_user.space_remaining) || @current_user.is_admin?
+        if @asset.save
+          flash[:notice] = "File successfully uploaded"
+          redirect_to (@asset.folder_id ? @asset.folder : root_path)
+        else
+          render :action => 'new'
+        end  
       else
-        render :action => 'new'
-      end  
+        flash[:error] = "You do not have enough free space"
+        redirect_to (@asset.folder_id ? @asset.folder : root_path) 
+      end
     else
-      flash[:error] = "You do not have enough free space"
+      flash[:error] = "You did not select any files"
       redirect_to (@asset.folder_id ? @asset.folder : root_path) 
     end
   end
@@ -121,7 +126,7 @@ class AssetsController < ApplicationController
   private  
   def logFilePath
     @log_file_path = ""
-    if @asset  #1 asset selected
+    if @asset and @asset.uploaded_file_file_name #1 asset selected
       @log_target_id = @asset.id.to_s
       if !@asset.folder.nil?  #if asset isnt in the root
         @log_file_path = "/" + @asset.folder.breadcrumbs
