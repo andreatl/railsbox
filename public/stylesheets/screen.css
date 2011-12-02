@@ -254,7 +254,7 @@
 }
 /* line 187, ../../app/stylesheets/screen.sass */
 #file-container .row-container {
-  padding: 3px 0;
+  padding: 1px 0 3px 0;
   list-style: none;
 }
 /* line 190, ../../app/stylesheets/screen.sass */
