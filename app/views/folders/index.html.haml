@@ -55,28 +55,29 @@
       .size
         != "&lt;DIR&gt;"
       .clear
-  - @folders.each do |folder| 
-    %li.row-container.folder
-      .mark-it
-        = check_box :directory, folder.id, :class=>'folderTick tick' 
-        - if @canHome || (@current_folder && @current_folder.candelete?(@current_user)) 
-          = form_for folder, :html => { :method => 'delete' } do end
-      .name
-        = link_to 'Details', folder_details_path(folder), :class=>"details #{folder.is_shared? ? 'shared' : '' }"
-        - if @search_query 
-          = link_to h(folder.breadcrumbs), browse_path(folder) 
-        - else 
-          = link_to h(folder.name), browse_path(folder)
-      .ext
-        != "&nbsp;"
-      .size
-        != "&lt;DIR&gt;"
-      .description
-        = truncate(folder.description, :length=>65) 
-        != "&nbsp;"
-      .date
-        = h folder.created_at.strftime("%d/%m/%Y %H:%M:%S")
-      .clear
+  - unless @folders.nil?
+    - @folders.each do |folder| 
+      %li.row-container.folder
+        .mark-it
+          = check_box :directory, folder.id, :class=>'folderTick tick' 
+          - if @canHome || (@current_folder && @current_folder.candelete?(@current_user)) 
+            = form_for folder, :html => { :method => 'delete' } do end
+        .name
+          = link_to 'Details', folder_details_path(folder), :class=>"details #{folder.is_shared? ? 'shared' : '' }"
+          - if @search_query 
+            = link_to h(folder.breadcrumbs), browse_path(folder) 
+          - else 
+            = link_to h(folder.name), browse_path(folder)
+        .ext
+          != "&nbsp;"
+        .size
+          != "&lt;DIR&gt;"
+        .description
+          = truncate(folder.description, :length=>65) 
+          != "&nbsp;"
+        .date
+          = h folder.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        .clear
   - unless @assets.nil? 
     - for asset in @assets 
       %li.row-container

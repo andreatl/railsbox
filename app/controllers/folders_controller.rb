@@ -109,16 +109,13 @@ class FoldersController < ApplicationController
     @escaped_query = "%" + @search_query.gsub('%', '\%').gsub('_', '\_') + "%"
     @searchNotes = search_query[:notes] == '1'
     
-    if current_user.accessible_folders and current_user.assets
-      if @searchNotes
-        @folders = current_user.accessible_folders.find(:all, :conditions => ["name ILIKE ? OR notes ILIKE ?", @escaped_query, @escaped_query]) 
-        @assets = current_user.assets.find(:all, :conditions => ["uploaded_file_file_name ILIKE ? OR notes ILIKE ?", @escaped_query, @escaped_query])
-      else
-        @folders = current_user.accessible_folders.find(:all, :conditions => ["name ILIKE ?", @escaped_query]) 
-        @assets = current_user.assets.find(:all, :conditions => ["uploaded_file_file_name ILIKE ?", @escaped_query])
-      end
+    folders = current_user.accessible_folders
+    if @searchNotes
+      @folders = folders.find(:all, :conditions => ["name ILIKE ? OR notes ILIKE ?", @escaped_query, @escaped_query]) if folders
+      @assets = current_user.assets.find(:all, :conditions => ["uploaded_file_file_name ILIKE ? OR notes ILIKE ?", @escaped_query, @escaped_query])
     else
-      redirect_to root_url
+      @folders = folders.find(:all, :conditions => ["name ILIKE ?", @escaped_query])  if folders
+      @assets = current_user.assets.find(:all, :conditions => ["uploaded_file_file_name ILIKE ?", @escaped_query])
     end
     
     #log
@@ -127,7 +124,7 @@ class FoldersController < ApplicationController
       @log_file_path += ", include notes"
     end
     
-    render :action => "index" if current_user.accessible_folders and current_user.assets
+    render :action => "index" #if current_user.accessible_folders and current_user.assets
   end
 
   def destroy
