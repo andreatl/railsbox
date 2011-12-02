@@ -161,9 +161,7 @@ class UsersController < ApplicationController
   def choose_layout
     if self.request.xhr?
       return false
-    end
-    
-    if action_name == 'new' || action_name == 'resetPassword'
+    elsif action_name == 'new' || action_name == 'resetPassword'
       return 'login'
     else
       return 'application'
