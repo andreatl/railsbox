@@ -4,54 +4,6 @@
     .error_messages
       %h2 Form is invalid
       %ul
-<<<<<<< HEAD
-        %li
-          = link_to "Log in", log_in_path
-        %lil
-          = link_to "Sign up", sign_up_path
-        %li
-          = link_to "Reset Password", reset_password_path
-        %li
-          = link_to 'Help', '/documents/help.pdf'
-    .clear
-    #logon-main
-      #logo_holder
-        = render :partial=>'/shared/logo'
-      #form-holder
-        %h2 Sign up
-        = form_for @user do |f|
-          - if @user.errors.any?
-            .error_messages
-              %h2 Form is invalid
-              %ul
-                - for message in @user.errors.full_messages
-                  %li= message
-          .field
-            = f.label :email
-            = f.text_field :email
-          .field
-            = f.label :first_name
-            = f.text_field :first_name
-          .field
-            = f.label :last_name
-            = f.text_field :last_name
-          .field
-            = f.label :company
-            = f.text_field :company
-          .field
-            = f.label :referrer, "Referrer"
-            = f.text_field :referrer
-          .field
-            = f.label :password
-            = f.password_field :password, :autocomplete=>'off'
-          .field
-            = f.label :password_confirmation
-            = f.password_field :password_confirmation
-          .actions
-            = f.submit :class => 'button save'
-      .clear
-    .clear
-=======
         - for message in @user.errors.full_messages
           %li= message
   .field
@@ -77,4 +29,3 @@
     = f.password_field :password_confirmation
   .actions
     = f.submit :class => 'button save'
->>>>>>> 08bd6e1d4738080b22b6aeb57856d12ac78aef34
