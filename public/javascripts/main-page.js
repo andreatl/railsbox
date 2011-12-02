@@ -376,6 +376,10 @@ $(document).ready(function() {
   $('#delete-link').click(function(e) {
     e.preventDefault();
     var toDelete = $('#file-container > .row-container > .mark-it > .tick:checked');
+    if (toDelete.length < 1){
+    	alert('Please select an item');
+    	return false;
+    }
     if(confirm('Are you sure you want to delete ' + toDelete.length + ' items?')) {
       $(toDelete).next('form').each(function(index, element) {
         $(element).ajaxSubmit({

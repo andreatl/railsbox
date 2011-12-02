@@ -10,12 +10,13 @@
       = label :search, :notes, 'Search in notes?: ' 
       = check_box :search, :notes, :checked => @searchNotes 
       = submit_tag 'Search', :class => 'button search' 
-      - if flash[:notice]
-        #notice
-          = flash[:notice]
-      - if flash[:error]
-        #error
-          = flash[:error] 
+      #flashMessage
+        - if flash[:notice]
+          #notice
+            = flash[:notice]
+        - if flash[:error]
+          #error
+            = flash[:error]
     .breadcrumbs
       - if @escaped_query 
         %p.searchResult
