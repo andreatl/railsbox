@@ -11,6 +11,8 @@ class Asset < ActiveRecord::Base
   
   validates_presence_of :user_id
     
+    
+  before_validation :check_name_unique
   validates_uniqueness_of :uploaded_file_file_name, :scope => [:folder_id, :user_id]
 
   def is_authorised?(userFind)
@@ -29,5 +31,21 @@ class Asset < ActiveRecord::Base
   
   def file_extension
    File.extname(uploaded_file_file_name).downcase
+  end
+  
+  def check_name_unique
+    self.uploaded_file_file_name = Asset.get_unique_name(self.uploaded_file_file_name, self.folder_id)
+  end
+    
+  def self.get_unique_name(name, folder_id)
+    f = Asset.where({:uploaded_file_file_name => name, :folder_id=> folder_id})
+    if f.size < 1
+      return name
+    else
+      x = name.split('.')
+      x[x.size-2]+=" copy"
+      new_name = x.join('.')       
+      Asset.get_unique_name(new_name, folder_id)
+    end
   end
 end

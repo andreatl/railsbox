@@ -64,11 +64,10 @@ class AssetsController < ApplicationController
   end
 
   def create
-      @asset = Asset.new(params[:asset]) 
+    @asset = Asset.new(params[:asset]) 
     unless @asset.uploaded_file_file_size.blank?
-      @asset.user_id = @current_user.id
-      
       if (@asset.uploaded_file_file_size < @current_user.space_remaining) || @current_user.is_admin?
+        @asset.user_id = @current_user.id
         if @asset.save
           flash[:notice] = "File successfully uploaded"
           redirect_to (@asset.folder_id ? @asset.folder : root_path)
@@ -80,6 +79,7 @@ class AssetsController < ApplicationController
         redirect_to (@asset.folder_id ? @asset.folder : root_path) 
       end
     else
+      #no file selected
       flash[:error] = "You did not select any files"
       redirect_to (@asset.folder_id ? @asset.folder : root_path) 
     end
