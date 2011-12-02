@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :changePassword, :resetPassword, :updatePassword, :disk_space]
   before_filter :get_user, :only => [:change_password, :update, :change_password_update]
   
+  layout :choose_layout
   
   def index
     @users = User.where(:active=>true)
@@ -154,6 +155,18 @@ class UsersController < ApplicationController
       @user = User.find(id)
     else
       @user = current_user
+    end
+  end
+  
+  def choose_layout
+    if self.request.xhr?
+      return false
+    end
+    
+    if action_name == 'new' || action_name == 'resetPassword'
+      return 'login'
+    else
+      return 'application'
     end
   end
   
