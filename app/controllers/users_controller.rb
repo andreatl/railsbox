@@ -131,10 +131,14 @@ class UsersController < ApplicationController
         @log_user_id = @user.id        
         newPassword = User.generate_password
         @user.password = newPassword
-        @user.password_confrimation = newPassword
+        @user.password_confirmation = newPassword
         if @user.save
           UserMailer.reset_password(@user, newPassword).deliver
-          redirect_to log_in_path, :notice => "New password sent"
+          if current_user.nil?
+            redirect_to log_in_path, :notice => "New password sent"
+          else
+            redirect_to @user
+          end
         else
           redirect_to reset_password_path, :error => "Password reset failed"
         end
