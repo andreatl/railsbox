@@ -52,7 +52,8 @@ class FoldersController < ApplicationController
         redirect_to root_url
       end 
     else
-      render :action => 'new'
+      flash[:error] = "Folder name can't be blank"
+      redirect_to root_url
     end
   end
 
