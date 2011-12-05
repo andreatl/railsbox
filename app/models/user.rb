@@ -60,9 +60,20 @@ class User < ActiveRecord::Base
     end
   end  
   
-  def accessible_folders
+  def accessible_folder_ids
     ids = (groups.map{|x| x.folders} + accessible_folders_exc_groups).flatten.map{|a| a.id}.join(',')
-    Folder.where("id in (#{ids})") unless ids.blank?
+  end
+  
+  def accessible_folders
+    Folder.where("id in (#{accessible_folder_ids})") unless accessible_folder_ids.blank?
+  end
+  
+  def assets
+    if is_admin
+      return Asset.scoped
+    else
+      Asset.where("folder_id in (#{accessible_folder_ids})")
+    end
   end
   
   def owned_folders
@@ -102,11 +113,7 @@ class User < ActiveRecord::Base
   end
   
   def space_used
-    if (assets.count > 0) 
-      assets.map{|x| x.uploaded_file_file_size}.inject(:+)
-    else
-      0
-    end
+    Asset.where("user_id = ?", id).map{|x| x.uploaded_file_file_size}.inject(:+)
   end
   
   def space_remaining
@@ -114,10 +121,6 @@ class User < ActiveRecord::Base
   end
   
   def space_percentage
-    if (assets.count > 0) 
-      ((space_used.to_f/APP_CONFIG['user_disk_space'].to_f)* 100).to_i
-    else
-      0
-    end
+    ((space_used.to_f/APP_CONFIG['user_disk_space'].to_f)* 100).to_i
   end
 end
