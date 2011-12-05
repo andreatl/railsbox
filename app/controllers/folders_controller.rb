@@ -124,7 +124,7 @@ class FoldersController < ApplicationController
       @log_file_path += ", include notes"
     end
     
-    render :action => "index" #if current_user.accessible_folders and current_user.assets
+    render :action => "index"
   end
 
   def destroy

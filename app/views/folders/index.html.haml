@@ -19,10 +19,11 @@
         - if flash[:error]
           %p= flash[:error]
     .breadcrumbs
-      - if @escaped_query 
+      - if @escaped_query
         %p.searchResult
           Search for:
-          = h @escaped_query
+          
+          = h @escaped_query.gsub('%', '')
           - if @searchNotes 
             , include notes
       - else
