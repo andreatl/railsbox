@@ -4,9 +4,8 @@
 /tmp/
 /assets/
 .redcar
-config.txt
 *.tmp
 /config/config.yml
 *.scssc
 *.sassc
-/public/stylesheets*
+/public/stylesheets/*.css
