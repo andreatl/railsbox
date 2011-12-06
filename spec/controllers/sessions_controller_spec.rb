@@ -17,7 +17,10 @@ describe SessionsController do
     end
 
   	it "should redirect correct user to home page" do
-   		User.stub(:authenticate).and_return(User.new(:active => true, :is_admin => false))
+      u = User.new
+      u.is_admin = false
+      u.active = true
+   		User.stub(:authenticate).and_return(u)
    		post :create
       response.should redirect_to root_url
   	end

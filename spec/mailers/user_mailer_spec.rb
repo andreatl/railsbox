@@ -3,6 +3,7 @@ require "spec_helper"
 describe UserMailer do
 
   user = User.new(:name=>'foobar', :email=>'test@testemail.com',:password=>'test1', :password_confirmation=>'test1', :referrer => 'stickyHamster')
+  user.save
   admin = 'test@railsbox.com'
 
   ActionMailer::Base.default_url_options[:host] = 'localhost:3000'
