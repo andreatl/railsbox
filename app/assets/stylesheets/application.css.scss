@@ -1,0 +1,208 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q {
+  &:before, &:after {
+    content: "";
+    content: none; } }
+
+blockquote {
+  &:before, &:after {
+    content: "";
+    content: none; } }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+#cboxOverlay {
+  background-color: gray;
+  background-image: none;
+  opacity: 0.7 !important; }
+
+#cboxLoadedContent {
+  margin: 0; }
+
+#cboxClose {
+  top: 0; }
+
+#cboxLoadedContent {
+  #content {
+    margin: 0;
+    padding: 0; }
+  h2 {
+    cursor: default;
+    khtml-user-select: none;
+    margin-right: 30px;
+    moz-user-select: none;
+    o-user-select: none;
+    padding: 0 0 10px 0;
+    user-select: none;
+    webkit-user-select: none;
+    &.icon {
+      background-position: left middle;
+      background-repeat: no-repeat;
+      padding: 15px 0 15px 55px; } }
+  #singleMessage {
+    display: block;
+    margin: 5px 40px 5px 10px; }
+  .actions {
+    clear: both;
+    display: block;
+    .button {
+      float: left; } } }
+
+html {
+  font-family: Verdana, Arial;
+  height: 100%;
+  overflow-y: scroll; }
+
+body {
+  background: url("/images/bg.png");
+  font-size: 13px;
+  h1, h2, h3, h4, p {
+    margin-bottom: 6px; }
+  h1, h2, h3, h4 {
+    font-weight: bold; }
+  h1 {
+    font-size: 2em; }
+  h2 {
+    font-size: 1.8em; }
+  h3 {
+    font-size: 1.4em; }
+  a {
+    color: #333333;
+    text-decoration: none; }
+  strong {
+    font-weight: bold; }
+  .hidden {
+    display: none; }
+  .clear {
+    clear: both; }
+  .error {
+    color: red; }
+  .notice {
+    color: green; }
+  .left {
+    float: left; }
+  form {
+    .field {
+      clear: both;
+      float: left;
+      margin-bottom: 6px;
+      label, input, textarea, select {
+        clear: left;
+        float: left; } }
+    input.error {
+      background-color: #ff6a54; }
+    .actions {
+      clear: both; } }
+  .border {
+    border: 1px solid silver;
+    border-radius: 4px;
+    khtml-border-radius: 4px;
+    moz-border-radius: 4px;
+    padding: 7px;
+    webkit-border-radius: 4px; }
+  ul {
+    margin-left: 25px; }
+  #logo {
+    margin: 0px 20px 20px 0px; }
+  #logo_holder {
+    margin: 0px 0px 20px 20px; }
+  .button {
+    background-color: white;
+    background-position: 6px 3px;
+    background-repeat: no-repeat;
+    border: 1px solid silver;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    float: left;
+    khtml-border-radius: 4px;
+    khtml-user-select: none;
+    margin: 3px;
+    moz-border-radius: 4px;
+    moz-user-select: none;
+    o-user-select: none;
+    padding: 3px 6px 3px 27px;
+    text-align: left;
+    text-decoration: none;
+    user-select: none;
+    webkit-border-radius: 4px;
+    webkit-user-select: none;
+    width: auto;
+    &:hover {
+      border-width: 2px;
+      margin: 2px; }
+    &.large {
+      font-size: 1.2em;
+      padding: 10px 15px; } }
+  input.button {
+    padding: 2px 6px 2px 27px; }
+  .icon-only {
+    display: block;
+    float: left;
+    height: 16px;
+    margin: 0 5px;
+    text-indent: -9999px;
+    width: 16px;
+    &.save {
+      background-image: url("/images/save.png"); } }
+  .button.save {
+    background-image: url("/images/save.png"); }
+  .icon-only.delete, .button.delete {
+    background-image: url("/images/delete.png"); }
+  .icon-only.login, .button.login {
+    background-image: url("/images/user_go.png"); }
+  .icon-only.search, .button.search {
+    background-image: url("/images/search.png"); }
+  .icon-only.upload, .button.upload {
+    background-image: url("/images/upload.png"); }
+  .icon-only.newFolder, .button.newFolder {
+    background-image: url("/images/newFolder.png"); }
+  .icon-only.createLink, .button.createLink {
+    background-image: url("/images/createLink.png"); }
+  .icon-only.move, .button.move {
+    background-image: url("/images/move.png"); }
+  .icon-only.addPermission, .button.addPermission {
+    background-image: url("/images/key_add.png"); }
+  .icon-only.download, .button.download {
+    background-image: url("/images/download.png"); }
+  .icon-only.edit, .button.edit {
+    background-image: url("/images/pencil.png"); }
+  .icon-only.new, .button.new {
+    background-image: url("/images/add.png"); }
+  .icon-only.back, .button.back {
+    background-image: url("/images/arrow_left.png"); }
+  .icon-only.cross, .button.cross {
+    background-image: url("/images/cross.png"); }
+  .icon-only.tick, .button.tick {
+    background-image: url("/images/tick.png"); }
+  .icon-only.edituser, .button.edituser {
+    background-image: url("/images/user_edit.png"); } }

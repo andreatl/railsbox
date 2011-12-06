@@ -1,0 +1,45 @@
+#log {
+  #search {
+    margin: 10px 0; }
+  #headers {
+    background: transparent url("/images/filterbar.png") repeat-x top left;
+    font-weight: bold; }
+  #result, #headers {
+    clear: both;
+    float: left;
+    width: 100%; }
+  #result.loading, #headers.loading {
+    background: white url("/images/colorbox/loading.gif") no-repeat center center;
+    height: 32px; }
+  #result p, #headers p {
+    margin: 1px 0; }
+  #result a:hover, #headers a:hover {
+    text-decoration: underline; }
+  #result .row, #headers .row {
+    clear: both;
+    float: left;
+    padding: 2px 0;
+    width: 100%; }
+  #result .row:hover, #headers .row:hover {
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+    font-weight: bold;
+    padding: 1px 0; }
+  #result {
+    .file_path, .action, .controller, .user, .date, .more_info {
+      float: left; } }
+  #headers {
+    .file_path, .action, .controller, .user, .date, .more_info {
+      float: left; } }
+  #result .date, #headers .date, #result .user, #headers .user {
+    width: 15%; }
+  #result .controller, #headers .controller, #result .action, #headers .action {
+    width: 10%; }
+  #result .file_path, #headers .file_path {
+    width: 40%; }
+  #result .more_info, #headers .more_info {
+    width: 10%; }
+  form .field {
+    label, input, textarea, select {
+      clear: none;
+      float: none; } } }

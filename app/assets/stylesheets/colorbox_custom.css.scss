@@ -1,0 +1,36 @@
+#cboxOverlay {
+  background-color: gray;
+  background-image: none;
+  opacity: 0.7 !important; }
+
+#cboxLoadedContent {
+  margin: 0; }
+
+#cboxClose {
+  top: 0; }
+
+#cboxLoadedContent {
+  #content {
+    margin: 0;
+    padding: 0; }
+  h2 {
+    cursor: default;
+    khtml-user-select: none;
+    margin-right: 30px;
+    moz-user-select: none;
+    o-user-select: none;
+    padding: 0 0 10px 0;
+    user-select: none;
+    webkit-user-select: none;
+    &.icon {
+      background-position: left middle;
+      background-repeat: no-repeat;
+      padding: 15px 0 15px 55px; } }
+  #singleMessage {
+    display: block;
+    margin: 5px 40px 5px 10px; }
+  .actions {
+    clear: both;
+    display: block;
+    .button {
+      float: left; } } }

@@ -1,0 +1,66 @@
+#logon-box {
+  margin: 100px auto;
+  width: 600px;
+  .logon-box-padder {
+    padding: 10px;
+    #logon-tabs ul {
+      float: right;
+      list-style: none;
+      li {
+        float: left;
+        margin-left: 5px;
+        a {
+          background-color: #eeeeee;
+          border: 1px solid #cccccc;
+          border-bottom: none;
+          border-top-left-radius: 0.5em;
+          border-top-right-radius: 0.5em;
+          color: #333333;
+          display: block;
+          moz-border-radius-topLeft: 0.5em;
+          moz-border-radius-topRight: 0.5em;
+          padding: 10px 20px;
+          text-decoration: none;
+          webkit-border-radius-topleft: 0.5em;
+          webkit-border-radius-topRight: 0.5em;
+          &:hover {
+            background-color: #aaaaaa; } }
+        &.active a {
+          background-color: silver; } } }
+    #logon-main {
+      background-color: white;
+      border: 1px solid #cccccc;
+      border-radius: 0.5em 0 0.5em 0.5em;
+      moz-border-radius: 0.5em 0 0.5em 0.5em;
+      padding: 40px 0;
+      webkit-border-radius: 0.5em 0 0.5em 0.5em;
+      #logo_holder {
+        float: left; }
+      #form-holder {
+        border-left: 1px dotted #333333;
+        float: left;
+        font-size: 8pt;
+        margin-right: 30px;
+        padding-left: 30px;
+        .error {
+          color: red;
+          float: right;
+          margin-top: 6px; }
+        .notice {
+          color: green;
+          float: right;
+          margin-top: 6px; }
+        label {
+          float: left;
+          margin-top: 7px;
+          width: 100px; }
+        #new_user label {
+          width: 200px; } } }
+    #actions-holder {
+      background: url("/images/logonStrip.png") -10px 0px repeat-x;
+      padding: 30px 30px; } } }
+
+#register-form-holder {
+  margin-left: 20px;
+  h2 {
+    margin-bottom: 15px; } }
