@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.11'
-gem 'pg', '0.10.1'
+gem 'rails', '3.1.3'
+gem 'pg'
 gem 'haml', '>=3.0'
 #gem 'capistrano'
 gem 'devise', '1.3.4'
@@ -10,7 +10,6 @@ gem 'paperclip'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'acts_as_tree'
 gem 'will_paginate'
-gem 'meta_where'
 gem 'meta_search'
 gem 'perch'
 
