@@ -113,7 +113,7 @@ class User < ActiveRecord::Base
   end
   
   def space_used
-    Asset.where("user_id = ?", id).map{|x| x.uploaded_file_file_size}.inject(:+)
+    Asset.where("user_id = ?", id).map{|x| x.uploaded_file_file_size}.inject(:+) or 0
   end
   
   def space_remaining
