@@ -7,7 +7,7 @@
     %p.field
       %strong
         Created by: 
-      #{@asset.user.first_name} #{@asset.user.last_name}
+        = "#{@asset.user.first_name} #{@asset.user.last_name}"
     .field
       %strong= f.label :description
       = f.text_area :description, :rows => 4
@@ -21,7 +21,7 @@
           (Inherited from parent folder)
     .actions
       = f.submit 'Save', :class => 'button save'
-      = link_to "Download", download_asset_path(@asset), :class => 'button download'
+      = link_to "Download", download_notasset_path(@asset), :class => 'button download'
       - if current_user.can_hotlink
         = link_to "Hotlink", new_hotlink_path(@asset), :class => 'button createLink'
 - else
@@ -43,6 +43,6 @@
     %p
       = @asset.notes
     .actions
-      = link_to "Download", download_asset_path(@asset), :class => 'button download'
+      = link_to "Download", download_notasset_path(@asset), :class => 'button download'
       - if current_user.can_hotlink
         = link_to "Hotlink", new_hotlink_path(@asset), :class => 'button createLink'
