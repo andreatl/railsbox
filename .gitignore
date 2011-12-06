@@ -8,4 +8,4 @@
 /config/config.yml
 *.scssc
 *.sassc
-/public/stylesheets/*.css
+/public/stylesheets/compiled/
