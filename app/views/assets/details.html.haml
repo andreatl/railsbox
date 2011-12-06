@@ -1,6 +1,6 @@
 %h2.details.icon File Details
 - if @canWrite
-  = form_for @asset do |f|
+  = form_for @asset, :url => notasset_path do |f|
     .field
       %strong= f.label :uploaded_file_file_name, 'Name'
       = f.text_field :uploaded_file_file_name
