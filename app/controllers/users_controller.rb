@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
   skip_after_filter :log, :only=>[:resetPassword, :disk_space, :searchUsersResult]
   before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :change_password, :change_password_update, :disk_space]
-  before_filter :mailer_set_url_options, :only=>[:create,:updatePassword]
+  before_filter :mailer_set_url_options, :only=>[:create,:updatePassword, :update]
   before_filter :get_max_users, :only => [:searchUsersResult]
   after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :changePassword, :resetPassword, :updatePassword, :disk_space]
   before_filter :get_user, :only => [:change_password, :update, :change_password_update]
@@ -55,12 +55,19 @@ class UsersController < ApplicationController
   end
 
   def update
+    is_active = @user.active
     if @user.update_attributes(params[:user])
       #allowed to change permissions
       @user.is_admin = params[:user][:is_admin] if params[:user][:is_admin]
       @user.can_hotlink = params[:user][:can_hotlink] if params[:user][:can_hotlink]
       @user.can_home = params[:user][:can_home] if params[:user][:can_home]
-      @user.active = params[:user][:active] if params[:user][:active]
+      if params[:user][:active]
+        @user.active = params[:user][:active]
+        begin
+          UserMailer.user_activated(@user).deliver if is_active == false && @user.active == true
+        rescue
+        end
+      end 
       if @user.save!
         redirect_to @user, :notice  => "Successfully updated."
       else
