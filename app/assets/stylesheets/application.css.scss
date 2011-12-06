@@ -83,7 +83,7 @@ html {
   overflow-y: scroll; }
 
 body {
-  background: url("/images/bg.png");
+  background: image-url("bg.png");
   font-size: 13px;
   h1, h2, h3, h4, p {
     margin-bottom: 6px; }
@@ -173,36 +173,36 @@ body {
     text-indent: -9999px;
     width: 16px;
     &.save {
-      background-image: url("/images/save.png"); } }
+      background-image: image-url("save.png"); } }
   .button.save {
-    background-image: url("/images/save.png"); }
+    background-image: image-url("save.png"); }
   .icon-only.delete, .button.delete {
-    background-image: url("/images/delete.png"); }
+    background-image: image-url("delete.png"); }
   .icon-only.login, .button.login {
-    background-image: url("/images/user_go.png"); }
+    background-image: image-url("user_go.png"); }
   .icon-only.search, .button.search {
-    background-image: url("/images/search.png"); }
+    background-image: image-url("search.png"); }
   .icon-only.upload, .button.upload {
-    background-image: url("/images/upload.png"); }
+    background-image: image-url("upload.png"); }
   .icon-only.newFolder, .button.newFolder {
-    background-image: url("/images/newFolder.png"); }
+    background-image: image-url("newFolder.png"); }
   .icon-only.createLink, .button.createLink {
-    background-image: url("/images/createLink.png"); }
+    background-image: image-url("createLink.png"); }
   .icon-only.move, .button.move {
-    background-image: url("/images/move.png"); }
+    background-image: image-url("move.png"); }
   .icon-only.addPermission, .button.addPermission {
-    background-image: url("/images/key_add.png"); }
+    background-image: image-url("key_add.png"); }
   .icon-only.download, .button.download {
-    background-image: url("/images/download.png"); }
+    background-image: image-url("download.png"); }
   .icon-only.edit, .button.edit {
-    background-image: url("/images/pencil.png"); }
+    background-image: image-url("pencil.png"); }
   .icon-only.new, .button.new {
-    background-image: url("/images/add.png"); }
+    background-image: image-url("add.png"); }
   .icon-only.back, .button.back {
-    background-image: url("/images/arrow_left.png"); }
+    background-image: image-url("arrow_left.png"); }
   .icon-only.cross, .button.cross {
-    background-image: url("/images/cross.png"); }
+    background-image: image-url("cross.png"); }
   .icon-only.tick, .button.tick {
-    background-image: url("/images/tick.png"); }
+    background-image: image-url("tick.png"); }
   .icon-only.edituser, .button.edituser {
-    background-image: url("/images/user_edit.png"); } }
+    background-image: image-url("user_edit.png"); } }

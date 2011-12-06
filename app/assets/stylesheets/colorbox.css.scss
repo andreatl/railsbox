@@ -55,45 +55,45 @@
 */
 
 #cboxOverlay {
-  background: url(/images/colorbox/overlay.png) repeat 0 0; }
+  background: image-url("colorbox/overlay.png") repeat 0 0; }
 
 #colorbox {}
 
 #cboxTopLeft {
   width: 21px;
   height: 21px;
-  background: url(/images/colorbox/controls.png) no-repeat -100px 0; }
+  background: image-url("colorbox/controls.png") no-repeat -100px 0; }
 
 #cboxTopRight {
   width: 21px;
   height: 21px;
-  background: url(/images/colorbox/controls.png) no-repeat -129px 0; }
+  background: image-url("colorbox/controls.png") no-repeat -129px 0; }
 
 #cboxBottomLeft {
   width: 21px;
   height: 21px;
-  background: url(/images/colorbox/controls.png) no-repeat -100px -29px; }
+  background: image-url("colorbox/controls.png") no-repeat -100px -29px; }
 
 #cboxBottomRight {
   width: 21px;
   height: 21px;
-  background: url(/images/colorbox/controls.png) no-repeat -129px -29px; }
+  background: image-url("colorbox/controls.png") no-repeat -129px -29px; }
 
 #cboxMiddleLeft {
   width: 21px;
-  background: url(/images/colorbox/controls.png) left top repeat-y; }
+  background: image-url("colorbox/controls.png") left top repeat-y; }
 
 #cboxMiddleRight {
   width: 21px;
-  background: url(/images/colorbox/controls.png) right top repeat-y; }
+  background: image-url("colorbox/controls.png") right top repeat-y; }
 
 #cboxTopCenter {
   height: 21px;
-  background: url(/images/colorbox/border.png) 0 0 repeat-x; }
+  background: image-url("colorbox/border.png") 0 0 repeat-x; }
 
 #cboxBottomCenter {
   height: 21px;
-  background: url(/images/colorbox/border.png) 0 -29px repeat-x; }
+  background: image-url("colorbox/border.png") 0 -29px repeat-x; }
 
 #cboxContent {
   background: #fff;
@@ -130,7 +130,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: url(/images/colorbox/controls.png) no-repeat -75px 0;
+  background: image-url("colorbox/controls.png") no-repeat -75px 0;
   width: 25px;
   height: 25px;
   text-indent: -9999px;
@@ -141,7 +141,7 @@
   position: absolute;
   bottom: 0;
   left: 27px;
-  background: url(/images/colorbox/controls.png) no-repeat -50px 0;
+  background: image-url("colorbox/controls.png") no-repeat -50px 0;
   width: 25px;
   height: 25px;
   text-indent: -9999px;
@@ -149,16 +149,16 @@
     background-position: -50px -25px; } }
 
 #cboxLoadingOverlay {
-  background: url(/images/colorbox/loading_background.png) no-repeat center center; }
+  background: image-url("colorbox/loading_background.png") no-repeat center center; }
 
 #cboxLoadingGraphic {
-  background: url(/images/colorbox/loading.gif) no-repeat center center; }
+  background: image-url("colorbox/loading.gif") no-repeat center center; }
 
 #cboxClose {
   position: absolute;
   bottom: 0;
   right: 0;
-  background: url(/images/colorbox/controls.png) no-repeat -25px 0;
+  background: image-url("colorbox/controls.png") no-repeat -25px 0;
   width: 25px;
   height: 25px;
   text-indent: -9999px;
@@ -180,20 +180,20 @@
 
 .cboxIE6 {
   #cboxTopLeft {
-    background: url(/images/colorbox/ie6/borderTopLeft.png); }
+    background: image-url("colorbox/ie6/borderTopLeft.png"); }
   #cboxTopCenter {
-    background: url(/images/colorbox/ie6/borderTopCenter.png); }
+    background: image-url("colorbox/ie6/borderTopCenter.png"); }
   #cboxTopRight {
-    background: url(/images/colorbox/ie6/borderTopRight.png); }
+    background: image-url("colorbox/ie6/borderTopRight.png"); }
   #cboxBottomLeft {
-    background: url(/images/colorbox/ie6/borderBottomLeft.png); }
+    background: image-url("colorbox/ie6/borderBottomLeft.png"); }
   #cboxBottomCenter {
-    background: url(/images/colorbox/ie6/borderBottomCenter.png); }
+    background: image-url("colorbox/ie6/borderBottomCenter.png"); }
   #cboxBottomRight {
-    background: url(/images/colorbox/ie6/borderBottomRight.png); }
+    background: image-url("colorbox/ie6/borderBottomRight.png"); }
   #cboxMiddleLeft {
-    background: url(/images/colorbox/ie6/borderMiddleLeft.png); }
+    background: image-url("colorbox/ie6/borderMiddleLeft.png"); }
   #cboxMiddleRight {
-    background: url(/images/colorbox/ie6/borderMiddleRight.png); }
+    background: image-url("colorbox/ie6/borderMiddleRight.png"); }
   #cboxTopLeft, #cboxTopCenter, #cboxTopRight, #cboxBottomLeft, #cboxBottomCenter, #cboxBottomRight, #cboxMiddleLeft, #cboxMiddleRight {
     _behavior: expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')"); } }

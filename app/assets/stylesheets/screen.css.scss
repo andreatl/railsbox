@@ -38,7 +38,7 @@
           float: right; } } } } }
 
 #top-menu {
-  background: url("/images/taskbar.png") repeat scroll 0 0 white;
+  background: image-url("taskbar.png") repeat scroll 0 0 white;
   font-size: 11px;
   font-weight: bold;
   position: fixed;
@@ -90,7 +90,7 @@
           height: 7px; } } } } }
 
 #topBar {
-  background: url("/images/topbar.png") repeat-x top left silver;
+  background: image-url("topbar.png") repeat-x top left silver;
   height: 95spx;
   position: fixed;
   top: 22px;
@@ -120,7 +120,7 @@
         padding: 2px 4px;
         webkit-border-radius: 4px; }
       .breadcrumbsNext {
-        background: transparent url("/images/breadcrumbsNext.png") no-repeat center;
+        background: transparent image-url("breadcrumbsNext.png") no-repeat center;
         display: block;
         float: left;
         height: 16px;
@@ -150,15 +150,15 @@
         padding: 5px 8px 5px 27px;
         text-align: left; }
       #error p {
-        background: url("/images/error.png") no-repeat 4px center;
+        background: image-url("error.png") no-repeat 4px center;
         background-color: #ffcccc;
         border: solid 1px #cc6666; }
       #notice p {
-        background: url("/images/notice.png") no-repeat 4px center;
+        background: image-url("notice.png") no-repeat 4px center;
         background-color: #ccffcc;
         border: solid 1px #66cc66; } } }
   #headers {
-    background: url("/images/filterBar.png");
+    background: image-url("filterBar.png");
     float: left;
     font-weight: bold;
     margin-bottom: 1px;
@@ -174,24 +174,24 @@
     list-style: none;
     padding: 1px 0 3px 0;
     &:hover {
-      background: transparent url("/images/highlight.png") repeat-x top left; }
+      background: transparent image-url("highlight.png") repeat-x top left; }
     a {
       display: block;
       height: 100%;
       overflow: hidden; }
     &.folder .name a.details {
-      background-image: url("/images/folder.png");
+      background-image: image-url("folder.png");
       &.shared {
-        background-image: url("/images/folderShared.png"); } }
+        background-image: image-url("folderShared.png"); } }
     &.upFolder .name a {
-      background: transparent url("/images/up.png") no-repeat left top;
+      background: transparent image-url("up.png") no-repeat left top;
       padding-left: 20px; }
     .name a {
       &:hover {
         text-decoration: underline; }
       &.details {
         background-color: transparent;
-        background-image: url("/images/file.png");
+        background-image: image-url("file.png");
         background-position: left bottom;
         background-repeat: no-repeat;
         float: left;
@@ -202,19 +202,19 @@
         &:hover {
           background-position: -1px 0; }
         &.txtFileType {
-          background-image: url("/images/page_white_text.png"); }
+          background-image: image-url("page_white_text.png"); }
         &.pdfFileType {
-          background-image: url("/images/page_white_acrobat.png"); }
+          background-image: image-url("page_white_acrobat.png"); }
         &.zipFileType {
-          background-image: url("/images/page_white_compressed.png"); }
+          background-image: image-url("page_white_compressed.png"); }
         &.jpgFileType, &.jpegFileType, &.pngFileType, &.gifFileType {
-          background-image: url("/images/page_white_picture.png"); }
+          background-image: image-url("page_white_picture.png"); }
         &.docFileType, &.docxFileType {
-          background-image: url("/images/page_white_word.png"); }
+          background-image: image-url("page_white_word.png"); }
         &.pptFileType, &.pptxFileType {
-          background-image: url("/images/page_white_powerpoint.png"); }
+          background-image: image-url("page_white_powerpoint.png"); }
         &.xlsFileType, &.xlsxFileType {
-          background-image: url("/images/page_white_excel.png"); } } } }
+          background-image: image-url("page_white_excel.png"); } } } }
   .mark-it, .name, .ext, .size, .description, .date, .attr {
     float: left;
     height: 17px;
@@ -248,7 +248,7 @@
   width: 5%; }
 
 #bottom-bar {
-  background: url("/images/taskbar.png") repeat-x silver;
+  background: image-url("taskbar.png") repeat-x silver;
   bottom: 0;
   height: 91px;
   position: fixed;
@@ -282,41 +282,41 @@
         background-color: #5e5e5e;
         color: silver; }
       &.download {
-        background-image: url("/images/icons/download.png"); } } }
+        background-image: image-url("icons/download.png"); } } }
   .icon-link.download {
-    background-image: url("/images/icons/download.png"); } }
+    background-image: image-url("icons/download.png"); } }
 
 #cboxLoadedContent h2.download {
-  background-image: url("/images/icons/download.png"); }
+  background-image: image-url("icons/download.png"); }
 
 #bottom-bar .icon-link.upload, #cboxLoadedContent h2.upload {
-  background-image: url("/images/icons/upload.png"); }
+  background-image: image-url("icons/upload.png"); }
 
 #bottom-bar .icon-link.newFolder, #cboxLoadedContent h2.newFolder {
-  background-image: url("/images/icons/newFolder.png"); }
+  background-image: image-url("icons/newFolder.png"); }
 
 #bottom-bar .icon-link.hotlink, #cboxLoadedContent h2.hotlink {
-  background-image: url("/images/icons/hotlink.png"); }
+  background-image: image-url("icons/hotlink.png"); }
 
 #bottom-bar .icon-link.move, #cboxLoadedContent h2.move {
-  background-image: url("/images/icons/move.png"); }
+  background-image: image-url("icons/move.png"); }
 
 #bottom-bar .icon-link {
   &.rename, &.details {
-    background-image: url("/images/icons/rename.png"); } }
+    background-image: image-url("icons/rename.png"); } }
 
 #cboxLoadedContent h2 {
   &.rename, &.details {
-    background-image: url("/images/icons/rename.png"); } }
+    background-image: image-url("icons/rename.png"); } }
 
 #bottom-bar .icon-link.delete, #cboxLoadedContent h2.delete {
-  background-image: url("/images/icons/delete.png"); }
+  background-image: image-url("icons/delete.png"); }
 
 #bottom-bar .icon-link.exit, #cboxLoadedContent h2.exit {
-  background-image: url("/images/icons/exit.png"); }
+  background-image: image-url("icons/exit.png"); }
 
 #loader {
-  background: transparent url("/images/loading.gif") no-repeat top center;
+  background: transparent image-url("loading.gif") no-repeat top center;
   height: 20px; }
 
 #newAsset {
@@ -339,7 +339,7 @@ ul#permissions {
   clear: left;
   margin-left: 5px;
   li {
-    background: transparent url("/images/bullet_black.png") no-repeat top left;
+    background: transparent image-url("bullet_black.png") no-repeat top left;
     clear: left;
     display: block;
     float: left;
@@ -359,21 +359,21 @@ ul#permissions {
         text-indent: -9999px;
         width: 16px;
         &.inherited {
-          background: transparent url("/images/inherited.png") no-repeat top left; }
+          background: transparent image-url("inherited.png") no-repeat top left; }
         &.read {
-          background-image: url("/images/eye.png"); }
+          background-image: image-url("eye.png"); }
         &.delete {
-          background-image: url("/images/cross.png"); }
+          background-image: image-url("cross.png"); }
         &.write {
-          background-image: url("/images/pencil.png"); } } } } }
+          background-image: image-url("pencil.png"); } } } } }
 
 p#permissions {
   .write_perms label {
-    background-image: url("/images/pencil.png"); }
+    background-image: image-url("pencil.png"); }
   .delete_perms label {
-    background-image: url("/images/cross.png"); }
+    background-image: image-url("cross.png"); }
   .read_perms label {
-    background-image: url("/images/eye.png"); }
+    background-image: image-url("eye.png"); }
   span.permission {
     margin-right: 10px;
     label {
@@ -381,7 +381,7 @@ p#permissions {
       padding-left: 20px; } } }
 
 #moveDialogLoading {
-  background: transparent url("/images/colorbox/loading.gif") no-repeat top left;
+  background: transparent image-url("colorbox/loading.gif") no-repeat top left;
   display: block;
   display: none;
   float: right;
@@ -402,7 +402,7 @@ p#permissions {
   li {
     margin: 1px 0;
     a {
-      background: transparent url("/images/folderOpen.png") no-repeat center left;
+      background: transparent image-url("folderOpen.png") no-repeat center left;
       khtml-user-select: none;
       moz-user-select: none;
       o-user-select: none;
@@ -410,11 +410,11 @@ p#permissions {
       user-select: none;
       webkit-user-select: none;
       &.opened {
-        background-image: url("/images/folderClose.png"); }
+        background-image: image-url("folderClose.png"); }
       &.selected {
         background-color: #b2b2b2; } }
     &.disabled a {
-      background-image: url("/images/folderUnavailable.png");
+      background-image: image-url("folderUnavailable.png");
       color: gray; } } }
 
 #hotlinkResult {
@@ -451,7 +451,7 @@ p#permissions {
   min-width: 455px; }
 
 #searchResult.loading {
-  background: white url("/images/colorbox/loading.gif") no-repeat top center; }
+  background: white image-url("colorbox/loading.gif") no-repeat top center; }
 
 #userGroupSearch {
   #query, &#inactive, label {
@@ -472,14 +472,14 @@ p#permissions {
       margin: 0;
       li {
         a {
-          background: transparent url("/images/bullet_green.png") no-repeat left center;
+          background: transparent image-url("bullet_green.png") no-repeat left center;
           padding-left: 20px;
           &#moreUsers {
             background: none; }
           &:hover {
             text-decoration: underline; } }
         &.inactive a {
-          background: transparent url("/images/bullet_red.png") no-repeat left center; } } }
+          background: transparent image-url("bullet_red.png") no-repeat left center; } } }
     &.selectable ul li a {
       background-color: #dddddd;
       background-image: none;

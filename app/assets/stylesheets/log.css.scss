@@ -2,14 +2,14 @@
   #search {
     margin: 10px 0; }
   #headers {
-    background: transparent url("/images/filterbar.png") repeat-x top left;
+    background: transparent image-url("filterbar.png") repeat-x top left;
     font-weight: bold; }
   #result, #headers {
     clear: both;
     float: left;
     width: 100%; }
   #result.loading, #headers.loading {
-    background: white url("/images/colorbox/loading.gif") no-repeat center center;
+    background: white image-url("colorbox/loading.gif") no-repeat center center;
     height: 32px; }
   #result p, #headers p {
     margin: 1px 0; }
