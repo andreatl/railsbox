@@ -7,7 +7,7 @@
     %p.field
       %strong
         Created by: 
-        = "#{@asset.user.first_name} #{@asset.user.last_name}"
+      = "#{@asset.user.first_name} #{@asset.user.last_name}"
     .field
       %strong= f.label :description
       = f.text_area :description, :rows => 4
@@ -30,13 +30,13 @@
       Name
   %p
     = @asset.uploaded_file_file_name
-  -if !@asset.description.blank?     
+  -if !@asset.description.blank?
     %p
       %strong
         Description
     %p
       = @asset.description
-  -if !@asset.notes.blank?     
+  -if !@asset.notes.blank?
     %p
       %strong
         Notes
