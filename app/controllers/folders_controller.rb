@@ -78,7 +78,7 @@ class FoldersController < ApplicationController
     @canHome = current_user.can_home
     if @current_folder
       #folders
-      @folders = current_user.accessible_folders.where(:parent => @current_folder).order("name")
+      @folders = current_user.accessible_folders.where(:parent_id => @current_folder).order("name")
       
       #assets
       if @current_folder.canRead?(current_user)
