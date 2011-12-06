@@ -4,7 +4,7 @@ class Asset < ActiveRecord::Base
   belongs_to :user
  
   attr_accessible :user_id, :uploaded_file, :folder_id, :notes, :uploaded_file_file_name, :description
-	has_attached_file :uploaded_file, :url => "/assets/get/:id", :path => "assets/:id/:basename.:extension"  
+	has_attached_file :uploaded_file, :url => "/notassets/get/:id", :path => "assets/:id/:basename.:extension"  
 	has_many :hotlinks
 
   validates_attachment_presence :uploaded_file  

@@ -85,7 +85,7 @@
         .mark-it
           = check_box :file, asset.id, :class=>'fileTick tick'
           - if @canHome || (@current_folder && @current_folder.candelete?(@current_user))
-            = form_for asset, :html => { :method => 'delete' } do end
+            = form_tag notasset_path(asset), :method => :delete
         .name
           = link_to 'Details', asset, :class => "details #{asset.file_extension[1..-1]}FileType"
           - if @search_query 
