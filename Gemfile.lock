@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    ZenTest (4.6.2)
     actionmailer (3.1.3)
       actionpack (= 3.1.3)
       mail (~> 2.3.0)
@@ -82,11 +81,6 @@ GEM
     gherkin (2.3.5)
       json (>= 1.4.6)
     haml (3.1.4)
-    haml-rails (0.3.4)
-      actionpack (~> 3.0)
-      activesupport (~> 3.0)
-      haml (~> 3.0)
-      railties (~> 3.0)
     hike (1.2.1)
     i18n (0.6.0)
     jasmine (1.1.2)
@@ -198,9 +192,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.5)
-    sqlite3-ruby (1.3.3)
-      sqlite3 (>= 1.3.3)
     template (1.0.0)
       simple-navigation (> 3.0)
     term-ansicolor (1.0.7)
@@ -227,7 +218,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ZenTest
   acts_as_tree
   bcrypt-ruby
   capybara
@@ -238,8 +228,7 @@ DEPENDENCIES
   devise (= 1.3.4)
   faker
   gherkin (= 2.3.5)
-  haml (>= 3.0)
-  haml-rails
+  haml
   jasmine
   jquery-rails
   meta_search
@@ -255,7 +244,6 @@ DEPENDENCIES
   ruby-debug
   sass-rails (~> 3.1.0)
   selenium-client
-  sqlite3-ruby
   template (= 1.0.0)
   uglifier
   webrat

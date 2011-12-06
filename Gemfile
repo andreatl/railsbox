@@ -1,19 +1,20 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
+
 gem 'pg'
-gem 'haml', '>=3.0'
-#gem 'capistrano'
-gem 'devise', '1.3.4'
-gem 'haml-rails'
-gem 'paperclip'
+
+gem 'haml'
+gem 'jquery-rails'
 gem "bcrypt-ruby", :require => "bcrypt"
+
+gem 'devise', '1.3.4'
+gem 'paperclip'
+
 gem 'acts_as_tree'
 gem 'will_paginate'
 gem 'meta_search'
 gem 'perch'
-
-gem 'sqlite3-ruby'
 
 group :development do
 	gem 'mongrel'	
@@ -29,8 +30,6 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
-
 group :development, :test do
 	gem 'gherkin', '2.3.5'
 	gem 'cucumber', '0.10.2'
@@ -44,7 +43,7 @@ group :development, :test do
 	gem 'jasmine'
 	gem 'database_cleaner'
 	gem 'nifty-generators'
-	gem 'ZenTest'
+	gem 'mocha'
 end
 
 group :staging do
@@ -53,4 +52,3 @@ end
 
 
 
-gem "mocha", :group => :test
