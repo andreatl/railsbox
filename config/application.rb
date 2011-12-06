@@ -12,6 +12,9 @@ end
 module Railsbox
   class Application < Rails::Application
 
+    # custom asset path
+    config.assets.prefix = "/stuff"
+
     # Enable the asset pipeline
     config.assets.enabled = true
 

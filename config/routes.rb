@@ -35,7 +35,7 @@ Railsbox::Application.routes.draw do
   
   resources :sessions
   
-  resources :assets do
+  resources "notassets", :controller => :assets do
     get :rename
   end
   
@@ -56,11 +56,11 @@ Railsbox::Application.routes.draw do
     resources :userGroup
   end
   
-  match "assets/get/:id" => "assets#get", :as => "download_asset" 
+  match "assets/get/:id" => "assets#get", :as => "download_notasset" 
   match "download" => "folders#download", :as => "download", :via => :post
   match "folders/move/:ids" => "folders#move", :as => "move"
   match "folders/details/:id" => "folders#details", :as => "folder_details"
-  match "assets/details/:id" => "assets#details", :as => "asset_details"
+  match "assets/details/:id" => "assets#details", :as => "notasset_details"
   match "my_details" => "users#me", :as=>"my_details"
   match "assets/move/:ids" => "assets#move", :as => "move"
   match "assets/zip/:name/:ids" => "assets#zip", :as => "zip"

@@ -1,0 +1,101 @@
+/* line 1, ../../../app/stylesheets/login.sass */
+#logon-box {
+  width: 600px;
+  margin: 100px auto;
+}
+/* line 7, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder {
+  padding: 10px;
+}
+/* line 11, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-tabs ul {
+  float: right;
+  list-style: none;
+}
+/* line 17, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-tabs ul li {
+  margin-left: 5px;
+  float: left;
+}
+/* line 23, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-tabs ul li a {
+  text-decoration: none;
+  color: #333333;
+  padding: 10px 20px;
+  display: block;
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  border-bottom: none;
+  border-top-right-radius: 0.5em;
+  -moz-border-radius-topRight: 0.5em;
+  -webkit-border-radius-topRight: 0.5em;
+  border-top-left-radius: 0.5em;
+  -moz-border-radius-topLeft: 0.5em;
+  -webkit-border-radius-topleft: 0.5em;
+}
+/* line 51, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-tabs ul li a:hover {
+  background-color: #aaaaaa;
+}
+/* line 57, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-tabs ul li.active a {
+  background-color: silver;
+}
+/* line 61, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-main {
+  background-color: white;
+  padding: 40px 0;
+  border: 1px solid #cccccc;
+  border-radius: 0.5em 0 0.5em 0.5em;
+  -moz-border-radius: 0.5em 0 0.5em 0.5em;
+  -webkit-border-radius: 0.5em 0 0.5em 0.5em;
+}
+/* line 75, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-main #logo_holder {
+  float: left;
+}
+/* line 79, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-main #form-holder {
+  font-size: 8pt;
+  float: left;
+  margin-right: 30px;
+  padding-left: 30px;
+  border-left: 1px dotted #333333;
+}
+/* line 91, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-main #form-holder .error {
+  float: right;
+  margin-top: 6px;
+  color: red;
+}
+/* line 99, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-main #form-holder .notice {
+  float: right;
+  margin-top: 6px;
+  color: green;
+}
+/* line 107, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-main #form-holder label {
+  float: left;
+  width: 100px;
+  margin-top: 7px;
+}
+/* line 117, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #logon-main #form-holder #new_user label {
+  width: 200px;
+}
+/* line 121, ../../../app/stylesheets/login.sass */
+#logon-box .logon-box-padder #actions-holder {
+  background: url("/images/logonStrip.png") -10px 0px repeat-x;
+  padding: 30px 30px;
+}
+
+/* line 129, ../../../app/stylesheets/login.sass */
+#register-form-holder {
+  margin-left: 20px;
+}
+
+/* line 135, ../../../app/stylesheets/login.sass */
+#register-form-holder h2 {
+  margin-bottom: 15px;
+}
