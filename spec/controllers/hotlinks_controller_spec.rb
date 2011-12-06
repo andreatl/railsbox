@@ -39,7 +39,7 @@ describe HotlinksController do
 	  Hotlink.stub(:new).and_return(hotlink)
 	  hotlink.stub(:valid?).and_return(true)
     post :create
-    response.should render_template (:link)
+    response.should render_template(:link)
   end
 
 
