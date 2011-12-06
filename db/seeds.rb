@@ -1,3 +1,7 @@
+User.delete_all
+
+puts "Deleted existing users"
+
 adminUser = User.create(
   :first_name => 'admin',
   :last_name => 'admin',
@@ -6,6 +10,13 @@ adminUser = User.create(
   :password_confirmation =>'123456'
 )
 
-adminUser.toggle! :is_admin
-adminUser.toggle! :active
-adminUser.toggle! :can_home
+puts "Created admin user"
+
+adminUser.is_admin = true
+adminUser.active = true
+adminUser.can_home = true
+adminUser.can_hotlink = true
+
+adminUser.save
+
+puts "Set admin permissions"
