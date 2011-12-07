@@ -11,7 +11,11 @@ Authentication based on {Ryan Bates Screencast}[http://railscasts.com/episodes/2
 Developed in rails 3, using existing gems.
 Users require manual approval before continuing. (probably be config option in future)
 
-== Getting started
+== Screenshot
+
+https://github.com/yule/railsbox/blob/master/screenshot.png
+
+== Getting Started
 
 Setup app:
   bundle install
@@ -25,8 +29,14 @@ Admin user details:
   Username - admin@admin.com
   Password - admin
 
-
 CAVEAT: Some of the functionality is done due to current user expectations - even though its dirty.
 
 You will need to add your administrator's email address in config/config.yml.sample and rename this to config.yml to receive emails about users being registered
 
+== Contributing
+
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
