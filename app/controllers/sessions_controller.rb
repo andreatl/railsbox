@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:email], params[:password])
     @log_file_path = params[:email]
+    
     if user
       if user.active
         @log_action = "Login"
@@ -35,4 +36,5 @@ class SessionsController < ApplicationController
     flash[:notice] = "Logged out!"
     redirect_to log_in_path
   end
+  
 end
