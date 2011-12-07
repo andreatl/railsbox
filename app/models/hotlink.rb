@@ -13,7 +13,7 @@ class Hotlink < ActiveRecord::Base
   
   def initialize(params = {})
   	super(params)
-  	link = "hotlink#{rand(1000)}"
+  	self.link = "hotlink#{rand(1000)}"
   end
   
   def self.authenticate(id, password)
