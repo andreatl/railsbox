@@ -1,14 +1,15 @@
 class Folder < ActiveRecord::Base
-  acts_as_tree :order=>'name'  
-  attr_accessible :name, :parent_id, :notes, :description, :inherit_permissions
-  belongs_to :user  
   
+  belongs_to :user  
   has_many :permissions, :dependent => :destroy
-  has_many :users, :through=>:permissions
+  has_many :users, :through => :permissions
   has_many :assets, :dependent => :destroy
+
+  attr_accessible :name, :parent_id, :notes, :description, :inherit_permissions
+
+  acts_as_tree :order => 'name'  
   
   validates_presence_of :name
-  
   validates_uniqueness_of :name, :scope => [:parent_id, :user_id]
     
   def breadcrumbs(stop = "")
@@ -23,11 +24,11 @@ class Folder < ActiveRecord::Base
   end
   
   def folderChildren
-    Folder.where(:parent_id=>id)
+    Folder.where(:parent_id => id)
   end
   
   def folder_children_inheriting_permissions
-    p = folderChildren.where(:inherit_permissions=>true)
+    p = folderChildren.where(:inherit_permissions => true)
     if p.count > 0
       p << p.map{|a| a.folder_children_inheriting_permissions}
     end
@@ -44,8 +45,7 @@ class Folder < ActiveRecord::Base
   end
   
   def is_shared?
-    #More than 1 user has permission
-    p = all_permissions
+    p = all_permissions # More than 1 user has permission
     p.count > 0 && (p.count > 1 || p.first.parent_type == "Group")
   end
    
@@ -66,7 +66,7 @@ class Folder < ActiveRecord::Base
 
 
   def descendants
-     descendant_folders_include_self - self
+    descendant_folders_include_self - self
   end
 
   #returns all descendants that are under this folder including current folder
@@ -77,4 +77,5 @@ class Folder < ActiveRecord::Base
   def descendant_folders_include_self_can_read(user)
     descendant_folders_include_self.map{|f| f if f.canread(user)}.compact
   end
+  
 end
