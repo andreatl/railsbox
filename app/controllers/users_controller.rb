@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
    
-  skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
-  skip_after_filter :log, :only=>[:resetPassword, :disk_space, :searchUsersResult]
   before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :change_password, :change_password_update, :disk_space]
   before_filter :mailer_set_url_options, :only=>[:create,:updatePassword, :update]
   before_filter :get_max_users, :only => [:searchUsersResult]
-  after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :changePassword, :resetPassword, :updatePassword, :disk_space]
   before_filter :get_user, :only => [:change_password, :update, :change_password_update]
+  
+  skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
+  skip_after_filter :log, :only=>[:resetPassword, :disk_space, :searchUsersResult]
+  
+  after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :changePassword, :resetPassword, :updatePassword, :disk_space]
   
   layout :choose_layout
   
@@ -23,6 +25,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.is_admin = false
     @user.active = false
+
     if @user.save
       #send email to admin
       begin
@@ -56,6 +59,7 @@ class UsersController < ApplicationController
 
   def update
     is_active = @user.active
+
     if @user.update_attributes(params[:user])
       #allowed to change permissions
       @user.is_admin = params[:user][:is_admin] if params[:user][:is_admin]
@@ -67,7 +71,7 @@ class UsersController < ApplicationController
           UserMailer.user_activated(@user).deliver if is_active == false && @user.active == true
         rescue
         end
-      end 
+      end
       if @user.save!
         redirect_to @user, :notice  => "Successfully updated."
       else
@@ -86,10 +90,12 @@ class UsersController < ApplicationController
   
   def searchUsersResult
     @users= User.named(params[:query])
+
     if params[:active] != "all"
       @users = @users.active(params[:active])
     end
-      @users = @users.limit(@max_users)
+
+    @users = @users.limit(@max_users)
   end
   
   def disk_space
@@ -131,27 +137,27 @@ class UsersController < ApplicationController
   
   #Generate a password
   def updatePassword
-      if params[:email]
-        @user = User.find_by_email(params[:email])
-      end
-      if @user
-        @log_user_id = @user.id        
-        newPassword = User.generate_password
-        @user.password = newPassword
-        @user.password_confirmation = newPassword
-        if @user.save
-          UserMailer.reset_password(@user, newPassword).deliver
-          if current_user.nil?
-            redirect_to log_in_path, :notice => "New password sent"
-          else
-            redirect_to @user
-          end
+    if params[:email]
+      @user = User.find_by_email(params[:email])
+    end
+    if @user
+      @log_user_id = @user.id        
+      newPassword = User.generate_password
+      @user.password = newPassword
+      @user.password_confirmation = newPassword
+      if @user.save
+        UserMailer.reset_password(@user, newPassword).deliver
+        if current_user.nil?
+          redirect_to log_in_path, :notice => "New password sent"
         else
-          redirect_to reset_password_path, :error => "Password reset failed"
+          redirect_to @user
         end
       else
-        redirect_to reset_password_path, :error => "Email address not found"
+        redirect_to reset_password_path, :error => "Password reset failed"
       end
+    else
+      redirect_to reset_password_path, :error => "Email address not found"
+    end
   end
   
   private
@@ -162,6 +168,7 @@ class UsersController < ApplicationController
   
   def get_user
     id = params[:user_id] || params[:id]
+    
     if id && current_user.is_admin
       @user = User.find(id)
     else
