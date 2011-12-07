@@ -3,16 +3,27 @@ class User < ActiveRecord::Base
   require 'haddock'
   include Haddock
 
-  has_many :permissions, :as=>:parent, :dependent => :destroy
+  has_many :permissions, :as => :parent, :dependent => :destroy
   has_many :folders
-  has_many :folders, :through=>:permissions, :conditions=>['read_perms = ? or write_perms = ?', true, true]
+  has_many :folders, :through => :permissions, :conditions => ['read_perms = ? or write_perms = ?', true, true]
   has_many :assets
   has_many :user_groups, :dependent => :destroy
-  has_many :groups, :through=>:user_groups 
+  has_many :groups, :through => :user_groups 
   has_many :logs
   
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :company, :referrer
+  attr_accessor :password
   
+  validates_confirmation_of :password
+  validates_presence_of :password, :on => :create
+  
+  validates :email, :presence => true,
+                    :length => {:minimum => 3, :maximum => 254},
+                    :uniqueness => true,
+                    :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
+
+  before_save :encrypt_password
+
   scope :active, lambda {|active|
     if active != 'all'
      where('active = ' + active).order("name")
@@ -31,17 +42,6 @@ class User < ActiveRecord::Base
       email
     end  
   end  
-  
-  attr_accessor :password
-  before_save :encrypt_password
-  
-  validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
-  
-  validates :email, :presence => true,
-                    :length => {:minimum => 3, :maximum => 254},
-                    :uniqueness => true,
-                    :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
   
   def accessible_folders_exc_groups
     if is_admin
@@ -123,4 +123,5 @@ class User < ActiveRecord::Base
   def space_percentage
     ((space_used.to_f/APP_CONFIG['user_disk_space'].to_f)* 100).to_i
   end
+
 end
