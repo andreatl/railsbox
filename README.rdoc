@@ -13,7 +13,7 @@ Users require manual approval before continuing. (probably be config option in f
 
 == Screenshot
 
-https://github.com/yule/railsbox/raw/master/screenshot.png
+http://github.com/yule/railsbox/raw/master/screenshot.png
 
 == Getting Started
 
