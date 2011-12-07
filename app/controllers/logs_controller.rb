@@ -1,12 +1,9 @@
 class LogsController < ApplicationController
-  # GET /logs
-  # GET /logs.xml
+  
   def index
     @Users = User.order("name, first_name, last_name ASC")
     @controllers = Log.select('DISTINCT (controller)').order('controller ASC')
     @actions = Log.select('DISTINCT (action)').order('action ASC')
-    
-    #@log = Log.new(params[:log]) || Log.new
     
     @search = Log.search(params[:search])
     
@@ -15,19 +12,17 @@ class LogsController < ApplicationController
     @logs = @search.order('created_at DESC').paginate(:page => params[:page])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @logs }
     end
   end
 
-  # GET /logs/1
-  # GET /logs/1.xml
   def show
     @log = Log.find(params[:id])
     @log_target_id = @log.id
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.xml  { render :xml => @log }
     end
   end
