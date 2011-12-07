@@ -1,6 +1,6 @@
 class PermissionsController < ApplicationController
   
-  after_filter :logFilePath, :only=>[:create, :update]
+  after_filter :logFilePath, :only => [:create, :update]
 
   def new
     @permission = Permission.new
@@ -25,6 +25,7 @@ class PermissionsController < ApplicationController
     @permission.delete_perms = params[:permission][:delete_perms]
     @permission.assigned_by = current_user.id
     @permission.folder = current_user.owned_folders.find(params[:folder_id])
+    
     if @permission.save
       redirect_to folder_details_path(@permission.folder), :notice => "Successfully created permission"
     else

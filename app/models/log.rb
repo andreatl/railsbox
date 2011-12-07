@@ -1,4 +1,5 @@
 class Log < ActiveRecord::Base
+  
   belongs_to :user
   
   validates_presence_of :controller, :action, :ip_address, :user_agent
@@ -10,4 +11,5 @@ class Log < ActiveRecord::Base
   } 
   
   search_methods :usernamed
+  
 end
