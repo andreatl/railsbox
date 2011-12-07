@@ -1,4 +1,4 @@
-<%= form_for @asset do |f| %>
+<%= form_for @asset, :url => notasset_path(@asset) do |f| %>
   <div class="field">
     <%= f.text_field :folder_id, :class => 'moveTarget', :value => '' %>
   </div>
