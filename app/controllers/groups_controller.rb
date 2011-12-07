@@ -1,14 +1,12 @@
 class GroupsController < ApplicationController
   
   before_filter :check_admin
-  
   before_filter :searchGroupsResult, :only=>[:userGroupSearchResult]
-  
   before_filter :get_max_users, :only => [:searchGroupsResult,:userGroupSearchResult]
   
-  skip_after_filter :log, :only=>[:searchGroupsResult,:userGroupSearchResult]
-  
   after_filter :logfilepath, :only=>[:show, :update, :create]
+
+  skip_after_filter :log, :only=>[:searchGroupsResult,:userGroupSearchResult]
   
   def index
     @groups = Group.all
@@ -24,6 +22,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(params[:group])
+    
     if @group.save
       redirect_to @group, :notice => "Successfully created group."
     else
@@ -37,6 +36,7 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
+    
     if @group.update_attributes(params[:group])
       redirect_to @group, :notice  => "Successfully updated group."
     else
@@ -66,4 +66,5 @@ class GroupsController < ApplicationController
     @log_file_path = "Group: " + @group.name
     @log_target_id = @group.id
   end
+
 end
