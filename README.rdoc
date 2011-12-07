@@ -2,7 +2,7 @@
 
 A drop-type file management system.
 
-* Many folders, which can be accessed by users and/or groups.
+* Many folders, which can be accessed by users and/or groups
 
 * Admin interface for back-end
 
@@ -10,7 +10,7 @@ A drop-type file management system.
 
 * Authentication based on {Ryan Bates Screencast}[http://railscasts.com/episodes/250-authentication-from-scratch]
 
-* Developed in Rails 3, using existing gems.
+* Developed in Rails 3, using existing gems
 
 * Users require manual approval before continuing. (probably be config option in future)
 
