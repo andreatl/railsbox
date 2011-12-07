@@ -1,8 +1,8 @@
 class AssetsController < ApplicationController
   
-  before_filter :isAuthorised, :except=>[:new, :create, :move]
+  before_filter :isAuthorised, :except => [:new, :create, :move]
 
-  after_filter :logFilePath, :except=>[:new, :edit, :destroy, :isAuthorised]
+  after_filter :logFilePath, :except => [:new, :edit, :destroy, :isAuthorised]
   
   def isAuthorised
     if params[:id]
