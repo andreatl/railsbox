@@ -169,7 +169,7 @@ class FoldersController < ApplicationController
     @folders = []
     
     Folder.find(params[:ids].split(',')).each do |folder|
-      (folder.canread?(@current_user) && folder.canwrite?(@current_user)) ? @folders << folder : flash[:error] = "Unauthorised" and redirect_to root_path and return
+      (folder.canread?(@current_user) && folder.canwrite?(@current_user)) ? @folders << folder : flash[:error] = "Unauthorised" and return
     end
 
     @log_file_path = ""
