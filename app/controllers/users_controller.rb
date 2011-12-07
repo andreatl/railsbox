@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
    
+  force_ssl :only => [:new, :create, :change_password, :change_password_update, :edit, :update. :update_password]
+
   before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :change_password, :change_password_update, :disk_space]
   before_filter :mailer_set_url_options, :only=>[:create,:updatePassword, :update]
   before_filter :get_max_users, :only => [:searchUsersResult]
