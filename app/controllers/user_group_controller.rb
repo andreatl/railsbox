@@ -1,5 +1,7 @@
 class UserGroupController < ApplicationController
-  after_filter :logFilePath, :except=>[:new]
+  
+  after_filter :logFilePath, :except => [:new]
+
   def new
     @userGroup = UserGroup.new
     @users = User.all
@@ -8,6 +10,7 @@ class UserGroupController < ApplicationController
   def create
     @userGroup = UserGroup.new(params[:user_group])
     @userGroup.group_id = params[:group_id]
+
     if @userGroup.save
       redirect_to group_path(@userGroup.group_id), :notice => "User Added"
     else
@@ -23,9 +26,9 @@ class UserGroupController < ApplicationController
   end
   
   private
-  
   def logFilePath
     @log_file_path = "Group: " + @userGroup.group.name + ", User: " + @userGroup.user.name
     @log_target_id = @userGroup.id
   end
+
 end
