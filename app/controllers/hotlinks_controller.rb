@@ -1,12 +1,14 @@
 class HotlinksController < ApplicationController
   
-  skip_before_filter :is_authorised, :only=>[:show,:update] #can view hotlink without login
   before_filter :check_hotlink, :except=>[:show, :update]
+
+  skip_before_filter :is_authorised, :only=>[:show,:update] #can view hotlink without login
   
   after_filter :logFilePath, :except=>[:new]
 
   def show
     @hotlink = Hotlink.find(params[:id])
+    
     respond_to do |format|
       format.html
       format.js { render :layout => false }
@@ -21,6 +23,7 @@ class HotlinksController < ApplicationController
 
   def create
     @hotlink = Hotlink.new(params[:hotlink])
+    
     if @hotlink.save
       respond_to do |format|
         format.html {render :action => 'link' }
@@ -39,6 +42,7 @@ class HotlinksController < ApplicationController
     #Download
     @hotlink = Hotlink.authenticate(params[:id], params[:hotlink][:password])
     @log_action = "Access"
+    
     if @hotlink
       send_file @hotlink.asset.uploaded_file.path, :type => @hotlink.asset.uploaded_file_content_type
     else
@@ -50,15 +54,17 @@ class HotlinksController < ApplicationController
   end
   
   private
-  
   def logFilePath
     @log_file_path = ""
+    
     if @hotlink.asset 
       @log_file_path = @hotlink.asset.folder.breadcrumbs if !@hotlink.asset.folder.nil?
       @log_file_path << "/" + @hotlink.asset.uploaded_file_file_name
     else
     	@log_file_path << "Not known"
     end	
+
     @log_target_id = @hotlink.id
   end
+
 end
