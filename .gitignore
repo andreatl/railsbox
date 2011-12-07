@@ -17,3 +17,5 @@ rerun.txt
 pickle-email-*.html
 /assets/
 /config/config.yml
+.project
+.loadpath
