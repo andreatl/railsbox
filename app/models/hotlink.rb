@@ -1,17 +1,19 @@
 class Hotlink < ActiveRecord::Base
   
+  belongs_to :asset
+  
   attr_accessible :asset_id, :link, :expiry_date, :password, :days
+  
   attr_accessor :password, :days
   
-  before_save :encrypt_password
-  
   validates_presence_of :asset_id, :link
-  belongs_to :asset
+  
+  before_save :encrypt_password
   
   
   def initialize(params = {})
   	super(params)
-  	self.link = "hotlink#{rand(1000)}"
+  	link = "hotlink#{rand(1000)}"
   end
   
   def self.authenticate(id, password)
@@ -28,8 +30,7 @@ class Hotlink < ActiveRecord::Base
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
-    #set expiry date while we're at it (default 5 days)
-    self.expiry_date = Time.now + (days.to_i || 5).days      
+    self.expiry_date = Time.now + (days.to_i || 5).days # set expiry date while we're at it (default 5 days)
   end
   
 end

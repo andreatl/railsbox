@@ -32,10 +32,10 @@ class Asset < ActiveRecord::Base
   end
   
   def check_name_unique
-    uploaded_file_file_name = Asset.get_unique_name(uploaded_file_file_name, folder_id)
+    self.uploaded_file_file_name = Asset.get_unique_name(uploaded_file_file_name, self.folder_id)
   end
     
-  def get_unique_name(name, folder_id)
+  def self.get_unique_name(name, folder_id)
     f = Asset.where({:uploaded_file_file_name => name, :folder_id=> folder_id})
     if f.size < 1
       return name
