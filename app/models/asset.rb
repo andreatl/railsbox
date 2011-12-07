@@ -6,7 +6,7 @@ class Asset < ActiveRecord::Base
  
   attr_accessible :user_id, :uploaded_file, :folder_id, :notes, :uploaded_file_file_name, :description
   
-  has_attached_file :uploaded_file, :url => "/notassets/get/:id", :path => "assets/:id/:basename.:extension"
+  has_attached_file :uploaded_file, :url => "/assets/get/:id", :path => "assets/:id/:basename.:extension"
 
   before_validation :check_name_unique
   
