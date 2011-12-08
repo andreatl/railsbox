@@ -1,0 +1,21 @@
+#hotlinks
+  #header
+    %p.name Name
+    %p.asset File
+    %p.expiry Expiry Date
+    %p.createdBy Created By
+  .clear
+  - @hotlinks.each do |hotlink|
+    .row
+      %p.name
+        = hotlink.link
+      %p.asset
+        - if hotlink.asset
+          = hotlink.asset.folder.breadcrumbs + "/" unless hotlink.asset.folder.nil?
+          = hotlink.asset.uploaded_file_file_name
+        - else
+          Asset not found
+      %p.expiry
+        = hotlink.expiry_date
+      %p.createdBy
+.clear
