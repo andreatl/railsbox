@@ -2,7 +2,9 @@ class Hotlink < ActiveRecord::Base
   
   belongs_to :asset
   
-  attr_accessible :asset_id, :link, :expiry_date, :password, :days
+  belongs_to :user
+  
+  attr_accessible :asset_id, :link, :expiry_date, :password, :days, :user_id
   
   attr_accessor :password, :days
   

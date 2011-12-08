@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :user_groups, :dependent => :destroy
   has_many :groups, :through => :user_groups 
   has_many :logs
+  has_many :hotlinks
   
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :company, :referrer
   attr_accessor :password
