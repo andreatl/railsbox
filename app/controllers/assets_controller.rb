@@ -59,7 +59,7 @@ class AssetsController < ApplicationController
   def get  
     @asset = Asset.find_by_id(params[:id])
     if @asset  
-        send_file @asset.uploaded_file.path, :type => @asset.uploaded_file_content_type
+        send_file @asset.uploaded_file.path, :type => @asset.uploaded_file_content_type, :filename => @asset.uploaded_file_file_name
     end  
   end
 

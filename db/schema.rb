@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20111208125101) do
     t.text     "description"
     t.text     "notes"
     t.integer  "user_id"
-    t.string   "display_name"
+    t.string   "file_name"
   end
 
   create_table "folders", :force => true do |t|

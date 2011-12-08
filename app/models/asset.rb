@@ -6,9 +6,10 @@ class Asset < ActiveRecord::Base
  
   attr_accessible :user_id, :uploaded_file, :folder_id, :notes, :uploaded_file_file_name, :description
   
-  has_attached_file :uploaded_file, :url => "/assets/get/:id", :path => "assets/:id/:basename.:extension"
+  has_attached_file :uploaded_file, :url => "/assets/get/:id", :path => "assets/:id/:random_file_name.:extension"
 
   before_validation :check_name_unique
+  before_create :generate_random_file_name
   
   validates_attachment_presence :uploaded_file
   validates_presence_of :user_id
@@ -45,6 +46,18 @@ class Asset < ActiveRecord::Base
       new_name = x.join('.')
       Asset.get_unique_name(new_name, folder_id)
     end
+  end
+
+  def generate_random_file_name
+    alphanumerics = ('a'..'z').to_a.concat(('A'..'Z').to_a.concat(('0'..'9').to_a))
+    self.file_name = alphanumerics.sort_by{rand}.to_s[0..31]
+    
+    # Ensure uniqueness of the token..
+    generate_random_file_name unless Asset.where(:uploaded_file_file_name => @key).count == 0
+  end
+
+  Paperclip.interpolates :random_file_name do |attachment, style|
+    attachment.instance.file_name
   end
 
 end
