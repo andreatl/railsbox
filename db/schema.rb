@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206163705) do
+ActiveRecord::Schema.define(:version => 20111208125101) do
 
   create_table "assets", :force => true do |t|
     t.datetime "created_at"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20111206163705) do
     t.text     "description"
     t.text     "notes"
     t.integer  "user_id"
+    t.string   "display_name"
   end
 
   create_table "folders", :force => true do |t|
