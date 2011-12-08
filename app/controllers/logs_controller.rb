@@ -1,5 +1,7 @@
 class LogsController < ApplicationController
   
+  before_filter :check_admin
+  
   def index
     @Users = User.order("name, first_name, last_name ASC")
     @controllers = Log.select('DISTINCT (controller)').order('controller ASC')
