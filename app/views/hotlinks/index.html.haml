@@ -13,7 +13,7 @@
         = hotlink.link
       %p.asset
         - if hotlink.asset
-          = hotlink.asset.folder.breadcrumbs + "/" unless hotlink.asset.folder.nil?
+          = hotlink.asset.folder.breadcrumbs + " / " unless hotlink.asset.folder.nil?
           = hotlink.asset.uploaded_file_file_name
         - else
           Asset not found
