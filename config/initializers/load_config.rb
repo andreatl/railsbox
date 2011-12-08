@@ -1,1 +1,1 @@
-APP_CONFIG = YAML.load(File.new(File.expand_path("#{Rails.root.to_s}/config/config.yml", __FILE__)).read)
+APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
