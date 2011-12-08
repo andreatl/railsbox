@@ -19,8 +19,8 @@
           Asset not found
       %p.createdBy
         = hotlink.user.name
-      %p.expiry
-        = hotlink.expiry_date
+      %p.expiry{:title => hotlink.expiry_date}
+        = hotlink.expiry_date ? hotlink.expiry_date.to_i < Time.now.to_i ? "#{(time_ago_in_words(hotlink.expiry_date))} ago" : "in #{(time_ago_in_words(hotlink.expiry_date))}" : "--"
       %p.actions
         = button_to 'Remove', hotlink_path(hotlink), :confirm => 'Are you sure?', :method => :delete, :class => 'button delete'
 .clear
