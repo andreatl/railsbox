@@ -29,7 +29,7 @@ class HotlinksController < ApplicationController
 
   def create
     @hotlink = Hotlink.new(params[:hotlink])
-    
+    @hotlink.user_id = current_user.id
     if @hotlink.save
       respond_to do |format|
         format.html {render :action => 'link' }
@@ -57,6 +57,12 @@ class HotlinksController < ApplicationController
       flash.now.alert = "Invalid password"
       render "show"
     end
+  end
+  
+  def destroy
+    @hotlink = Hotlink.find(params[:id])
+    @hotlink.destroy
+    redirect_to hotlinks_path, :notice => "Successfully deleted."
   end
   
   private

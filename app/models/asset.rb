@@ -2,7 +2,7 @@ class Asset < ActiveRecord::Base
 
   belongs_to :folder
   belongs_to :user
-	has_many :hotlinks
+	has_many :hotlinks, :dependent => :destroy
  
   attr_accessible :user_id, :uploaded_file, :folder_id, :notes, :uploaded_file_file_name, :description
   

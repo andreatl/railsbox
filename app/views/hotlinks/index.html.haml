@@ -1,9 +1,11 @@
+%h1
+  Hotlinks
 #hotlinks
   #header
     %p.name Name
     %p.asset File
-    %p.expiry Expiry Date
     %p.createdBy Created By
+    %p.expiry Expiry Date
   .clear
   - @hotlinks.each do |hotlink|
     .row
@@ -15,7 +17,10 @@
           = hotlink.asset.uploaded_file_file_name
         - else
           Asset not found
+      %p.createdBy
+        = hotlink.user.name
       %p.expiry
         = hotlink.expiry_date
-      %p.createdBy
+      %p.actions
+        = button_to 'Remove', hotlink_path(hotlink), :confirm => 'Are you sure?', :method => :delete, :class => 'button delete'
 .clear
