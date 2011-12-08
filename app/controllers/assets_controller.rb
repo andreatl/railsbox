@@ -91,9 +91,10 @@ class AssetsController < ApplicationController
 
   def update
     @asset = Asset.find(params[:id])
-
-    ext = @asset.uploaded_file_file_name.split(".")[1] # get evrything before the first dot
-    params[:asset][:uploaded_file_file_name] = params[:asset][:uploaded_file_file_name].split(".")[0] + "." + ext # add existing extension
+    if params[:asset][:uploaded_file_file_name]
+      ext = @asset.uploaded_file_file_name.split(".")[1] # get evrything before the first dot
+      params[:asset][:uploaded_file_file_name] = params[:asset][:uploaded_file_file_name].split(".")[0] + "." + ext
+    end
     if @asset.update_attributes(params[:asset])
       if @asset.folder_id
         redirect_to @asset.folder
