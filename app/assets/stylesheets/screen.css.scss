@@ -220,8 +220,9 @@
     height: 17px;
     overflow: hidden; } }
   
-  .hotlink {
+  .hotlink-icon {
     background: image-url("hotlink_small.png") no-repeat 5px 0px;
+    height: 17px;
     text-indent: -9999px;
     display: block;
     float:left; 
@@ -231,6 +232,7 @@
   .mark-it, .name, .ext, .size, .description, .date, .attr {
     float: left;
     height: 17px;
+    width: 30px;
     overflow: hidden; } }
 
 #file-container .mark-it, #headers .mark-it {
