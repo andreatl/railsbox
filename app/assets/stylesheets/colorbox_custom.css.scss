@@ -33,4 +33,10 @@
     clear: both;
     display: block;
     .button {
-      float: left; } } }
+      float: left; } } 
+      
+  #hotlinks {
+    ul{
+      list-style: disc;
+      a:hover{
+        text-decoration: underline;}}}}
