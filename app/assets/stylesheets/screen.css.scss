@@ -226,13 +226,13 @@
     text-indent: -9999px;
     display: block;
     float:left; 
+    width: 30px;
     padding-left: 5px; }
 
 #headers {
   .mark-it, .name, .ext, .size, .description, .date, .attr {
     float: left;
     height: 17px;
-    width: 30px;
     overflow: hidden; } }
 
 #file-container .mark-it, #headers .mark-it {
