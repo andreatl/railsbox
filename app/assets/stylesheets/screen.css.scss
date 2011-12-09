@@ -219,6 +219,13 @@
     float: left;
     height: 17px;
     overflow: hidden; } }
+  
+  .hotlink {
+    background: image-url("hotlink_small.png") no-repeat 5px 0px;
+    text-indent: -9999px;
+    display: block;
+    float:left; 
+    padding-left: 5px; }
 
 #headers {
   .mark-it, .name, .ext, .size, .description, .date, .attr {

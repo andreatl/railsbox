@@ -94,7 +94,12 @@
             - else 
               = link_to h(asset.uploaded_file_file_name), download_notasset_path(asset) 
           - else 
-            = link_to h(asset.uploaded_file_file_name), download_notasset_path(asset) 
+            = link_to download_notasset_path(asset) do
+              %p.left
+                = h(asset.uploaded_file_file_name)
+              - if asset.hotlinks.count > 0
+                %span.hotlink
+                  [Hotlink]
         .ext
           = h asset.file_extension
         .size

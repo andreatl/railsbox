@@ -19,6 +19,20 @@
         = render (:partial => "folders/folderPermissions", :object => @asset)
         %p
           (Inherited from parent folder)
+    .field
+      %strong
+        = f.label "Hotlinks"
+      %br
+      - if @asset.hotlinks.count > 0
+        - @asset.hotlinks.each do |h|
+          %p
+            = "Expires "
+            = h.expiry_date ? h.expiry_date.to_i < Time.now.to_i ? "#{(time_ago_in_words(h.expiry_date))} ago" : "in #{(time_ago_in_words(h.expiry_date))}" : "--"
+            = " - "
+            = link_to "Link", url_for(h)
+      - else
+        %p
+          None
     .actions
       = f.submit 'Save', :class => 'button save'
       = link_to "Download", download_notasset_path(@asset), :class => 'button download'
@@ -42,7 +56,7 @@
         Notes
     %p
       = @asset.notes
-    .actions
-      = link_to "Download", download_notasset_path(@asset), :class => 'button download'
-      - if current_user.can_hotlink
-        = link_to "Hotlink", new_hotlink_path(@asset), :class => 'button createLink'
+  .actions
+    = link_to "Download", download_notasset_path(@asset), :class => 'button download'
+    - if current_user.can_hotlink
+      = link_to "Hotlink", new_hotlink_path(@asset), :class => 'button createLink'
