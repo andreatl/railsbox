@@ -44,6 +44,7 @@ group :development, :test do
 	gem 'database_cleaner'
 	gem 'nifty-generators'
 	gem 'mocha'
+  gem "nyan-cat-formatter"
 end
 
 group :staging do

@@ -30,7 +30,7 @@ Admin user added by running:
   
 Admin user details: 
   Username - admin@admin.com
-  Password - admin
+  Password - 123456
 
 CAVEAT: Some of the functionality is done due to current user expectations - even though its dirty.
 
