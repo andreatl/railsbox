@@ -69,6 +69,8 @@ Railsbox::Application.routes.draw do
   match "browse/:folder_id/new_folder" => "folders#new", :as => "new_sub_folder"  
   match "browse/:folder_id/new_file" => "assets#new", :as => "new_sub_file"
   match "hotlink/new/:asset_id" => "hotlinks#new", :as => "new_hotlink"
+  match "hotlink/:link" => "hotlinks#show", :as => "open_hotlink"
+  
 
   
   # The priority is based upon order of creation:

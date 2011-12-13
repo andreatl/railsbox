@@ -346,11 +346,6 @@ $(document).ready(function() {
       } else {
         $('#hotlink_days').removeClass('error');
       }
-      if($('#hotlink_link').val().trim() == "") {
-        $('#hotlink_link').addClass('error');
-      } else {
-        $('#hotlink_link').removeClass('error');
-      }
       if($('#hotlink_password').val().trim() == "") {
         valid = false;
         $('#hotlink_password').addClass('error');

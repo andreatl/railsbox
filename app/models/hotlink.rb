@@ -8,14 +8,12 @@ class Hotlink < ActiveRecord::Base
   
   attr_accessor :password, :days
   
-  validates_presence_of :asset_id, :link
+  validates_presence_of :asset_id
   
   before_save :encrypt_password
   
-  
   def initialize(params = {})
   	super(params)
-  	self.link = "hotlink#{rand(1000)}"
   end
   
   def self.authenticate(id, password)
@@ -24,6 +22,15 @@ class Hotlink < ActiveRecord::Base
       link
     else
       nil
+    end
+  end
+  
+  def self.generate_link
+    f = ('a'..'z').to_a.concat(('A'..'Z').to_a.concat(('0'..'9').to_a)).sort_by{rand}.to_s[0..31]
+    if Hotlink.where(:link=>f).count > 0 
+      return Hotlink.generate_link
+    else
+      f
     end
   end
   

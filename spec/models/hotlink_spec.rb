@@ -5,15 +5,6 @@ describe Hotlink do
   
   it "should not be valid" do
     Hotlink.new.should_not be_valid
-  end  
-  
-  
-  it "should automatically create link" do
-    Hotlink.new.link.should_not be_nil
-  end
-  
-  it "should not create the same link twice" do
-  	Hotlink.new.link.should_not == Hotlink.new.link
   end
   
   it "should be valid" do
@@ -31,10 +22,9 @@ describe Hotlink do
     link.password = nil
     link.should be_valid #still
   end
-
 end
 
 
 def valid_hotlink
-  Hotlink.new(:name=>'foobar', :asset_id => 1, :password=>'test1', :link=>'676528fgdda');
+  Hotlink.new(:name=>'foobar', :asset_id => 1, :password=>'test1');
 end

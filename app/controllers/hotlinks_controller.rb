@@ -13,8 +13,7 @@ class HotlinksController < ApplicationController
   end
 
   def show
-    @hotlink = Hotlink.find(params[:id])
-    
+    @hotlink = Hotlink.first(:conditions=> {:link => params[:link]})
     respond_to do |format|
       format.html
       format.js { render :layout => false }
@@ -30,6 +29,7 @@ class HotlinksController < ApplicationController
   def create
     @hotlink = Hotlink.new(params[:hotlink])
     @hotlink.user_id = current_user.id
+    @hotlink.link = Hotlink.generate_link
     if @hotlink.save
       respond_to do |format|
         format.html {render :action => 'link' }
