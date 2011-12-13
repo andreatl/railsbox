@@ -11,6 +11,13 @@ class Folder < ActiveRecord::Base
   
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => [:parent_id, :user_id]
+  validate :parent_id_not_itself
+  
+  def parent_id_not_itself
+    if parent_id?
+      errors.add(:parent_id, 'parent folder cannot be itself') if id == parent_id
+    end
+  end
     
   def breadcrumbs(stop = "")
     path = ''
