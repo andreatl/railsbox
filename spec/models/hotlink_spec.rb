@@ -24,10 +24,10 @@ describe Hotlink do
   end
 
   it "should not allow the same link twice" do
-    link = valid_hotlink 
-    link.save
+    link1 = valid_hotlink 
+    link1.save
     link2 = valid_hotlink
-    link2.link = link.link
+    link2.link = link1.link
     link2.should_not be_valid
   end
 
@@ -35,5 +35,6 @@ end
 
 
 def valid_hotlink
-  Hotlink.new(:name=>'foobar', :asset_id => 1, :password=>'test1');
+  l = Hotlink.generate_link
+  Hotlink.new(:name=>'foobar', :asset_id => 1, :password=>'test1', :link => l);
 end

@@ -10,6 +10,7 @@ class Hotlink < ActiveRecord::Base
   
   validates_presence_of :asset_id
   validates_presence_of :link
+  validates_uniqueness_of :link
   
   before_save :encrypt_password
   

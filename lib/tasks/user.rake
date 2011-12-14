@@ -1,7 +1,7 @@
 #BEFORE RUNNING THIS FILE ENSURE THAT THE SQL EXPORT DOES NOT BREAK ANY FOREIGN KEY DEPENDENCIES
 #PARTICULARLY group_folder BEING CREATED BEFORE group
 
-INPUT_FILE = 'tmp/user.sql' unless defined? INPUT_FILE
+input_file = 'tmp/user.sql' unless defined? input_file
 #From the SQL dump file, what do the required lines start with:
 USER_START = "INSERT INTO `accounts`" unless defined? USER_START
 FOLDER_START = "INSERT INTO `folders`" unless defined? FOLDER_START
@@ -36,8 +36,8 @@ namespace :user do
   desc "Imports the users from a SQL file from old system"  
   task :import => :environment do
     #Open file
-    INPUT_FILE = ALTERNATIVE_INPUT_FILE if defined?(ALTERNATIVE_INPUT_FILE)
-    f = File.open(INPUT_FILE, "rb")
+    input_file = ALTERNATIVE_INPUT_FILE if defined?(ALTERNATIVE_INPUT_FILE)
+    f = File.open(input_file, "rb")
     f.each_line do |line|
       if line.start_with? USER_START
         parse User, USER_COLUMNS, line do |u|
