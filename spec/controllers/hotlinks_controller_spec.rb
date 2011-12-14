@@ -16,7 +16,7 @@ describe HotlinksController do
 
 
   it "show action should render show template" do
-    get :show, :id => Hotlink.first
+    get :show, :id => Hotlink.first.id
     response.should render_template(:show)
   end
 
