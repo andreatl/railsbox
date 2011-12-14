@@ -22,6 +22,15 @@ describe Hotlink do
     link.password = nil
     link.should be_valid #still
   end
+
+  it "should not allow the same link twice" do
+    link = valid_hotlink 
+    link.save
+    link2 = valid_hotlink
+    link2.link = link.link
+    link2.should_not be_valid
+  end
+
 end
 
 

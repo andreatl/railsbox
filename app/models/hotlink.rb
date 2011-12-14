@@ -9,6 +9,7 @@ class Hotlink < ActiveRecord::Base
   attr_accessor :password, :days
   
   validates_presence_of :asset_id
+  validates_presence_of :link
   
   before_save :encrypt_password
   
