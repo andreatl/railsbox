@@ -17,7 +17,7 @@ gem 'meta_search'
 gem 'perch'
 
 group :development do
-	gem 'mongrel'	
+	gem 'mongrel'
 	gem 'ruby-debug'
 	gem 'template', '1.0.0', :require =>'simple-navigation'
 end
