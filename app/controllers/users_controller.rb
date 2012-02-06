@@ -1,24 +1,22 @@
 class UsersController < ApplicationController
-   
-  force_ssl :only => [:new, :create, :change_password, :change_password_update, :edit, :update, :update_password] if Rails.env.production? or Rails.env.staging?
 
   before_filter :check_admin, :except =>[:new, :create, :me, :resetPassword,:updatePassword, :change_password, :change_password_update, :disk_space]
   before_filter :mailer_set_url_options, :only=>[:create,:updatePassword, :update]
   before_filter :get_max_users, :only => [:searchUsersResult]
   before_filter :get_user, :only => [:change_password, :update, :change_password_update]
-  
+
   skip_before_filter :is_authorised, :only=>[:new, :create, :resetPassword,:updatePassword]
   skip_after_filter :log, :only=>[:resetPassword, :disk_space, :searchUsersResult]
-  
+
   after_filter :logFilePath, :except => [:index, :new, :edit, :searchUsersResult, :changePassword, :resetPassword, :updatePassword, :disk_space]
-  
+
   layout :choose_layout
-  
+
   def index
     @users = User.where(:active=>true)
     @non_users = User.where(:active=>false)
   end
-  
+
   def new
     @user = User.new
   end
@@ -35,25 +33,25 @@ class UsersController < ApplicationController
         UserMailer.user_registered(@user, to).deliver
       rescue
       end
-      
+
       redirect_to log_in_path, :notice => "Signed up, awaiting admin activation"
     else
       render "new"
     end
   end
-  
+
   def show
     @user = User.find(params[:id])
   end
-  
+
   def me
     @user = current_user
     render :template => 'users/show'
   end
 
   def edit
-    if current_user.is_admin 
-      @user = User.find(params[:id]) 
+    if current_user.is_admin
+      @user = User.find(params[:id])
     else
       redirect_to root_path
     end
@@ -89,7 +87,7 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_url, :notice => "Successfully deleted user."
   end
-  
+
   def searchUsersResult
     @users= User.named(params[:query])
 
@@ -99,28 +97,28 @@ class UsersController < ApplicationController
 
     @users = @users.limit(@max_users)
   end
-  
+
   def disk_space
   end
-  
+
   def change_password
   end
-  
+
   def change_password_update
     #If non admin user is trying to change another user's password
     if @user != current_user && !current_user.is_admin
       redirect_to root_path and return
-    end 
-    
+    end
+
     #check if password matches current password if user is changing their own password
     if @user == current_user && !@user.authenticate(params[:current_password])
       flash[:error] = "Current password incorrect"
       redirect_to user_change_password_path and return
     end
-        
+
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
-        
+
     if @user.save
       flash[:notice] = "Password changed"
       if @user == current_user
@@ -133,17 +131,17 @@ class UsersController < ApplicationController
       render "change_password"
     end
   end
-  
+
   def resetPassword
   end
-  
+
   #Generate a password
   def updatePassword
     if params[:email]
       @user = User.find_by_email(params[:email])
     end
     if @user
-      @log_user_id = @user.id        
+      @log_user_id = @user.id
       newPassword = User.generate_password
       @user.password = newPassword
       @user.password_confirmation = newPassword
@@ -161,23 +159,23 @@ class UsersController < ApplicationController
       redirect_to reset_password_path, :error => "Email address not found"
     end
   end
-  
+
   private
   def logFilePath
     @log_file_path = @user.email
     @log_target_id = @user.id
   end
-  
+
   def get_user
     id = params[:user_id] || params[:id]
-    
+
     if id && current_user.is_admin
       @user = User.find(id)
     else
       @user = current_user
     end
   end
-  
+
   def choose_layout
     if self.request.xhr?
       return false
@@ -187,5 +185,5 @@ class UsersController < ApplicationController
       return 'application'
     end
   end
-  
+
 end
