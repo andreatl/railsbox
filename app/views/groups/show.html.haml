@@ -1,8 +1,8 @@
 - content_for :page_specific_head do
-  = javascript_include_tag 'jquery-1.6.1.min', 'jquery.colorbox-min', 'colorboxInit','search.js'
+  = javascript_include_tag 'application'
 
 %h1
-  = @group.name 
+  = @group.name
 
 %h2 Users
 = link_to 'Add User', new_group_userGroup_path(@group), :class => 'button new colorbox searchUsersGroups'
@@ -18,11 +18,11 @@
 %h2 Folders
 %ul
   - for folder in @group.folders
-    %li 
+    %li
       =link_to folder.breadcrumbs, folder
 
 .clear
-	
+
 .actions
   = link_to "Rename", edit_group_path(@group), :class => 'button edit'
   = button_to "Delete", @group, :confirm => 'Are you sure?', :method => :delete, :class => 'button delete'
