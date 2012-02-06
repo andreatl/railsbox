@@ -219,13 +219,13 @@
     float: left;
     height: 17px;
     overflow: hidden; } }
-  
+
   .hotlink-icon {
     background: image-url("hotlink_small.png") no-repeat 5px 0px;
     height: 17px;
     text-indent: -9999px;
     display: block;
-    float:left; 
+    float:left;
     width: 30px;
     padding-left: 5px; }
 
@@ -514,3 +514,8 @@ p#permissions {
     text-decoration: none; }
   .disabled {
     color: gray; } }
+#cboxLoadedContent{
+  textarea{
+    resize: none;
+  }
+}
