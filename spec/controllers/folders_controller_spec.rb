@@ -56,9 +56,9 @@ describe FoldersController do
   end
 
   it "destroy action should destroy model and redirect to index action when route folder" do
-    folder = Folder.where(:parent_id=>0).first
+    folder = Folder.create(:name=>'abc', :parent_id=>nil)
     delete :destroy, :id => folder
-    response.should redirect_to(root_url)
+    response.should redirect_to(root_path)
     Folder.exists?(folder.id).should be_false
   end
 
