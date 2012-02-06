@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  
-  force_ssl :only => [:new, :create] if Rails.env.production? or Rails.env.staging?
 
   skip_before_filter :is_authorised, :except=>:destroy
   

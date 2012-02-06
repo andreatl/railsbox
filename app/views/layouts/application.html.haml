@@ -18,12 +18,12 @@
             %li= link_to 'Logout', log_out_url, :id=>"logout", :class=>'menu-item'
           #user-bar
             .left
-              Logged in as 
-              =current_user.email
+              Logged in as
+              =current_user.name
             - unless current_user.is_admin?
               #user_disk_space
                 .left
-                  Space: 
+                  Space:
                   %span#remaining
                     = number_to_human_size(current_user.space_used, :precision => 3)
                 #disk-space
