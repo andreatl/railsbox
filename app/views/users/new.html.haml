@@ -19,7 +19,7 @@
     = f.password_field :password, :autocomplete=>'off'
   .field
     = f.label :password_confirmation, "Password Confirmation:"
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, :autocomplete=>'off'
   .actions
     = f.submit "Sign up", :class => 'button save'
   .clear
