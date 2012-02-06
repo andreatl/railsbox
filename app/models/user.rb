@@ -8,16 +8,16 @@ class User < ActiveRecord::Base
   has_many :folders, :through => :permissions, :conditions => ['read_perms = ? or write_perms = ?', true, true]
   has_many :assets
   has_many :user_groups, :dependent => :destroy
-  has_many :groups, :through => :user_groups 
+  has_many :groups, :through => :user_groups
   has_many :logs
   has_many :hotlinks
-  
+
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :company, :referrer
   attr_accessor :password
-  
+
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  
+
   validates :email, :presence => true,
                     :length => {:minimum => 3, :maximum => 254},
                     :uniqueness => true,
@@ -28,22 +28,22 @@ class User < ActiveRecord::Base
   scope :active, lambda {|active|
     if active != 'all'
      where('active = ' + active).order("name")
-    end 
+    end
   }
-  
-  scope :named, lambda {|name| 
+
+  scope :named, lambda {|name|
       escaped_query = "%" + name.gsub('%', '\%').gsub('_', '\_') + "%"
       where("name ILIKE ? OR first_name || ' ' || last_name ILIKE ?",escaped_query,escaped_query).order("name")
   }
-  
+
   def name
     if first_name and last_name
-      first_name.capitalize + ' ' + last_name.capitalize 
+      first_name.capitalize + ' ' + last_name.capitalize
     else
       email
-    end  
-  end  
-  
+    end
+  end
+
   def accessible_folders_exc_groups
     if is_admin
       return Folder.scoped.order('parent_id nulls first, name')
@@ -59,16 +59,16 @@ class User < ActiveRecord::Base
       end
       folders
     end
-  end  
-  
+  end
+
   def accessible_folder_ids
     ids = (groups.map{|x| x.folders} + accessible_folders_exc_groups).flatten.map{|a| a.id}.join(',')
   end
-  
+
   def accessible_folders
     Folder.where("id in (#{accessible_folder_ids})") unless accessible_folder_ids.blank?
   end
-  
+
   def assets
     if is_admin
       return Asset.scoped
@@ -76,15 +76,15 @@ class User < ActiveRecord::Base
       Asset.where("folder_id in (#{accessible_folder_ids})")
     end
   end
-  
+
   def owned_folders
     if is_admin
-      return Folder.scoped 
+      return Folder.scoped
     else
       Folder.where(:user_id=>id)
     end
   end
-  
+
   def self.authenticate(email, password)
     user = find_by_email(email)
     if user && user.authenticate(password)
@@ -93,11 +93,11 @@ class User < ActiveRecord::Base
       nil
     end
   end
-  
+
   def authenticate(password)
     password_hash == password.crypt(password_salt)
   end
-  
+
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
@@ -108,19 +108,19 @@ class User < ActiveRecord::Base
   def self.generate_password
      Password.generate_fun
   end
-  
+
   def can_home?
     can_home || is_admin
   end
-  
+
   def space_used
     Asset.where("user_id = ?", id).map{|x| x.uploaded_file_file_size}.inject(:+) or 0
   end
-  
+
   def space_remaining
     APP_CONFIG['user_disk_space'].to_i - space_used
   end
-  
+
   def space_percentage
     ((space_used.to_f/APP_CONFIG['user_disk_space'].to_f)* 100).to_i
   end

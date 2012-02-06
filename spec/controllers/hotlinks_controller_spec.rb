@@ -1,13 +1,14 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe HotlinksController do
-  
-  
+
+
   before :each do
    @current_user = mock_model(User, :id => 1, :is_admin=>true, :active=>true, :email=>'wwah@hoss.com', :can_hotlink=>true)
    controller.stub!(:current_user).and_return(@current_user)
    controller.stub!(:login_required).and_return(:true)
    @current_user.stub!("is_admin?").and_return(:true)
+   @current_user.stub!(:name).and_return("test test")
   end
 
 
@@ -29,7 +30,7 @@ describe HotlinksController do
     hotlink = Hotlink.new(:asset_id=>1)
 	  Hotlink.stub(:new).and_return(hotlink)
 	  hotlink.stub(:valid?).and_return(false)
-	
+
     post :create
     response.should render_template(:new)
   end

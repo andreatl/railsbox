@@ -10,6 +10,7 @@ before :each do
    controller.stub!(:current_user).and_return(@current_user)
    controller.stub!(:login_required).and_return(:true)
    @current_user.stub!("is_admin?").and_return(:true)
+   @current_user.stub!(:name).and_return("test test")
   end
 
   fixtures :all

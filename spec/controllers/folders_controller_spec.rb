@@ -1,23 +1,24 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe FoldersController do
-  
+
   before :each do
    @current_user = mock_model(User, :id => 1, :to_i=> 1, :email=>'text@test.com', :is_admin=>true, :active=>true, :accessible_folders=>Folder.scoped, :can_hotlink=>true, :can_home=>true, :space_used=>0)
    controller.stub!(:current_user).and_return(@current_user)
    controller.stub!(:login_required).and_return(:true)
    @current_user.stub!("is_admin?").and_return(:true)
+   @current_user.stub!(:name).and_return("test test")
   end
 
   fixtures :all
   render_views
 
-  # TO FIX 
+  # TO FIX
   # it "browse action should render show template" do
   #   get :browse, :folder_id => Folder.first
   #   response.should render_template(:index)
   # end
-  
+
   it "new action should render new template" do
     get :new
     response.should render_template(:new)
@@ -27,7 +28,7 @@ describe FoldersController do
     folder = Folder.new
   	Folder.stub(:new).and_return(folder)
   	folder.stub(:valid?).and_return(false)
-	
+
     post :create
     response.should redirect_to root_url
   end
@@ -45,7 +46,7 @@ describe FoldersController do
     response.should render_template(:edit)
   end
 
-  
+
 
   it "update action should redirect when model is valid" do
     folder = Folder.first

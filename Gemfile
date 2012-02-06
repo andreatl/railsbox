@@ -31,11 +31,8 @@ group :assets do
 end
 
 group :development, :test do
-	gem 'gherkin', '2.3.5'
-	gem 'cucumber', '0.10.2'
 	gem 'cucumber-rails'
 	gem 'capybara'
-	gem 'rspec', '2.5.0'
 	gem 'rspec-rails'
 	gem 'guard-rspec'
 	gem 'rb-inotify'
@@ -53,6 +50,3 @@ end
 group :staging do
 	gem 'faker'
 end
-
-
-
