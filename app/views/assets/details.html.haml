@@ -6,7 +6,7 @@
       = f.text_field :uploaded_file_file_name
     %p.field
       %strong
-        Created by: 
+        Created by:
       = "#{@asset.user.first_name} #{@asset.user.last_name}"
     .field
       %strong= f.label :description
@@ -27,7 +27,7 @@
         %ul
           - @asset.hotlinks.each do |h|
             %li
-              = link_to h.link, url_for(h)
+              = link_to h.link, hotlink_path(h.link)
               = " - "
               = h.expiry_date ? h.expiry_date.to_i < Time.now.to_i ? "Expired #{(time_ago_in_words(h.expiry_date))} ago" : "Expires in #{(time_ago_in_words(h.expiry_date))}" : "--"
       - else
