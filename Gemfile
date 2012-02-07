@@ -15,6 +15,7 @@ gem 'acts_as_tree'
 gem 'will_paginate'
 gem 'meta_search'
 gem 'perch'
+gem 'faker'
 
 group :development do
 	gem 'mongrel'
@@ -45,8 +46,4 @@ group :development, :test do
 	gem 'nifty-generators'
 	gem 'mocha'
   gem "nyan-cat-formatter"
-end
-
-group :staging do
-	gem 'faker'
 end
