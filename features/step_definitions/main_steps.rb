@@ -5,7 +5,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "sel
 
 
 Given /^I debug$/ do
-  
+
 end
 
 Given /^(?:that )?I am not logged on$/ do
@@ -17,15 +17,15 @@ Given /^I logout$/ do
 end
 
 Given /^I login with "([^\"]*)" and "([^\"]*)"$/ do |username, password|
-  Given %{I visit log_in}
-	And %{I fill in "email" with "#{username}"}
-	And %{I fill in "password" with "#{password}"}
-	And %{I press "Log in"}
+  step %{I visit log_in}
+	step %{I fill in "email" with "#{username}"}
+	step %{I fill in "password" with "#{password}"}
+	step %{I press "Log in"}
 end
 
 Given /^(?:that )?I am logged (?:on|in)$/ do
-	Given %{I have one user "test@test.com" with password "goodpass"}
-	And %{I login with "test@test.com" and "goodpass"}
+	step %{I have one user "test@test.com" with password "goodpass"}
+	step %{I login with "test@test.com" and "goodpass"}
 end
 
 
@@ -36,14 +36,14 @@ Given /^I have one\s+user "([^\"]*)" with password "([^\"]*)"$/ do |email, passw
            :password_confirmation => password)
   a.active = true
   a.save!
-  
+
 end
 
 Given /^I am an admin user$/ do
   u = User.find_by_email('test@test.com')
-  u.is_admin = true 
+  u.is_admin = true
   u.save
-end 
+end
 
 Given /^I am not an admin user$/ do
   u = User.find_by_email('test@test.com')
@@ -51,9 +51,9 @@ Given /^I am not an admin user$/ do
   u.save
 end
 
-When /^I goto folder_url for "([^\"]*)"$/ do |folder|  
+When /^I goto folder_url for "([^\"]*)"$/ do |folder|
   f = Folder.find_by_name(folder)
-  link = "/browse/"+f.id.to_s  
+  link = "/browse/"+f.id.to_s
   visit(link)
 end
 
@@ -68,7 +68,7 @@ Given /^the following folders exist:$/ do |table|
     folder.save
     ActiveRecord::Base.connection.execute('UPDATE folders SET id = '+f['id'].to_s+' WHERE id = '+folder.id.to_s)
   }
-end  
+end
 
 
 Given /^the following users exist:$/ do |table|
@@ -79,12 +79,12 @@ Given /^the following users exist:$/ do |table|
     user.is_admin = u['is_admin']
     user.save(:validate=>false)
   }
-  
-end  
+
+end
 
 Given /^the following files exist:$/ do |table|
-  Asset.destroy_all 
-  table.hashes.each{|a| 
+  Asset.destroy_all
+  table.hashes.each{|a|
     asset = Asset.new(a)
     if (a['owner'] && a['owner'] == 'me')
       asset.user_id = User.find_by_email('test@test.com').id #me
@@ -97,11 +97,11 @@ Given /^the following files exist:$/ do |table|
   }
 end
 
- 
+
 Given /^I have the following user permissions:$/ do |table|
   Permission.destroy_all(:parent_type=>'User')
   u = User.find_by_email('test@test.com')
-  table.hashes.each{|f| 
+  table.hashes.each{|f|
     p = Permission.new(f)
     p.parent_id = u.id
     p.parent_type = 'User'
@@ -114,31 +114,31 @@ Given /^I have the following group permissions:$/ do |table|
   u = User.find_by_email('test@test.com')
   table.hashes.each{|f|
     g = Group.new()
-    g.save(:validate=>false) 
+    g.save(:validate=>false)
     p = Permission.new(f)
     p.parent_id = g.id
     p.parent_type = 'Group'
     p.save
     UserGroup.new(:user_id=>u.id, :group_id=>g.id).save
   }
-end  
+end
 
 Then /^"(.*)" should be checked$/ do |label|
     field_checked = find_field(label)['checked']
     field_checked.should be_true
-    
+
 end
 
 Then /^"(.*)" should not be checked$/ do |label|
     field_checked = find_field(label)['checked']
     field_checked.should_not be_true
-      
+
 end
 
 When /^(?:|I )enter "([^"]*)" in "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 
-Then /^I should download "(.*)"$/ do |filename|   
+Then /^I should download "(.*)"$/ do |filename|
   page.response_headers['Content-Disposition'].should == "attachment; filename=\"#{filename}\""
 end
