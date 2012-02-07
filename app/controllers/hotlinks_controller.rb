@@ -13,7 +13,7 @@ class HotlinksController < ApplicationController
   end
 
   def show
-    @hotlink = Hotlink.find_by_link(params[:id])
+    @hotlink = Hotlink.find_by_link(params[:link])
     respond_to do |format|
       format.html
       format.js { render :layout => false }
