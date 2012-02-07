@@ -1,0 +1,33 @@
+#hotlinks{
+  #header{
+    background: transparent image-url("filterBar.png") repeat-x top left;
+    font-weight: bold;
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  p{
+    float: left;
+    &.name{
+      width: 20%;
+    }
+    &.asset{
+      width: 35%;
+    }
+    &.expiry{
+      width: 15%;
+    }
+    &.createdBy{
+      width: 20%;
+    }
+    &.actions{
+        width: 10%;
+        margin: 0;
+      }
+    }
+  .row{
+    float: left;
+    width: 100%;
+    clear: both;
+  }
+}

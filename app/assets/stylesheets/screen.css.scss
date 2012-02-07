@@ -36,135 +36,57 @@
           margin: 6px; }
         form {
           float: right; } } } } }
-
 #top-menu {
-  background: image-url("taskbar.png") repeat scroll 0 0 white;
-  font-size: 11px;
-  font-weight: bold;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  .menu-item {
-    display: block;
-    padding-bottom: 6px;
-    padding-top: 6px; }
-  a.menu-item {
-    padding-left: 10px;
-    padding-right: 10px;
-    &:hover {
-      background-color: #a7a7a7; } }
-  #logout {
-    float: right; }
-  ul {
-    &#actions-menu, &#flash {
-      margin: 0;
-      padding: 0; }
-    &#actions-menu li {
-      float: left;
-      list-style: none; }
-    &#flash {
-      li {
-        float: left;
-        list-style: none;
-        border-left: 1px solid silver;
-        font-weight: normal;
-        margin-left: 5px;
-        padding-left: 5px; }
-      float: left; } }
-  #user-bar {
-    float: right;
-    margin: 7px 5px;
-    #user_disk_space {
-      float: left;
-      margin: 0 10px;
-      #disk-space {
-        background: #dbdbdb;
-        border: 1px solid black;
-        float: left;
-        margin: 1px 5px;
-        overflow: hidden;
-        width: 200px;
-        #used-space {
-          background: #5b5b5b;
-          float: left;
-          height: 7px; } } } } }
-
-#topBar {
-  background: image-url("topbar.png") repeat-x top left silver;
-  height: 95spx;
-  position: fixed;
-  top: 22px;
-  width: 100%;
-  #innerTopBar {
-    margin: 5px 4px 2px 4px;
-    .breadcrumbs {
-      clear: left;
-      float: left;
-      margin: 14px 0 1px 4px;
-      a {
-        background-color: #a3a3a3;
-        border-radius: 4px;
-        float: left;
-        khtml-border-radius: 4px;
-        moz-border-radius: 4px;
-        padding: 2px 4px;
-        webkit-border-radius: 4px;
-        &:hover {
-          background-color: #cccccc; } }
-      p {
-        border-radius: 4px;
-        float: left;
-        khtml-border-radius: 4px;
-        margin: 0;
-        moz-border-radius: 4px;
-        padding: 2px 4px;
-        webkit-border-radius: 4px; }
-      .breadcrumbsNext {
-        background: transparent image-url("breadcrumbsNext.png") no-repeat center;
-        display: block;
-        float: left;
-        height: 16px;
-        margin: 0 2px;
-        padding: 2px 0;
-        text-indent: -9999px;
-        width: 16px; } }
-    form {
-      label {
-        float: left;
-        margin: 6px 5px 0 4px; }
-      input {
-        float: left;
-        margin: 4px 5px 0 0;
-        &#search_query {
-          padding: 0; }
-        &.search.button {
-          margin: 1px;
-          &:hover {
-            margin: 0; } } } }
-    #flashMessage {
-      #error, #notice {
-        float: right;
-        margin: 1px 1px 0 0; }
-      #error p, #notice p {
-        border-radius: 6px;
-        padding: 5px 8px 5px 27px;
-        text-align: left; }
-      #error p {
-        background: image-url("error.png") no-repeat 4px center;
-        background-color: #ffcccc;
-        border: solid 1px #cc6666; }
-      #notice p {
-        background: image-url("notice.png") no-repeat 4px center;
-        background-color: #ccffcc;
-        border: solid 1px #66cc66; } } }
-  #headers {
-    background: image-url("filterBar.png");
-    float: left;
+    background: image-url("taskbar.png") repeat scroll 0 0 white;
+    font-size: 11px;
     font-weight: bold;
-    margin-bottom: 1px;
-    margin-top: 7px;
-    padding: 5px 0 2px 0;
-    width: 100%; } }
+    position: fixed;
+    top: 0;
+    width: 100%;
+    .menu-item {
+      display: block;
+      padding-bottom: 6px;
+      padding-top: 6px; }
+    a.menu-item {
+      padding-left: 10px;
+      padding-right: 10px;
+      &:hover {
+        background-color: #a7a7a7; } }
+    #logout {
+      float: right; }
+    ul {
+      &#actions-menu, &#flash {
+        margin: 0;
+        padding: 0; }
+      &#actions-menu li {
+        float: left;
+        list-style: none; }
+      &#flash {
+        li {
+          float: left;
+          list-style: none;
+          border-left: 1px solid silver;
+          font-weight: normal;
+          margin-left: 5px;
+          padding-left: 5px; }
+        float: left; } }
+    #user-bar {
+      float: right;
+      margin: 7px 5px;
+      #user_disk_space {
+        float: left;
+        margin: 0 10px;
+        #disk-space {
+          background: #dbdbdb;
+          border: 1px solid black;
+          float: left;
+          margin: 1px 5px;
+          overflow: hidden;
+          width: 200px;
+          #used-space {
+            background: #5b5b5b;
+            float: left;
+            height: 7px; } } } } }
 
 #file-container {
   clear: both;
@@ -215,19 +137,97 @@
           background-image: image-url("page_white_powerpoint.png"); }
         &.xlsFileType, &.xlsxFileType {
           background-image: image-url("page_white_excel.png"); } } } }
+
   .mark-it, .name, .ext, .size, .description, .date, .attr {
     float: left;
     height: 17px;
     overflow: hidden; } }
 
-  .hotlink-icon {
-    background: image-url("hotlink_small.png") no-repeat 5px 0px;
-    height: 17px;
-    text-indent: -9999px;
-    display: block;
-    float:left;
-    width: 30px;
-    padding-left: 5px; }
+#topBar {
+    background: image-url("topbar.png") repeat-x top left silver;
+    height: 95spx;
+    position: fixed;
+    top: 22px;
+    width: 100%;
+    #innerTopBar {
+      margin: 5px 4px 2px 4px;
+      .breadcrumbs {
+        clear: left;
+        float: left;
+        margin: 14px 0 1px 4px;
+        a {
+          background-color: #a3a3a3;
+          border-radius: 4px;
+          float: left;
+          khtml-border-radius: 4px;
+          moz-border-radius: 4px;
+          padding: 2px 4px;
+          webkit-border-radius: 4px;
+          &:hover {
+            background-color: #cccccc; } }
+        p {
+          border-radius: 4px;
+          float: left;
+          khtml-border-radius: 4px;
+          margin: 0;
+          moz-border-radius: 4px;
+          padding: 2px 4px;
+          webkit-border-radius: 4px; }
+        .breadcrumbsNext {
+          background: transparent image-url("breadcrumbsNext.png") no-repeat center;
+          display: block;
+          float: left;
+          height: 16px;
+          margin: 0 2px;
+          padding: 2px 0;
+          text-indent: -9999px;
+          width: 16px; } }
+      form {
+        label {
+          float: left;
+          margin: 6px 5px 0 4px; }
+        input {
+          float: left;
+          margin: 4px 5px 0 0;
+          &#search_query {
+            padding: 0; }
+          &.search.button {
+            margin: 1px;
+            &:hover {
+              margin: 0; } } } }
+      #flashMessage {
+        #error, #notice {
+          float: right;
+          margin: 1px 1px 0 0; }
+        #error p, #notice p {
+          border-radius: 6px;
+          padding: 5px 8px 5px 27px;
+          text-align: left; }
+        #error p {
+          background: image-url("error.png") no-repeat 4px center;
+          background-color: #ffcccc;
+          border: solid 1px #cc6666; }
+        #notice p {
+          background: image-url("notice.png") no-repeat 4px center;
+          background-color: #ccffcc;
+          border: solid 1px #66cc66; } } }
+    #headers {
+      background: image-url("filterBar.png");
+      float: left;
+      font-weight: bold;
+      margin-bottom: 1px;
+      margin-top: 7px;
+      padding: 5px 0 2px 0;
+      width: 100%; } }
+
+.hotlink-icon {
+  background: image-url("hotlink_small.png") no-repeat 5px 0px;
+  height: 17px;
+  text-indent: -9999px;
+  display: block;
+  float:left;
+  width: 30px;
+  padding-left: 5px; }
 
 #headers {
   .mark-it, .name, .ext, .size, .description, .date, .attr {
@@ -235,26 +235,21 @@
     height: 17px;
     overflow: hidden; } }
 
-#file-container .mark-it, #headers .mark-it {
-  width: 2%; }
-
-#file-container .name, #headers .name {
-  width: 37%; }
-
-#file-container .ext, #headers .ext {
-  width: 5%; }
-
-#file-container .size, #headers .size {
-  width: 8%; }
-
-#file-container .description, #headers .description {
-  width: 30%; }
-
-#file-container .date, #headers .date {
-  width: 15%; }
-
-#file-container .attr, #headers .attr {
-  width: 5%; }
+#file-container, #headers{
+  .mark-it {
+    width: 2%; }
+  .name {
+    width: 37%; }
+  .ext {
+    width: 5%; }
+  .size {
+    width: 8%; }
+  .description {
+    width: 30%; }
+  .date {
+    width: 15%; }
+  .attr {
+    width: 5%; } }
 
 #bottom-bar {
   background: image-url("taskbar.png") repeat-x silver;
