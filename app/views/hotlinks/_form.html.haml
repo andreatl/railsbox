@@ -8,10 +8,10 @@
     = f.hidden_field :asset_id
   .field
     = f.label :days, 'Expires in (days)'
-    = f.text_field :days, :size => 3
+    = f.text_field :days, :size => 3, :value => 1
   .field
     = f.label :password, 'Password: '
-    = f.text_field :password, :value => 'pass1'
+    = f.text_field :password, :value => @random_password
 
   .actions
     = f.submit :class => 'button createLink'

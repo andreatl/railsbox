@@ -24,6 +24,7 @@ class HotlinksController < ApplicationController
     redirect_to root_path and return unless params[:asset_id]
     @hotlink = Hotlink.new
     @hotlink.asset_id = params[:asset_id]
+    @random_password = "#{Faker::Address.country.split(" ")[0]}#{rand(999).to_i}".gsub(" ", "").downcase
   end
 
   def create
